@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }}</title>
+  <!-- css -->
+  {{- range .Site.Params.theme_css -}}
+  <link rel="stylesheet" href="{{ . | relURL }}">
+  {{- end -}}
+</head>
+
+<body>
+  <header>
+    <h1>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</h1>
+  </header>
+
+  <nav id="toc" role="doc-toc">
+    <h2>Table of Contents</h2>
+    {{- define "section_hierarchy" }}
+    <ol>
+        {{- range .Pages.ByWeight }}
+        <li>
+          {{- if ne .IsSection true }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+          {{- if .IsSection }}
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{ template "section_hierarchy" . }}
+          {{ end }}
+        </li>
+        {{- end }}
+    </ol>
+    {{- end }}
+    {{ template "section_hierarchy" .CurrentSection }}
+  </nav>
+</body>
+
+</html>
+

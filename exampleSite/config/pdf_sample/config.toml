@@ -1,0 +1,8 @@
+publishDir = "public_pdf_sample"
+
+[params]
+  isPDF = true
+  theme_css = [
+    "/css/vivlio-theme-manual.css",
+    #"/css/vivlio-theme-manual-bookoption.css" # add book style (consider left/right page)
+    ]

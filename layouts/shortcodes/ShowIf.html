@@ -1,0 +1,6 @@
+{{ $condition := .Get 0 }}
+{{ range .Site.Params.showIfs}}
+{{ if eq . $condition }}
+{{ $.Inner }}
+{{ end }}
+{{ end }}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- cover & toc -->
+
+<html lang="{{ .Site.Params.htmlLang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }}</title>
+  <!-- css -->
+  {{- range .Site.Params.theme_css -}}
+  <link rel="stylesheet" href="{{ . | relURL }}">
+  {{- end -}}
+</head>
+
+<body>
+  <div id="cover" role="doc-cover">
+    <div id="cover-title">
+      {{- if .Params.doc_number }}<h2>{{ .Params.doc_number}}</h2>{{- end }}
+      <h1>{{ .Title }}</h1>
+      {{- if .Params.subtitle }}<h2>{{ .Params.subtitle }}</h2>{{- end }}
+    </div>
+    {{- if .Params.author }}<div id="cover-author"><h2>{{ .Params.author }}</h2></div>{{- end }}
+    {{- if .Params.company }}<h3>{{ .Params.company }}</h3>{{- end }}
+  </div>
+
+
+
+  {{- if .Page.Content }}
+  <div role="doc-introduction">
+  {{ .Page.Content }}
+  </div>
+  {{- end }}
+
+
+
+  {{- if .Params.toc }}
+  <nav id="toc" role="doc-toc">
+    <h2>Table of Contents</h2>
+    {{ template "section_hierarchy" .CurrentSection }}
+  </nav>
+  {{- end }}
+</body>
+</html>
+
+
+
+    {{- define "section_hierarchy" }}
+    <ol>
+      {{- range .Pages.ByWeight }}
+      <li>
+        {{- if ne .IsSection true }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+        {{- if .IsSection }}
+        <a href="{{ .RelPermalink }}" {{- if .Params.role }} class="{{ .Params.role }}"{{- end }}>{{ .Title }}</a>
+        {{ template "section_hierarchy" . }}
+        {{ end }}
+      </li>
+      {{- end }}
+    </ol>
+    {{- end }}

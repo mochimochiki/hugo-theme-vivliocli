@@ -1,0 +1,6 @@
+{{ define "main" }}
+{{- if .Params.role }}<div role="{{ .Params.role }}">{{- end }}
+<h1 {{- if .Params.role }} class="{{ .Params.role }}" {{- end }}>{{ .Title }} </h1>
+{{ .Page.Content }}
+{{- if .Params.role }}</div>{{- end }}
+{{ end }}

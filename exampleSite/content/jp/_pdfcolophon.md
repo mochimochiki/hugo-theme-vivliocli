@@ -1,0 +1,30 @@
+---
+type: "vivlio_colophon"
+url: "index.colophon.html"  # <name>.colophon.html
+_build: { list: false }
+title: "奥付"               # Documents colophon Title
+---
+
+## プロフィール
+
+著者のプロフィールなどをここに記載します。
+
+
+
+
+
+<div role="doc-colophon">
+
+## 本のタイトル
+
+2021年2月14日　初版発行
+
+| | |
+| -- | --  |
+|著者| 著者名 |
+|発行者| 発行者名 |
+|印刷・製本| 印刷社名 |
+
+© コピーライト
+
+</div>
