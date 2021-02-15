@@ -11,8 +11,8 @@
   </head>
   <body>
     <div id="content">
-    {{- if ne .Site.Params.isPDF true }} {{- partial "menu.html" . -}} {{- end }}
     {{- block "main" . }}{{- end }}
     </div>
+    {{- if ne .Site.Params.isPDF true }} {{- partial "menu.html" . -}} {{- end }}
   </body>
 </html>
