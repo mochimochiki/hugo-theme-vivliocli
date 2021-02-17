@@ -33,27 +33,30 @@
 
 
 
-  {{- if .Params.toc }}
-  <nav id="toc" role="doc-toc">
-    <h2>Table of Contents</h2>
-    {{ template "section_hierarchy" .CurrentSection }}
-  </nav>
-  {{- end }}
+{{- if .Params.toc }}
+<nav id="toc" role="doc-toc">
+<h2>Table of Contents</h2>
+{{ template "section_hierarchy" .CurrentSection }}
+</nav>
+{{- end }}
 </body>
 </html>
 
 
 
-    {{- define "section_hierarchy" }}
-    <ol>
-      {{- range .Pages.ByWeight }}
-      <li>
-        {{- if ne .IsSection true }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
-        {{- if .IsSection }}
-        <a href="{{ .RelPermalink }}" {{- if .Params.role }} class="{{ .Params.role }}"{{- end }}>{{ .Title }}</a>
-        {{ template "section_hierarchy" . }}
-        {{ end }}
-      </li>
-      {{- end }}
-    </ol>
-    {{- end }}
+{{- define "section_hierarchy" }}
+{{- $sectionPageCount := len .Pages }}
+{{- if ne $sectionPageCount 0 -}}
+<ol>
+  {{- range .Pages.ByWeight }}
+  <li>
+    {{- if ne .IsSection true }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+    {{- if .IsSection }}
+    <a href="{{ .RelPermalink }}" {{- if .Params.role }} class="{{ .Params.role }}"{{- end }}>{{ .Title }}</a>
+    {{ template "section_hierarchy" . }}
+    {{ end }}
+  </li>
+  {{- end }}
+</ol>
+{{- end }}
+{{- end }}
