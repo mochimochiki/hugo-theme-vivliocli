@@ -3,7 +3,7 @@ module.exports = {
   {{- if .Params.author }}author: '{{ .Params.author }}',{{- end }}
   size: '{{ .Params.pagesize }}',
   entry: [
-    `{{ replace .URL "js" "cover.html" }}`,
+    '{{ replace .URL "js" "cover.html" }}',
     {{- define "entry_hierarchy" }}
       {{- range .Pages.ByWeight }}
         '..{{ .RelPermalink | relURL }}',
@@ -11,7 +11,7 @@ module.exports = {
       {{- end }}
     {{- end }}
     {{ template "entry_hierarchy" .CurrentSection }}
-    `{{ replace .URL "js" "colophon.html" }}`
+    '{{ replace .URL "js" "colophon.html" }}'
   ],
   output: [
     '{{ .Params.output }}'
