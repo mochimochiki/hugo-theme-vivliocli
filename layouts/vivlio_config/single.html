@@ -3,15 +3,18 @@ module.exports = {
   {{- if .Params.author }}author: '{{ .Params.author }}',{{- end }}
   size: '{{ .Params.pagesize }}',
   entry: [
-    '{{ replace .URL "js" "cover.html" }}',
+    '{{ replace .Params.URL "js" "cover.html" }}',
     {{- define "entry_hierarchy" }}
       {{- range .Pages.ByWeight }}
-        '..{{ .RelPermalink | relURL }}',
+        {{- $url := urls.Parse (.RelPermalink | urlize) }}
+        {{- $path := $url.Path }}
+        {{- $link := printf "..%s" $path }}
+        '{{ $link }}',
         {{- if .IsSection }}{{ template "entry_hierarchy" . }}{{ end }}
       {{- end }}
     {{- end }}
     {{ template "entry_hierarchy" .CurrentSection }}
-    '{{ replace .URL "js" "colophon.html" }}'
+    '{{ replace .Params.URL "js" "colophon.html" }}'
   ],
   output: [
     '{{ .Params.output }}'
