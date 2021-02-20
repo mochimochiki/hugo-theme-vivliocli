@@ -1,6 +1,6 @@
 ---
 type: "vivlio_cover"
-url: "index.cover.html"                 # <name>.cover.html
+url: "example.cover.html"                 # <name>.cover.html
 _build: { list: false }
 
 title: "Hugo-theme-vivliocli ガイド"    # Documents Cover Title

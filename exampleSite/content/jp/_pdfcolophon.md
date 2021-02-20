@@ -1,6 +1,6 @@
 ---
 type: "vivlio_colophon"
-url: "index.colophon.html"  # <name>.colophon.html
+url: "example.colophon.html"  # <name>.colophon.html
 _build: { list: false }
 title: "奥付"               # Documents colophon Title
 ---
