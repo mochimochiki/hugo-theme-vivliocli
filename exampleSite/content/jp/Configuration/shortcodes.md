@@ -1,6 +1,6 @@
 ---
 title: ショートコード
-weight: 10
+weight: 30
 ---
 
 hugo-theme-vivliocli テーマで使用できるショートコードの一覧です。
@@ -15,7 +15,11 @@ hugo-theme-vivliocli テーマで使用できるショートコードの一覧�
 {{%/* /ShowIf */%}}
 ```
 
-[構成](./10_ConfigureHelp.html#showIfs)も参照してください。
+{{% ShowIf supportFuncA %}}
+ここにxxxをサポートする場合に表示するコンテンツを記述。
+{{% /ShowIf %}}
+
+[config.tomlの設定](./config.html#showIfs)も参照してください。
 
 ## note
 

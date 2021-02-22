@@ -6,3 +6,4 @@ publishDir = "public_pdf_sample"
     "/css/vivlio-theme-manual.css",
     #"/css/vivlio-theme-manual-bookoption.css" # add book style (consider left/right page)
     ]
+  showIfs = ["supportFuncA", "supportFuncB"]
