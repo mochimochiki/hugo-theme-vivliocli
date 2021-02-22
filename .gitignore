@@ -1,3 +1,6 @@
 public/
 public_*/
 *.log
+
+# Dependency directories
+node_modules/
