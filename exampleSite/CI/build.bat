@@ -44,6 +44,14 @@ powershell -NoProfile -ExecutionPolicy RemoteSigned ^
 popd
 if not %errorlevel% == 0 exit /B 1
 
+:: ----------
+:: EN PDF
+:: ----------
+pushd %scriptdir%
+powershell -NoProfile -ExecutionPolicy RemoteSigned ^
+  ".\vivliocli.ps1 -dir \"%hugodir%\public_%hugo_env%\en\*.*\";exit $LASTEXITCODE"
+popd
+if not %errorlevel% == 0 exit /B 1
 
 echo build was completed.
 exit /B 0
