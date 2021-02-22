@@ -2,6 +2,7 @@
 title: "Markdown ショーケース"
 role: doc-chapter
 weight: 20
+math: true
 ---
 
 Markdownのショーケースです。
