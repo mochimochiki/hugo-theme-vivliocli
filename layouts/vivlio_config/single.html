@@ -14,9 +14,12 @@ module.exports = {
       {{- end }}
     {{- end }}
     {{ template "entry_hierarchy" .CurrentSection }}
+    {{- if .Params.colophon }}
     '{{ replace .Params.URL "js" "colophon.html" }}'
+    {{- end }}
   ],
   output: [
     '{{ .Params.output }}'
-  ]
+  ],
+  {{- if .Params.toc }}toc: true {{- end }}
 }
