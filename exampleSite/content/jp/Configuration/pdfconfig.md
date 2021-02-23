@@ -24,7 +24,6 @@ _build: { list: false }
 title   : "Hugo-theme-vivliocli ガイド" # Documents Title
 output : "Hugo-theme-vivliocli ガイド.pdf" # Output file
 pagesize: "A4" # PDF Page size
-toc: true
 colophon: true
 ---
 ```
@@ -52,10 +51,6 @@ configファイルの名称（URL）。`<name>.js`形式で記述します。`<n
 ### pagesize
 
 ページサイズです。vivliostyle.config.jsのpagesize項目になります。A4/A5など。
-
-### toc
-
-目次とPDFしおりを生成するかどうか。trueで生成します。この項目の設定は`_pdfcover.md`と一致させておく必要があります。
 
 ### colophon
 

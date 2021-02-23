@@ -2,45 +2,62 @@
 title: "Getting Started"
 ---
 
-TODO
+## 対象環境
 
-## 準備
-
-[HUGO](https://gohugo.io/)と[HTML Help Workshop](https://www.microsoft.com/en-us/download/details.aspx?id=21138)のインストールがまだであれば、まずはインストールを行います。その後、`hugo.exe`および`hhc.exe`に`PATH`を通しておきます。
-
-![スクリーンショット](assets/2021-02-14-23-35-52.png)
+本解説はWindows 10 を対象環境としています。
 
 ## インストール
 
-新しいプロジェクトを作成します。ここでは`myhelp`という名称としてみましょう。
+[Hugo](https://gohugo.io/)のインストールがまだであればインストールしておきます。本テーマはバージョン`0.68`以上に対応しています（フロントマターで[_buildオプションのlist](https://gohugo.io/content-management/build-options/#list)を使用しているため）。
+
+```bat
+hugo version
+:: Hugo Static Site Generator v0.80.0 ...
+```
+
+本テーマでは[vivliostyle-cli](https://github.com/vivliostyle/vivliostyle-cli)を利用してPDF出力を行うため、[Node.js](https://nodejs.org/ja/)およびvivliostyle-cliのインストールを実施しておきます。以下はchocotaleyを用いた導入例です。
+
+```bat
+choco install -y nodejs
+
+node -v
+:: v15.9.0 
+:: note: vivliostyle-cli is not working in Node v14.0.0
+
+npm -v
+:: 7.5.3
+
+npm install -g @vivliostyle/cli
+vivliostyle -v
+:: cli: 3.0.3
+:: core: 2.4.2
+```
+
+### hugo-theme-vivliocliのインストール
+
+新しいプロジェクトを作成します。ここでは`myPDF`という名称とします。
 
 ```
-hugo new site myhelp
-cd myhelp
+hugo new site myPDF
+cd myPDF
 ```
 
-| aaa | bbb |
-| --- | --- |
-| ccc | ccc |
-
-### MDHELPテーマをインストールする
-
-[HUGO公式ドキュメント](https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme)に沿ってgitでテーマを取得します。
+次にテーマをsubmoduleとして導入します。
 
 ```
 git init
-git submodule add https://github.com/mochimochiki/mdhelp themes/mdhelp
+git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hugo-theme-vivliocli
 ```
 
-gitを利用しない場合、[最新のzip](https://github.com/mochimochiki/mdhelp/archive/master.zip)もしくは[任意のRelease](https://github.com/mochimochiki/mdhelp/releases)をダウンロード・解凍し、`themes\mdhelp`に配置してください。
+gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/master.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
 
-### 必要なファイルをコピーする
+### exampleSiteからファイルをコピーする
 
-以下のコマンドでヘルプのビルドに必要なツール類とconfigをコピーして`myhelp`プロジェクトに配置します。また、デフォルトのconfig.tomlは削除しておきます。
+テーマの中にテンプレートとして利用できるexampleSiteがあります。exampleSiteから必要なファイルをコピーします。また、デフォルトのconfig.tomlは削除しておきます。
 
 ```
-xcopy /s themes\mdhelp\exampleSite\config config\
-xcopy /s themes\mdhelp\exampleSite\CI CI\
+xcopy /s themes\hugo-theme-vivliocli\exampleSite\config config\
+xcopy /s themes\hugo-theme-vivliocli\exampleSite\CI CI\
 rm config.toml
 ```
 
@@ -54,22 +71,9 @@ rm config.toml
 themesdir = "../.."
 ```
 
-ヘルプのタイトルを`MyHelp`に変更します。各言語の`title`の設定を以下のように編集します。
+その他のconfigパラメータについては[ヘルプの構成](../Configuration/config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
 
-```toml
-[languages.jp]
-  ...
-  title = "MyHelp"
-  ...
-[languages.en]
-  ...
-  title = "MyHelp"
-  ...
-```
-
-その他のconfigパラメータについては[ヘルプの構成](../Configuration/10_ConfigureHelp.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
-
-### トップページの作成
+### 表紙の作成
 
 `content`ディレクトリ下に`jp`,`en`ディレクトリを作成します。
 
@@ -78,92 +82,84 @@ mkdir content\jp
 mkdir content\en
 ```
 
-`jp`および`en`下に`_index.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。
+作成した`jp`および`en`下に`_pdfcover.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはサイト上ではサイトトップの`index.html`となり、PDFでは表紙/前書/目次となります。
 
 ```md
 ---
-title: "My Help"
+type: "vivlio_cover"
+url: "myPDF.cover.html"
+_build: { list: false }
+
+title: "myPDF"
+author: "my name"
+toc: true
+colophon: false
 ---
 
-# My Help
+# はじめに
 
-My Help サイトです。
+`hugo-theme-vivliocil`を使ってPDF出力。
 
 ```
 
 ```md
 ---
-title: "My Help"
+type: "vivlio_cover"
+url: "myPDF.cover.html"
+_build: { list: false }
+
+title: "myPDF"
+author: "my name"
+toc: true
+colophon: false
 ---
 
-# My Help
+# Introduction 
 
-This is My Help.
+PDF output using `hugo-theme-vivliocil`.
 
 ```
+
+> colophon: true とすると奥付ページも生成されます。`_pdfcolophon.md`も必要になります。`exampleSite\content\jp\_pdfcolophon.md`などを参考にしてください。
+
+### configファイルの作成
+
+`\content\jp`および`\content\en`下に`_pdfconfig.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはHugoビルド後に`vivliostyle-cli`のconfigファイルとなります。原稿ではないため、フロントマターのみで構成されます。なお、`toc`と`colophon`については、`_pdfconfig.md`と`_pdfcover.md`で一致させておきます。
+
+```toml
+---
+type: "vivlio_config"
+url: "myPDF.js"
+_build: { list: false }
+
+title   : "myPDF"
+output : "myPDF_JP.pdf" # or myPDF_EN.pdf
+pagesize: "A4"
+toc: true
+colophon: false
+---
+```
+
 
 ### 記事の作成
 
-次に記事を作成します。`jp`および`en`下に`Hello.md`を作成して以下のように編集します。
+次に記事を作成します。`\content\jp\Chapter1`ディレクトリを作成し、`_index.md`を作成して以下のように編集します（以下、`\content\en`下にも適宜同様にします）。
 
 ```md
 ---
-title: "Hello"
+title: Sample Chapter1
+role: doc-chapter
 weight: 10
 ---
 
-## Hello
-
-こんにちは。
-```
-
-```md
----
-title: "Hello"
-weight: 10
----
-
-## Hello
-
-Hello World !
+サンプルチャプター1です。 role: doc-chapter とすることでチャプターを作ることができます。チャプターのindexページの後にも改ページが入るため、短いと少し記事が寂しく見えることになります。
 ```
 
 {{% note %}}
-記事のファイル名はASCII文字で記述してください。日本語ファイル名をつけるとヘルプが正常にビルドされません。
+ディレクトリ名はASCII文字で記述してください。日本語を使用すると`vivliostyle-cli`ビルドに失敗します。（`vivliostyle-cli v3.0.3`時点）
 {{% /note %}}
 
-### サイトをプレビューする
-
-ここまでで一度プレビューしてみましょう。以下のコマンドを実行し、ブラウザで`http://localhost:1313/`および`http://localhost:1314/`にアクセスします。
-
-```
-hugo server
-```
-
-`Hello.md`を適当に編集して保存してみます。LiveReloadがかかり、ブラウザ上のプレビューも更新されることを確認します。原稿はこのようにプレビューで執筆していきます。
-
-### ディレクトリと2番目の記事を追加する
-
-`jp`下に`second_content`ディレクトリを作成し、`_index.md`を作成して以下のように編集します。
-
-
-```md
----
-title: "Second Chapter"
-chapter: true
-weight: 20
----
-
-# Second Chapter
-
-2番目のチャプターです。
-```
-
-{{% note %}}
-ディレクトリ名はASCII文字で記述してください。日本語を使用するとヘルプが正常にビルドされません。
-{{% /note %}}
-
-また`second.md`を作成して以下のように編集して保存します。
+また`\content\jp\Chapter1`下に`second.md`, `third.md`を作成して以下のように編集して保存します。
 
 ```md
 ---
@@ -176,21 +172,39 @@ weight: 10
 こんにちは。これは2番目の記事です。
 ```
 
-再度プレビューを表示し、2番目の記事が表示されることを確認します。
+```md
+---
+title: "3番目の記事"
+weight: 20
+---
+
+## 3番目の記事
+
+こんにちは。これは3番目の記事です。
+```
+
+以下のコマンドでHugoのプレビューを表示し、記事が表示されることを確認します。記事を編集して保存すると、LiveReloadがかかり、プレビューも更新されます。
 
 ```
 hugo server
 ```
 
-## ヘルプの作成
+## ビルド
 
-`Ctrl+C` でhugoのプレビューを終了し、以下のコマンドを実行してヘルプをビルドします。
+`Ctrl+C` でhugoのプレビューを終了し、以下のコマンドを実行してHugoサイトをビルドします。
 
+```bat
+hugo -e pdf_sample
 ```
-.\CI\build.bat chm
+
+`-e`オプションに`pdf_sample`をつけることで、`/config/pdf_sample/config.toml`をオーバーライドしています。これは主に`isPDF= true`とするためです。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
+
+これで`/public_pdf_sample`にHugoサイトがビルドされました。次にこのサイトを`vivliostyle-cli`でPDF出力します。
+
+```bat
+vivliostyle build -c .\public_pdf_sample\jp\myPDF.js
 ```
 
-* `myhelp\public_chm\jp\MyHelp.chm`
-* `myhelp\public_chm\en\MyHelp.chm`
+`vivliostyle-cli`にわたすconfigファイルとして`myPDF.js`を指定しています。このファイルは`_pdfconfig.md`から生成されたものです。
 
-が成果物のヘルプです。確認してみましょう。
+`\public_pdf_sample\jp\myPDF_JP.pdf`が成果物のヘルプです。確認してみましょう。
