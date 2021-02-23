@@ -8,14 +8,14 @@ title: "Getting Started"
 
 ## インストール
 
-[Hugo](https://gohugo.io/)のインストールがまだであればインストールしておきます。本テーマはバージョン`0.68`以上に対応しています（フロントマターで[_buildオプションのlist](https://gohugo.io/content-management/build-options/#list)を使用しているため）。
+[Hugo](https://gohugo.io/)のインストールがまだであればインストールしておきます。`v0.68`以上に対応しています（フロントマターで[_buildオプションのlist](https://gohugo.io/content-management/build-options/#list)を使用しているため）。
 
 ```bat
 hugo version
 :: Hugo Static Site Generator v0.80.0 ...
 ```
 
-本テーマでは[vivliostyle-cli](https://github.com/vivliostyle/vivliostyle-cli)を利用してPDF出力を行うため、[Node.js](https://nodejs.org/ja/)およびvivliostyle-cliのインストールを実施しておきます。以下はchocotaleyを用いた導入例です。
+本テーマでは[vivliostyle-cli](https://github.com/vivliostyle/vivliostyle-cli)を利用してPDF出力を行うため、[Node.js](https://nodejs.org/ja/)およびvivliostyle-cliのインストールを実施します。以下はchocotaleyを用いた導入例です。
 
 ```bat
 choco install -y nodejs
@@ -156,7 +156,7 @@ weight: 10
 ```
 
 {{% note %}}
-ディレクトリ名はASCII文字で記述してください。日本語を使用すると`vivliostyle-cli`ビルドに失敗します。（`vivliostyle-cli v3.0.3`時点）
+ディレクトリ名やファイル名はASCII文字で記述してください。日本語を使用すると`vivliostyle-cli`ビルドに失敗します。（`vivliostyle-cli v3.0.3`時点）
 {{% /note %}}
 
 また`\content\jp\Chapter1`下に`second.md`, `third.md`を作成して以下のように編集して保存します。
@@ -189,7 +189,7 @@ weight: 20
 hugo server
 ```
 
-## ビルド
+### ビルド
 
 `Ctrl+C` でhugoのプレビューを終了し、以下のコマンドを実行してHugoサイトをビルドします。
 
@@ -205,6 +205,6 @@ hugo -e pdf_sample
 vivliostyle build -c .\public_pdf_sample\jp\myPDF.js
 ```
 
-`vivliostyle-cli`にわたすconfigファイルとして`myPDF.js`を指定しています。このファイルは`_pdfconfig.md`から生成されたものです。
+`vivliostyle-cli`のconfigファイルとして`myPDF.js`を指定しています。このファイルは`_pdfconfig.md`から生成されたものです。
 
-`\public_pdf_sample\jp\myPDF_JP.pdf`が成果物のヘルプです。確認してみましょう。
+`\public_pdf_sample\jp\myPDF_JP.pdf`が成果物です。確認してみましょう。
