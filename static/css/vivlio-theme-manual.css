@@ -78,13 +78,14 @@ a:hover {
 
 p {
   margin-top: 0.1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.1rem;
   font-feature-settings: 'palt', 'calt';
   text-align:left;
 }
 
 pre {
   margin: 1.5rem 0;
+  padding: 1em 2em;
   background-color: #eee;
   box-decoration-break: clone;
 }
@@ -168,7 +169,7 @@ table tr:last-child {
 blockquote {
   margin: 1.5rem .5rem;
   background-color: #ecf0f1;
-  padding: 0.5em 1em;
+  padding: 1em 1em;
   border-radius: 0.2rem;
 }
 
@@ -192,6 +193,9 @@ blockquote :not(pre) > code {
 /* code block */
 pre code {
   font-family: 'Consolas', 'メイリオ', 'Meiryo', 'MS Gothic', monospace, sans-serif;
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 0.5;
 }
 
 /* -------------------- */
@@ -618,7 +622,7 @@ figure img.fig ~ figcaption::before {
   /* Side Menu */
   #content {
     box-sizing: border-box;
-    margin-left: 250px;
+    margin-left: 300px;
     padding: 20px 40px;
   }
 
@@ -626,12 +630,26 @@ figure img.fig ~ figcaption::before {
     box-sizing: border-box;
     top: 0px;
     height: 100%;
-    width: 250px;
+    width: 300px;
     position: fixed;
     overflow: auto;
     color: #fff;
     background: #333333;
     padding: 0px 20px;
     margin-left: 0px;
+  }
+
+  #menu a {
+    text-decoration: none;
+    color: #b4e1ff;
+  }
+
+  #menu a:visited {
+    color: #c59dd4;
+  }
+
+  #menu a:hover {
+    text-decoration: underline;
+    color: #e74c3c;
   }
 }
