@@ -4,7 +4,7 @@ title: "Getting Started"
 
 ## 対象環境
 
-本解説はWindows 10 を対象環境としています。
+本解説は Windows 10 を対象環境としています。
 
 ## インストール
 
