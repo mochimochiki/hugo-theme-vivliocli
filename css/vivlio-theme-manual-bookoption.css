@@ -1,0 +1,54 @@
+@charset "UTF-8";
+/* -------------------- */
+/* Page settings        */
+/* https://www.quackit.com/css/at-rules/css_top-center_at-rule.cfm */
+/* -------------------- */
+@page {
+  @top-center {
+    content: '';
+  }
+  @bottom-center {
+    content: '';
+  }
+}
+
+/* left page */
+@page :left {
+  font-family: '遊ゴシック', 'YuGothic', sans-serif; /* header or footer font */
+  margin-left: 7%;
+  margin-right: 15%;
+  @top-center {
+    content: env(pub-title);
+    font-size: 0.8rem;
+    text-align: left;
+    padding: 12mm 2mm 0 2mm;
+  }
+  @bottom-left {
+    font-size: 0.8rem;
+    content: counter(page);
+    border-left: 1px solid;
+    margin-top: 10mm;
+    margin-bottom: -3mm;
+    padding: 0 4mm 15mm 4mm;
+  }
+}
+
+@page :right {
+  font-family: "遊ゴシック", sans-serif;
+  margin-left: 15%;
+  margin-right: 7%;
+  @top-center {
+    content: env(doc-title);
+    font-size: 0.8rem;
+    text-align: right;
+    padding: 12mm 2mm 0 2mm;
+  }
+  @bottom-right {
+    font-size: 0.8rem;
+    content: counter(page);
+    border-right: 1px solid;
+    margin-top: 10mm;
+    margin-bottom: -3mm;
+    padding: 0 2mm 15mm 2mm;
+  }
+}
