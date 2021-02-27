@@ -37,14 +37,14 @@ vivliostyle -v
 
 新しいプロジェクトを作成します。ここでは`myPDF`という名称とします。
 
-```
+```bat
 hugo new site myPDF
 cd myPDF
 ```
 
 次にテーマをsubmoduleとして導入します。
 
-```
+```bat
 git init
 git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hugo-theme-vivliocli
 ```
@@ -55,7 +55,7 @@ gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-them
 
 テーマの中にテンプレートとして利用できるexampleSiteがあります。exampleSiteから必要なファイルをコピーします。また、デフォルトのconfig.tomlは削除しておきます。
 
-```
+```bat
 xcopy /s themes\hugo-theme-vivliocli\exampleSite\config config\
 xcopy /s themes\hugo-theme-vivliocli\exampleSite\CI CI\
 rm config.toml
@@ -77,7 +77,7 @@ themesdir = "../.."
 
 `content`ディレクトリ下に`jp`,`en`ディレクトリを作成します。
 
-```
+```bat
 mkdir content\jp
 mkdir content\en
 ```
@@ -126,7 +126,7 @@ PDF output using `hugo-theme-vivliocil`.
 
 `\content\jp`および`\content\en`下に`_pdfconfig.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはHugoビルド後に`vivliostyle-cli`のconfigファイルとなります。原稿ではないため、フロントマターのみで構成されます。なお、`toc`と`colophon`については、`_pdfconfig.md`と`_pdfcover.md`で一致させておきます。
 
-```toml
+```md
 ---
 type: "vivlio_config"
 url: "myPDF.js"
