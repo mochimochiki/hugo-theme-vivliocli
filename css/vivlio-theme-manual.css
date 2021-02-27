@@ -3,19 +3,24 @@
 /* Root settings        */
 /* -------------------- */
 :root {
-  font-family: '游明朝', 'YuMincho', serif;
+  font-family: "游明朝", "YuMincho", serif;
   font-weight: 400;
-  font-feature-settings: 'palt', 'calt';
+  font-feature-settings: "palt", "calt";
   line-height: 1.7;
 }
 
 /* -------------------- */
 /* Header               */
 /* -------------------- */
-h1, h2, h3, h4, h5, h6 {
-  font-family: '游ゴシック', 'YuGothic', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "游ゴシック", "YuGothic", sans-serif;
   font-weight: 900;
-  font-feature-settings: 'palt', 'calt';
+  font-feature-settings: "palt", "calt";
 }
 h1 {
   font-size: 2.2rem;
@@ -23,7 +28,7 @@ h1 {
   margin-bottom: 1.5rem;
   line-height: 1.2;
   padding-left: 1.5rem;
-  padding-top:  1.5rem;
+  padding-top: 1.5rem;
   padding-bottom: 1rem;
   color: #fafafa;
   background: #333333;
@@ -53,11 +58,10 @@ h5 {
   font-size: 1rem;
 }
 h6 {
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-    font-size: 0.85rem;
-  }
-
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  font-size: 0.85rem;
+}
 
 /* -------------------- */
 /* text                 */
@@ -79,8 +83,8 @@ a:hover {
 p {
   margin-top: 0.1rem;
   margin-bottom: 0.1rem;
-  font-feature-settings: 'palt', 'calt';
-  text-align:left;
+  font-feature-settings: "palt", "calt";
+  text-align: left;
 }
 
 pre {
@@ -90,10 +94,10 @@ pre {
   box-decoration-break: clone;
 }
 
-ul, ol {
+ul,
+ol {
   padding-inline-start: 1.5em;
 }
-
 
 /* -------------------- */
 /* figure               */
@@ -109,24 +113,23 @@ figure img {
 }
 
 figure figcaption {
-  margin: .5rem auto;
+  margin: 0.5rem auto;
   width: 90%;
   font-size: 90%;
   break-inside: avoid;
 }
 
-figure img[src$='.png'],
-figure img[src$='.jpg'],
-figure img[src$='.jpeg'],
-figure img[src$='.gif'],
-figure img[src$='.webp'] {
+figure img[src$=".png"],
+figure img[src$=".jpg"],
+figure img[src$=".jpeg"],
+figure img[src$=".gif"],
+figure img[src$=".webp"] {
   image-resolution: 200dpi;
 }
 
 img {
   max-width: 100%;
 }
-
 
 /* -------------------- */
 /* table                */
@@ -139,13 +142,15 @@ table {
   border-collapse: collapse;
 }
 
-table th, table td {
-  padding: .25rem 1rem .25rem 0;
+table th,
+table td {
+  padding: 0.25rem 1rem 0.25rem 0;
   background-color: transparent;
   border: 0;
 }
 
-table th:first-child, table td:first-child {
+table th:first-child,
+table td:first-child {
   padding-left: 1rem;
 }
 
@@ -162,12 +167,11 @@ table tr:last-child {
   border-bottom: 1px solid;
 }
 
-
 /* -------------------- */
 /* quote                */
 /* -------------------- */
 blockquote {
-  margin: 1.5rem .5rem;
+  margin: 1.5rem 0.5rem;
   background-color: #ecf0f1;
   padding: 1em 1em;
   border-radius: 0.2rem;
@@ -183,7 +187,8 @@ blockquote :not(pre) > code {
 /* -------------------- */
 /* inline code */
 :not(pre) > code {
-  font-family: 'Consolas', 'メイリオ', 'Meiryo', 'MS Gothic', monospace, sans-serif;
+  font-family: "Consolas", "メイリオ", "Meiryo", "MS Gothic", monospace,
+    sans-serif;
   padding: 2pt;
   margin-top: 20pt;
   background-color: #eee;
@@ -192,7 +197,8 @@ blockquote :not(pre) > code {
 }
 /* code block */
 pre code {
-  font-family: 'Consolas', 'メイリオ', 'Meiryo', 'MS Gothic', monospace, sans-serif;
+  font-family: "Consolas", "メイリオ", "Meiryo", "MS Gothic", monospace,
+    sans-serif;
   white-space: pre-wrap;
   word-break: break-all;
   line-height: 0.5;
@@ -206,13 +212,13 @@ div.note {
   margin-bottom: 20pt;
 }
 div.note_content {
-    margin: 0pt;
-    padding-top: 12pt;
-    padding-left: 12pt;
-    padding-right: 12pt;
-    padding-bottom: 5pt;
-    display: block;
-    background: #eeeeee;
+  margin: 0pt;
+  padding-top: 12pt;
+  padding-left: 12pt;
+  padding-right: 12pt;
+  padding-bottom: 5pt;
+  display: block;
+  background: #eeeeee;
 }
 div.note_title {
   margin: 0pt;
@@ -221,7 +227,7 @@ div.note_title {
   padding-left: 10pt;
   padding-right: 10pt;
   background: #bbbbbb;
-  font-family: '游ゴシック', 'YuGothic', sans-serif;
+  font-family: "游ゴシック", "YuGothic", sans-serif;
   font-size: 1.1rem;
   font-weight: 900;
 }
@@ -263,32 +269,31 @@ figure img.fig ~ figcaption::before {
   content: "図" counter(fig) ": ";
 }
 
-
 /* footnote */
 .footnote {
   counter-increment: footnote;
 }
 
-.footnote::footnote-call, .footnote::footnote-marker {
+.footnote::footnote-call,
+.footnote::footnote-marker {
   content: "[" counter(footnote) "]";
 }
 
 .footnote::footnote-call {
   font-size: 80%;
-  margin: 0 .3rem;
+  margin: 0 0.3rem;
 }
 
 .footnote::footnote-marker {
-  margin-right: .2rem;
+  margin-right: 0.2rem;
 }
-
 
 /* -------------------- */
 /* Page settings        */
 /* https://www.quackit.com/css/at-rules/css_top-center_at-rule.cfm */
 /* -------------------- */
 @page {
-  font-family: '遊ゴシック', 'YuGothic', sans-serif; /* header or footer font */
+  font-family: "遊ゴシック", "YuGothic", sans-serif; /* header or footer font */
   size: 182mm 257mm;
   margin-top: 8%;
   margin-bottom: 6%;
@@ -297,13 +302,13 @@ figure img.fig ~ figcaption::before {
   @top-left-corner {
     background-color: #333333;
     color: #fafafa;
-    content: '';
+    content: "";
     margin-bottom: 7mm;
     margin-top: -3mm;
     margin-left: -3mm;
   }
   @top-center {
-    content: env(pub-title)' - 'env(doc-title);
+    content: env(pub-title) " - " env(doc-title);
     font-size: 0.8rem;
     background-color: #333333;
     color: #fafafa;
@@ -320,7 +325,7 @@ figure img.fig ~ figcaption::before {
   @top-right-corner {
     background-color: #333333;
     color: #fafafa;
-    content: '';
+    content: "";
     margin-bottom: 7mm;
     margin-top: -3mm;
     margin-right: -3mm;
@@ -332,7 +337,7 @@ figure img.fig ~ figcaption::before {
     font-size: 0.8rem;
   }
   @bottom-left-corner {
-    content: '';
+    content: "";
     margin-top: -8mm;
     margin-bottom: -3mm;
     margin-left: -3mm;
@@ -340,7 +345,7 @@ figure img.fig ~ figcaption::before {
     z-index: 1000;
   }
   @bottom-right-corner {
-    content: '';
+    content: "";
     margin-top: -8mm;
     margin-bottom: -3mm;
     margin-right: -3mm;
@@ -378,67 +383,64 @@ figure img.fig ~ figcaption::before {
   }
 }
 
-
 /* -------------------- */
 /* Role settings        */
 /* -------------------- */
 /* doc-cover */
-[role='doc-cover'] {
+[role="doc-cover"] {
   break-after: page;
   margin-top: 10%;
   text-align: center;
 }
 
-[role='doc-cover'] #cover-title {
+[role="doc-cover"] #cover-title {
   color: #fafafa;
   background-color: #333333;
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
-[role='doc-cover'] h1 {
+[role="doc-cover"] h1 {
   font-size: 3rem;
   margin-right: 2rem;
   margin-left: 2rem;
 }
-[role='doc-cover'] #cover-author {
+[role="doc-cover"] #cover-author {
   text-align: center;
   margin-top: 40%;
 }
 
-
 /* doc-introduction */
-[role='doc-introduction'] {
+[role="doc-introduction"] {
   break-after: page;
 }
 
-
 /* doc-toc */
-[role='doc-toc'] {
+[role="doc-toc"] {
   margin-top: 10%;
   font-size: 1.2rem;
 }
-[role='doc-toc'] h2 {
+[role="doc-toc"] h2 {
   font-size: 2.5rem;
 }
-[role='doc-toc'] li a::after {
+[role="doc-toc"] li a::after {
   content: target-counter(attr(href), page);
 }
-[role='doc-toc'] li a {
+[role="doc-toc"] li a {
   display: inline-flex;
   width: 100%;
   text-decoration: none;
   color: currentColor;
   align-items: baseline;
 }
-[role='doc-toc'] li a::before {
+[role="doc-toc"] li a::before {
   margin-left: 0.5em;
   margin-right: 0.5em;
   border-bottom: solid 1px;
-  content: '';
+  content: "";
   order: 1;
   flex: auto;
 }
-[role='doc-toc'] li a::after {
+[role="doc-toc"] li a::after {
   text-align: right;
   content: target-counter(attr(href), page);
   align-self: flex-end;
@@ -447,7 +449,7 @@ figure img.fig ~ figcaption::before {
 }
 
 /* doc-part */
-[role='doc-part'] {
+[role="doc-part"] {
   background-color: #333333;
   color: #fafafa;
   margin-right: -30%;
@@ -457,20 +459,19 @@ figure img.fig ~ figcaption::before {
   margin-top: 40%;
 }
 
-[role='doc-part'] h1 {
+[role="doc-part"] h1 {
   margin-right: 20%;
   font-size: 3.5rem;
 }
 
-[role='doc-part'] p {
+[role="doc-part"] p {
   margin-right: 20%;
 }
 
 /* doc-chapter */
-[role='doc-chapter'] {
-
+[role="doc-chapter"] {
 }
-[role='doc-chapter'] h1.doc-chapter {
+[role="doc-chapter"] h1.doc-chapter {
   font-size: 3rem;
   background-color: #333333;
   color: #fafafa;
@@ -484,7 +485,7 @@ figure img.fig ~ figcaption::before {
 }
 
 /* doc-endnotes */
-[role='doc-endnotes'] {
+[role="doc-endnotes"] {
   float-reference: page;
   float: bottom;
   margin-bottom: 0;
@@ -494,32 +495,32 @@ figure img.fig ~ figcaption::before {
 #colophon {
   margin-top: 10%;
 }
-[role='doc-colophon'] {
+[role="doc-colophon"] {
   position: relative;
   float-reference: page;
   float: bottom;
   margin-bottom: 0;
 }
-[role='doc-colophon'] table {
+[role="doc-colophon"] table {
   margin: 0;
   width: 100%;
   font-size: 100%;
   border-top: 2px solid currentColor;
 }
-[role='doc-colophon'] table th {
+[role="doc-colophon"] table th {
   padding: 0 0 0 0;
   margin: 0 0 0 0;
   border: 0;
   box-shadow: none;
 }
-[role='doc-colophon'] table tr {
+[role="doc-colophon"] table tr {
   border: 0;
   box-shadow: none;
 }
-[role='doc-colophon'] table tr:last-child {
+[role="doc-colophon"] table tr:last-child {
   border-bottom: 1px solid currentColor;
 }
-[role='doc-colophon'] table td {
+[role="doc-colophon"] table td {
   vertical-align: top;
   padding-left: 0;
 }
@@ -553,10 +554,9 @@ figure img.fig ~ figcaption::before {
   }
 }
 
-
 @media screen {
   :root {
-    font-family: '游ゴシック', 'YuGothic', serif;
+    font-family: "游ゴシック", "YuGothic", serif;
   }
   body {
     margin: auto 0rem;
@@ -581,51 +581,51 @@ figure img.fig ~ figcaption::before {
   .footnote a {
     word-break: break-all;
   }
-  a[data-ref='sec'],
-  a[data-ref='subsec'],
-  a[data-ref='fig'],
-  a[data-ref='tbl'],
-  a[data-ref='cite'] {
+  a[data-ref="sec"],
+  a[data-ref="subsec"],
+  a[data-ref="fig"],
+  a[data-ref="tbl"],
+  a[data-ref="cite"] {
     color: #e74c3c;
     background-color: rgba(255, 0, 0, 0.3);
   }
-  a[data-ref='sec']::before {
-    content: '§ XXX';
+  a[data-ref="sec"]::before {
+    content: "§ XXX";
   }
-  a[data-ref='subsec']::before {
-    content: '§ XXX.XXX';
+  a[data-ref="subsec"]::before {
+    content: "§ XXX.XXX";
   }
-  a[data-ref='fig']::before {
-    content: 'Fig. XXX';
+  a[data-ref="fig"]::before {
+    content: "Fig. XXX";
   }
-  :root:lang(ja) a[data-ref='fig']::before {
-    content: '図 XXX';
+  :root:lang(ja) a[data-ref="fig"]::before {
+    content: "図 XXX";
   }
-  a[data-ref='tbl']::before {
-    content: 'Table XXX';
+  a[data-ref="tbl"]::before {
+    content: "Table XXX";
   }
-  :root:lang(ja) a[data-ref='tbl']::before {
-    content: '表 XXX';
+  :root:lang(ja) a[data-ref="tbl"]::before {
+    content: "表 XXX";
   }
-  a[data-ref='cite']::before {
-    content: '[XXX]';
+  a[data-ref="cite"]::before {
+    content: "[XXX]";
   }
 
-  [role='doc-part'] {
+  [role="doc-part"] {
     margin: 0 0;
   }
-  [role='doc-chapter'] h1.doc-chapter {
+  [role="doc-chapter"] h1.doc-chapter {
     margin: 0 0 0 0;
     padding: 3rem 2rem;
   }
 
-  /* Side Menu */
   #content {
     box-sizing: border-box;
     margin-left: 300px;
     padding: 20px 40px;
+    max-width: 900px;
   }
-
+  /* Side Menu */
   #menu {
     box-sizing: border-box;
     top: 0px;
@@ -651,5 +651,49 @@ figure img.fig ~ figcaption::before {
   #menu a:hover {
     text-decoration: underline;
     color: #e74c3c;
+  }
+
+  #TableOfContents {
+    display: none;
+  }
+}
+
+/* screen page toc */
+@media screen and (min-width: 1590px) and (orientation: landscape) {
+  #TableOfContents {
+    display: inline;
+    position: fixed;
+    top: 50px;
+    left: 1250px;
+    width: 340px;
+    font-size: 0.8em;
+    border-radius: 0.1em;
+    border: solid 1px lightgray;
+    background: inherit;
+    padding: 0;
+  }
+  #TableOfContents > ul:before {
+    content: "目次";
+    font-weight: bolder;
+  }
+  #TableOfContents h2 {
+    background: inherit;
+    text-align: inherit;
+    border-bottom: 1px #eee solid;
+    padding: 10px;
+  }
+  #TableOfContents ul {
+    list-style-type: none;
+  }
+  #TableOfContents li {
+    padding-top: 0;
+  }
+  #TableOfContents li > ul {
+    padding-left: 1em;
+  }
+  #TableOfContents a {
+    font-weight: normal;
+    display: block;
+    border-bottom: dashed 1px lightgray;
   }
 }
