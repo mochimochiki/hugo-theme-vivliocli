@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ .TableOfContents }}
+  {{- if ne .Site.Params.isPDF true }} {{ .TableOfContents }} {{- end }}
   <h1>{{ .Title }}</h1>
   {{ .Page.Content }}
 {{ end }}
