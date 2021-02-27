@@ -652,11 +652,16 @@ figure img.fig ~ figcaption::before {
     text-decoration: underline;
     color: #e74c3c;
   }
+
+  #TableOfContents {
+    display: none;
+  }
 }
 
 /* screen page toc */
 @media screen and (min-width: 1590px) and (orientation: landscape) {
   #TableOfContents {
+    display: inline;
     position: fixed;
     top: 50px;
     left: 1250px;
