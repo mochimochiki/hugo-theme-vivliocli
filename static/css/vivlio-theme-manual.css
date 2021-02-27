@@ -718,7 +718,7 @@ figure img.fig ~ figcaption::before {
   .humburger-btn {
     position: fixed;
     top: 5px;
-    right: 40px;
+    right: 15px;
     display: flex;
     height: 40px;
     width: 40px;
