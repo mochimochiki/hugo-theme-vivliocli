@@ -706,6 +706,7 @@ figure img.fig ~ figcaption::before {
 @media screen and (max-width: 780px) {
   /* content relocation */
   #content {
+    padding: 20px 15px;
     margin-left: 0px;
   }
   #menu {
