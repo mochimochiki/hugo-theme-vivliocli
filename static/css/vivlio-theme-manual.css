@@ -457,6 +457,7 @@ figure img.fig ~ figcaption::before {
   padding-bottom: 2rem;
   padding-left: 2rem;
   margin-top: 40%;
+  break-before: right;
 }
 
 [role="doc-part"] h1 {
@@ -469,8 +470,6 @@ figure img.fig ~ figcaption::before {
 }
 
 /* doc-chapter */
-[role="doc-chapter"] {
-}
 [role="doc-chapter"] h1.doc-chapter {
   font-size: 3rem;
   background-color: #333333;
