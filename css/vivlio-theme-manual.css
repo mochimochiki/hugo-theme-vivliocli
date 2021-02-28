@@ -610,6 +610,13 @@ figure img.fig ~ figcaption::before {
     content: "[XXX]";
   }
 
+  [role="doc-toc"] {
+    margin-top: 0;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 1.2rem;
+  }
+
   [role="doc-part"] {
     margin: 0 0;
   }
