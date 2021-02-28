@@ -34,7 +34,7 @@ h1 {
   background: #333333;
 }
 h2 {
-  margin-top: 1.8rem;
+  margin-top: 3rem;
   margin-bottom: 0.5rem;
   font-size: 1.8rem;
   line-height: 1.2;
@@ -42,13 +42,13 @@ h2 {
   border-width: 1px;
 }
 h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0rem;
+  margin-top: 2rem;
+  margin-bottom: 0.3rem;
   font-size: 1.5rem;
   line-height: 1.2;
 }
 h4 {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   margin-bottom: 0rem;
   font-size: 1.3rem;
 }
@@ -58,7 +58,7 @@ h5 {
   font-size: 1rem;
 }
 h6 {
-  margin-top: 0rem;
+  margin-top: 0.2rem;
   margin-bottom: 0rem;
   font-size: 0.85rem;
 }
@@ -88,7 +88,7 @@ p {
 }
 
 pre {
-  margin: 1.5rem 0;
+  margin: 0.8rem 0;
   padding: 1em 2em;
   background-color: #eee;
   box-decoration-break: clone;
