@@ -1,4 +1,8 @@
+{{- if .PlainText }}
 <figure>
   <img src="{{ .Destination | safeURL }}" alt="{{ .PlainText }}" {{ with .PlainText }} class="fig"{{ end }}>
   {{ with .PlainText }}<figcaption>{{ . }}</figcaption>{{ end }}
 </figure>
+{{- else }}
+<img src="{{ .Destination | safeURL }}" alt="{{ .PlainText }}">
+{{- end }}
