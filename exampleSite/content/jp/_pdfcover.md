@@ -3,11 +3,11 @@ type: "vivlio_cover"
 url: "example.cover.html"               # <name>.cover.html
 _build: { list: false }
 
-title: "Hugo-theme-vivliocli ガイド"    # Documents Cover Title
+title: "Hugo-theme-vivliocli Guide"     # Documents Cover Title
 subtitle: "Hugoサイトを美しくPDF出力"   # Documents Cover Subtitle
 doc_number: "Ver.0.1.0"                 # Document number
 author: "mochimo"                       # Document author
-company: "Company name"                 # Document company name
+company: ""                             # Document company name
 toc: true                               # true: output Table of Contents & PDF Bookmarks
 colophon: true                          # true: include colophon (need to make _pdfcolophon.md)
 ---
