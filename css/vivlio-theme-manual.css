@@ -659,6 +659,19 @@ figure img.fig ~ figcaption::before {
     color: #e74c3c;
   }
 
+  .menu-content ul li {
+    list-style: none;
+  }
+
+  .menu-content ul li a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    color: #ffffff;
+    padding: 5px 15px 5px 0;
+    border-bottom: dashed 1px gray;
+  }
+
   #TableOfContents {
     display: none;
   }
@@ -781,9 +794,6 @@ figure img.fig ~ figcaption::before {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .menu-content ul li {
-    list-style: none;
-  }
   .menu-content ul li a {
     display: block;
     width: 100%;
@@ -793,7 +803,7 @@ figure img.fig ~ figcaption::before {
     text-decoration: none;
     padding: 5px 15px 5px 0;
     position: relative;
-    border-bottom: dashed 1px lightgray;
+    border-bottom: dashed 1px gray;
   }
 }
 
