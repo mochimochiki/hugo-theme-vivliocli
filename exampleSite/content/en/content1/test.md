@@ -1,6 +1,7 @@
 ---
 title: content1_page1
 weight: 20
+tags: ["sample"]
 ---
 ## Test
 

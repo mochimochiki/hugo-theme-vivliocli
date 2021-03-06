@@ -1,5 +1,6 @@
 ---
 title: "Getting Started"
+tags: ["tutorial"]
 ---
 
 ## 対象環境
@@ -21,7 +22,7 @@ hugo version
 choco install -y nodejs
 
 node -v
-:: v15.9.0 
+:: v15.9.0
 :: note: vivliostyle-cli is not working in Node v14.0.0
 
 npm -v
@@ -114,7 +115,7 @@ toc: true
 colophon: false
 ---
 
-# Introduction 
+# Introduction
 
 PDF output using `hugo-theme-vivliocil`.
 

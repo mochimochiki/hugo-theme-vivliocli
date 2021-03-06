@@ -1,6 +1,7 @@
 ---
 title: "Markdownショーケース"
 weight: 50
+tags: ["tutorial"]
 math: true
 ---
 
