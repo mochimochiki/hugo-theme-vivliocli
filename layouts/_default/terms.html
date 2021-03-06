@@ -1,0 +1,11 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<ul>
+  {{ range .Data.Terms.Alphabetical }}
+    {{- /* 日本語文字化け対策： https://discourse.gohugo.io/t/how-decode-urls-in-hugo/7549 */}}
+    {{- $url := urls.Parse ( .Page.RelPermalink | urlize) }}
+    {{- $a := printf "..%s" $url.Path }}
+    <li><a {{ printf "href=%q" $a | safeHTMLAttr }}>{{ .Page.Title }}</a> ({{ .Count }})</li>
+    {{ end }}
+</ul>
+{{ end }}

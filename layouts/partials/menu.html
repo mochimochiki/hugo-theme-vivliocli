@@ -18,5 +18,13 @@
         {{- end }}
     </ul>
     {{- end }}
+
+    <hr>
+
+    {{- range $name, $taxonomy := .Site.Taxonomies }}
+    {{- if $taxonomy }}
+      <a href="{{- with ($.Site.GetPage (printf "/%s" $name)) }}{{ .RelPermalink }}{{ end}}">{{ $name }}</a>
+      {{- end }}
+    {{- end }}
   </div>
 </aside>
