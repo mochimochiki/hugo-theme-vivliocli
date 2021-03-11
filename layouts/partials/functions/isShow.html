@@ -1,0 +1,24 @@
+{{/* Return whether to display page/section  */}}
+
+{{ $page := . }}
+{{ $ret := false }}
+
+{{ if $page.Params.ShowIf }}
+  {{ range .Site.Params.showIfs }}
+    {{ $showIf := . }}
+
+    {{ if eq $showIf "@all-page" }}
+      {{ $ret = true }}
+    {{ end }}
+
+    {{ range $page.Params.ShowIf }}
+      {{ if eq $showIf . }}
+        {{ $ret = true }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ $ret = true }}
+{{ end }}
+
+{{ return $ret }}

@@ -6,11 +6,13 @@ module.exports = {
     '{{ replace .Params.URL "js" "cover.html" }}',
     {{- define "entry_hierarchy" }}
       {{- range .Pages.ByWeight }}
-        {{- $url := urls.Parse (.RelPermalink | urlize) }}
-        {{- $path := $url.Path }}
-        {{- $link := printf "..%s" $path }}
-        '{{ $link }}',
-        {{- if .IsSection }}{{ template "entry_hierarchy" . }}{{ end }}
+        {{- if partial "functions/isShow" . }}
+          {{- $url := urls.Parse (.RelPermalink | urlize) }}
+          {{- $path := $url.Path }}
+          {{- $link := printf "..%s" $path }}
+    '{{ $link }}',
+          {{- if .IsSection }}{{ template "entry_hierarchy" . }}{{ end }}
+        {{- end }}
       {{- end }}
     {{- end }}
     {{ template "entry_hierarchy" .CurrentSection }}

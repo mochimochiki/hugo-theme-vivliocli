@@ -49,6 +49,7 @@
 {{- if ne $sectionPageCount 0 -}}
 <ol>
   {{- range .Pages.ByWeight }}
+  {{- if partial "functions/isShow" . }}
   <li>
     {{/* 日本語文字化け対策： https://discourse.gohugo.io/t/how-decode-urls-in-hugo/7549 */}}
     {{- $url := urls.Parse (.RelPermalink | urlize) }}
@@ -62,6 +63,7 @@
     {{- template "section_hierarchy" . }}
     {{- end -}}
   </li>
+  {{- end }}
   {{- end }}
 </ol>
 {{- end }}
