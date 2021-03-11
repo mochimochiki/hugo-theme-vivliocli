@@ -7,15 +7,15 @@ hugo-theme-vivliocli テーマで使用できるショートコードの一覧�
 
 ## ShowIf
 
-`config.toml`の`showIfs`で列挙されている場合に描画する部分を指定します。以下は`showIfs = ["supportFuncA"]`とした場合に描画されるブロックです。
+`config.toml`の`showIfs`で列挙されている場合に描画する部分を指定します。以下は`showIfs = ["edition1"]`とした場合に描画されるブロックです。
 
 ```
-{{%/* ShowIf supportFuncA */%}}
+{{%/* ShowIf edition1 */%}}
 ここにxxxをサポートする場合に表示するコンテンツを記述。
 {{%/* /ShowIf */%}}
 ```
 
-{{% ShowIf supportFuncA %}}
+{{% ShowIf edition1 %}}
 ここにxxxをサポートする場合に表示するコンテンツを記述。
 {{% /ShowIf %}}
 

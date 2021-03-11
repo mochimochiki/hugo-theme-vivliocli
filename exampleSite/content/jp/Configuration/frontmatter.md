@@ -16,6 +16,19 @@ weight: 40
 
 ## 各記事のフロントマター
 
+### ShowIf
+
+`ShowIf`フロントマターを指定することで、`config.toml`の`showIfs`で列挙されているキーワードにマッチした場合にのみ記事を描画する事ができます。以下のフロントマターを指定した記事は`showIfs = ["edition1"]`である場合に描画されます。
+
+```
+---
+title: edition1の説明
+ShowIf: ["edition1"]
+---
+```
+
+[config.tomlの設定](./config.html#showIfs)も参照してください。
+
 ### math
 
 `math: true` としたページにはTex数式（Mathjax数式）を記述することができます。インライン数式は`$E = mc^2$`のように記載します。ブロック数式は以下のように記載します。

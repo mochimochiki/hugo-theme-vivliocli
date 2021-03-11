@@ -17,7 +17,7 @@ weight: 10
 
 ### isPDF
 
-PDFかどうか。この設定は通常Webサイト用のconfig.tomlでは`false`としVivliostyleを使用したPDF生成用のconfig.tomlでは`true`にします。現状での違いは、trueにすると各htmlページでのmenu生成が抑制されることです。
+PDFかどうか。この設定は通常Webサイト用のconfig.tomlでは`false`としVivliostyleを使用したPDF生成用のconfig.tomlでは`true`にします。trueにすると各htmlページでのmenu生成が抑制されます。
 
 ### theme_css
 
@@ -25,16 +25,27 @@ PDFかどうか。この設定は通常Webサイト用のconfig.tomlでは`false
 
 ### showIfs
 
-`ShowIf`ショートコードで表示する条件の一覧。
+`ShowIf`ショートコード・フロントマターで表示する条件の一覧。
 
 ```
-showIfs = ["supportFuncA", "supportFuncB"]
+showIfs = ["edition1", "edition2"]
 ```
 
 例えば上記のように設定した場合、`.md`ファイルで以下のブロックは表示されます。
 
 ```
-{{%/* ShowIf supportFuncA */%}}
-ここにFuncAをサポートする場合に表示するコンテンツを記述。
+{{%/* ShowIf edition1 */%}}
+ここにedition1をサポートする場合に表示するコンテンツを記述。
 {{%/* /ShowIf */%}}
 ```
+
+以下のフロントマターの記事は描画されません。
+
+```
+---
+title: edition3の説明
+ShowIf: ["edition3"]
+---
+```
+
+詳しくは [エディション](./edition.html) も参照してください。
