@@ -18,7 +18,11 @@
     {{ end }}
   {{ end }}
 {{ else }}
-  {{ $ret = true }}
+  {{ if .Site.Params.only_showIfs }}
+    {{ $ret = false }}
+  {{ else }}
+    {{ $ret = true }}
+  {{ end }}
 {{ end }}
 
 {{ return $ret }}

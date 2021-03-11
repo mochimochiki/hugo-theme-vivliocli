@@ -15,6 +15,9 @@ relativeURLs = true
 [params]
     theme_css = ["/css/vivlio-theme-manual.css"]
     isPDF = false
+    #showIfs = ["edition1", "edition2"]
+    only_showIfs = false
+    flat_toc = false
 
 [languages]
   [languages.jp]

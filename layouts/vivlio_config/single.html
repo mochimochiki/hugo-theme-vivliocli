@@ -12,6 +12,8 @@ module.exports = {
           {{- $link := printf "..%s" $path }}
     '{{ $link }}',
           {{- if .IsSection }}{{ template "entry_hierarchy" . }}{{ end }}
+        {{- else }}
+          {{- if .Site.Params.only_showIfs }}{{- if .IsSection }}{{ template "entry_hierarchy" . }}{{ end }}{{end}}
         {{- end }}
       {{- end }}
     {{- end }}

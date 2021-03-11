@@ -8,13 +8,17 @@
     {{- define "menu-tree" }}
     {{- $section := .section }}
     {{- $current := .current }}
+    {{- if ne $current.Site.Params.flat_toc true }}
     <ul>
+    {{- end }}
       {{- range $section.Sections.ByWeight }}
         {{- if partial "functions/isShow" . }}
       <li><a href="{{ .RelPermalink }}" class="{{ if (eq . $current) }}menu-selected{{ end }}">{{ .Title }}</a>
           {{- if .IsAncestor $current }}
             {{- template "menu-tree" (dict "section" . "current" $current) }}
           {{- end }}
+        {{- else }}
+        {{- if $current.Site.Params.only_showIfs }}{{- template "menu-tree" (dict "section" . "current" $current) }}{{ end }}
         {{- end }}
       {{- end }}
 
@@ -23,7 +27,9 @@
       <li><a href="{{ .RelPermalink }}" class="{{ if (eq . $current) }}menu-selected{{ end }}">{{ .Title }}</a>
         {{- end }}
       {{- end }}
+    {{- if ne $current.Site.Params.flat_toc true }}
     </ul>
+    {{- end }}
     {{- end }}
 
     <hr>
