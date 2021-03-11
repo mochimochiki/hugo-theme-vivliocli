@@ -11,6 +11,7 @@ entry: [
 '../jp/Configuration/shortcodes.html',
 '../jp/Configuration/frontmatter.html',
 '../jp/Configuration/MarkdownShowcase.html',
+'../jp/Configuration/edition.html',
 '../jp/SamplePart.html',
 '../jp/SamplePart/SampleChapter1.html',
 'example.colophon.html'
