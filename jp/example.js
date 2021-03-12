@@ -4,7 +4,6 @@ size: 'A4',
 entry: [
 'example.cover.html',
 '../jp/GettingStarted.html',
-'../jp/GettingStarted/GettingStarted.html',
 '../jp/Configuration.html',
 '../jp/Configuration/config.html',
 '../jp/Configuration/pdfconfig.html',
