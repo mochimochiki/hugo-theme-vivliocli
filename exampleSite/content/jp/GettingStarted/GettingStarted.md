@@ -1,6 +1,7 @@
 ---
 title: "Getting Started"
 tags: ["tutorial"]
+ShowIf: ["basic"]
 ---
 
 ## 対象環境
