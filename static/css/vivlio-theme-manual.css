@@ -627,7 +627,7 @@ figure img.fig ~ figcaption::before {
 
   #content {
     box-sizing: border-box;
-    margin-left: 300px;
+    margin-left: 400px;
     padding: 20px 40px;
     max-width: 900px;
   }
@@ -636,7 +636,7 @@ figure img.fig ~ figcaption::before {
     box-sizing: border-box;
     top: 0px;
     height: 100%;
-    width: 300px;
+    width: 400px;
     position: fixed;
     overflow: auto;
     color: #fff;
@@ -685,7 +685,7 @@ figure img.fig ~ figcaption::before {
     display: inline;
     position: fixed;
     top: 50px;
-    left: 1250px;
+    left: 1350px;
     width: 340px;
     font-size: 0.8em;
     border-radius: 0.1em;
