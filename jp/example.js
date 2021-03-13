@@ -13,6 +13,7 @@ entry: [
 '../jp/Configuration/edition.html',
 '../jp/SamplePart.html',
 '../jp/SamplePart/SampleChapter1.html',
+'../jp/SamplePart/SampleChapter1/サンプル3.html',
 'example.colophon.html'
 ],
 output: [
