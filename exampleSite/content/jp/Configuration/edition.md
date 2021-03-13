@@ -44,7 +44,7 @@ ShowIf: ["edition1"]
 ---
 ```
 
-> `config.toml`で `showIfs = ["@all-page"]` のように、`@all-page` を含めると、各記事にShowIfフロントマターが書かれていても強制的に全ページをPDF描画対象とします。
+> `config.toml`で `showIfs = ["@all-pages"]` のように、`@all-pages` を含めると、各記事にShowIfフロントマターが書かれていても強制的に全ページをPDF描画対象とします。
 
 
 ## ビルドする
