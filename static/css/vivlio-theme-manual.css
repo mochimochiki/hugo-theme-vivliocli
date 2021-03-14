@@ -663,12 +663,17 @@ figure img.fig ~ figcaption::before {
     list-style: none;
   }
 
+  .menu-content li ul {
+    margin: 0 0 0 1em;
+    padding: 0;
+  }
+
   .menu-content ul li a {
     display: block;
     width: 100%;
     box-sizing: border-box;
     color: #ffffff;
-    padding: 5px 15px 5px 0;
+    padding: 3px 0px 3px 0px;
     border-bottom: dashed 1px gray;
   }
 
