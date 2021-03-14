@@ -12,7 +12,6 @@
   </head>
   <body>
     {{- partial "header.html" . -}}
-    {{- if ne .Site.Params.isPDF true }} {{- partial "menu.html" . -}} {{- end }}
     <div id="content">
     {{- block "main" . }}{{- end }}
     </div>
