@@ -341,7 +341,6 @@ figure img.fig ~ figcaption::before {
     margin-top: -8mm;
     margin-bottom: -3mm;
     margin-left: -3mm;
-    background-color: #fafafa;
     z-index: 1000;
   }
   @bottom-right-corner {
@@ -349,7 +348,6 @@ figure img.fig ~ figcaption::before {
     margin-top: -8mm;
     margin-bottom: -3mm;
     margin-right: -3mm;
-    background-color: #fafafa;
     z-index: 1000;
   }
 }
