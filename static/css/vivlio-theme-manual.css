@@ -554,6 +554,8 @@ figure img.fig ~ figcaption::before {
 @media screen {
   :root {
     font-family: "游ゴシック", "YuGothic", serif;
+    font-size: 1.05rem;
+    font-weight: 500;
   }
   body {
     margin: auto 0rem;
@@ -673,6 +675,26 @@ figure img.fig ~ figcaption::before {
     color: #ffffff;
     padding: 3px 0px 3px 0px;
     border-bottom: dashed 1px gray;
+  }
+
+  .menu-footer a{
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
+    display: block;
+    box-sizing: border-box;
+    border-bottom: dashed 1px gray;
+  }
+
+  .select-language {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
+    width: 90%;
+  }
+
+  .menu-footer-space {
+    margin-top: 10rem;
   }
 
   #TableOfContents {

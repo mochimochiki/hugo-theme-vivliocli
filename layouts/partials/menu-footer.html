@@ -1,0 +1,39 @@
+<hr>
+
+{{/* language selector */}}
+{{ if .Site.IsMultiLingual }}
+<div class="language-selector">
+  <select class="select-language" onchange="location = this.value;">
+    {{ $siteLanguages := .Site.Languages}}
+    {{ $pageLang := .Page.Lang}}
+    {{ range .Page.AllTranslations }}
+    {{ $translation := .}}
+    {{ range $siteLanguages }}
+    {{ if eq $translation.Lang .Lang }}
+    {{ $selected := false }}
+    {{ if eq $pageLang .Lang}}
+    <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}</option>
+    {{ else }}
+    <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+    {{ end }}
+  </select>
+</div>
+{{end}}
+
+{{/*  tags  */}}
+{{- range $name, $taxonomy := .Site.Taxonomies }}
+{{- if $taxonomy }}
+<div class="menu-footer">
+  <a href="{{- with ($.Site.GetPage (printf "/%s" $name)) }}{{ .RelPermalink }}{{ end}}">{{ $name }}</a>
+</div>
+{{- end }}
+{{- end }}
+
+{{ partial "menu-footer-custom.html" . }}
+
+{{/*  space  */}}
+<hr>
+<div class="menu-footer-space"></div>

@@ -2,7 +2,7 @@
   <input type="checkbox" id="humburger-btn-check">
   <label for="humburger-btn-check" class="humburger-btn"><span></span></label>
   <div class="menu-content">
-    <h2><a href="{{ .Site.Home.Permalink }}">{{ .Site.Home.Title }}</a></h2>
+    <h3><a href="{{ .Site.Home.Permalink }}">{{ .Site.Home.Title }}</a></h2>
     {{- template "menu-tree" (dict "section" .Site.Home "current" .) }}
 
     {{- define "menu-tree" }}
@@ -31,13 +31,8 @@
     </ul>
     {{- end }}
     {{- end }}
-
-    <hr>
-
-    {{- range $name, $taxonomy := .Site.Taxonomies }}
-    {{- if $taxonomy }}
-      <a href="{{- with ($.Site.GetPage (printf "/%s" $name)) }}{{ .RelPermalink }}{{ end}}">{{ $name }}</a>
-      {{- end }}
-    {{- end }}
+    <section id="menu-footer">
+      {{ partial "menu-footer.html" . }}
+    </section>
   </div>
 </aside>
