@@ -643,15 +643,20 @@ figure img.fig ~ figcaption::before {
     background: #333333;
     padding: 0px 20px;
     margin-left: 0px;
+    font-size: 0.9rem;
   }
 
   #menu a {
     text-decoration: none;
-    color: #b4e1ff;
+    color: #fafafa;
   }
 
   #menu a:visited {
-    color: #c59dd4;
+    color: #fafafa;
+  }
+
+  #menu .menu-selected {
+    background-color: #666;
   }
 
   #menu a:hover {
