@@ -12,14 +12,17 @@
 </head>
 
 <body>
-  <header>
-    <h1>{{ .Title }}</h1>
-  </header>
+  {{- partial "header.html" . -}}
+  <div id="content">
+    <header>
+      <h1>{{ .Title }}</h1>
+    </header>
 
-  <nav id="toc" role="doc-toc">
-    <h2>Table of Contents</h2>
-    {{- define "section_hierarchy" }}
-    <ol>
+
+    <nav id="toc" role="doc-toc">
+      <h2>Table of Contents</h2>
+      {{- define "section_hierarchy" }}
+      <ol>
         {{- range .Pages.ByWeight }}
         <li>
           {{- if ne .IsSection true }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
@@ -29,11 +32,11 @@
           {{ end }}
         </li>
         {{- end }}
-    </ol>
-    {{- end }}
-    {{ template "section_hierarchy" .CurrentSection }}
-  </nav>
+      </ol>
+      {{- end }}
+      {{ template "section_hierarchy" .CurrentSection }}
+    </nav>
+  </div>
 </body>
 
 </html>
-
