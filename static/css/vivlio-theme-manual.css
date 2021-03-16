@@ -92,6 +92,10 @@ pre {
   padding: 1em 2em;
   background-color: #eee;
   box-decoration-break: clone;
+  font-family: "Consolas", "メイリオ", "Meiryo", "MS Gothic", monospace,sans-serif;
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 1.4;
 }
 
 ul,
