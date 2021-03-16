@@ -2,7 +2,10 @@
   <input type="checkbox" id="humburger-btn-check">
   <label for="humburger-btn-check" class="humburger-btn"><span></span></label>
   <div class="menu-content">
-    <h3><a href="{{ .Site.Home.Permalink }}">{{ .Site.Home.Title }}</a></h2>
+    <section id="menu-header">
+      {{ partial "menu-header.html" . }}
+    </section>
+    <h4><a href="{{ .Site.Home.Permalink }}">{{ .Site.Home.Title }}</a></h4>
     {{- template "menu-tree" (dict "section" .Site.Home "current" .) }}
 
     {{- define "menu-tree" }}
