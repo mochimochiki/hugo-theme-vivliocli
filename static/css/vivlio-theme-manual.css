@@ -309,7 +309,8 @@ figure img.fig ~ figcaption::before {
   }
   @top-center {
     content: env(pub-title) " - " env(doc-title);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
     background-color: #333333;
     color: #fafafa;
     margin-top: -3mm;
@@ -680,6 +681,12 @@ figure img.fig ~ figcaption::before {
     color: #ffffff;
     padding: 3px 0px 3px 0px;
     border-bottom: dashed 1px gray;
+  }
+
+  #menu .logo img {
+    max-width: 112%;
+    margin: 0px -20px 0px -20px;
+    padding: 0px 0px 0px 0px;
   }
 
   .menu-footer a{
