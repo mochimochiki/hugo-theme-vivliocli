@@ -554,6 +554,13 @@ figure img.fig ~ figcaption::before {
     float: footnote;
     text-align: left;
   }
+
+  #menu {
+    display: none;
+  }
+  #TableOfContents {
+    display: none;
+  }
 }
 
 @media screen {
