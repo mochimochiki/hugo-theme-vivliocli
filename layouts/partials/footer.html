@@ -1,3 +1,6 @@
+{{- if ne .Site.Params.isPDF true }}
+<script src="{{"js/menuscroll.js" | relURL}}"></script>
+{{- end }}
 {{- if .Params.math }}
 {{- if ne .Site.Params.isPDF true }}
 <script>

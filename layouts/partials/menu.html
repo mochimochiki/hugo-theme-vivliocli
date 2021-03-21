@@ -16,7 +16,7 @@
     {{- end }}
       {{- range $section.Sections.ByWeight }}
         {{- if partial "functions/isShow" . }}
-      <li><a href="{{ .RelPermalink }}" class="{{ if (eq . $current) }}menu-selected{{ end }}">{{ .Title }}</a>
+      <li><a href="{{ .RelPermalink }}" id="{{ if (eq . $current) }}menu-selected{{ end }}" class="{{ if (eq . $current) }}menu-selected{{ end }}">{{ .Title }}</a>
           {{- if .IsAncestor $current }}
             {{- template "menu-tree" (dict "section" . "current" $current) }}
           {{- end }}
@@ -27,7 +27,7 @@
 
       {{- range $section.RegularPages }}
         {{- if partial "functions/isShow" . }}
-      <li><a href="{{ .RelPermalink }}" class="{{ if (eq . $current) }}menu-selected{{ end }}">{{ .Title }}</a>
+      <li><a href="{{ .RelPermalink }}" id="{{ if (eq . $current) }}menu-selected{{ end }}" class="{{ if (eq . $current) }}menu-selected{{ end }}">{{ .Title }}</a>
         {{- end }}
       {{- end }}
     {{- if ne $current.Site.Params.flat_toc true }}
