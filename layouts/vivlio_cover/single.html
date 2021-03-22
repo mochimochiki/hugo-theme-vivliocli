@@ -113,7 +113,10 @@
 {{- $toc = $toc | replaceRE "<ul>" "<ol>" | replaceRE "</ul>" "</ol>" | safeHTML}}
 {{- $toc = $toc | replaceRE "#pdftoc-" ($pagelink.Get "link") | safeHTML}}
 {{/* #pdftoc-xxx以外のヘッダ行を削除し、不要なolタグを消す  */}}
-{{- $toc = $toc | replaceRE ".*<a href=.#.+>.*</a>.*" "" | safeHTML}}
-{{- $toc = $toc | replaceRE "(?m)(?s:<ol>[^a]+</ol>)" "" | safeHTML }}
+{{- $toc = $toc | replaceRE "<a href=.#.+>.*</a>" "" | safeHTML}}
+{{- range $val := seq 6 }}
+{{- $toc = $toc | replaceRE "(?m)(?s:<li>[[:space:]]*</li>)" "" | safeHTML }}
+{{- $toc = $toc | replaceRE "(?m)(?s:<ol>[[:space:]]*</ol>)" "" | safeHTML }}
+{{- end }}
 {{ $toc }}
 {{- end }}

@@ -21,7 +21,6 @@
 
     <nav id="toc" role="doc-toc">
       <h2>Table of Contents</h2>
-      {{- define "section_hierarchy" }}
       <ol>
         {{- range .Pages.ByWeight }}
         <li>
@@ -33,8 +32,6 @@
         </li>
         {{- end }}
       </ol>
-      {{- end }}
-      {{ template "section_hierarchy" .CurrentSection }}
     </nav>
   </div>
 </body>
