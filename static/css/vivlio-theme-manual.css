@@ -138,38 +138,29 @@ img {
 /* -------------------- */
 /* table                */
 /* -------------------- */
-table {
-  display: table;
-  max-width: 100%;
-  margin: 1.5rem auto;
-  border-color: currentColor;
-  border-collapse: collapse;
+table{
+    display: table;
+    max-width: 100%;
+    border-collapse:collapse;
+    margin: 1rem auto;
+}
+td,th{
+    font-size: 0.8rem;
+    padding:0.4rem;
+}
+th{
+    background:#ccc;
+}
+table tr:nth-child(even){
+    background:#eee;
 }
 
-table th,
-table td {
-  padding: 0.25rem 1rem 0.25rem 0;
-  background-color: transparent;
-  border: 0;
-}
 
-table th:first-child,
-table td:first-child {
-  padding-left: 1rem;
-}
 
-table th {
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-}
 
-table tr {
-  box-shadow: 0 0.7px 0 -0.3px currentColor;
-}
 
-table tr:last-child {
-  border-bottom: 1px solid;
-}
+
+
 
 /* -------------------- */
 /* quote                */
