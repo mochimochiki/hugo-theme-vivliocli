@@ -674,14 +674,18 @@ figure img.fig ~ figcaption::before {
   #menu a:hover {
     text-decoration: underline;
     color: #e74c3c;
+    background-color: #444;
   }
 
+  .menu-content ul {
+    padding: 0 0 0 1rem;
+  }
   .menu-content ul li {
     list-style: none;
   }
 
   .menu-content li ul {
-    margin: 0 0 0 1em;
+    margin: 0 0 0 1rem;
     padding: 0;
   }
 
@@ -691,7 +695,6 @@ figure img.fig ~ figcaption::before {
     box-sizing: border-box;
     color: #ffffff;
     padding: 3px 0px 3px 0px;
-    border-bottom: dashed 1px gray;
   }
 
   #menu .logo img {
