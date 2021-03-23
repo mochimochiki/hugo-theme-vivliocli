@@ -140,6 +140,7 @@ img {
 /* -------------------- */
 table{
     display: table;
+    min-width: 50%;
     max-width: 100%;
     border-collapse:collapse;
     margin: 1rem auto;
