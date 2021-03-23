@@ -704,19 +704,18 @@ figure img.fig ~ figcaption::before {
   }
 
   .menu-footer a{
-    margin-left: 1.5rem;
-    font-size: 1.2rem;
+    margin-left: 1rem;
+    font-size: 1rem;
     display: block;
     box-sizing: border-box;
-    border-bottom: dashed 1px gray;
   }
 
   .select-language {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    margin-left: 1.5rem;
-    font-size: 1.2rem;
-    width: 90%;
+    margin-left: 1rem;
+    font-size: 1rem;
+    width: 50%;
   }
 
   .menu-footer-space {
