@@ -67,6 +67,7 @@
     {{- end }}
     {{- if .IsSection }}
       <a {{ printf "href=%q" $a | safeHTMLAttr }} {{- if .Params.role }} class="{{ .Params.role }}" {{- end }}>{{ .Title }}</a>
+      {{- template "pagetoc" . }}
     {{- template "section_hierarchy" . }}
     {{- end -}}
   </li>
