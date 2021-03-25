@@ -11,8 +11,6 @@
   /* variables */
   --menu-width: 350px;
   --content-width: 1000px;
-  --main-color: #333;
-  --sub-color: #fff;
 }
 
 /* -------------------- */
@@ -36,15 +34,15 @@ h1 {
   padding-left: 1.5rem;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
-  color: var(--sub-color);
-  background: var(--main-color);
+  color: #fafafa;
+  background: #333;
 }
 h2 {
   margin-top: 3rem;
   margin-bottom: 0.5rem;
   font-size: 1.8rem;
   line-height: 1.2;
-  border-bottom: solid var(--main-color);
+  border-bottom: solid #333;
   border-width: 1px;
 }
 h3 {
@@ -303,8 +301,8 @@ figure img.fig ~ figcaption::before {
   margin-left: 10%;
   margin-right: 10%;
   @top-left-corner {
-    background-color: var(--main-color);
-    color: var(--sub-color);
+    background-color: #333;
+    color: #fafafa;
     content: "";
     margin-bottom: 7mm;
     margin-top: -3mm;
@@ -314,8 +312,8 @@ figure img.fig ~ figcaption::before {
     content: env(pub-title) " - " env(doc-title);
     font-size: 0.85rem;
     font-weight: 600;
-    background-color: var(--main-color);
-    color: var(--sub-color);
+    background-color: #333;
+    color: #fafafa;
     margin-top: -3mm;
     margin-left: -1mm;
     margin-right: -1mm;
@@ -327,8 +325,8 @@ figure img.fig ~ figcaption::before {
     text-align: left;
   }
   @top-right-corner {
-    background-color: var(--main-color);
-    color: var(--sub-color);
+    background-color: #333;
+    color: #fafafa;
     content: "";
     margin-bottom: 7mm;
     margin-top: -3mm;
@@ -336,7 +334,7 @@ figure img.fig ~ figcaption::before {
   }
   @bottom-center {
     border-top: 1px;
-    border-color: var(--main-color);
+    border-color: #333;
     content: counter(page);
     font-size: 0.8rem;
   }
@@ -396,8 +394,8 @@ figure img.fig ~ figcaption::before {
 }
 
 [role="doc-cover"] #cover-title {
-  color: var(--sub-color);
-  background-color: var(--main-color);
+  color: #fafafa;
+  background-color: #333;
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
@@ -452,8 +450,8 @@ figure img.fig ~ figcaption::before {
 
 /* doc-part */
 [role="doc-part"] {
-  background-color: var(--main-color);
-  color: var(--sub-color);
+  background-color: #333;
+  color: #fafafa;
   margin-right: -30%;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -474,8 +472,8 @@ figure img.fig ~ figcaption::before {
 /* doc-chapter */
 [role="doc-chapter"] h1.doc-chapter {
   font-size: 3rem;
-  background-color: var(--main-color);
-  color: var(--sub-color);
+  background-color: #333;
+  color: #fafafa;
   margin-top: -10%;
   padding-top: 4%;
   margin-left: -21%;
@@ -651,7 +649,7 @@ figure img.fig ~ figcaption::before {
     position: fixed;
     overflow: auto;
     color: #fff;
-    background: var(--main-color);
+    background: #333;
     padding: 0px 20px;
     margin-left: 0px;
     font-size: 0.9rem;
@@ -659,11 +657,11 @@ figure img.fig ~ figcaption::before {
 
   #menu a {
     text-decoration: none;
-    color: var(--sub-color);
+    color: #fafafa;
   }
 
   #menu a:visited {
-    color: var(--sub-color);
+    color: #fafafa;
   }
 
   #menu .menu-selected {
@@ -793,7 +791,7 @@ figure img.fig ~ figcaption::before {
     justify-content: center;
     align-items: center;
     z-index: 90;
-    background-color: var(--main-color);
+    background-color: #333;
   }
   .humburger-btn span,
   .humburger-btn span:before,
@@ -839,7 +837,7 @@ figure img.fig ~ figcaption::before {
     left: 100%;
     z-index: 80;
     transition: all 0.5s;
-    background-color: var(--main-color);
+    background-color: #333;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
