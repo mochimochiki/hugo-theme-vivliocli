@@ -9,9 +9,9 @@
     {{- range .Site.Params.theme_css -}}
     <link rel="stylesheet" href="{{ . | relURL }}">
     {{- end -}}
+    {{- partial "header.html" . -}}
   </head>
   <body>
-    {{- partial "header.html" . -}}
     <div id="content">
     {{- block "main" . }}{{- end }}
     </div>
