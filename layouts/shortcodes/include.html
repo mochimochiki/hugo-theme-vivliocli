@@ -1,0 +1,21 @@
+{{- $source := .Get 0 }}
+{{- $isMD := strings.HasSuffix $source "md" }}
+{{- $isCSV := strings.HasSuffix $source "csv" }}
+{{- if $isMD }}
+{{- $md := print "/_include/" $source }}
+{{ readFile $md | markdownify }}
+{{- else if $isCSV}}
+{{- $lang := .Site.Language.Lang }}
+{{- $csv := printf "../content/%s/_include/%s" $lang $source }}
+<table>
+  <tbody>
+    {{- range $i, $r := getCSV "," $csv }}
+    <tr>
+      {{ if eq $i 0}} {{range $r}} <th style="text-align: left"> {{ . }} </th>{{ end }}
+      {{ else }} {{range $r}} <td> {{ . }} </td>{{ end }}
+      {{- end }}
+    </tr>
+    {{- end }}
+  </tbody>
+</table>
+{{- end }}
