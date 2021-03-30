@@ -18,6 +18,9 @@ relativeURLs = true
     showIfs = ["@all-pages"]
     only_showIfs = false
     flat_toc = false
+    # sectionNumberLevel = 3
+    # sectionDelimiter = "-"
+    # sectionTopFormat = "Chapter %d"
 
 [languages]
   [languages.jp]
