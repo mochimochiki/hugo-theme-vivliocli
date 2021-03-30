@@ -1,4 +1,4 @@
-{{/* Return whether to display page/section  */}}
+{{/* Return whether to display page / section  */}}
 
 {{ $page := . }}
 {{ $ret := false }}
@@ -23,6 +23,10 @@
   {{ else }}
     {{ $ret = true }}
   {{ end }}
+{{ end }}
+
+{{ if or (or (eq $page.Type "vivlio_colophon") (eq $page.Type "vivlio_cover")) (eq $page.Type "vivlio_config") }}
+  {{ $ret = false }}
 {{ end }}
 
 {{ return $ret }}
