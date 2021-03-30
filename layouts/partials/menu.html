@@ -14,22 +14,17 @@
     {{- if ne $current.Site.Params.flat_toc true }}
     <ul>
     {{- end }}
-      {{- range $section.Sections.ByWeight }}
+      {{- range $section.Pages.ByWeight }}
         {{- if partial "functions/isShow" . }}
       <li><a href="{{ .RelPermalink }}" id="{{ if (eq . $current) }}menu-selected{{ end }}" class="{{ if (eq . $current) }}menu-selected{{ end }}">{{ .Title }}</a>
-          {{- if .IsAncestor $current }}
+          {{- if and (.IsAncestor $current) (.Page.IsSection) }}
             {{- template "menu-tree" (dict "section" . "current" $current) }}
           {{- end }}
         {{- else }}
-        {{- if $current.Site.Params.only_showIfs }}{{- template "menu-tree" (dict "section" . "current" $current) }}{{ end }}
+        {{- if and ($current.Site.Params.only_showIfs) (.Page.IsSection) }}{{- template "menu-tree" (dict "section" . "current" $current) }}{{ end }}
         {{- end }}
       {{- end }}
 
-      {{- range $section.RegularPages }}
-        {{- if partial "functions/isShow" . }}
-      <li><a href="{{ .RelPermalink }}" id="{{ if (eq . $current) }}menu-selected{{ end }}" class="{{ if (eq . $current) }}menu-selected{{ end }}">{{ .Title }}</a>
-        {{- end }}
-      {{- end }}
     {{- if ne $current.Site.Params.flat_toc true }}
     </ul>
     {{- end }}
