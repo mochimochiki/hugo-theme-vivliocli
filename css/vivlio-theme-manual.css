@@ -102,9 +102,12 @@ pre {
   line-height: 1.4;
 }
 
-ul,
-ol {
+ul, ol {
   padding-inline-start: 1.5em;
+}
+
+ol {
+  list-style-type: none;
 }
 
 /* -------------------- */
@@ -255,6 +258,16 @@ section {
 
 section article {
   counter-increment: subsection;
+}
+
+.sectionNo {
+  margin-right : 1rem;
+}
+
+/* toc part */
+a.doc-part {
+  font-weight: 900;
+  font-size: 1.7rem;
 }
 
 /* figure */
