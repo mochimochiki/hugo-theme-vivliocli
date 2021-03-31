@@ -1,5 +1,10 @@
 {{ define "main" }}
   {{- if ne .Site.Params.isPDF true }} {{ .TableOfContents }} {{- end }}
-  <h1><span class="sectionNo" >{{ partial "functions/getSectionNo" . }}</span> {{ .Title }}</h1>
+  <h1>
+    <span class="sectionNo" >
+      {{ partial "functions/getSectionNo" . }}
+    </span>
+    {{ .Title }}
+  </h1>
   {{ .Page.Content }}
 {{ end }}

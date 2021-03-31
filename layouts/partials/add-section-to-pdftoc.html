@@ -3,21 +3,21 @@
 {{- with .Site.Params.sectionDelimiter }}{{ $d = . }}{{ end }}
 {{- $currentLevel := (len (split $sectionString $d)) }}
 {{- $settingLevel := .Site.Params.sectionNumberLevel }}
-{{- if $settingLevel }}
+{{- if and $settingLevel .IsPage }}
 <style>
   h1 {
     counter-reset: section;
   }
   {{- if gt $settingLevel $currentLevel }}
-  h2[id^="pdftoc-"]::before {
+  h2::before {
     counter-increment: section;
     content: "{{ $sectionString }}" "{{$d}}" counter(section) " ";
   }
-  h2[id^="pdftoc-"] {
+  h2 {
     counter-reset: sub-section;
   }
     {{- if gt $settingLevel (add $currentLevel 1) }}
-    h3[id^="pdftoc-"]::before {
+    h3::before {
       counter-increment: sub-section;
       content: "{{ $sectionString }}" "{{$d}}" counter(section) "{{$d}}" counter(sub-section) " ";
     }

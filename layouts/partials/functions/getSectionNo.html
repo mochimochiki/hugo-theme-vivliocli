@@ -5,23 +5,16 @@
   {{- $section := .section }}
   {{- $current := .current }}
   {{- $isPDFRoot := false}}
-  {{ $i := 0 }}
   {{- range $section.Pages.ByWeight }}
     {{- if (eq .Type "vivlio_config") }}
       {{ $isPDFRoot = true }}
     {{- end }}
-    {{- if partial "functions/isShow" . }}
-      {{ $i = (add $i 1) }}
-      {{ if and (eq . $current) .IsPage }}
-        {{ $current.Scratch.Add "sectionSlice" (slice $i) }}
-      {{ end }}
-    {{ end }}
   {{- end }}
   {{ $no := 0 }}
   {{- range $section.Pages.ByWeight }}
     {{- if partial "functions/isShow" . }}
       {{ $no = (add $no 1) }}
-      {{- if and (.IsAncestor $current) (.Page.IsSection) }}
+      {{- if and (.IsAncestor $current) }}
         {{ $sectionNo := $current.Scratch.Get "sectionSlice" }}
         {{ if or $isPDFRoot (len $sectionNo) }}
           {{ $current.Scratch.Add "sectionSlice" (slice $no) }}

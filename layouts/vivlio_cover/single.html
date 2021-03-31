@@ -62,11 +62,16 @@
     {{- $a := printf "..%s" $url.Path }}
     {{- if ne .IsSection true }}
       {{/* https://nasust.com/hugo/a1fe8f73-9e3f-4fa3-89c2-a5de90806121 */}}
-      <a {{ printf "href=%q" $a | safeHTMLAttr }}>{{ .Title }}</a>
+      <a {{ printf "href=%q" $a | safeHTMLAttr }}>
+        <span class="sectionNo">
+          {{ partial "functions/getSectionNo" . }}
+        </span>
+        {{ .Title }}
+      </a>
       {{- template "pagetoc" . }}
     {{- end }}
     {{- if .IsSection }}
-      <a {{ printf "href=%q" $a | safeHTMLAttr }} {{- if .Params.role }} class="{{ .Params.role }}" {{- end }}>{{ .Title }}</a>
+      <a {{ printf "href=%q" $a | safeHTMLAttr }} {{- if .Params.role }} class="{{ .Params.role }}" {{- end }}><span class="sectionNo">{{ partial "functions/getSectionNo" . }}</span>  {{ .Title }}</a>
       {{- template "pagetoc" . }}
     {{- template "section_hierarchy" . }}
     {{- end -}}
