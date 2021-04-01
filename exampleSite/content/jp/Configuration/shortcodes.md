@@ -61,9 +61,9 @@ hugo-theme-vivliocli テーマで使用できるショートコードの一覧�
 Markdownファイル、csvファイルの「部品」を用意しておき、原稿の任意の箇所に「挿し込む」事ができます。部品ファイルを`/content/<language>/_include`以下に配置しておけば、以下のショートコードでincludeすることができます。
 
 ```bash
-{{</* include "test.md"  */>}} # include /content/jp/_include/test.md
-{{</* include "/sample/sample.md" */>}} # include /content/jp/_include/sample/sample.md
-{{</* include "test.csv"  */>}} # include /content/jp/_include/test.csv
+{{</* include "test.md"  */>}} # /content/jp/_include/test.md
+{{</* include "/sample/sample.md" */>}} # /content/jp/_include/sample/sample.md
+{{</* include "test.csv"  */>}} # /content/jp/_include/test.csv
 ```
 
 {{% note %}}
