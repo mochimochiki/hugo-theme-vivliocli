@@ -11,23 +11,16 @@
     {{- define "menu-tree" }}
     {{- $section := .section }}
     {{- $current := .current }}
-    {{- if ne $current.Site.Params.flat_toc true }}
     <ul>
-    {{- end }}
       {{- range $section.Pages.ByWeight }}
         {{- if partial "functions/isShow" . }}
       <li><a href="{{ .RelPermalink }}" id="{{ if (eq . $current) }}menu-selected{{ end }}" class="{{ if (eq . $current) }}menu-selected{{ end }}">{{ .Title }}</a>
           {{- if and (.IsAncestor $current) (.Page.IsSection) }}
             {{- template "menu-tree" (dict "section" . "current" $current) }}
           {{- end }}
-        {{- else }}
-        {{- if and ($current.Site.Params.only_showIfs) (.Page.IsSection) }}{{- template "menu-tree" (dict "section" . "current" $current) }}{{ end }}
         {{- end }}
       {{- end }}
-
-    {{- if ne $current.Site.Params.flat_toc true }}
     </ul>
-    {{- end }}
     {{- end }}
     <section id="menu-footer">
       {{ partial "menu-footer.html" . }}

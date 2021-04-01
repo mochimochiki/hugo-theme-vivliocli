@@ -18,11 +18,7 @@
     {{ end }}
   {{ end }}
 {{ else }}
-  {{ if .Site.Params.only_showIfs }}
-    {{ $ret = false }}
-  {{ else }}
-    {{ $ret = true }}
-  {{ end }}
+  {{ $ret = true }}
 {{ end }}
 
 {{ if or (or (eq $page.Type "vivlio_colophon") (eq $page.Type "vivlio_cover")) (eq $page.Type "vivlio_config") }}

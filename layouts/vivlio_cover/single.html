@@ -22,9 +22,7 @@
     {{- if .Params.author }}<div id="cover-author"><h2>{{ .Params.author }}</h2></div>{{- end }}
     {{- if .Params.company }}<h3>{{ .Params.company }}</h3>{{- end }}
   </div>
-
-
-
+  {{/*  introduction  */}}
   {{- if .Page.Content }}
   <div role="doc-introduction">
   {{ .Page.Content }}
@@ -32,24 +30,18 @@
   {{- end }}
 
 
-
+{{/*  Table of Contents  */}}
 {{- if .Params.toc }}
 <nav id="toc" role="doc-toc">
 <h2>Table of Contents</h2>
-{{- if .Site.Params.flat_toc}}
-<ol>
-{{ template "section_flat" .CurrentSection }}
-</ol>
-{{- else }}
 {{ template "section_hierarchy" .CurrentSection }}
-{{- end }}
 </nav>
 {{- end }}
 </body>
 </html>
 
 
-
+{{/*  Table of Contents hierarchy  */}}
 {{- define "section_hierarchy" }}
 {{- $sectionPageCount := len .Pages }}
 {{- if ne $sectionPageCount 0 -}}
@@ -76,38 +68,11 @@
     {{- template "section_hierarchy" . }}
     {{- end -}}
   </li>
-  {{- else }}
-    {{- if .Site.Params.only_showIfs }}{{- if .IsSection }}{{ template "section_hierarchy" . }}{{ end }}{{end}}
   {{- end }}
   {{- end }}
 </ol>
 {{- end }}
 {{- end }}
-
-
-{{- define "section_flat" }}
-{{- $sectionPageCount := len .Pages }}
-{{- if ne $sectionPageCount 0 -}}
-{{- range .Pages.ByWeight }}
-{{- if partial "functions/isShow" . }}
-<li>
-  {{/* 日本語文字化け対策： https://discourse.gohugo.io/t/how-decode-urls-in-hugo/7549 */}}
-  {{- $url := urls.Parse (.RelPermalink | urlize) }}
-  {{- $a := printf "..%s" $url.Path }}
-  {{/* https://nasust.com/hugo/a1fe8f73-9e3f-4fa3-89c2-a5de90806121 */}}
-  <a {{ printf "href=%q" $a | safeHTMLAttr }}>{{ .Title }}</a>
-  {{- template "pagetoc" . }}
-</li>
-  {{- if .IsSection }}
-  {{- template "section_flat" . }}
-  {{- end -}}
-{{- else }}
-  {{- if .Site.Params.only_showIfs }}{{- if .IsSection }}{{ template "section_flat" . }}{{ end }}{{end}}
-{{- end }}
-{{- end }}
-{{- end }}
-{{- end }}
-
 
 {{/* "#pdftoc-xxx"IDを含むヘッダからPDF目次を生成  */}}
 {{- define "pagetoc" }}

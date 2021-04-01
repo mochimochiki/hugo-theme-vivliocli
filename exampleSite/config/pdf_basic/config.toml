@@ -7,5 +7,3 @@ publishDir = "public_pdf_basic"
     #"/css/vivlio-theme-manual-bookoption.css" # add book style (consider left/right page)
     ]
   showIfs = ["basic"]
-  only_showIfs = true
-  flat_toc = true
