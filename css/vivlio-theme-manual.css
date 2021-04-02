@@ -66,6 +66,15 @@ h6 {
   margin-bottom: 0rem;
   font-size: 0.85rem;
 }
+h2:hover .header-anchor, 
+h3:hover .header-anchor,
+h4:hover .header-anchor {
+  display: inline;
+  color: #e8e8e8;
+}
+.header-anchor {
+  display: none;
+}
 
 /* -------------------- */
 /* text                 */
