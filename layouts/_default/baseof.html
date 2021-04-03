@@ -9,7 +9,6 @@
     {{- range .Site.Params.theme_css -}}
     <link rel="stylesheet" href="{{ . | relURL }}">
     {{- end -}}
-    {{- partial "add-section-to-pdftoc.html" . }}
     {{- partial "header.html" . -}}
   </head>
   <body>

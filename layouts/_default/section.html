@@ -1,8 +1,9 @@
 {{ define "main" }}
 {{- if .Params.role }}<div role="{{ .Params.role }}">{{- end }}
+{{- $sectionNo := partial "functions/getSectionNo" . }}
 <h1 {{- if .Params.role }} class="{{ .Params.role }}" {{- end }}>
   <span class="sectionNo">
-    {{ partial "functions/getSectionNo" . }}
+    {{ $sectionNo }}
   </span>
   {{ .Title }}
 </h1>

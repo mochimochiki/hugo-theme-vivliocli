@@ -28,8 +28,7 @@
 {{- end }}
 
 {{/*  delimiter  */}}
-{{ $delimiter := "." }}
-{{ with .Site.Params.sectionDelimiter }}{{ $delimiter =  . }}{{ end }}
+{{ $delimiter := .Site.Params.sectionDelimiter | default "." }}
 
 {{ $sectionSlice := $scratch.Get "sectionSlice" }}
 {{ $ret := "" }}
