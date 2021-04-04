@@ -1,7 +1,13 @@
 {{ define "main" }}
-  {{- if ne .Site.Params.isPDF true }} {{ .TableOfContents }} {{- end }}
   {{- $sectionNo := partial "functions/getSectionNo" . }}
-  <h1><span class="sectionNo" >{{ $sectionNo }}</span>{{ .Title }}</h1>
+  <h1>{{ $sectionNo }} {{ .Title }}</h1>
 
-  {{- partial "content-with-section.html" (dict "sectionNo" $sectionNo "page" .Page ) }}
+  {{- $content := partial "content-with-section.html" (dict "sectionNo" $sectionNo "page" .Page ) }}
+  {{- .Scratch.Set "Content" $content }}
+  {{- if ne .Site.Params.isPDF true }}
+    {{ partial "page-toc.html" . }}
+    {{/* add anchor next to header */}}
+    {{- $content = $content | replaceRE "(<h[1-6].*? id=\"(.+)\".*>)(.*)(</h[1-6]>)" `${1}${3}<a class="header-anchor" href="#${2}">¶</a>${4}` | safeHTML }}
+  {{- end }}
+  {{ $content }}
 {{ end }}

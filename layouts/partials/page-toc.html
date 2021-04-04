@@ -1,0 +1,38 @@
+{{- $Content := .Scratch.Get "Content" -}}
+{{- /* (?:.|\n) : 後方参照不要なグループ化 . or \n */ -}}
+{{- $pattern := `<h([23]).*?id="(.+?)".*?>((?:.|\n)*?)</h[23]>` -}}
+{{- $headers := findRE $pattern $Content -}}
+{{- $scratch := newScratch -}}
+{{- $scratch.Set "prev_level" 0 -}}
+<nav id="TableOfContents">
+    <ul>
+        {{- range $headers -}}
+            {{- $level := . | replaceRE $pattern `$1` -}}
+            {{- $id := . | replaceRE $pattern `$2` -}}
+            {{- $header := . | replaceRE $pattern `$3` | safeHTML -}}
+            {{/* {{- partial "log" (printf "%s" $header ) }} */}}
+            {{- $prev_level := $scratch.Get "prev_level" -}}
+            {{- if eq $level `2` -}}
+                {{- if eq $prev_level `2` -}}
+                    </li>
+                {{- else if eq $prev_level `3` -}}
+                    </ul></li>
+                {{- end -}}
+                <li><a href="#{{ $id }}">{{ $header }}</a>
+            {{- else if eq $level `3` -}}
+                {{- if eq $prev_level `2` -}}
+                    <ul>
+                {{- end -}}
+                <li><a href="#{{ $id }}">{{ $header }}</a></li>
+            {{- end -}}
+            {{- $scratch.Set "prev_level" $level -}}
+        {{- end -}}
+
+        {{- $prev_level := $scratch.Get "prev_level" -}}
+        {{- if eq $prev_level `2` -}}
+            </li>
+        {{- else if eq $prev_level `3` -}}
+            </ul></li>
+        {{- end -}}
+    </ul>
+</nav>
