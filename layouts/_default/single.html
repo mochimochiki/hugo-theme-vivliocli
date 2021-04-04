@@ -1,8 +1,8 @@
 {{ define "main" }}
   {{- $sectionNo := partial "functions/getSectionNo" . }}
   <h1>{{ $sectionNo }} {{ .Title }}</h1>
-
-  {{- $content := partial "content-with-section.html" (dict "sectionNo" $sectionNo "page" .Page ) }}
+  {{- $sectionNoRaw := partial "functions/getSectionNoRaw" . }}
+  {{- $content := partial "content-with-section.html" (dict "sectionNo" $sectionNoRaw "page" .Page ) }}
   {{- .Scratch.Set "Content" $content }}
   {{- if ne .Site.Params.isPDF true }}
     {{ partial "page-toc.html" $content }}

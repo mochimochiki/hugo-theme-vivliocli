@@ -1,0 +1,45 @@
+{{ $scratch := newScratch }}
+{{ $scratch.Set "sectionSlice" slice }}
+{{- template "section-tree" (dict "section" .Site.Home "current" . "scratch" $scratch) }}
+
+{{- define "section-tree" }}
+  {{- $section := .section }}
+  {{- $current := .current }}
+  {{- $scratch := .scratch }}
+  {{- $isPDFRoot := false}}
+  {{- range $section.Pages.ByWeight }}
+    {{- if (eq .Type "vivlio_config") }}
+      {{ $isPDFRoot = true }}
+    {{- end }}
+  {{- end }}
+  {{ $no := 0 }}
+  {{- range $section.Pages.ByWeight }}
+    {{- if partial "functions/isShow" . }}
+      {{ $no = (add $no 1) }}
+      {{- if and (.IsAncestor $current) }}
+        {{ $sectionNo := $scratch.Get "sectionSlice" }}
+        {{ if or $isPDFRoot (len $sectionNo) }}
+          {{ $scratch.Add "sectionSlice" (slice $no) }}
+        {{ end }}
+        {{- template "section-tree" (dict "section" . "current" $current "scratch" $scratch) }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{/*  delimiter  */}}
+{{ $delimiter := .Site.Params.sectionDelimiter | default "." }}
+
+{{ $sectionSlice := $scratch.Get "sectionSlice" }}
+{{ $ret := "" }}
+{{ if .Site.Params.sectionNumberLevel }}
+  {{/*  Level設定より深ければ表示しない  */}}
+  {{ if gt (len $sectionSlice) .Site.Params.sectionNumberLevel }}
+    {{ $ret = "" }}
+  {{/* 通常のフォーマット */}}
+  {{ else }}
+    {{ $ret = delimit $sectionSlice $delimiter }}
+  {{ end }}
+{{ end }}
+
+{{ return $ret }}
