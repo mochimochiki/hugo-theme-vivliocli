@@ -22,6 +22,8 @@
             {{- else if eq $level `3` -}}
                 {{- if eq $prev_level `2` -}}
                     <ul>
+                {{- else if eq $prev_level 0 -}}
+                    <li><ul>
                 {{- end -}}
                 <li><a href="#{{ $id }}">{{ $header }}</a></li>
             {{- end -}}
