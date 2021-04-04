@@ -1,4 +1,4 @@
-{{- $Content := .Scratch.Get "Content" -}}
+{{- $Content := . -}}
 {{- /* (?:.|\n) : 後方参照不要なグループ化 . or \n */ -}}
 {{- $pattern := `<h([23]).*?id="(.+?)".*?>((?:.|\n)*?)</h[23]>` -}}
 {{- $headers := findRE $pattern $Content -}}

@@ -54,8 +54,9 @@
     {{- $a := printf "..%s" $url.Path }}
     {{- if ne .IsSection true }}
       {{/* https://nasust.com/hugo/a1fe8f73-9e3f-4fa3-89c2-a5de90806121 */}}
-      <a {{ printf "href=%q" $a | safeHTMLAttr }}>{{ partial "functions/getSectionNo" . }} {{ .Title }}</a>
-      {{- template "pagetoc" . }}
+      {{- $sectionNo := partial "functions/getSectionNo" . }}
+      <a {{ printf "href=%q" $a | safeHTMLAttr }}>{{ $sectionNo }} {{ .Title }}</a>
+      {{- template "pagetoc" (dict "sectionNo" $sectionNo "page" .Page ) }}
     {{- end }}
     {{- if .IsSection }}
       <a {{ printf "href=%q" $a | safeHTMLAttr }} {{- if .Params.role }} class="{{ .Params.role }}" {{- end }}>{{ partial "functions/getSectionNo" . }} {{ .Title }}</a>
@@ -70,15 +71,18 @@
 
 {{/* "#pdftoc-xxx"IDを含むヘッダからPDF目次を生成  */}}
 {{- define "pagetoc" }}
-{{- $url := urls.Parse (.RelPermalink | urlize) }}
+{{- $page := .page }}
+{{- $sectionNo := .sectionNo }}
+{{- $url := urls.Parse ($page.RelPermalink | urlize) }}
 {{- $a := printf "..%s#pdftoc-" $url.Path }}
 {{- $pagelink := newScratch }}
 {{- $pagelink.Set "link" $a }}
-{{- $toc := .TableOfContents | replaceRE "<nav id=.+>" "" | replaceRE "</nav>" "" | safeHTML }}
+{{- $content := partial "content-with-section.html" (dict "sectionNo" $sectionNo "page" $page ) }}
+{{- $toc := (partial "page-toc.html" $content) | replaceRE "<nav id=.+?>" "" | replaceRE "</nav>" "" | safeHTML }}
 {{- $toc = $toc | replaceRE "<ul>" "<ol>" | replaceRE "</ul>" "</ol>" | safeHTML}}
 {{- $toc = $toc | replaceRE "#pdftoc-" ($pagelink.Get "link") | safeHTML}}
 {{/* #pdftoc-xxx以外のヘッダ行を削除し、不要なolタグを消す  */}}
-{{- $toc = $toc | replaceRE "<a href=.#.+>.*</a>" "" | safeHTML}}
+{{- $toc = $toc | replaceRE "<a href=.#.*?>.*?</a>" "" | safeHTML}}
 {{- range $val := seq 6 }}
 {{- $toc = $toc | replaceRE "(?m)(?s:<li>[[:space:]]*</li>)" "" | safeHTML }}
 {{- $toc = $toc | replaceRE "(?m)(?s:<ol>[[:space:]]*</ol>)" "" | safeHTML }}
