@@ -49,3 +49,24 @@ ShowIf: ["edition3"]
 ```
 
 詳しくは [エディション](./edition.html) も参照してください。
+
+### sectionNumberLevel
+
+`pdfconfig.md` をルートとして各記事に章・節版号を付加するレベルを指定します。0の場合章番号の付加は行われません。
+
+### sectionDelimiter
+
+`sectionNumberLevel >= 2` の場合の章・節番号のデリミタを指定します。設定されていない場合`.`がデリミタとなります。
+
+### sectionTopFormat
+
+トップレベルのセクションの番号をフォーマットすることができます。フォーマット中に`%d`を1つ指定してください。その位置にセクション番号が挿入されます。言語ごとに変更することも可能です。
+
+例)`sectionTopFormat = "Chapter %d"`
+
+```
+[languages.jp.params]
+sectionTopFormat = "第%d章"
+[languages.en.params]
+sectionTopFormat = "Chapter %d"
+```
