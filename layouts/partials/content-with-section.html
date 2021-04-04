@@ -8,7 +8,7 @@
 {{- $content := $page.Content }}
 
 {{/* pageLevel < settingLevel の場合h2に章番号を付加 */}}
-{{- if lt $pageLevel $settingLevel }}
+{{- if and (lt $pageLevel $settingLevel) ($section) }}
   {{- $h2List := findRE "<h2.*?>(.|\n)*?</h2>" $content }}
   {{- $i := 0 }}
   {{- range $h2List }}
