@@ -6,6 +6,8 @@
 {{- $pageLevel := (len (split $section $d)) }}
 {{- $settingLevel := $page.Site.Params.sectionNumberLevel | default 0 }}
 {{- $content := $page.Content }}
+{{/* add anchor next to header */}}
+{{- $content = $content | replaceRE "(<h[1-6].*? id=\"(.+)\".*>)(.*)(</h[1-6]>)" `${1}${3}<a class="header-anchor" href="#${2}">¶</a>${4}` | safeHTML }}
 
 {{/* pageLevel < settingLevel の場合h2に章番号を付加 */}}
 {{- if lt $pageLevel $settingLevel }}
@@ -14,11 +16,11 @@
   {{- range $h2List }}
     {{- $i = add $i 1 }}
     {{- $h2section := (printf "%s%s%d" $section $d $i) }}
-    {{- $replaced := . | replaceRE "(<h2.*?>)((.|\n)*?</h2>)" (printf "${1}%s ${2}" $h2section) }}
-    {{- $content = $content | replaceRE . $replaced | safeHTML }}
+    {{- $h2replaced := . | replaceRE "(<h2.*?>)((.|\n)*?</h2>)" (printf "${1}%s ${2}" $h2section) }}
+    {{- $content = $content | replaceRE . $h2replaced | safeHTML }}
     {{- if lt (add $pageLevel 1) $settingLevel }}
       {{/* h2 - Next h2/EOF までの間にある h3 について章番号付加 */}}
-      {{- $h2content := $content | findRE (printf "%s(.|\n)*?(<h2.*?>|\\z)" $replaced) }}
+      {{- $h2content := $content | findRE (printf "%s(.|\n)*?(<h2.*?>|\\z)" $h2replaced) }}
       {{- $h3List := findRE "<h3.*?>(.|\n)*?</h3>" (index $h2content 0) }}
       {{- $j := 0 }}
       {{- range $h3List }}

@@ -7,6 +7,9 @@
   </span>
   {{ .Title }}
 </h1>
-{{ .Page.Content }}
+{{- $content := .Page.Content }}
+{{/* add anchor next to header */}}
+{{- $content = $content | replaceRE "(<h[1-6].*? id=\"(.+)\".*>)(.*)(</h[1-6]>)" `${1}${3}<a class="header-anchor" href="#${2}">¶</a>${4}` | safeHTML }}
+{{ $content }}
 {{- if .Params.role }}</div>{{- end }}
 {{ end }}
