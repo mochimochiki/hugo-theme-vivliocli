@@ -214,5 +214,5 @@ vivliostyle build -c .\public_pdf_sample\jp\myPDF.js
 ## NextStep
 
 * PDFの表紙や奥付をカスタマイズするには...[config.tomlの設定](../Configuration/config.html)
-* 複数のエディションや、記事を抜き出した抜粋PDFを作るには...[エディション](../Configuration/edition.html)
-* 記事中の章をPDF目次に表示するには...[各記事のヘッダをPDF目次に表示する](../Configuration/frontmatter.html#各記事のヘッダをPDF目次に表示する)
+* 複数のエディションを作るには...[エディション](../Configuration/edition.html)
+
