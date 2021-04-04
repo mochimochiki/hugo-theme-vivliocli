@@ -70,7 +70,7 @@
 {{- end }}
 {{- end }}
 
-{{/* "#pdftoc-xxx"IDを含むヘッダからPDF目次を生成  */}}
+{{/* "pdftoc" classを含むヘッダからPDF目次を生成  */}}
 {{- define "pagetoc" }}
 {{- $page := .page }}
 {{- $sectionNo := .sectionNo }}
@@ -82,7 +82,7 @@
 {{- $toc := (partial "page-toc.html" $content) | replaceRE "<nav id=.+?>" "" | replaceRE "</nav>" "" | safeHTML }}
 {{- $toc = $toc | replaceRE "<ul>" "<ol>" | replaceRE "</ul>" "</ol>" | safeHTML}}
 {{- $toc = $toc | replaceRE `(\")#(.*?\".*?class=\"pdftoc\")` (printf "${1}%s${2}" ($pagelink.Get "link")) | safeHTML}}
-{{ partial "log" $toc }}
+{{/*  {{ partial "log" $toc }}  */}}
 {{/* #pdftoc-xxx以外のヘッダ行を削除し、不要なolタグを消す  */}}
 {{- $toc = $toc | replaceRE "<a href=.#.*?>(?:.|\n)*?</a>" "" | safeHTML}}
 {{- range $val := seq 6 }}
