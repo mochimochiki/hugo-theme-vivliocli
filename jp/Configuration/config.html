@@ -8,8 +8,8 @@
 title: edition3の説明
 ShowIf: [&quot;edition3&quot;]
 ---
-</code></pre><p>詳しくは <a href=./edition.html>エディション</a> も参照してください。</p><h3 id=sectionnumberlevel>sectionNumberLevel<a class=header-anchor href=#sectionnumberlevel>¶</a></h3><p><code>pdfconfig.md</code> をルートとして各記事に章・節版号を付加するレベルを指定します。0の場合章番号の付加は行われません。</p><h3 id=sectiondelimiter>sectionDelimiter<a class=header-anchor href=#sectiondelimiter>¶</a></h3><p><code>sectionNumberLevel >= 2</code> の場合の章・節番号のデリミタを指定します。設定されていない場合<code>.</code>がデリミタとなります。</p><h3 id=sectiontopformat>sectionTopFormat<a class=header-anchor href=#sectiontopformat>¶</a></h3><p>トップレベルのセクションの番号をフォーマットすることができます。フォーマット中に<code>%d</code>を1つ指定してください。その位置にセクション番号が挿入されます。言語ごとに変更することも可能です。</p><p>例)<code>sectionTopFormat = "Chapter %d"</code></p><pre><code>[languages.jp.params]
-sectionTopFormat = &quot;第%d章&quot;
+</code></pre><p>詳しくは <a href=./edition.html>エディション</a> も参照してください。</p><h3 id=sectionnumberlevel>sectionNumberLevel<a class=header-anchor href=#sectionnumberlevel>¶</a></h3><p><code>pdfconfig.md</code> をルートとして各記事に章・節版号を付加するレベルを指定します。0の場合章番号の付加は行われません。</p><h3 id=sectiondelimiter>sectionDelimiter<a class=header-anchor href=#sectiondelimiter>¶</a></h3><p><code>sectionNumberLevel >= 2</code> の場合の章・節番号のデリミタを指定します。設定されていない場合<code>.</code>がデリミタとなります。</p><h3 id=sectiontopformat>sectionTopFormat<a class=header-anchor href=#sectiontopformat>¶</a></h3><p>トップレベルのセクションの番号をフォーマットすることができます。フォーマット中に<code>%s</code>を1つ指定してください。その位置にセクション番号が挿入されます。言語ごとに変更することも可能です。</p><p>例)<code>sectionTopFormat = "Chapter %s"</code></p><pre><code>[languages.jp.params]
+sectionTopFormat = &quot;第%s章&quot;
 [languages.en.params]
-sectionTopFormat = &quot;Chapter %d&quot;
+sectionTopFormat = &quot;Chapter %s&quot;
 </code></pre></div><script src=../../js/menuscroll.js></script></body></html>
