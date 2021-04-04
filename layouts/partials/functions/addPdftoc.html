@@ -1,0 +1,8 @@
+{{/* header要素を受け取り、pdftocクラスを足す */}}
+{{- if . | findRE `class=".*?pdftoc.*?"`}}
+  {{ . | safeHTML }}
+{{- else if . | findRE `class=".*?"` }}
+  {{ . | replaceRE `(<h[23].*?)class="(.*?)"(.*?>)` `${1}class="${2} pdftoc" ${3}` | safeHTML }}
+{{- else }}
+  {{ . | replaceRE `(<h[23])(.*?>)` `${1} class="pdftoc" ${2}` | safeHTML }}
+{{- end }}

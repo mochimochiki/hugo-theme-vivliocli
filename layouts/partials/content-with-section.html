@@ -15,6 +15,7 @@
     {{- $i = add $i 1 }}
     {{- $h2section := (printf "%s%s%d" $section $d $i) }}
     {{- $h2replaced := . | replaceRE "(<h2.*?>)((.|\n)*?</h2>)" (printf "${1}%s ${2}" $h2section) }}
+    {{- $h2replaced = partial "functions/addPdftoc" $h2replaced }}
     {{- $content = (replace $content . $h2replaced) | safeHTML }}
     {{- if lt (add $pageLevel 1) $settingLevel }}
       {{/* h2 - Next h2/EOF までの間にある h3 について章番号付加 */}}
@@ -25,6 +26,7 @@
         {{- $j = add $j 1 }}
         {{- $h3section := (printf "%s%s%d" $h2section $d $j) }}
         {{- $h3replaced := . | replaceRE "(<h3.*?>)((.|\n)*?</h3>)" (printf "${1}%s ${2}" $h3section) }}
+        {{- $h3replaced = partial "functions/addPdftoc" $h3replaced }}
         {{- $content = $content | replaceRE . $h3replaced | safeHTML }}
       {{- end }}
       {{/*  {{- partial "log" (printf "%s" $h2content)}}  */}}
