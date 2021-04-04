@@ -19,14 +19,22 @@
                 {{- else if eq $prev_level `3` -}}
                     </ul></li>
                 {{- end -}}
+                {{- if . | findRE "class=.*?pdftoc.*?" }}
+                <li><a href="#{{ $id }}" class="pdftoc">{{ $header }}</a>
+                {{- else }}
                 <li><a href="#{{ $id }}">{{ $header }}</a>
+                {{- end }}
             {{- else if eq $level `3` -}}
                 {{- if eq $prev_level `2` -}}
                     <ul>
                 {{- else if eq $prev_level 0 -}}
                     <li><ul>
                 {{- end -}}
-                <li><a href="#{{ $id }}">{{ $header }}</a></li>
+                {{- if . | findRE "class=.*?pdftoc.*?" }}
+                <li><a href="#{{ $id }}" class="pdftoc">{{ $header }}</a>
+                {{- else }}
+                <li><a href="#{{ $id }}">{{ $header }}</a>
+                {{- end }}
             {{- end -}}
             {{- $scratch.Set "prev_level" $level -}}
         {{- end -}}

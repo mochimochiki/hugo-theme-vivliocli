@@ -74,13 +74,14 @@
 {{- $page := .page }}
 {{- $sectionNo := .sectionNo }}
 {{- $url := urls.Parse ($page.RelPermalink | urlize) }}
-{{- $a := printf "..%s#pdftoc-" $url.Path }}
+{{- $a := printf "..%s#" $url.Path }}
 {{- $pagelink := newScratch }}
 {{- $pagelink.Set "link" $a }}
 {{- $content := partial "content-with-section.html" (dict "sectionNo" $sectionNo "page" $page ) }}
 {{- $toc := (partial "page-toc.html" $content) | replaceRE "<nav id=.+?>" "" | replaceRE "</nav>" "" | safeHTML }}
 {{- $toc = $toc | replaceRE "<ul>" "<ol>" | replaceRE "</ul>" "</ol>" | safeHTML}}
-{{- $toc = $toc | replaceRE "#pdftoc-" ($pagelink.Get "link") | safeHTML}}
+{{- $toc = $toc | replaceRE `(\")#(.*?\".*?class=\"pdftoc\")` (printf "${1}%s${2}" ($pagelink.Get "link")) | safeHTML}}
+{{ partial "log" $toc }}
 {{/* #pdftoc-xxx以外のヘッダ行を削除し、不要なolタグを消す  */}}
 {{- $toc = $toc | replaceRE "<a href=.#.*?>(?:.|\n)*?</a>" "" | safeHTML}}
 {{- range $val := seq 6 }}
