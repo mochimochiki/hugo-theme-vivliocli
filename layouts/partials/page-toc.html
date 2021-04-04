@@ -10,7 +10,8 @@
             {{- $level := . | replaceRE $pattern `$1` -}}
             {{- $id := . | replaceRE $pattern `$2` -}}
             {{- $header := . | replaceRE $pattern `$3` | safeHTML -}}
-            {{/* {{- partial "log" (printf "%s" $header ) }} */}}
+            {{- $header = partial "functions/removeTag" $header }}
+            {{/*  {{- partial "log" (printf "%s" $header ) }}  */}}
             {{- $prev_level := $scratch.Get "prev_level" -}}
             {{- if eq $level `2` -}}
                 {{- if eq $prev_level `2` -}}
