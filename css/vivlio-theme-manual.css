@@ -269,9 +269,6 @@ section article {
   counter-increment: subsection;
 }
 
-.sectionNo {
-  margin-right : 1rem;
-}
 
 /* toc part */
 a.doc-part {
