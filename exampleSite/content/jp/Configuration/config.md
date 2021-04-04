@@ -60,13 +60,13 @@ ShowIf: ["edition3"]
 
 ### sectionTopFormat
 
-トップレベルのセクションの番号をフォーマットすることができます。フォーマット中に`%d`を1つ指定してください。その位置にセクション番号が挿入されます。言語ごとに変更することも可能です。
+トップレベルのセクションの番号をフォーマットすることができます。フォーマット中に`%s`を1つ指定してください。その位置にセクション番号が挿入されます。言語ごとに変更することも可能です。
 
-例)`sectionTopFormat = "Chapter %d"`
+例)`sectionTopFormat = "Chapter %s"`
 
 ```
 [languages.jp.params]
-sectionTopFormat = "第%d章"
+sectionTopFormat = "第%s章"
 [languages.en.params]
-sectionTopFormat = "Chapter %d"
+sectionTopFormat = "Chapter %s"
 ```
