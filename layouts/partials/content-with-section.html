@@ -15,7 +15,7 @@
     {{- $i = add $i 1 }}
     {{- $h2section := (printf "%s%s%d" $section $d $i) }}
     {{- $h2replaced := . | replaceRE "(<h2.*?>)((.|\n)*?</h2>)" (printf "${1}%s ${2}" $h2section) }}
-    {{- $content = $content | replaceRE . $h2replaced | safeHTML }}
+    {{- $content = (replace $content . $h2replaced) | safeHTML }}
     {{- if lt (add $pageLevel 1) $settingLevel }}
       {{/* h2 - Next h2/EOF までの間にある h3 について章番号付加 */}}
       {{- $h2content := $content | findRE (printf "%s(.|\n)*?(<h2.*?>|\\z)" $h2replaced) }}
@@ -31,5 +31,5 @@
     {{- end }}
   {{- end }}
 {{- end }}
-{{- return $content }}
+{{ $content }}
 
