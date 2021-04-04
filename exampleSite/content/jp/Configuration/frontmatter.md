@@ -43,7 +43,7 @@ $$
 
 ## 各記事のヘッダをPDF目次に表示する
 
-各記事のヘッダは通常[sectionNoLevel](./config.html#sectionNoLevel)で指定したレベルまで表示されます。指定したレベルより下のレベルでも、以下のように`pdftoc`クラスを付加することでそのヘッダをPDFの目次及びしおりに出力できます。
+各記事のヘッダは通常[sectionNumberLevel](./config.html#sectionNumberLevel)で指定したレベルまで表示されます。指定したレベルより下のレベルでも、以下のように`pdftoc`クラスを付加することでそのヘッダをPDFの目次及びしおりに出力できます。
 
 ```md
 ## 基本 {.pdftoc}
