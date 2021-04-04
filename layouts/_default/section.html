@@ -3,8 +3,10 @@
 {{- $sectionNo := partial "functions/getSectionNo" . }}
 <h1 {{- if .Params.role }} class="{{ .Params.role }}" {{- end }}>{{ $sectionNo }} {{ .Title }}</h1>
 {{- $content := .Page.Content }}
-{{/* add anchor next to header */}}
-{{- $content = $content | replaceRE "(<h[1-6].*? id=\"(.+)\".*>)(.*)(</h[1-6]>)" `${1}${3}<a class="header-anchor" href="#${2}">¶</a>${4}` | safeHTML }}
+{{- if ne .Site.Params.isPDF true }}
+  {{/* add anchor next to header */}}
+  {{- $content = $content | replaceRE "(<h[1-6].*? id=\"(.+)\".*>)(.*)(</h[1-6]>)" `${1}${3}<a class="header-anchor" href="#${2}">¶</a>${4}` | safeHTML }}
+{{- end }}
 {{ $content }}
 {{- if .Params.role }}</div>{{- end }}
 {{ end }}
