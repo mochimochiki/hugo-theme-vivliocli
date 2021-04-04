@@ -61,6 +61,7 @@
     {{- end }}
     {{- if .IsSection }}
       <a {{ printf "href=%q" $a | safeHTMLAttr }} {{- if .Params.role }} class="{{ .Params.role }}" {{- end }}>{{ partial "functions/getSectionNo" . }} {{ .Title }}</a>
+      {{/*  section は pdftoc に非対応  */}}
     {{- template "section_hierarchy" . }}
     {{- end -}}
   </li>
