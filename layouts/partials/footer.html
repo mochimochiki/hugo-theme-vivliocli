@@ -1,5 +1,8 @@
 {{- if ne .Site.Params.isPDF true }}
 <script src="{{"js/menuscroll.js" | relURL}}"></script>
+  {{ if (findRE "<pre" .Content 1) }}
+  <script src="{{"js/clipboard.js" | relURL}}"></script>
+  {{ end }}
 {{- end }}
 {{- if .Params.math }}
 {{- if ne .Site.Params.isPDF true }}

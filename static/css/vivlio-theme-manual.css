@@ -66,7 +66,7 @@ h6 {
   margin-bottom: 0rem;
   font-size: 0.85rem;
 }
-h2:hover .header-anchor, 
+h2:hover .header-anchor,
 h3:hover .header-anchor,
 h4:hover .header-anchor {
   display: inline;
@@ -105,13 +105,15 @@ pre {
   padding: 1em 2em;
   background-color: #eee;
   box-decoration-break: clone;
-  font-family: "Consolas", "メイリオ", "Meiryo", "MS Gothic", monospace,sans-serif;
+  font-family: "Consolas", "メイリオ", "Meiryo", "MS Gothic", monospace,
+    sans-serif;
   white-space: pre-wrap;
   word-break: break-all;
   line-height: 1.4;
 }
 
-ul, ol {
+ul,
+ol {
   padding-inline-start: 1.5em;
 }
 
@@ -154,31 +156,25 @@ img {
 /* -------------------- */
 /* table                */
 /* -------------------- */
-table{
-    display: table;
-    min-width: 50%;
-    max-width: 100%;
-    border-collapse:collapse;
-    margin: 1rem auto;
+table {
+  display: table;
+  min-width: 50%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 1rem auto;
 }
-td,th{
-    font-size: 0.8rem;
-    padding:0.4rem;
+td,
+th {
+  font-size: 0.8rem;
+  padding: 0.4rem;
 }
-th{
-    background:#ccc;
-    border-bottom: solid 1px #777;
+th {
+  background: #ccc;
+  border-bottom: solid 1px #777;
 }
-table tr:nth-child(even){
-    background:#eee;
+table tr:nth-child(even) {
+  background: #eee;
 }
-
-
-
-
-
-
-
 
 /* -------------------- */
 /* quote                */
@@ -268,7 +264,6 @@ section {
 section article {
   counter-increment: subsection;
 }
-
 
 /* toc part */
 a.doc-part {
@@ -719,7 +714,7 @@ figure img.fig ~ figcaption::before {
     margin-left: -20px;
   }
 
-  .menu-footer a{
+  .menu-footer a {
     margin-left: 1rem;
     font-size: 1rem;
     display: block;
@@ -740,6 +735,40 @@ figure img.fig ~ figcaption::before {
 
   #TableOfContents {
     display: none;
+  }
+
+  .copy-button {
+    color: #bbb;
+    background-color: #fff;
+    border: 1px solid;
+    border-radius: 5px 5px 0px 0px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: -2px;
+    padding: 3px 10px;
+    font-size: 0.8em;
+  }
+
+  .copy-button:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: #3498db;
+  }
+
+  .copy-button:active {
+    cursor: pointer;
+    color: #fff;
+    background-color: #00387b;
+  }
+
+  .copy-button:focus {
+    outline: 0;
+  }
+
+  .highlight pre {
+        margin: 0;
   }
 }
 
