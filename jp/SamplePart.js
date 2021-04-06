@@ -1,5 +1,5 @@
 module.exports = {
-title: 'SamplePart',
+title: '',
 size: 'A4',
 entry: [
 'SamplePart.cover.html',
@@ -12,6 +12,6 @@ entry: [
 '../jp/SamplePart/SampleChapter2/sample2.html',
 ],
 output: [
-'SamplePart.pdf'
+'.pdf'
 ]
 }
