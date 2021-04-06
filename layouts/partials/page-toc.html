@@ -31,9 +31,9 @@
                     <li><ul>
                 {{- end -}}
                 {{- if . | findRE "class=.*?pdftoc.*?" }}
-                <li><a href="#{{ $id }}" class="pdftoc">{{ $header }}</a>
+                <li><a href="#{{ $id }}" class="pdftoc">{{ $header }}</a></li>
                 {{- else }}
-                <li><a href="#{{ $id }}">{{ $header }}</a>
+                <li><a href="#{{ $id }}">{{ $header }}</a></li>
                 {{- end }}
             {{- end -}}
             {{- $scratch.Set "prev_level" $level -}}
