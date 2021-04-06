@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <!-- cover & toc -->
 
+{{- $title := partial "functions/outputEditionParam" (dict "page" . "param" "doctitle" ) }}
+{{- $subtitle := partial "functions/outputEditionParam" (dict "page" . "param" "subtitle" ) }}
+{{- $doc_number := partial "functions/outputEditionParam" (dict "page" . "param" "doc_number" ) }}
+
 <html lang="{{ .Site.Params.htmlLang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ .Title }}</title>
+  <title>{{ $title }}</title>
   <!-- css -->
   {{- range .Site.Params.theme_css -}}
   <link rel="stylesheet" href="{{ . | relURL }}">
@@ -15,9 +19,9 @@
 <body>
   <div id="cover" role="doc-cover">
     <div id="cover-title">
-      {{- if .Params.doc_number }}<h2>{{ .Params.doc_number}}</h2>{{- end }}
-      <h1>{{ .Title }}</h1>
-      {{- if .Params.subtitle }}<h2>{{ .Params.subtitle }}</h2>{{- end }}
+      {{- if $doc_number }}<h2>{{ $doc_number}}</h2>{{- end }}
+      <h1>{{ $title }}</h1>
+      {{- if $subtitle }}<h2>{{ $subtitle }}</h2>{{- end }}
     </div>
     {{- if .Params.author }}<div id="cover-author"><h2>{{ .Params.author }}</h2></div>{{- end }}
     {{- if .Params.company }}<h3>{{ .Params.company }}</h3>{{- end }}
@@ -31,7 +35,8 @@
 
 
 {{/*  Table of Contents  */}}
-{{- if .Params.toc }}
+{{ $toc := .Params.toc | default true }}
+{{- if eq $toc true }}
 <nav id="toc" role="doc-toc">
 <h2>Table of Contents</h2>
 {{ template "section_hierarchy" .CurrentSection }}

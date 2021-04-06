@@ -1,5 +1,6 @@
+{{- $pdfname := partial "functions/outputEditionParam" (dict "page" . "param" "pdfname" ) }}
 module.exports = {
-  title: '{{ .Title }}',
+  title: '{{ $pdfname }}',
   {{- if .Params.author }}author: '{{ .Params.author }}',{{- end }}
   size: '{{ .Params.pagesize }}',
   entry: [
@@ -21,6 +22,6 @@ module.exports = {
     {{- end }}
   ],
   output: [
-    '{{ .Params.output }}'
+    '{{ printf "%s.pdf" $pdfname }}'
   ]
 }

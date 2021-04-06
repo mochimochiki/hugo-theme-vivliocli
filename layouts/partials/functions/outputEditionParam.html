@@ -1,0 +1,26 @@
+{{- $page := .page }}
+{{- $param := .param }}
+{{- $value := "" }}
+{{- $found := false }}
+{{- range $page.Site.Params.showIfs }}
+  {{- if ne $found true }}
+    {{- $fullParamName := (printf "%s.%s" $param .) }}
+    {{- with $page.Param $fullParamName }}
+      {{- $value = .}}
+      {{- $found = true }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- /*  見つからなければ xxx.default を既定値とする  */}}
+{{- if eq $found false }}
+  {{- with $page.Param (printf "%s.default" $param)}}
+    {{- $value = . }}
+    {{- $found = true }}
+  {{- end }}
+{{- end }}
+{{- /* 見つからなければ xxx 自体を既定値とする */}}
+{{- if eq $found false }}
+  {{- $value = $page.Param $param }}
+  {{- $found = true }}
+{{- end }}
+{{- $value }}
