@@ -90,12 +90,9 @@ mkdir content\en
 ---
 type: "vivlio_cover"
 url: "myPDF.cover.html"
-_build: { list: false }
-
-title: "myPDF"
+doctitle:
+  default: "myPDF"
 author: "my name"
-toc: true
-colophon: false
 ---
 
 # はじめに
@@ -108,11 +105,9 @@ colophon: false
 ---
 type: "vivlio_cover"
 url: "myPDF.cover.html"
-_build: { list: false }
-
-title: "myPDF"
+doctitle:
+  default: "myPDF"
 author: "my name"
-toc: true
 colophon: false
 ---
 
@@ -126,18 +121,14 @@ PDF output using `hugo-theme-vivliocil`.
 
 ### configファイルの作成
 
-`\content\jp`および`\content\en`下に`_pdfconfig.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはHugoビルド後に`vivliostyle-cli`のconfigファイルとなります。原稿ではないため、フロントマターのみで構成されます。なお、`toc`と`colophon`については、`_pdfconfig.md`と`_pdfcover.md`で一致させておきます。
+`\content\jp`および`\content\en`下に`_pdfconfig.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはHugoビルド後に`vivliostyle-cli`のconfigファイルとなります。原稿ではないため、フロントマターのみで構成されます。
 
 ```md
 ---
 type: "vivlio_config"
 url: "myPDF.js"
-_build: { list: false }
-
-title   : "myPDF"
-output : "myPDF_JP.pdf" # or myPDF_EN.pdf
+pdfname : "myPDF"
 pagesize: "A4"
-toc: true
 colophon: false
 ---
 ```
@@ -156,10 +147,6 @@ weight: 10
 
 サンプルチャプター1です。 role: doc-chapter とすることでチャプターを作ることができます。チャプターのindexページの後にも改ページが入るため、短いと少し記事が寂しく見えることになります。
 ```
-
-{{% note %}}
-ディレクトリ名やファイル名はASCII文字で記述してください。日本語を使用すると`vivliostyle-cli`ビルドに失敗します。（`vivliostyle-cli v3.0.3`時点）
-{{% /note %}}
 
 また`\content\jp\Chapter1`下に`second.md`, `third.md`を作成して以下のように編集して保存します。
 

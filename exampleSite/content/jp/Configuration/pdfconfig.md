@@ -19,10 +19,7 @@ weight: 20
 ---
 type: "vivlio_config"
 url: "example.js" # <name>.js
-_build: { list: false }
-
-title   : "Hugo-theme-vivliocli ガイド" # Documents Title
-output : "Hugo-theme-vivliocli ガイド.pdf" # Output file
+pdfname   : "Hugo-theme-vivliocli ガイド" # Documents Title
 pagesize: "A4" # PDF Page size
 colophon: true
 ---
@@ -36,17 +33,9 @@ colophon: true
 
 configファイルの名称（URL）。`<name>.js`形式で記述します。`<name>`は任意の名前です。PDF構成ファイル3つで同一の名前を使います。
 
-### _build
+### pdfname
 
-このファイルをリストページから除外するために必要な記述です。必ずこのまま記載します。
-
-### title
-
-ドキュメントタイトルです。vivliostyle.config.jsのtitle項目になります
-
-### output
-
-出力ファイル名です。
+ドキュメントタイトルです。vivliostyle.config.jsのtitle項目およびPDFファイル名称になります
 
 ### pagesize
 
@@ -54,8 +43,7 @@ configファイルの名称（URL）。`<name>.js`形式で記述します。`<n
 
 ### colophon
 
-奥付を生成するかどうか。trueで生成します。trueの場合に後述の_pdfcolophon.mdが必要になります。この項目の設定は`_pdfcover.md`と一致させておく必要があります。
-
+奥付を生成するかどうか。trueで生成します。trueの場合に後述の_pdfcolophon.mdが必要になります。
 
 ## _pdfcover.md
 
@@ -64,16 +52,15 @@ configファイルの名称（URL）。`<name>.js`形式で記述します。`<n
 ```md
 ---
 type: "vivlio_cover"
-url: "example.cover.html"               # <name>.cover.html
-_build: { list: false }
-
-title: "Hugo-theme-vivliocli ガイド"    # Documents Cover Title
-subtitle: "Hugoサイトを美しくPDF出力"   # Documents Cover Subtitle
-doc_number: "Ver.0.1.0"                 # Document number
-author: "mochimo"                       # Document author
+url: "example.cover.html"                # <name>.cover.html
+doctitle:
+  default: "Hugo-theme-vivliocli ガイド" # Documents Cover Title
+subtitle: 
+  default: "Hugoサイトを美しくPDF出力"   # Documents Cover Subtitle
+doc_number:
+  default: "Ver.0.1.0"                   # Document number
+author: "mochimo"                        # Document author
 company: "Company name"                 # Document company name
-toc: true                               # true: output Table of Contents & PDF Bookmarks
-colophon: true                          # true: include colophon (need to make _pdfcolophon.md)
 ---
 
 # はじめに
@@ -89,39 +76,36 @@ colophon: true                          # true: include colophon (need to make _
 
 coverファイルの名称（URL）。`<name>.cover.html`形式で記述します。`<name>`は任意の名前です。PDF構成ファイル3つで同一の名前を使います。
 
-### _build
+### doctitle
 
-このファイルをリストページから除外するために必要な記述です。必ずこのまま記載します。
+ドキュメント表紙のタイトルです。必須です。通常は`default`が使われますが、showIfsで指定したエディションを記載するとそのエディションのタイトルを指定できます。
 
-### title
-
-ドキュメント表紙のタイトルです。必須です。
+```md
+doctitle:
+  default: "default title"
+  A: "editionA title"
+```
 
 ### subtitle
 
-ドキュメント表紙のサブタイトルです。省略可能です。
+ドキュメント表紙のサブタイトルです。省略可能です。doctitleと同じくエディションで切替可能です。
 
 ### doc_number/author/companyname
 
-文書/バージョン番号, 筆者, 社名 の記載を想定しているドキュメント表紙のフィールドです。
+文書/バージョン番号, 筆者, 社名 の記載を想定しているドキュメント表紙のフィールドです。doctitleと同じくエディションで切替可能です。
 
 ### toc
 
 目次とPDFしおりを生成するかどうか。trueで生成します。
 
-### colophon
-
-奥付を生成するかどうか。trueで生成します。trueの場合に後述の_pdfcolophon.mdが必要になります。
-
 ## _pdfcolophon.md
 
-奥付生成のためのテンプレートです。このファイルは_pdfcover.mdのフロントマターで`colophon: true`の場合に必要になります。下記のように記述します。
+奥付生成のためのテンプレートです。このファイルは_pdfconfig.mdのフロントマターで`colophon: true`の場合に必要になります。下記のように記述します。
 
 ```md
 ---
 type: "vivlio_colophon"
 url: "example.colophon.html"  # <name>.colophon.html
-_build: { list: false }
 title: "奥付" # Documents colophon Title
 ---
 
@@ -153,10 +137,6 @@ xxxx年x月x日　初版発行
 ### url
 
 coverファイルの名称（URL）。`<name>.colophon.html`形式で記述します。`<name>`は任意の名前です。PDF構成ファイル3つで同一の名前を使います。
-
-### _build
-
-このファイルをリストページから除外するために必要な記述です。必ずこのまま記載します。
 
 ### title
 
