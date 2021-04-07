@@ -1,28 +1,3 @@
-module.exports = {
-title: 'Hugo-theme-vivliocli Guide',
-size: 'A4',
-entry: [
-'example.cover.html',
-'../jp/GettingStarted.html',
-'../jp/GettingStarted/GettingStarted.html',
-'../jp/Configuration.html',
-'../jp/Configuration/config.html',
-'../jp/Configuration/pdfconfig.html',
-'../jp/Configuration/shortcodes.html',
-'../jp/Configuration/frontmatter.html',
-'../jp/Configuration/MarkdownShowcase.html',
-'../jp/Configuration/edition.html',
-'../jp/SamplePart.html',
-'../jp/SamplePart/SampleChapter1.html',
-'../jp/SamplePart/SampleChapter1/sample1.html',
-'../jp/SamplePart/SampleChapter1/sample2.html',
-'../jp/SamplePart/SampleChapter1/サンプル3.html',
-'../jp/SamplePart/SampleChapter2.html',
-'../jp/SamplePart/SampleChapter2/sample1.html',
-'../jp/SamplePart/SampleChapter2/sample2.html',
-'example.colophon.html'
-],
-output: [
-'Hugo-theme-vivliocli Guide.pdf'
-]
-}
+<!doctype html><html lang=jp><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title></title><link rel="shortcut icon" type=image/x-icon href=../img/favicon.ico><link rel=stylesheet href=../css/vivlio-theme-manual.css><aside id=menu><input type=checkbox id=humburger-btn-check>
+<label for=humburger-btn-check class=humburger-btn><span></span></label><div class=menu-content><section id=menu-header><div class=logo><img src=../img/logo.png></div></section><h4><a href=../jp/>Hugo theme for Vivliosytle-cli.</a></h4><ul><li><a href=../jp/GettingStarted.html>Getting Started</a><li><a href=../jp/Configuration.html>hugo-theme-vivliocli</a><li><a href=../jp/SamplePart.html>Sample Part</a><li><a href=../jp/example.js id=menu-selected class=menu-selected></a><li><a href=../jp/example.cover.html>Hugo-theme-vivliocli Guide</a><li><a href=../jp/example.colophon.html>奥付</a></ul><section id=menu-footer><hr><div class=language-selector><select class=select-language onchange="location=this.value;">
+<option id=jp value=/jp/example.js selected>Japanese</option></select></div><div class=menu-footer><a href=../jp/tags.html>tags</a></div><hr><div class=menu-footer-space></div></section></div></aside></head><body><div id=content><h1></h1><nav id=TableOfContents><ul></ul></nav></div><script src=../js/menuscroll.js></script></body></html>
