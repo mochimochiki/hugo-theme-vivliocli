@@ -27,7 +27,11 @@ ShowIf: ["edition1"]
 ---
 ```
 
-[config.tomlの設定](./config.html#showIfs)も参照してください。
+詳しくは [エディション](./edition.html) を参照してください。
+
+### HideIf
+
+`HideIf`フロントまたーを指定すると、そのエディションでのみ非表示とする記事/セクションを作ることができます。詳しくは [エディション](./edition.html) を参照してください。
 
 ### math
 

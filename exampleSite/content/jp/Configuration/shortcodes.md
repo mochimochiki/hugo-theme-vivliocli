@@ -15,11 +15,19 @@ hugo-theme-vivliocli テーマで使用できるショートコードの一覧�
 {{%/* /ShowIf */%}}
 ```
 
-{{% ShowIf edition1 %}}
-ここにxxxをサポートする場合に表示するコンテンツを記述。
-{{% /ShowIf %}}
+詳しくは [エディション](./edition.html) を参照してください。
 
-[config.tomlの設定](./config.html#showIfs)も参照してください。
+## HideIf
+
+`config.toml`の`showIfs`で列挙されている場合に描画「しない」部分を指定します。以下は`showIfs = ["edition1"]`とした場合に描画されなくなるブロックです。
+
+```bash
+{{%/* HideIf edition1 */%}}
+ここはedition1のときのみ非表示になる。
+{{%/* /HIdeIf */%}}
+```
+
+詳しくは [エディション](./edition.html) を参照してください。
 
 ## note
 

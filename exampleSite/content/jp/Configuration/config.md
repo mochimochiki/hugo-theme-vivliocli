@@ -25,30 +25,13 @@ PDFかどうか。この設定は通常Webサイト用のconfig.tomlでは`false
 
 ### showIfs
 
-`ShowIf`ショートコード・フロントマターで表示する条件の一覧。
+`ShowIf`/`HideIf`ショートコード・フロントマターで表示/非表示切り替える条件の一覧。
 
 ```
 showIfs = ["edition1", "edition2"]
 ```
 
-例えば上記のように設定した場合、`.md`ファイルで以下のブロックは表示されます。
-
-```
-{{%/* ShowIf edition1 */%}}
-ここにedition1をサポートする場合に表示するコンテンツを記述。
-{{%/* /ShowIf */%}}
-```
-
-以下のフロントマターの記事は描画されません。
-
-```
----
-title: edition3の説明
-ShowIf: ["edition3"]
----
-```
-
-詳しくは [エディション](./edition.html) も参照してください。
+詳しくは [エディション](./edition.html) を参照してください。
 
 ### sectionNumberLevel
 

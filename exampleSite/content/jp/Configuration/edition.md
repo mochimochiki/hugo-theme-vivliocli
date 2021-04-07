@@ -11,7 +11,7 @@ weight: 60
 
 ### 特定要素の表示/非表示を切り替える
 
-[ShowIf](./shortcodes.html)ショートコード/フロントマターと共に`showIfs`を使用することで表示/非表示を切り替えます。
+[ShowIf](./shortcodes.html)/[HideIf](./shortcodes.html)ショートコード/フロントマターと共に`showIfs`を使用することで表示/非表示を切り替えます。
 
 ```toml
 [params]
@@ -24,6 +24,14 @@ weight: 60
 {{%/* ShowIf edition1 */%}}
 ここにedition1をサポートする場合に表示するコンテンツを記述。
 {{%/* /ShowIf */%}}
+```
+
+以下のように記載した要素はedition1でのみ非表示になります。
+
+```
+{{%/* HideIf edition1 */%}}
+ここにedition1の場合には非表示にするコンテンツを記述。
+{{%/* /HideIf */%}}
 ```
 
 ### 特定記事・セクションの表示/非表示を切り替える
@@ -45,6 +53,15 @@ ShowIf: ["edition1"]
 ```
 
 > `config.toml`で `showIfs = ["@all-pages"]` のように、`@all-pages` を含めると、各記事にShowIfフロントマターが書かれていても強制的に全ページをPDF描画対象とします。
+
+`HideIf`を使用し以下のようにすると、edition1のPDFには含まれなくなります。
+
+```
+---
+title: edition1以外で表示
+HideIf: ["edition1"]
+---
+```
 
 
 ## ビルドする
