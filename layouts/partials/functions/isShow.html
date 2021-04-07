@@ -32,7 +32,7 @@
   {{ end }}
 {{ end }}
 
-{{ if or (or (eq $page.Type "vivlio_colophon") (eq $page.Type "vivlio_cover")) (eq $page.Type "vivlio_config") }}
+{{ if or (or ($page.OutputFormats.Get "vivlio_colophon") ($page.OutputFormats.Get "vivlio_cover")) ($page.OutputFormats.Get "vivlio_config") }}
   {{ $ret = false }}
 {{ end }}
 

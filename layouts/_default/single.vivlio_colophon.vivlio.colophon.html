@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- colophon -->
+
+<html lang="{{ .Page.Language | default " en" }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }}</title>
+  <!-- css -->
+  {{- range .Site.Params.theme_css -}}
+  {{- $link := printf "..%s" (. | relURL) }}
+  <link rel="stylesheet" href="{{ $link }}">
+  {{- end -}}
+</head>
+
+<body>
+  <div id="colophon">
+    {{ .Page.Content }}
+  </div>
+</body>
+
+</html>
