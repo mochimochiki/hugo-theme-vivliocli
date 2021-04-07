@@ -1,4 +1,4 @@
-{{- $pdfname := partial "functions/outputEditionParam" (dict "page" . "param" "pdfname" ) }}
+{{- $pdfname := partial "functions/outputEditionParam" (dict "page" . "param" "pdfname" ) -}}
 module.exports = {
   title: '{{ $pdfname }}',
   {{- if .Params.author }}author: '{{ .Params.author }}',{{- end }}
