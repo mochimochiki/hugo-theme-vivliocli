@@ -21,6 +21,17 @@
   {{ $ret = true }}
 {{ end }}
 
+{{ if $page.Params.HideIf }}
+  {{ range .Site.Params.showIfs }}
+    {{ $hideIf := . }}
+    {{ range $page.Params.HideIf }}
+      {{ if eq $hideIf . }}
+        {{ $ret = false }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
 {{ if or (or (eq $page.Type "vivlio_colophon") (eq $page.Type "vivlio_cover")) (eq $page.Type "vivlio_config") }}
   {{ $ret = false }}
 {{ end }}

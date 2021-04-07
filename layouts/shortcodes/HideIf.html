@@ -1,0 +1,10 @@
+{{- $condition := .Get 0 }}
+{{- $hide := false }}
+{{- range .Site.Params.showIfs}}
+  {{- if eq . $condition }}
+    {{- $hide = true }}
+  {{- end }}
+{{- end }}
+{{- if ne $hide true}}
+{{ $.Inner }}
+{{- end }}
