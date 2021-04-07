@@ -1,5 +1,5 @@
 module.exports = {
-title: '',
+title: 'Hugo-theme-vivliocli Guide',
 size: 'A4',
 entry: [
 'example.cover.html',
@@ -23,6 +23,6 @@ entry: [
 'example.colophon.html'
 ],
 output: [
-'.pdf'
+'Hugo-theme-vivliocli Guide.pdf'
 ]
 }
