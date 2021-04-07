@@ -27,7 +27,7 @@
           {{- if ne .IsSection true }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
           {{- if .IsSection }}
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          {{ template "section_hierarchy" . }}
+          {{ partial "toc" . }}
           {{ end }}
         </li>
         {{- end }}

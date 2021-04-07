@@ -8,7 +8,7 @@
   {{- $scratch := .scratch }}
   {{- $isPDFRoot := false}}
   {{- range $section.Pages.ByWeight }}
-    {{- if (eq .Type "vivlio_config") }}
+    {{- if .OutputFormats.Get "vivlio_cover" }}
       {{ $isPDFRoot = true }}
     {{- end }}
   {{- end }}
