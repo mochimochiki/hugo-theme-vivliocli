@@ -39,3 +39,21 @@ relativeURLs = true
   hardWraps = true
   unsafe = true
 
+
+[mediaTypes]
+  [mediaTypes."text/vivlio_config"]
+    suffixes = ["vivlio.config.js"]
+  [mediaTypes."text/vivlio_cover"]
+    suffixes = ["vivlio.cover.html"]
+  [mediaTypes."text/vivlio_colophon"]
+    suffixes = ["vivlio.colophon.html"]
+[outputFormats]
+  [outputFormats.VIVLIO_CONFIG]
+    isPlainText = true
+    mediaType = "text/vivlio_config"
+  [outputFormats.VIVLIO_COVER]
+    isPlainText = true
+    mediaType = "text/vivlio_cover"
+  [outputFormats.VIVLIO_COLOPHON]
+    isPlainText = true
+    mediaType = "text/vivlio_colophon"
