@@ -17,6 +17,11 @@
     <header>
       <h1>{{ .Title }}</h1>
     </header>
+    {{- $content := .Page.Content }}
+      {{- if ne .Site.Params.isPDF true }}
+        {{- $content = partial "functions/addAnchorNextToHeader" $content }}
+      {{- end }}
+    {{ $content }}
 
 
     <nav id="toc" role="doc-toc">
