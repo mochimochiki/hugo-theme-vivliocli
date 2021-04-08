@@ -1,7 +1,7 @@
 ---
-type: "vivlio_colophon"
-url: "example.colophon.html"  # <name>.colophon.html
-title: "奥付" # Documents colophon Title
+title: "奥付"
+outputs:
+- vivlio_colophon
 ---
 
 ## プロフィール

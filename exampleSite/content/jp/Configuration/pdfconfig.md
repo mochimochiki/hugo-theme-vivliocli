@@ -3,64 +3,38 @@ title: pdf configファイルの作成
 weight: 20
 ---
 
-本テーマではvivliostyleで利用される構成ファイル/カバーページ（目次）/奥付を生成するために、以下の3つのconfigファイルを利用しています。
+本テーマではvivliostyleで利用される構成ファイル/カバーページ（目次）/奥付を生成するために、以下のconfigファイルを利用しています。
 
-* _pdfconfig.md
-* _pdfcover.md
+* _pdf.md
 * _pdfcolophon.md
 
-サイト内のPDF生成したいレベルのディレクトリにこの3ファイルを配置することで、PDF化するための構成ファイルを生成できます（サイトルート以外も可）。
+サイト内のPDF生成したいレベルのディレクトリにこの2ファイルを配置することで、PDF化するための構成ファイルを生成できます（サイトルート以外も可）。
 
-## _pdfconfig.md
+## _pdf.md
 
-`_pdfconfig.md`はvivliostyleの.js configファイルのテンプレートです。以下のように記述します。
+`_pdf.md`はvivliostyleのconfigファイルと表紙のテンプレートです。以下のように記述します。
 
-```md
+```toml
 ---
-type: "vivlio_config"
-url: "example.js" # <name>.js
-pdfname   : "Hugo-theme-vivliocli ガイド" # Documents Title
-pagesize: "A4" # PDF Page size
-colophon: true
----
-```
-
-### type
-
-テンプレートタイプです。必ず`vivlio_config`とします。
-
-### url
-
-configファイルの名称（URL）。`<name>.js`形式で記述します。`<name>`は任意の名前です。PDF構成ファイル3つで同一の名前を使います。
-
-### pdfname
-
-ドキュメントタイトルです。vivliostyle.config.jsのtitle項目およびPDFファイル名称になります
-
-### pagesize
-
-ページサイズです。vivliostyle.config.jsのpagesize項目になります。A4/A5など。
-
-### colophon
-
-奥付を生成するかどうか。trueで生成します。trueの場合に後述の_pdfcolophon.mdが必要になります。
-
-## _pdfcover.md
-
-表紙のhtml生成のためのテンプレートです。表紙には目次も含みます。また、「はじめに」など、目次前に文章を記載する場合はこのファイルに記述します。
-
-```md
----
-type: "vivlio_cover"
-url: "example.cover.html"                # <name>.cover.html
+pdfname :
+  default: "pdfファイル名"
+  # editionA: "editionAファイル名"
 doctitle:
-  default: "Hugo-theme-vivliocli ガイド" # Documents Cover Title
-subtitle: 
-  default: "Hugoサイトを美しくPDF出力"   # Documents Cover Subtitle
+  default: "表紙タイトル"
+  # editionA: "editionA表紙タイトル"
+subtitle:
+  default: "表紙サブタイトル"
+  # editionA: "editionA表紙サブタイトル"
 doc_number:
-  default: "Ver.0.1.0"                   # Document number
-author: "mochimo"                        # Document author
-company: "Company name"                 # Document company name
+  default: "文書番号"
+  # editionA: "editionA文書番号"
+author: "著者"
+company: "会社"
+pagesize: "A4"
+colophon: true
+outputs:
+- vivlio_cover
+- vivlio_config
 ---
 
 # はじめに
@@ -68,45 +42,53 @@ company: "Company name"                 # Document company name
 (ここに目次前に表示したい文章を記述)
 ```
 
-### type
+`default`や`editionA`とリスト表記している設定値はconfig.tomlの`showIfs`で指定したエディション名を指定することでそのエディション用に設定できます。
 
-テンプレートタイプです。必ず`vivlio_cover`とします。
+### pdfname
 
-### url
-
-coverファイルの名称（URL）。`<name>.cover.html`形式で記述します。`<name>`は任意の名前です。PDF構成ファイル3つで同一の名前を使います。
+PDFファイル名です。必須です。`/content/<language>`以下では競合しないよう一意の名称となるようにします。
 
 ### doctitle
 
-ドキュメント表紙のタイトルです。必須です。通常は`default`が使われますが、showIfsで指定したエディションを記載するとそのエディションのタイトルを指定できます。
-
-```md
-doctitle:
-  default: "default title"
-  A: "editionA title"
-```
+表紙のタイトルです。必須です。エディションごとに切替可能です。
 
 ### subtitle
 
-ドキュメント表紙のサブタイトルです。省略可能です。doctitleと同じくエディションで切替可能です。
+表紙に表示するサブタイトルです。エディションごとに切替可能です。
 
-### doc_number/author/companyname
+### doc_number
 
-文書/バージョン番号, 筆者, 社名 の記載を想定しているドキュメント表紙のフィールドです。doctitleと同じくエディションで切替可能です。
+表紙に表示する文書番号です。エディションごとに切替可能です。
 
-### toc
+### author
 
-目次とPDFしおりを生成するかどうか。trueで生成します。
+表紙に表示する著者です。
+
+### company
+
+表紙に表示する会社名です。
+
+### pagesize
+
+ページサイズです。必須です。vivliostyle.config.jsのpagesize項目になります。A4/A5など。
+
+### colophon
+
+奥付を生成するかどうか。trueで生成します。trueの場合に後述の_pdfcolophon.mdが必要になります。
+
+### outputs
+
+configファイルを生成するために必要な記述です。変更せずこのまま記載します。必須です。
 
 ## _pdfcolophon.md
 
-奥付生成のためのテンプレートです。このファイルは_pdfconfig.mdのフロントマターで`colophon: true`の場合に必要になります。下記のように記述します。
+奥付生成のためのテンプレートです。このファイルは`_pdf.md`のフロントマターで`colophon: true`の場合に必要になります。下記のように記述します。
 
-```md
+```toml
 ---
-type: "vivlio_colophon"
-url: "example.colophon.html"  # <name>.colophon.html
-title: "奥付" # Documents colophon Title
+title: "奥付"
+outputs:
+- vivlio_colophon
 ---
 
 ## 奥付のタイトル
@@ -130,17 +112,14 @@ xxxx年x月x日　初版発行
 </div>
 ```
 
-### type
-
-テンプレートタイプです。必ず`vivlio_colophon`とします。
-
-### url
-
-coverファイルの名称（URL）。`<name>.colophon.html`形式で記述します。`<name>`は任意の名前です。PDF構成ファイル3つで同一の名前を使います。
-
 ### title
 
-奥付のタイトルです。本文には表示されません。ヘッダーにタイトルを表示している場合、このタイトルが表示されます。
+奥付のタイトルです。本文には表示されません。ヘッダーにタイトルを表示している場合、このタイトルが表示されます。必須です。
+
+### outputs
+
+奥付用ファイルを生成するために必要な記述です。変更せずこのまま記載します。必須です。
+
 
 ### 本文
 
