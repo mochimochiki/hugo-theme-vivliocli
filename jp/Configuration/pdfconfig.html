@@ -1,54 +1,53 @@
 <!doctype html><html lang=jp><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>pdf configファイルの作成</title><link rel="shortcut icon" type=image/x-icon href=../../img/favicon.ico><link rel=stylesheet href=../../css/vivlio-theme-manual.css><aside id=menu><input type=checkbox id=humburger-btn-check>
-<label for=humburger-btn-check class=humburger-btn><span></span></label><div class=menu-content><section id=menu-header><div class=logo><img src=../../img/logo.png></div></section><h4><a href=../../jp/>Hugo theme for Vivliosytle-cli.</a></h4><ul><li><a href=../../jp/GettingStarted.html>Getting Started</a><li><a href=../../jp/Configuration.html>hugo-theme-vivliocli</a><ul><li><a href=../../jp/Configuration/config.html>config.tomlの設定</a><li><a href=../../jp/Configuration/pdfconfig.html id=menu-selected class=menu-selected>pdf configファイルの作成</a><li><a href=../../jp/Configuration/shortcodes.html>ショートコード</a><li><a href=../../jp/Configuration/frontmatter.html>フロントマター・記事</a><li><a href=../../jp/Configuration/MarkdownShowcase.html>Markdownショーケース</a><li><a href=../../jp/Configuration/edition.html>エディション</a></ul><li><a href=../../jp/SamplePart.html>Sample Part</a><li><a href=../../jp/example.js></a><li><a href=../../jp/example.cover.html>Hugo-theme-vivliocli Guide</a><li><a href=../../jp/example.colophon.html>奥付</a></ul><section id=menu-footer><hr><div class=language-selector><select class=select-language onchange="location=this.value;">
-<option id=jp value=/jp/Configuration/pdfconfig.html selected>Japanese</option></select></div><div class=menu-footer><a href=../../jp/tags.html>tags</a></div><hr><div class=menu-footer-space></div></section></div></aside></head><body><div id=content><h1>pdf configファイルの作成</h1><nav id=TableOfContents><ul><li><a href=#_pdfconfigmd>_pdfconfig.md</a><ul><li><a href=#type>type</a></li><li><a href=#url>url</a></li><li><a href=#pdfname>pdfname</a></li><li><a href=#pagesize>pagesize</a></li><li><a href=#colophon>colophon</a></li></ul></li><li><a href=#_pdfcovermd>_pdfcover.md</a><ul><li><a href=#type-1>type</a></li><li><a href=#url-1>url</a></li><li><a href=#doctitle>doctitle</a></li><li><a href=#subtitle>subtitle</a></li><li><a href=#doc_numberauthorcompanyname>doc_number/author/companyname</a></li><li><a href=#toc>toc</a></li></ul></li><li><a href=#_pdfcolophonmd>_pdfcolophon.md</a><ul><li><a href=#type-2>type</a></li><li><a href=#url-2>url</a></li><li><a href=#title>title</a></li><li><a href=#%e6%9c%ac%e6%96%87>本文</a></li><li><a href=#div-roledoc-colophon%e3%82%bf%e3%82%b0%e5%86%85>&amp;lt;div role=&amp;quot;doc-colophon&amp;quot;&amp;gt;タグ内</a></li></ul></li></ul></nav><p>本テーマではvivliostyleで利用される構成ファイル/カバーページ（目次）/奥付を生成するために、以下の3つのconfigファイルを利用しています。</p><ul><li>_pdfconfig.md</li><li>_pdfcover.md</li><li>_pdfcolophon.md</li></ul><p>サイト内のPDF生成したいレベルのディレクトリにこの3ファイルを配置することで、PDF化するための構成ファイルを生成できます（サイトルート以外も可）。</p><h2 id=_pdfconfigmd>_pdfconfig.md<a class=header-anchor href=#_pdfconfigmd>¶</a></h2><p><code>_pdfconfig.md</code>はvivliostyleの.js configファイルのテンプレートです。以下のように記述します。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md>---
-type: &#34;vivlio_config&#34;
-url: &#34;example.js&#34; # &lt;<span style=color:#f92672>name</span>&gt;.js
-pdfname   : &#34;Hugo-theme-vivliocli ガイド&#34; # Documents Title
-pagesize: &#34;A4&#34; # PDF Page size
-colophon: true
----
-</code></pre></div><h3 id=type>type<a class=header-anchor href=#type>¶</a></h3><p>テンプレートタイプです。必ず<code>vivlio_config</code>とします。</p><h3 id=url>url<a class=header-anchor href=#url>¶</a></h3><p>configファイルの名称（URL）。<code>&lt;name>.js</code>形式で記述します。<code>&lt;name></code>は任意の名前です。PDF構成ファイル3つで同一の名前を使います。</p><h3 id=pdfname>pdfname<a class=header-anchor href=#pdfname>¶</a></h3><p>ドキュメントタイトルです。vivliostyle.config.jsのtitle項目およびPDFファイル名称になります</p><h3 id=pagesize>pagesize<a class=header-anchor href=#pagesize>¶</a></h3><p>ページサイズです。vivliostyle.config.jsのpagesize項目になります。A4/A5など。</p><h3 id=colophon>colophon<a class=header-anchor href=#colophon>¶</a></h3><p>奥付を生成するかどうか。trueで生成します。trueの場合に後述の_pdfcolophon.mdが必要になります。</p><h2 id=_pdfcovermd>_pdfcover.md<a class=header-anchor href=#_pdfcovermd>¶</a></h2><p>表紙のhtml生成のためのテンプレートです。表紙には目次も含みます。また、「はじめに」など、目次前に文章を記載する場合はこのファイルに記述します。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md>---
-type: &#34;vivlio_cover&#34;
-url: &#34;example.cover.html&#34;                # &lt;<span style=color:#f92672>name</span>&gt;.cover.html
-doctitle:
-  default: &#34;Hugo-theme-vivliocli ガイド&#34; # Documents Cover Title
-subtitle: 
-  default: &#34;Hugoサイトを美しくPDF出力&#34;   # Documents Cover Subtitle
-doc_number:
-  default: &#34;Ver.0.1.0&#34;                   # Document number
-author: &#34;mochimo&#34;                        # Document author
-company: &#34;Company name&#34;                 # Document company name
----
+<label for=humburger-btn-check class=humburger-btn><span></span></label><div class=menu-content><section id=menu-header><div class=logo><img src=../../img/logo.png></div></section><h4><a href=../../jp/>Hugo-theme-vivliocli</a></h4><ul><li><a href=../../jp/GettingStarted.html>第1章 Getting Started</a><li><a href=../../jp/Configuration.html>第2章 hugo-theme-vivliocli</a><ul><li><a href=../../jp/Configuration/config.html>2.1 config.tomlの設定</a><li><a href=../../jp/Configuration/pdfconfig.html id=menu-selected class=menu-selected>2.2 pdf configファイルの作成</a><li><a href=../../jp/Configuration/shortcodes.html>2.3 ショートコード</a><li><a href=../../jp/Configuration/frontmatter.html>2.4 フロントマター・記事</a><li><a href=../../jp/Configuration/MarkdownShowcase.html>2.5 Markdownショーケース</a><li><a href=../../jp/Configuration/edition.html>2.6 エディション</a></ul><li><a href=../../jp/SamplePart.html>第3章 Sample Part</a></ul><section id=menu-footer><hr><div class=language-selector><select class=select-language onchange="location=this.value;">
+<option id=jp value=/jp/Configuration/pdfconfig.html selected>Japanese</option></select></div><div class=menu-footer><a href=../../jp/tags.html>tags</a></div><hr><div class=menu-footer-space></div></section></div></aside></head><body><div id=content><h1>2.2 pdf configファイルの作成</h1><nav id=TableOfContents><ul><li><a href=#_pdfmd class=pdftoc>2.2.1 _pdf.md</a><ul><li><a href=#pdfname>pdfname</a></li><li><a href=#doctitle>doctitle</a></li><li><a href=#subtitle>subtitle</a></li><li><a href=#doc_number>doc_number</a></li><li><a href=#author>author</a></li><li><a href=#company>company</a></li><li><a href=#pagesize>pagesize</a></li><li><a href=#colophon>colophon</a></li><li><a href=#outputs>outputs</a></li></ul></li><li><a href=#_pdfcolophonmd class=pdftoc>2.2.2 _pdfcolophon.md</a><ul><li><a href=#title>title</a></li><li><a href=#outputs-1>outputs</a></li><li><a href=#%e6%9c%ac%e6%96%87>本文</a></li><li><a href=#div-roledoc-colophon%e3%82%bf%e3%82%b0%e5%86%85>&amp;lt;div role=&amp;quot;doc-colophon&amp;quot;&amp;gt;タグ内</a></li></ul></li></ul></nav><p>本テーマではvivliostyleで利用される構成ファイル/カバーページ（目次）/奥付を生成するために、以下のconfigファイルを利用しています。</p><ul><li>_pdf.md</li><li>_pdfcolophon.md</li></ul><p>サイト内のPDF生成したいレベルのディレクトリにこの2ファイルを配置することで、PDF化するための構成ファイルを生成できます（サイトルート以外も可）。</p><h2 class=pdftoc id=_pdfmd>2.2.1 _pdf.md<a class=header-anchor href=#_pdfmd>¶</a></h2><p><code>_pdf.md</code>はvivliostyleのconfigファイルと表紙のテンプレートです。以下のように記述します。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=color:#960050;background-color:#1e0010>---</span>
+<span style=color:#a6e22e>pdfname</span> <span style=color:#960050;background-color:#1e0010>:</span>
+  <span style=color:#a6e22e>default</span><span style=color:#960050;background-color:#1e0010>:</span> <span style=color:#e6db74>&#34;pdfファイル名&#34;</span>
+  <span style=color:#75715e># editionA: &#34;editionAファイル名&#34;</span>
+<span style=color:#a6e22e>doctitle</span><span style=color:#960050;background-color:#1e0010>:</span>
+  <span style=color:#a6e22e>default</span><span style=color:#960050;background-color:#1e0010>:</span> <span style=color:#e6db74>&#34;表紙タイトル&#34;</span>
+  <span style=color:#75715e># editionA: &#34;editionA表紙タイトル&#34;</span>
+<span style=color:#a6e22e>subtitle</span><span style=color:#960050;background-color:#1e0010>:</span>
+  <span style=color:#a6e22e>default</span><span style=color:#960050;background-color:#1e0010>:</span> <span style=color:#e6db74>&#34;表紙サブタイトル&#34;</span>
+  <span style=color:#75715e># editionA: &#34;editionA表紙サブタイトル&#34;</span>
+<span style=color:#a6e22e>doc_number</span><span style=color:#960050;background-color:#1e0010>:</span>
+  <span style=color:#a6e22e>default</span><span style=color:#960050;background-color:#1e0010>:</span> <span style=color:#e6db74>&#34;文書番号&#34;</span>
+  <span style=color:#75715e># editionA: &#34;editionA文書番号&#34;</span>
+<span style=color:#a6e22e>author</span><span style=color:#960050;background-color:#1e0010>:</span> <span style=color:#e6db74>&#34;著者&#34;</span>
+<span style=color:#a6e22e>company</span><span style=color:#960050;background-color:#1e0010>:</span> <span style=color:#e6db74>&#34;会社&#34;</span>
+<span style=color:#a6e22e>pagesize</span><span style=color:#960050;background-color:#1e0010>:</span> <span style=color:#e6db74>&#34;A4&#34;</span>
+<span style=color:#a6e22e>colophon</span><span style=color:#960050;background-color:#1e0010>:</span> <span style=color:#66d9ef>true</span>
+<span style=color:#a6e22e>outputs</span><span style=color:#960050;background-color:#1e0010>:</span>
+<span style=color:#960050;background-color:#1e0010>-</span> <span style=color:#a6e22e>vivlio_cover</span>
+<span style=color:#960050;background-color:#1e0010>-</span> <span style=color:#a6e22e>vivlio_config</span>
+<span style=color:#960050;background-color:#1e0010>---</span>
 
-# はじめに
+<span style=color:#75715e># はじめに</span>
 
-(ここに目次前に表示したい文章を記述)
-</code></pre></div><h3 id=type-1>type<a class=header-anchor href=#type-1>¶</a></h3><p>テンプレートタイプです。必ず<code>vivlio_cover</code>とします。</p><h3 id=url-1>url<a class=header-anchor href=#url-1>¶</a></h3><p>coverファイルの名称（URL）。<code>&lt;name>.cover.html</code>形式で記述します。<code>&lt;name></code>は任意の名前です。PDF構成ファイル3つで同一の名前を使います。</p><h3 id=doctitle>doctitle<a class=header-anchor href=#doctitle>¶</a></h3><p>ドキュメント表紙のタイトルです。必須です。通常は<code>default</code>が使われますが、showIfsで指定したエディションを記載するとそのエディションのタイトルを指定できます。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md>doctitle:
-  default: &#34;default title&#34;
-  A: &#34;editionA title&#34;
-</code></pre></div><h3 id=subtitle>subtitle<a class=header-anchor href=#subtitle>¶</a></h3><p>ドキュメント表紙のサブタイトルです。省略可能です。doctitleと同じくエディションで切替可能です。</p><h3 id=doc_numberauthorcompanyname>doc_number/author/companyname<a class=header-anchor href=#doc_numberauthorcompanyname>¶</a></h3><p>文書/バージョン番号, 筆者, 社名 の記載を想定しているドキュメント表紙のフィールドです。doctitleと同じくエディションで切替可能です。</p><h3 id=toc>toc<a class=header-anchor href=#toc>¶</a></h3><p>目次とPDFしおりを生成するかどうか。trueで生成します。</p><h2 id=_pdfcolophonmd>_pdfcolophon.md<a class=header-anchor href=#_pdfcolophonmd>¶</a></h2><p>奥付生成のためのテンプレートです。このファイルは_pdfconfig.mdのフロントマターで<code>colophon: true</code>の場合に必要になります。下記のように記述します。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md>---
-type: &#34;vivlio_colophon&#34;
-url: &#34;example.colophon.html&#34;  # &lt;<span style=color:#f92672>name</span>&gt;.colophon.html
-title: &#34;奥付&#34; # Documents colophon Title
----
+<span style=color:#960050;background-color:#1e0010>(</span><span style=color:#a6e22e>ここに目次前に表示したい文章を記述</span><span style=color:#960050;background-color:#1e0010>)</span>
+</code></pre></div><p><code>default</code>や<code>editionA</code>とリスト表記している設定値はconfig.tomlの<code>showIfs</code>で指定したエディション名を指定することでそのエディション用に設定できます。</p><h3 id=pdfname>pdfname<a class=header-anchor href=#pdfname>¶</a></h3><p>PDFファイル名です。必須です。<code>/content/&lt;language></code>以下では競合しないよう一意の名称となるようにします。</p><h3 id=doctitle>doctitle<a class=header-anchor href=#doctitle>¶</a></h3><p>表紙のタイトルです。必須です。エディションごとに切替可能です。</p><h3 id=subtitle>subtitle<a class=header-anchor href=#subtitle>¶</a></h3><p>表紙に表示するサブタイトルです。エディションごとに切替可能です。</p><h3 id=doc_number>doc_number<a class=header-anchor href=#doc_number>¶</a></h3><p>表紙に表示する文書番号です。エディションごとに切替可能です。</p><h3 id=author>author<a class=header-anchor href=#author>¶</a></h3><p>表紙に表示する著者です。</p><h3 id=company>company<a class=header-anchor href=#company>¶</a></h3><p>表紙に表示する会社名です。</p><h3 id=pagesize>pagesize<a class=header-anchor href=#pagesize>¶</a></h3><p>ページサイズです。必須です。vivliostyle.config.jsのpagesize項目になります。A4/A5など。</p><h3 id=colophon>colophon<a class=header-anchor href=#colophon>¶</a></h3><p>奥付を生成するかどうか。trueで生成します。trueの場合に後述の_pdfcolophon.mdが必要になります。</p><h3 id=outputs>outputs<a class=header-anchor href=#outputs>¶</a></h3><p>configファイルを生成するために必要な記述です。変更せずこのまま記載します。必須です。</p><h2 class=pdftoc id=_pdfcolophonmd>2.2.2 _pdfcolophon.md<a class=header-anchor href=#_pdfcolophonmd>¶</a></h2><p>奥付生成のためのテンプレートです。このファイルは<code>_pdf.md</code>のフロントマターで<code>colophon: true</code>の場合に必要になります。下記のように記述します。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=color:#960050;background-color:#1e0010>---</span>
+<span style=color:#a6e22e>title</span><span style=color:#960050;background-color:#1e0010>:</span> <span style=color:#e6db74>&#34;奥付&#34;</span>
+<span style=color:#a6e22e>outputs</span><span style=color:#960050;background-color:#1e0010>:</span>
+<span style=color:#960050;background-color:#1e0010>-</span> <span style=color:#a6e22e>vivlio_colophon</span>
+<span style=color:#960050;background-color:#1e0010>---</span>
 
-<span style=color:#75715e>## 奥付のタイトル
-</span><span style=color:#75715e></span>
-(奥付の本文)
+<span style=color:#75715e>## 奥付のタイトル</span>
 
-&lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>role</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;doc-colophon&#34;</span>&gt;
+<span style=color:#960050;background-color:#1e0010>(</span><span style=color:#a6e22e>奥付の本文</span><span style=color:#960050;background-color:#1e0010>)</span>
 
-<span style=color:#75715e>## 本のタイトル
-</span><span style=color:#75715e></span>
-xxxx年x月x日　初版発行
+<span style=color:#960050;background-color:#1e0010>&lt;</span><span style=color:#a6e22e>div</span> <span style=color:#a6e22e>role</span>=<span style=color:#e6db74>&#34;doc-colophon&#34;</span><span style=color:#960050;background-color:#1e0010>&gt;</span>
 
-| | |
-| -- | --  |
-|著者| 著者名 |
-|発行者| 発行者名 |
-|印刷・製本| 印刷社名 |
+<span style=color:#75715e>## 本のタイトル</span>
 
-© コピーライト記述
+<span style=color:#a6e22e>xxxx年x月x日</span>　<span style=color:#a6e22e>初版発行</span>
 
-&lt;/<span style=color:#f92672>div</span>&gt;
-</code></pre></div><h3 id=type-2>type<a class=header-anchor href=#type-2>¶</a></h3><p>テンプレートタイプです。必ず<code>vivlio_colophon</code>とします。</p><h3 id=url-2>url<a class=header-anchor href=#url-2>¶</a></h3><p>coverファイルの名称（URL）。<code>&lt;name>.colophon.html</code>形式で記述します。<code>&lt;name></code>は任意の名前です。PDF構成ファイル3つで同一の名前を使います。</p><h3 id=title>title<a class=header-anchor href=#title>¶</a></h3><p>奥付のタイトルです。本文には表示されません。ヘッダーにタイトルを表示している場合、このタイトルが表示されます。</p><h3 id=本文>本文<a class=header-anchor href=#本文>¶</a></h3><p>奥付ページの本文欄です。通常のファイルと同様です。</p><h3 id=div-roledoc-colophonタグ内><code>&lt;div role="doc-colophon"></code>タグ内<a class=header-anchor href=#div-roledoc-colophonタグ内>¶</a></h3><p>本タグ内は下揃えで描画されます。本のタイトル及び出版情報の表を記述することを想定しています。</p></div><script src=../../js/menuscroll.js></script><script src=../../js/clipboard.js></script></body></html>
+<span style=color:#960050;background-color:#1e0010>|</span> <span style=color:#960050;background-color:#1e0010>|</span> <span style=color:#960050;background-color:#1e0010>|</span>
+<span style=color:#960050;background-color:#1e0010>|</span> <span style=color:#960050;background-color:#1e0010>--</span> <span style=color:#960050;background-color:#1e0010>|</span> <span style=color:#960050;background-color:#1e0010>--</span>  <span style=color:#960050;background-color:#1e0010>|</span>
+<span style=color:#960050;background-color:#1e0010>|</span><span style=color:#a6e22e>著者</span><span style=color:#960050;background-color:#1e0010>|</span> <span style=color:#a6e22e>著者名</span> <span style=color:#960050;background-color:#1e0010>|</span>
+<span style=color:#960050;background-color:#1e0010>|</span><span style=color:#a6e22e>発行者</span><span style=color:#960050;background-color:#1e0010>|</span> <span style=color:#a6e22e>発行者名</span> <span style=color:#960050;background-color:#1e0010>|</span>
+<span style=color:#960050;background-color:#1e0010>|</span><span style=color:#a6e22e>印刷</span><span style=color:#960050;background-color:#1e0010>・</span><span style=color:#a6e22e>製本</span><span style=color:#960050;background-color:#1e0010>|</span> <span style=color:#a6e22e>印刷社名</span> <span style=color:#960050;background-color:#1e0010>|</span>
+
+<span style=color:#960050;background-color:#1e0010>©</span> <span style=color:#a6e22e>コピーライト記述</span>
+
+<span style=color:#960050;background-color:#1e0010>&lt;/</span><span style=color:#a6e22e>div</span><span style=color:#960050;background-color:#1e0010>&gt;</span>
+</code></pre></div><h3 id=title>title<a class=header-anchor href=#title>¶</a></h3><p>奥付のタイトルです。本文には表示されません。ヘッダーにタイトルを表示している場合、このタイトルが表示されます。必須です。</p><h3 id=outputs-1>outputs<a class=header-anchor href=#outputs-1>¶</a></h3><p>奥付用ファイルを生成するために必要な記述です。変更せずこのまま記載します。必須です。</p><h3 id=本文>本文<a class=header-anchor href=#本文>¶</a></h3><p>奥付ページの本文欄です。通常のファイルと同様です。</p><h3 id=div-roledoc-colophonタグ内><code>&lt;div role="doc-colophon"></code>タグ内<a class=header-anchor href=#div-roledoc-colophonタグ内>¶</a></h3><p>本タグ内は下揃えで描画されます。本のタイトル及び出版情報の表を記述することを想定しています。</p></div><script src=../../js/menuscroll.js></script><script src=../../js/clipboard.js></script></body></html>
