@@ -7,3 +7,6 @@ publishDir = "public_pdf"
     "/css/vivlio-theme-manual-bookoption.css" # add book style (consider left/right page)
     ]
   showIfs = ["@all-pages"]
+  sectionNumberLevel = 3
+  # sectionDelimiter = "-"
+  # sectionTopFormat = "Chapter %s"

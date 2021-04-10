@@ -40,6 +40,8 @@ if not %errorlevel% == 0 exit /B 1
 :: ----------
 pushd %scriptdir%
 powershell -NoProfile -ExecutionPolicy RemoteSigned ^
+  ".\CollectConfig.ps1 \"%hugodir%\public_%hugo_env%\jp\";exit $LASTEXITCODE"
+powershell -NoProfile -ExecutionPolicy RemoteSigned ^
   ".\vivliocli.ps1 -dir \"%hugodir%\public_%hugo_env%\jp\*.*\";exit $LASTEXITCODE"
 popd
 if not %errorlevel% == 0 exit /B 1
@@ -48,6 +50,8 @@ if not %errorlevel% == 0 exit /B 1
 :: EN PDF
 :: ----------
 pushd %scriptdir%
+powershell -NoProfile -ExecutionPolicy RemoteSigned ^
+  ".\CollectConfig.ps1 \"%hugodir%\public_%hugo_env%\en\";exit $LASTEXITCODE"
 powershell -NoProfile -ExecutionPolicy RemoteSigned ^
   ".\vivliocli.ps1 -dir \"%hugodir%\public_%hugo_env%\en\*.*\";exit $LASTEXITCODE"
 popd
