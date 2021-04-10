@@ -10,3 +10,7 @@ publishDir = "public_pdf"
   sectionNumberLevel = 3
   # sectionDelimiter = "-"
   # sectionTopFormat = "Chapter %s"
+
+[languages]
+  [languages.jp.params]
+    sectionTopFormat = "第%s章"

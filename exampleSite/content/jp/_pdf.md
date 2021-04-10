@@ -6,10 +6,10 @@ doctitle:
 subtitle:
   default: "Hugoサイトを美しくPDF出力"
 doc_number:
-  default: "Ver.0.1.0"
+  default: "Ver.0.3.0"
 author: "mochimo"
 company: ""
-pagesize: "A4"
+pagesize: "A5"
 colophon: true
 outputs:
 - vivlio_cover

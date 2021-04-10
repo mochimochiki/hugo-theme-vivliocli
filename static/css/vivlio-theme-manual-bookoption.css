@@ -15,13 +15,11 @@
 /* left page */
 @page :left {
   font-family: '遊ゴシック', 'YuGothic', sans-serif; /* header or footer font */
-  margin-left: 7%;
-  margin-right: 15%;
+  margin-left: 9%;
+  margin-right: 11%;
   @top-center {
     content: env(pub-title);
-    font-size: 0.8rem;
     text-align: left;
-    padding: 12mm 2mm 0 2mm;
   }
   @bottom-left {
     font-size: 0.8rem;
@@ -35,13 +33,11 @@
 
 @page :right {
   font-family: "遊ゴシック", sans-serif;
-  margin-left: 15%;
-  margin-right: 7%;
+  margin-left: 11%;
+  margin-right: 9%;
   @top-center {
     content: env(doc-title);
-    font-size: 0.8rem;
     text-align: right;
-    padding: 12mm 2mm 0 2mm;
   }
   @bottom-right {
     font-size: 0.8rem;
