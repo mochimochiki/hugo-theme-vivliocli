@@ -1,21 +1,55 @@
 {{- $source := .Get 0 }}
+{{- $key := .Get 1 }}
+{{- $column := .Get 2 }}
+{{- /*  {{- if $key }}{{ partial "log" (printf "key: %s" $key) }}{{ end }}  */}}
+{{- /*  {{- if $column }}{{ partial "log" (printf "column: %s" $column) }}{{ end }}  */}}
 {{- $isMD := strings.HasSuffix $source "md" }}
 {{- $isCSV := strings.HasSuffix $source "csv" }}
 {{- if $isMD }}
 {{- $md := print "/_include/" $source }}
 {{ readFile $md | markdownify }}
 {{- else if $isCSV}}
-{{- $lang := .Site.Language.Lang }}
-{{- $csv := printf "../content/%s/_include/%s" $lang $source }}
-<table>
-  <tbody>
+  {{- $lang := .Site.Language.Lang }}
+  {{- $csv := printf "../content/%s/_include/%s" $lang $source }}
+  {{- /* include one parameter */}}
+  {{- if $key }}
+    {{- $found := false }}
+    {{- $colNo := -1 }}
     {{- range $i, $r := getCSV "," $csv }}
-    <tr>
-      {{ if eq $i 0}} {{range $r}} <th style="text-align: left"> {{ . }} </th>{{ end }}
-      {{ else }} {{range $r}} <td> {{ . }} </td>{{ end }}
+      {{- if eq $found false }}
+        {{- /*  {{- partial "log" (index $r 0) }}  */}}
+        {{- /*  列を特定  */}}
+        {{- if eq $i 0}} 
+          {{- $index := 0 }}
+          {{- range $r}}
+            {{- if eq . $column }}
+              {{- /*  {{- partial "log" $index }}  */}}
+              {{- $colNo = $index }}
+          {{- end }}
+            {{- $index = add $index 1 }}
+          {{- end }}
+        {{- end }}
+        {{- /*  行を特定  */}}
+        {{- if eq (index $r 0) $key }}
+          {{- if ne $colNo -1 }}
+            {{- /*  {{- partial "log" (index $r $colNo ) }}  */}}
+            {{- index $r $colNo }}
+          {{- end }}
+        {{- end }}
       {{- end }}
-    </tr>
     {{- end }}
-  </tbody>
-</table>
+  {{- /* include csv table */}}
+  {{- else }}
+  <table>
+    <tbody>
+      {{- range $i, $r := getCSV "," $csv }}
+      <tr>
+        {{ if eq $i 0}} {{range $r}} <th style="text-align: left"> {{ . }} </th>{{ end }}
+        {{ else }} {{range $r}} <td> {{ . }} </td>{{ end }}
+        {{- end }}
+      </tr>
+      {{- end }}
+    </tbody>
+  </table>
+  {{- end }}
 {{- end }}
