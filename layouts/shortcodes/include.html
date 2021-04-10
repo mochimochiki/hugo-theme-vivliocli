@@ -10,7 +10,7 @@
 {{ readFile $md | markdownify }}
 {{- else if $isCSV}}
   {{- $lang := .Site.Language.Lang }}
-  {{- $csv := printf "../content/%s/_include/%s" $lang $source }}
+  {{- $csv := printf "%s/%s/_include/%s" .Site.Params.contentRootDir $lang $source }}
   {{- /* include one parameter */}}
   {{- if $key }}
     {{- $found := false }}

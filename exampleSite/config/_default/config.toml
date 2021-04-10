@@ -13,9 +13,10 @@ uglyurls = true
 relativeURLs = true
 
 [params]
+    contentRootDir = "content"
     theme_css = ["/css/vivlio-theme-manual.css"]
     isPDF = false
-    showIfs = ["@all-pages"]
+    showIfs = [""]
     sectionNumberLevel = 3
     # sectionDelimiter = "-"
     # sectionTopFormat = "Chapter %s"
