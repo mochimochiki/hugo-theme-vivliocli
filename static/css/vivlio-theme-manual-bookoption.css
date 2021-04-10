@@ -25,9 +25,10 @@
     font-size: 0.8rem;
     content: counter(page);
     border-left: 1px solid;
-    margin-top: 10mm;
-    margin-bottom: -3mm;
-    padding: 0 4mm 15mm 4mm;
+    margin-top: 6mm;
+    padding-left: 4mm;
+    padding-right: 4mm;
+    vertical-align: top;
   }
 }
 
@@ -43,8 +44,9 @@
     font-size: 0.8rem;
     content: counter(page);
     border-right: 1px solid;
-    margin-top: 10mm;
-    margin-bottom: -3mm;
-    padding: 0 2mm 15mm 2mm;
+    margin-top: 6mm;
+    padding-left: 4mm;
+    padding-right: 4mm;
+    vertical-align: top;
   }
 }
