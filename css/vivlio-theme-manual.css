@@ -315,35 +315,35 @@ figure img.fig ~ figcaption::before {
   margin-left: 10%;
   margin-right: 10%;
   @top-left-corner {
+    /* border-bottom: 1px solid; */
     background-color: #333;
     color: #fafafa;
     content: "";
-    margin-bottom: 7mm;
-    margin-top: -3mm;
+    margin-bottom: 6mm;
     margin-left: -3mm;
   }
   @top-center {
     content: env(pub-title) " - " env(doc-title);
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 400;
+    /* border-bottom: 1px solid; */
     background-color: #333;
     color: #fafafa;
-    margin-top: -3mm;
     margin-left: -1mm;
     margin-right: -1mm;
-    margin-bottom: 7mm;
-    padding-top: 0mm;
+    margin-bottom: 6mm;
+    padding-bottom: 2mm;
     padding-left: 2mm;
-    padding-right: 1mm;
-    padding-bottom: 0mm;
+    padding-right: 2mm;
     text-align: left;
+    vertical-align: bottom;
   }
   @top-right-corner {
+    /* border-bottom: 1px solid; */
     background-color: #333;
     color: #fafafa;
     content: "";
-    margin-bottom: 7mm;
-    margin-top: -3mm;
+    margin-bottom: 6mm;
     margin-right: -3mm;
   }
   @bottom-center {
@@ -488,6 +488,7 @@ figure img.fig ~ figcaption::before {
   font-size: 3rem;
   background-color: #333;
   color: #fafafa;
+  /* padding-top: 2rem; */
   margin-top: -10%;
   padding-top: 4%;
   margin-left: -21%;
