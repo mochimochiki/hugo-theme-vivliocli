@@ -6,7 +6,7 @@ pushd %hugodir%
 
 if "%1" == "" (
   echo "arg1:environment was not specified. Build with [pdf] environment..."
-  set hugo_env=pdf_sample
+  set hugo_env=pdf
 ) else (
   set hugo_env=%1
 )
