@@ -7,18 +7,15 @@
   {{- range .Pages.ByWeight }}
   {{- if partial "functions/isShow" . }}
   <li>
-    {{/* 日本語文字化け対策： https://discourse.gohugo.io/t/how-decode-urls-in-hugo/7549 */}}
-    {{- $url := urls.Parse (.RelPermalink | urlize) }}
-    {{- $a := printf "..%s" $url.Path }}
     {{- if ne .IsSection true }}
       {{/* https://nasust.com/hugo/a1fe8f73-9e3f-4fa3-89c2-a5de90806121 */}}
       {{- $sectionNo := partial "functions/getSectionNo" . }}
       {{- $sectionNoRaw := partial "functions/getSectionNoRaw" . }}
-      <a {{ printf "href=%q" $a | safeHTMLAttr }}>{{ $sectionNo }} {{ .Title }}</a>
+      <a {{ printf "href=..%s" .RelPermalink | safeHTMLAttr }}>{{ $sectionNo }} {{ .Title }}</a>
       {{- template "pagetoc" (dict "sectionNo" $sectionNoRaw "page" .Page ) }}
     {{- end }}
     {{- if .IsSection }}
-      <a {{ printf "href=%q" $a | safeHTMLAttr }} {{- if .Params.role }} class="{{ .Params.role }}" {{- end }}>{{ partial "functions/getSectionNo" . }} {{ .Title }}</a>
+      <a {{ printf "href=..%s" .RelPermalink | safeHTMLAttr }} {{- if .Params.role }} class="{{ .Params.role }}" {{- end }}>{{ partial "functions/getSectionNo" . }} {{ .Title }}</a>
       {{/*  section は pdftoc に非対応  */}}
     {{- template "section_hierarchy" . }}
     {{- end -}}
@@ -33,10 +30,8 @@
 {{- define "pagetoc" }}
 {{- $page := .page }}
 {{- $sectionNo := .sectionNo }}
-{{- $url := urls.Parse ($page.RelPermalink | urlize) }}
-{{- $a := printf "..%s#" $url.Path }}
 {{- $pagelink := newScratch }}
-{{- $pagelink.Set "link" $a }}
+{{- $pagelink.Set "link" (printf "..%s#" $page.RelPermalink) }}
 {{- $content := partial "content-with-section.html" (dict "sectionNo" $sectionNo "page" $page ) }}
 {{- $toc := (partial "page-toc.html" $content) | replaceRE "<nav id=.+?>" "" | replaceRE "</nav>" "" | safeHTML }}
 {{- $toc = $toc | replaceRE "<ul>" "<ol>" | replaceRE "</ul>" "</ol>" | safeHTML}}
