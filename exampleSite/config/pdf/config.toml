@@ -1,4 +1,5 @@
 baseURL = ""
+relativeURLs = true
 publishDir = "public_pdf"
 
 [params]
