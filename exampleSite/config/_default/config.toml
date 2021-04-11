@@ -10,7 +10,7 @@ enableGitInfo = false
 defaultContentLanguageInSubdir= true
 hasCJKLanguage = true
 uglyurls = true
-relativeURLs = true
+relativeURLs = false
 
 [params]
     contentRootDir = "content"
