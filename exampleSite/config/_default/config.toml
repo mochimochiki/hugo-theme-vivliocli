@@ -1,4 +1,4 @@
-baseURL = ""
+baseURL = "https://mochimochiki.github.io/hugo-theme-vivliocli"
 themesdir = "../.."
 title = "Hugo theme for Vivliosytle-cli."
 theme = "hugo-theme-vivliocli"
@@ -10,7 +10,7 @@ enableGitInfo = false
 defaultContentLanguageInSubdir= true
 hasCJKLanguage = true
 uglyurls = true
-relativeURLs = true
+relativeURLs = false
 
 [params]
     contentRootDir = "content"
