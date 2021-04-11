@@ -94,8 +94,8 @@ a:hover {
 }
 
 p {
-  margin-top: 0.1rem;
-  margin-bottom: 0.1rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
   font-feature-settings: "palt", "calt";
   text-align: left;
 }
@@ -117,7 +117,7 @@ ol {
   padding-inline-start: 1.5em;
 }
 
-ol {
+nav ol {
   list-style-type: none;
 }
 
@@ -180,10 +180,11 @@ table tr:nth-child(even) {
 /* quote                */
 /* -------------------- */
 blockquote {
+  background-color: #f6f6f6;
   margin: 1.5rem 0.5rem;
-  background-color: #eee;
-  padding: 1em 1em;
-  border-radius: 0.2rem;
+  padding: 0.5rem 1rem;
+  border-left: 6px solid #ccc;
+  font-style: italic;
 }
 
 blockquote :not(pre) > code {
