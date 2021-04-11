@@ -1,4 +1,4 @@
-baseURL = ""
+baseURL = "/hugo-theme-vivliocli"
 themesdir = "../.."
 title = "Hugo theme for Vivliosytle-cli."
 theme = "hugo-theme-vivliocli"
