@@ -769,7 +769,11 @@ figure img.fig ~ figcaption::before {
   }
 
   .highlight pre {
-        margin: 0;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  pre {
+    margin-top: 0;
   }
 }
 
