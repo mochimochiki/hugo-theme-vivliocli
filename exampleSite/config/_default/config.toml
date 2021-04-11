@@ -1,4 +1,4 @@
-baseURL = "/hugo-theme-vivliocli"
+baseURL = ""
 themesdir = "../.."
 title = "Hugo theme for Vivliosytle-cli."
 theme = "hugo-theme-vivliocli"
@@ -10,7 +10,7 @@ enableGitInfo = false
 defaultContentLanguageInSubdir= true
 hasCJKLanguage = true
 uglyurls = true
-relativeURLs = false
+relativeURLs = true
 
 [params]
     contentRootDir = "content"
