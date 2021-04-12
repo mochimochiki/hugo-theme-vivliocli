@@ -31,7 +31,7 @@
 {{- $page := .page }}
 {{- $sectionNo := .sectionNo }}
 {{- $pagelink := newScratch }}
-{{- $pagelink.Set "link" (printf "..%s#" $page.RelPermalink) }}
+{{- $pagelink.Set "link" (printf "%s#" $page.RelPermalink) }}
 {{- $content := partial "content-with-section.html" (dict "sectionNo" $sectionNo "page" $page ) }}
 {{- $toc := (partial "page-toc.html" $content) | replaceRE "<nav id=.+?>" "" | replaceRE "</nav>" "" | safeHTML }}
 {{- $toc = $toc | replaceRE "<ul>" "<ol>" | replaceRE "</ul>" "</ol>" | safeHTML}}
