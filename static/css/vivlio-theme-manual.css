@@ -712,7 +712,6 @@ figure img.fig ~ figcaption::before {
 
   #menu .logo img {
     max-width: var(--menu-width);
-    margin-top: -20px;
     margin-left: -20px;
   }
 
