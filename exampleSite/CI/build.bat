@@ -1,5 +1,5 @@
 @echo off
-chcp 65001
+
 set scriptdir=%~dp0
 set hugodir=%~dp0..
 pushd %hugodir%
@@ -33,7 +33,6 @@ powershell -NoProfile -ExecutionPolicy RemoteSigned ^
   ".\MathConverter.ps1 -dir \"%hugodir%\public_%hugo_env%\" -logname MathConverter_%hugo_env%.log;exit $LASTEXITCODE"
 popd
 if not %errorlevel% == 0 exit /B 1
-
 
 :: ----------
 :: JP PDF

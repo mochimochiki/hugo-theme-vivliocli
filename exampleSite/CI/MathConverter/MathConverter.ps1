@@ -41,8 +41,7 @@ if ($mathFileList.Count)
 
   $mathFileList | ForEach-Object {
     Write-Output "convert...$($_)"
-    $convertedHTML = node -r esm .\tex2chtml-page $_
-    $convertedHTML | Out-File $_ -Encoding UTF8
+    node -r esm .\tex2chtml-page $_
   }
   Pop-Location
 }
