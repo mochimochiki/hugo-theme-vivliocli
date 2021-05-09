@@ -23,6 +23,7 @@
     </div>
     {{- if .Params.author }}<div id="cover-author"><h2>{{ .Params.author }}</h2></div>{{- end }}
     {{- if .Params.company }}<h3>{{ .Params.company }}</h3>{{- end }}
+    {{ partial "cover-custom.html" . }}
   </div>
   {{/*  introduction  */}}
   {{- if .Page.Content }}
