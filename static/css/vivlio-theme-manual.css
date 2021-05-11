@@ -785,6 +785,8 @@ figure img.fig ~ figcaption::before {
     display: inline;
     position: fixed;
     top: 50px;
+    bottom: 50px;
+    overflow-y: auto;
     left: calc(var(--menu-width) + var(--content-width));
     width: calc(98% - var(--menu-width) - var(--content-width));
     font-size: 0.8em;
