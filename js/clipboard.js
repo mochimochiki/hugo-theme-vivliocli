@@ -6,7 +6,34 @@ function AddCopyButton(clipboard) {
     button.innerText = "Copy";
 
     button.addEventListener("click", function () {
-      clipboard.writeText(code.innerText)
+      try {
+        if (clipboard) {
+          // for https
+          clipboard.writeText(code.innerText);
+        } else {
+          // for http
+          var buffer = document.createElement("textarea");
+          focus = document.activeElement;
+          buffer.value = code.innerText;
+          document.body.appendChild(buffer);
+          buffer.select();
+          document.execCommand("copy");
+          document.body.removeChild(buffer);
+          focus.focus();
+        }
+
+        var buttonOriginalText = button.innerText;
+        button.innerText = "Copied!";
+        setTimeout(() => {
+          button.innerText = buttonOriginalText;
+        }, 1200);
+      } catch (e) {
+        var buttonOriginalText = button.innerText;
+        button.innerText = "Copy failure.";
+        setTimeout(() => {
+          buttom.innerText = buttonOriginalText;
+        }, 1200);
+      }
     });
 
     var pre = code.parentNode;
