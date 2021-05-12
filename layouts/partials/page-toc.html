@@ -19,13 +19,13 @@
                 {{- else if eq $prev_level `3` -}}
                     </ul>
                 </details>
-                </li>
                 {{- end -}}
                 {{- if . | findRE "class=.*?pdftoc.*?" }}
-                <details>
-                <summary><a href="#{{ $id }}" class="pdftoc">{{ $header }}</a></summary>
+                <details open>
+                    <summary><a href="#{{ $id }}" class="pdftoc">{{ $header }}</a></summary>
                 {{- else }}
-                <summary><a href="#{{ $id }}">{{ $header }}</a></summary>
+                <details open>
+                    <summary><a href="#{{ $id }}">{{ $header }}</a></summary>
                 {{- end }}
             {{- else if eq $level `3` -}}
                 {{- if eq $prev_level `2` -}}
@@ -44,8 +44,10 @@
 
         {{- $prev_level := $scratch.Get "prev_level" -}}
         {{- if eq $prev_level `2` -}}
+        </details>
         {{- else if eq $prev_level `3` -}}
             </ul>
+        </details>
         {{- end -}}
     </ul>
 </nav>
