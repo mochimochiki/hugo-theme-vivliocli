@@ -912,3 +912,46 @@ figure img.fig ~ figcaption::before {
 #humburger-btn-check {
   display: none;
 }
+
+/* ---------------- */
+/* page toc sidebar */
+/* ---------------- */
+@media screen and (min-width: 1500px) and (orientation: landscape) {
+  #TableOfContents-sidebar {
+    display: inline;
+    position: fixed;
+    top: 50px;
+    bottom: 50px;
+    overflow-y: auto;
+    left: calc(var(--menu-width) + var(--content-width));
+    width: calc(98% - var(--menu-width) - var(--content-width));
+    font-size: 0.8em;
+    border-radius: 0.1em;
+    border: solid 1px lightgray;
+    background: inherit;
+    padding: 0;
+  }
+  #TableOfContents-sidebar > ul:before {
+    content: "目次";
+    font-weight: bolder;
+  }
+  #TableOfContents-sidebar  h2 {
+    background: inherit;
+    text-align: inherit;
+    border-bottom: 1px #eee solid;
+    padding: 10px;
+  }
+  #TableOfContents-sidebar  ul {
+    list-style-type: none;
+  }
+  #TableOfContents-sidebar  li {
+    padding-top: 0;
+  }
+  #TableOfContents-sidebar  li > ul {
+    padding-left: 1em;
+  }
+  #TableOfContents-sidebar  a {
+    font-weight: normal;
+    border-bottom: dashed 1px lightgray;
+  }
+}
