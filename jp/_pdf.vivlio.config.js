@@ -21,6 +21,7 @@ module.exports = {
     '../jp/Test/TestChapter1/03_include.html',
     '../jp/Test/TestChapter1/04_ShowIfHideIfShortCode.html',
     '../jp/Test/TestChapter1/06_HideIfFrontMatter.html',
+    '../jp/Test/TestChapter1/07_TableOfContents.html',
     '_pdfcolophon.vivlio.colophon.html'
   ],
   output: [
