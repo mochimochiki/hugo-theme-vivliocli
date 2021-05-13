@@ -571,7 +571,11 @@ figure img.fig ~ figcaption::before {
   #menu {
     display: none;
   }
-  #TableOfContents {
+  #TableOfContents, #TableOfContents-sidebar {
+    display: none;
+  }
+  
+  .copy-button {
     display: none;
   }
 }
@@ -734,7 +738,7 @@ figure img.fig ~ figcaption::before {
     margin-top: 10rem;
   }
 
-  #TableOfContents {
+  #TableOfContents,#TableOfContents-sidebar {
     display: none;
   }
 
@@ -785,8 +789,6 @@ figure img.fig ~ figcaption::before {
     display: inline;
     position: fixed;
     top: 50px;
-    bottom: 50px;
-    overflow-y: auto;
     left: calc(var(--menu-width) + var(--content-width));
     width: calc(98% - var(--menu-width) - var(--content-width));
     font-size: 0.8em;
@@ -929,7 +931,7 @@ figure img.fig ~ figcaption::before {
     border-radius: 0.1em;
     border: solid 1px lightgray;
     background: inherit;
-    padding: 0;
+    padding-right: 10px;
   }
   #TableOfContents-sidebar > ul:before {
     content: "目次";
@@ -944,14 +946,19 @@ figure img.fig ~ figcaption::before {
   #TableOfContents-sidebar  ul {
     list-style-type: none;
   }
-  #TableOfContents-sidebar  li {
+  #TableOfContents-sidebar li, summary {
     padding-top: 0;
+    font-weight: normal;
+    border-bottom: dashed 1px lightgray;
   }
   #TableOfContents-sidebar  li > ul {
     padding-left: 1em;
   }
-  #TableOfContents-sidebar  a {
-    font-weight: normal;
-    border-bottom: dashed 1px lightgray;
+  #TableOfContents-sidebar  details > ul {
+    padding-left: 2em;
+  }
+  #TableOfContents-sidebar summary:hover {
+    cursor: pointer;
+    background-color: #EFEFEF;
   }
 }
