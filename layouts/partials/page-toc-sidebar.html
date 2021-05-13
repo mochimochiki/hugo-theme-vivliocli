@@ -4,7 +4,7 @@
 {{- $headers := findRE $pattern $Content -}}
 {{- $scratch := newScratch -}}
 {{- $scratch.Set "prev_level" 0 -}}
-<nav id="TableOfContents">
+<nav id="TableOfContents-sidebar">
     <ul>
         {{- range $headers -}}
             {{- $level := . | replaceRE $pattern `$1` -}}
@@ -15,14 +15,16 @@
             {{- $prev_level := $scratch.Get "prev_level" -}}
             {{- if eq $level `2` -}}
                 {{- if eq $prev_level `2` -}}
-                    </li>
+                    </details>
                 {{- else if eq $prev_level `3` -}}
-                    </ul></li>
+                    </ul>
+                </details>
                 {{- end -}}
                 {{- if . | findRE "class=.*?pdftoc.*?" }}
-                <li><a href="#{{ $id }}" class="pdftoc">{{ $header }}</a>
+                <details open><summary><a href="#{{ $id }}" class="pdftoc">{{ $header }}</a></summary>
                 {{- else }}
-                <li><a href="#{{ $id }}">{{ $header }}</a>
+                <details open>
+                    <summary><a href="#{{ $id }}">{{ $header }}</a></summary>
                 {{- end }}
             {{- else if eq $level `3` -}}
                 {{- if eq $prev_level `2` -}}
@@ -41,9 +43,10 @@
 
         {{- $prev_level := $scratch.Get "prev_level" -}}
         {{- if eq $prev_level `2` -}}
-            </li>
+        </details>
         {{- else if eq $prev_level `3` -}}
-            </ul></li>
+            </ul>
+        </details>
         {{- end -}}
     </ul>
 </nav>
