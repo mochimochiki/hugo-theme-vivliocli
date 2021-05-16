@@ -1,4 +1,4 @@
-name: Build PDF CI
+name: Build PDF
 
 on:
   push:
