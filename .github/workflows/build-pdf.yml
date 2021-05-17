@@ -17,7 +17,7 @@ jobs:
     - name: Build PDF
       run: |
         docker build . --file Dockerfile --tag hugo-theme-vivliocli
-        docker run -v $(pwd)/bin:/hugo-theme-vivliocli/bin --init --rm --cap-add=SYS_ADMIN hugo-theme-vivliocli pdf
+        docker run --init --rm --cap-add=SYS_ADMIN hugo-theme-vivliocli pdf
 
     - uses: actions/upload-artifact@v2
       with:
