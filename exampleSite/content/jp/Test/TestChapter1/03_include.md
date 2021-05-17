@@ -7,7 +7,15 @@ weight: 30
 
 {{< include test.md >}}
 
-## include csv
+## include csv from current dir
+
+{{< include current-test.csv >}}
+
+## include csv from relative path
+
+{{< include "csv/relative-test.csv" >}}
+
+## include csv from _include dir
 
 {{< include test.csv >}}
 
