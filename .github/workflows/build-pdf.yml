@@ -16,8 +16,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build PDF
       run: |
-        docker build . --file Dockerfile --tag hugo-theme-vivliocli:$(date +%s)
-        docker run -v .:/hugo-theme-vivliocli --init --rm --cap-add=SYS_ADMIN hugo-theme-vivliocli:$(date +%s) pdf
+        docker build . --file Dockerfile --tag hugo-theme-vivliocli
+        docker run -v .:/hugo-theme-vivliocli --init --rm --cap-add=SYS_ADMIN hugo-theme-vivliocli pdf
 
     - uses: actions/upload-artifact@v2
       with:
