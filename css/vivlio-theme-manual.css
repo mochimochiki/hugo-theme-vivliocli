@@ -220,15 +220,18 @@ pre code {
 div.note {
   margin-top: 20pt;
   margin-bottom: 20pt;
+  break-inside: avoid-page;
 }
 div.note_content {
   margin: 0pt;
-  padding-top: 12pt;
+  padding-top: 4pt;
   padding-left: 12pt;
   padding-right: 12pt;
   padding-bottom: 5pt;
   display: block;
   background: #eee;
+  break-inside: avoid-page;
+  break-before: avoid-page;
 }
 div.note_title {
   margin: 0pt;
@@ -240,6 +243,7 @@ div.note_title {
   font-family: "游ゴシック", "YuGothic", sans-serif;
   font-size: 1.1rem;
   font-weight: 900;
+  break-after: avoid-page;
 }
 div.note li p {
   margin: 0pt;
@@ -248,10 +252,6 @@ div.note li p {
 /* -------------------- */
 /* styling              */
 /* -------------------- */
-.page-break {
-  page-break-after: always !important;
-}
-
 body {
   counter-reset: section subsection fig tbl footnote cite;
 }
