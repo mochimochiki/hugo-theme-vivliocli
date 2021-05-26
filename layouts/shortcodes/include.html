@@ -12,7 +12,7 @@
   {{- $lang := .Site.Language.Lang }}
   {{- $filename := (path.Join $.Page.File.Dir $source) }}
   {{- $csv := printf "%s/%s/%s" .Site.Params.contentRootDir $lang $filename }}
-  {{- if (fileExists $csv ) }}
+  {{- if or (fileExists $csv ) ( or (hasPrefix $source "./" ) (hasPrefix $source "../" ) )}}
     {{- partial "log" (printf "include csv: %s" $csv) }}
   {{- else }}
     {{- $csv = printf "%s/%s/_include/%s" .Site.Params.contentRootDir $lang $source }}
