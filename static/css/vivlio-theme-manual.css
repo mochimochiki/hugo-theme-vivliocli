@@ -11,6 +11,7 @@
   /* variables */
   --menu-width: 350px;
   --content-width: 1000px;
+  --image-max-width: 100%;
 }
 
 /* -------------------- */
@@ -130,7 +131,7 @@ figure {
 }
 
 figure img {
-  max-width: 100%;
+  max-width: var(--image-max-width);
   margin: 0.5rem auto;
 }
 
@@ -150,7 +151,7 @@ figure img[src$=".webp"] {
 }
 
 img {
-  max-width: 100%;
+  max-width: var(--image-max-width);
 }
 
 /* -------------------- */
