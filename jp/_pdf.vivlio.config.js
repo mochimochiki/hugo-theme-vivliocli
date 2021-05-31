@@ -23,6 +23,7 @@ module.exports = {
     '../jp/Test/TestChapter1/06_HideIfFrontMatter.html',
     '../jp/Test/TestChapter1/07_TableOfContents.html',
     '../jp/Test/TestChapter1/08_pagebreak.html',
+    '../jp/Test/TestChapter1/09_ImageResize.html',
     '_pdfcolophon.vivlio.colophon.html'
   ],
   output: [
