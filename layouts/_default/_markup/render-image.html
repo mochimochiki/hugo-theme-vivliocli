@@ -11,5 +11,5 @@
   {{ with .PlainText }}<figcaption>{{ . }}</figcaption>{{ end }}
 </figure>
 {{- else }}
-<img src="{{ $url }}" alt="{{ .PlainText }}">
+<img src="{{ $url }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
 {{- end }}
