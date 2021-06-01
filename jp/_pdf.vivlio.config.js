@@ -5,7 +5,6 @@ module.exports = {
   entry: [
     '_pdf.vivlio.cover.html',
     
-    '../jp/feature1.html',
     '../jp/GettingStarted.html',
     '../jp/GettingStarted/GettingStarted.html',
     '../jp/Configuration.html',
@@ -25,6 +24,7 @@ module.exports = {
     '../jp/Test/TestChapter1/07_TableOfContents.html',
     '../jp/Test/TestChapter1/08_pagebreak.html',
     '../jp/Test/TestChapter1/09_ImageResize.html',
+    '../jp/test.html',
     '_pdfcolophon.vivlio.colophon.html'
   ],
   output: [
