@@ -1,2 +1,7 @@
+{{- /* ------------------
+header.html
+記事のヘッダー。headの一番下に展開される。
+メニュー描画。
+------------------- */}}
 {{ partial "custom-header.html" . }}
 {{- if ne .Site.Params.isPDF true }} {{- partial "menu.html" . -}} {{- end }}

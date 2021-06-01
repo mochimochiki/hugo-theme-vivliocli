@@ -1,5 +1,8 @@
-{{/* 記事のsectionNoに、更にh2/h3までsectionNumberLevel内であればsectionNoを付加して出力する。 */}} 
-{{/* .Page.Content の代わりに使用する。  */}}
+{{- /* ------------------
+content-with-section.html
+記事自体のsectionNoにsectionNumberLevelまでsectionNoを付加して出力する。
+h2/h3タグが対象。.Page.Content の代わりに使用する。
+------------------- */}}
 {{- $section := .sectionNo }}
 {{- $page := .page }}
 {{- $d := $page.Site.Params.sectionDelimiter | default "." }}
@@ -7,7 +10,7 @@
 {{- $settingLevel := $page.Site.Params.sectionNumberLevel | default 0 }}
 {{- $content := $page.Content }}
 
-{{/* pageLevel < settingLevel の場合h2に章番号を付加 */}}
+{{- /* pageLevel < settingLevel の場合h2に章番号を付加 */}}
 {{- if and (lt $pageLevel $settingLevel) ($section) }}
   {{- $h2List := findRE "<h2.*?>(.|\n)*?</h2>" $content }}
   {{- $i := 0 }}
@@ -18,7 +21,7 @@
     {{- $h2replaced = partial "functions/addPdftoc" $h2replaced }}
     {{- $content = (replace $content . $h2replaced) | safeHTML }}
     {{- if lt (add $pageLevel 1) $settingLevel }}
-      {{/* h2 - Next h2/EOF までの間にある h3 について章番号付加 */}}
+      {{- /* h2 - Next h2/EOF までの間にある h3 について章番号付加 */}}
       {{- $h2content := $content | findRE (printf "%s(.|\n)*?(<h2.*?>|\\z)" $h2replaced) }}
       {{- $h3List := findRE "<h3.*?>(.|\n)*?</h3>" (index $h2content 0) }}
       {{- $j := 0 }}
@@ -29,7 +32,7 @@
         {{- $h3replaced = partial "functions/addPdftoc" $h3replaced }}
         {{- $content = $content | replaceRE . $h3replaced | safeHTML }}
       {{- end }}
-      {{/*  {{- partial "log" (printf "%s" $h2content)}}  */}}
+      {{- /*  {{- partial "log" (printf "%s" $h2content)}}  */}}
     {{- end }}
   {{- end }}
 {{- end }}

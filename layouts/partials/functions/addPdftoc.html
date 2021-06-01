@@ -1,4 +1,6 @@
-{{/* header要素を受け取り、pdftocクラスを足す */}}
+{{- /* 見出し要素（h2 or h3）を受け取り、pdftocクラスを足して返す */}}
+{{- /* in : h2/h3タグ                   ex) <h2 class="hoge" >title</h2> */}}
+{{- /* out: pdftocを付加した h2/h3タグ  ex) <h2 class="hoge pdftoc" >title</h2> */}}
 {{- if . | findRE `class=".*?pdftoc.*?"`}}
   {{ . | safeHTML }}
 {{- else if . | findRE `class=".*?"` }}

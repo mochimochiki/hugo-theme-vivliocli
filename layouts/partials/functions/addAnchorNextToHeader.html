@@ -1,2 +1,4 @@
-{{/* contentを受け取り、ヘッダ横にアンカーを足す */}}
+{{- /* contentを受け取り、ヘッダ横にアンカーを足す */}}
+{{- /* in : .Page.Content */}}
+{{- /* out: アンカーを足した.Page.Content */}}
 {{ . | replaceRE "(<h[1-6].*? id=\"(.*?)\".*?>)(.*?)(</h[1-6]>)" `${1}${3}<a class="header-anchor" href="#${2}">¶</a>${4}` | safeHTML }}

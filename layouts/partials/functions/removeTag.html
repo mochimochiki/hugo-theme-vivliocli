@@ -1,2 +1,2 @@
-{{/* タグを削除する。 <a href="xxx">abc</a>def -> abcdef */}}
+{{- /* タグを削除する。 <a href="xxx">abc</a>def -> abcdef */}}
 {{- . | replaceRE `<("[^"]*"|'[^']*'|[^'">])*>` `` }}

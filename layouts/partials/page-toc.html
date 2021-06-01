@@ -1,3 +1,7 @@
+{{- /* ------------------
+page-toc.html
+ページ内TOC。PDFの目次生成用にtoc.htmlから呼ばれる。
+------------------- */}}
 {{- $Content := . -}}
 {{- /* (?:.|\n) : 後方参照不要なグループ化 . or \n */ -}}
 {{- $pattern := `<h([23]).*?id="(.+?)".*?>((?:.|\n)*?)</h[23]>` -}}
@@ -11,7 +15,7 @@
             {{- $id := . | replaceRE $pattern `$2` -}}
             {{- $header := . | replaceRE $pattern `$3` | safeHTML -}}
             {{- $header = partial "functions/removeTag" $header }}
-            {{/*  {{- partial "log" (printf "%s" $header ) }}  */}}
+            {{- /*  {{- partial "log" (printf "%s" $header ) }}  */}}
             {{- $prev_level := $scratch.Get "prev_level" -}}
             {{- if eq $level `2` -}}
                 {{- if eq $prev_level `2` -}}

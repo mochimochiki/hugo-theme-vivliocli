@@ -1,3 +1,6 @@
+{{- /* SecitonNoを取得する。実際の処理はgetSectionNoRawに移譲 */}}
+{{- /* in : Page */}}
+{{- /* out: string章節番号 ex) 1.2.1, 1章(トップレベルかつフォーマット指定時) */}}
 {{ $delimiter := .Site.Params.sectionDelimiter | default "." }}
 {{- $sectionNo := partial "functions/getSectionNoRaw" . }}
 {{- $ret := "" }}

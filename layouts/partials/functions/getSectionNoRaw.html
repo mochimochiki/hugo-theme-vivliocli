@@ -1,3 +1,6 @@
+{{- /* SecitonNoを取得する。 */}}
+{{- /* in : Page */}}
+{{- /* out: string章節番号 ex) 1.2.1 */}}
 {{ $scratch := newScratch }}
 {{ $scratch.Set "sectionSlice" slice }}
 {{- template "section-tree" (dict "section" .Site.Home "current" . "scratch" $scratch) }}
@@ -27,16 +30,16 @@
   {{- end }}
 {{- end }}
 
-{{/*  delimiter  */}}
+{{- /*  delimiter  */}}
 {{ $delimiter := .Site.Params.sectionDelimiter | default "." }}
 
 {{ $sectionSlice := $scratch.Get "sectionSlice" }}
 {{ $ret := "" }}
 {{ if .Site.Params.sectionNumberLevel }}
-  {{/*  Level設定より深ければ表示しない  */}}
+  {{- /*  Level設定より深ければ表示しない  */}}
   {{ if gt (len $sectionSlice) .Site.Params.sectionNumberLevel }}
     {{ $ret = "" }}
-  {{/* 通常のフォーマット */}}
+  {{- /* 通常のフォーマット */}}
   {{ else }}
     {{ $ret = delimit $sectionSlice $delimiter }}
   {{ end }}

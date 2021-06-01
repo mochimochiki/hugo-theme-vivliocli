@@ -1,6 +1,10 @@
+{{- /* ------------------
+menu-footer.html
+メニューのフッター。
+言語セレクタなどメニューの共通項目を指定
+------------------- */}}
 <hr>
-
-{{/* language selector */}}
+{{- /* language selector */}}
 {{ if .Site.IsMultiLingual }}
 <div class="language-selector">
   <select class="select-language" onchange="location = this.value;">
@@ -23,7 +27,7 @@
 </div>
 {{end}}
 
-{{/*  tags  */}}
+{{- /*  tags  */}}
 {{- range $name, $taxonomy := .Site.Taxonomies }}
 {{- if $taxonomy }}
 <div class="menu-footer">
@@ -34,6 +38,6 @@
 
 {{ partial "menu-footer-custom.html" . }}
 
-{{/*  space  */}}
+{{- /*  space  */}}
 <hr>
 <div class="menu-footer-space"></div>

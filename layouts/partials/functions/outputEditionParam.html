@@ -1,3 +1,6 @@
+{{- /* フロントマターに定義されているEditionに応じたパラメータを取得 */}}
+{{- /* in : page:Page, param:指定したいフロントマターのパラメータ ex) (dict "page" . "param" "doctitle" ) */}}
+{{- /* out: string パラメータ ex) "タイトル" */}}
 {{- $page := .page }}
 {{- $param := .param }}
 {{- $value := "" }}
