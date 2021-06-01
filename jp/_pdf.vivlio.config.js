@@ -5,6 +5,7 @@ module.exports = {
   entry: [
     '_pdf.vivlio.cover.html',
     
+    '../jp/feature1.html',
     '../jp/GettingStarted.html',
     '../jp/GettingStarted/GettingStarted.html',
     '../jp/Configuration.html',
