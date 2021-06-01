@@ -50,3 +50,9 @@
     vertical-align: top;
   }
 }
+
+@page :first {
+  @bottom-right {
+    border-right: none;
+  }
+}

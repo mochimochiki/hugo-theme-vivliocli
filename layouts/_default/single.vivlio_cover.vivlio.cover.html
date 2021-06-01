@@ -24,6 +24,14 @@
     {{- if .Params.author }}<div id="cover-author"><h2>{{ .Params.author }}</h2></div>{{- end }}
     {{- if .Params.company }}<h3>{{ .Params.company }}</h3>{{- end }}
     {{ partial "cover-custom.html" . }}
+    {{- $top := partial "functions/outputEditionParam" (dict "page" . "param" "header" ) }}
+    {{ with $top }}<div class="cover-top-center">{{ $top }}</div>{{ end }}
+    {{- $bottom_left := partial "functions/outputEditionParam" (dict "page" . "param" "footer-left" ) }}
+    {{ with $bottom_left }}<div class="cover-bottom-left">{{ $bottom_left }}</div>{{ end }}
+    {{- $bottom_center := partial "functions/outputEditionParam" (dict "page" . "param" "footer-center" ) }}
+    {{ with $bottom_center }}<div class="cover-bottom-center">{{ $bottom_center }}</div>{{ end }}
+    {{- $bottom_right := partial "functions/outputEditionParam" (dict "page" . "param" "footer-right" ) }}
+    {{ with $bottom_right }}<div class="cover-bottom-right">{{ $bottom_right }}</div>{{ end }}
   </div>
   {{- /*  introduction  */}}
   {{- if .Page.Content }}
