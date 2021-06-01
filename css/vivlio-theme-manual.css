@@ -370,29 +370,59 @@ figure img.fig ~ figcaption::before {
   }
 }
 
+/* cover */
+div.cover-top-center {
+  visibility: hidden;
+  string-set: top-center content();
+}
+div.cover-bottom-left {
+  visibility: hidden;
+  string-set: bottom-left content();
+}
+div.cover-bottom-center {
+  visibility: hidden;
+  string-set: bottom-center content();
+}
+div.cover-bottom-right {
+  visibility: hidden;
+  string-set: bottom-right content();
+}
+
 @page :first {
   margin-left: 8%;
   margin-right: 8%;
-  @top-left-corner {
-    content: none;
-  }
   @top-center {
-    content: none;
-  }
-  @top-right-corner {
-    content: none;
-  }
-  @bottom-center {
-    content: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    content: string(top-center, first);
+    text-align: right;
   }
   @bottom-left-corner {
     content: none;
   }
   @bottom-left {
-    content: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    content: string(bottom-left, first);
+    margin-top: 0mm;
+    vertical-align: middle;
+    text-align: left;
+  }
+  @bottom-center {
+    font-size: 0.8rem;
+    font-weight: 400;
+    content: string(bottom-center, first);
+    margin-top: 0mm;
+    vertical-align: middle;
+    text-align: center;
   }
   @bottom-right {
-    content: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    content: string(bottom-right, first);
+    margin-top: 0mm;
+    vertical-align: middle;
+    text-align: right;
   }
   @bottom-right-corner {
     content: none;
