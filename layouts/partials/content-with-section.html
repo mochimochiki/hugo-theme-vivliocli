@@ -22,7 +22,9 @@ h2/h3タグが対象。.Page.Content の代わりに使用する。
     {{- $content = (replace $content . $h2replaced) | safeHTML }}
     {{- if lt (add $pageLevel 1) $settingLevel }}
       {{- /* h2 - Next h2/EOF までの間にある h3 について章番号付加 */}}
-      {{- $h2content := $content | findRE (printf "%s(.|\n)*?(<h2.*?>|\\z)" $h2replaced) }}
+      {{- /* h2replacedをfindREに渡すと[a-1]などが正規表現と解釈されエラー。回避のため <h2 xx> タグだけ使用 */}}
+      {{- $current_h2Tag := index (findRE "<h2.*?>" $h2replaced) 0 }}
+      {{- $h2content := $content | findRE (printf "%s(.|\n)*?(<h2.*?>|\\z)" $current_h2Tag) }}
       {{- $h3List := findRE "<h3.*?>(.|\n)*?</h3>" (index $h2content 0) }}
       {{- $j := 0 }}
       {{- range $h3List }}
