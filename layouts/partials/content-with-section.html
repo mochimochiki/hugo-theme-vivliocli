@@ -30,7 +30,7 @@ h2/h3タグが対象。.Page.Content の代わりに使用する。
         {{- $h3section := (printf "%s%s%d" $h2section $d $j) }}
         {{- $h3replaced := . | replaceRE "(<h3.*?>)((.|\n)*?</h3>)" (printf "${1}%s ${2}" $h3section) }}
         {{- $h3replaced = partial "functions/addPdftoc" $h3replaced }}
-        {{- $content = $content | replaceRE . $h3replaced | safeHTML }}
+        {{- $content = (replace $content . $h3replaced) | safeHTML }}
       {{- end }}
       {{- /*  {{- partial "log" (printf "%s" $h2content)}}  */}}
     {{- end }}
