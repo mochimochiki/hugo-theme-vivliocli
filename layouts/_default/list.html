@@ -27,17 +27,7 @@
 
     <nav id="toc" role="doc-toc">
       <h2>Table of Contents</h2>
-      <ol>
-        {{- range .Pages.ByWeight }}
-        <li>
-          {{- if ne .IsSection true }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
-          {{- if .IsSection }}
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          {{ partial "toc.html" . }}
-          {{ end }}
-        </li>
-        {{- end }}
-      </ol>
+      {{ partial "toc.html" . }}
     </nav>
   </div>
   {{- partial "footer.html" . -}}
