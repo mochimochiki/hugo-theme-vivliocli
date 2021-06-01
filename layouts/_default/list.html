@@ -1,26 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ .Page.Language | default "en" }}">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ .Title }}</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{{ "img/favicon.ico" | relURL }}">
   <!-- css -->
   {{- range .Site.Params.theme_css -}}
   <link rel="stylesheet" href="{{ . | relURL }}">
   {{- end -}}
+  {{- partial "header.html" . -}}
 </head>
 
 <body>
-  {{- partial "header.html" . -}}
   <div id="content">
     <header>
       <h1>{{ .Title }}</h1>
     </header>
     {{- $content := .Page.Content }}
-      {{- if ne .Site.Params.isPDF true }}
-        {{- $content = partial "functions/addAnchorNextToHeader" $content }}
-      {{- end }}
+    {{- if ne .Site.Params.isPDF true }}
+    {{- $content = partial "functions/addAnchorNextToHeader" $content }}
+    {{- end }}
     {{ $content }}
 
 
@@ -32,13 +33,14 @@
           {{- if ne .IsSection true }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
           {{- if .IsSection }}
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          {{ partial "toc" . }}
+          {{ partial "toc.html" . }}
           {{ end }}
         </li>
         {{- end }}
       </ol>
     </nav>
   </div>
+  {{- partial "footer.html" . -}}
 </body>
 
 </html>
