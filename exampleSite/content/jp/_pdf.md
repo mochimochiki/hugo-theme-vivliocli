@@ -16,4 +16,4 @@ outputs:
 - vivlio_config
 ---
 
-{{< include introduction.md >}}
+{{< include introduction_jp.md >}}

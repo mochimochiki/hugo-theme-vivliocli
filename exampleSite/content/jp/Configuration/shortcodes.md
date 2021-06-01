@@ -69,11 +69,12 @@ hugo-theme-vivliocli テーマで使用できるショートコードの一覧�
 Markdownファイル、csvファイルの「部品」を用意しておき、原稿の任意の箇所に「挿し込む」事ができます。部品ファイルを`/content/<language>/_include`以下に配置しておけば、以下のショートコードでincludeすることができます。
 
 ```bash
-{{</* include "test.md"  */>}} # /content/jp/_include/test.md
-{{</* include "/sample/sample.md" */>}} # /content/jp/_include/sample/sample.md
-{{</* include "test.csv"  */>}} # /content/jp/_include/test.csv
+{{</* include "test_jp.md"  */>}} # /content/jp/_include/test_jp.md
+{{</* include "/sample/sample_jp.md" */>}} # /content/jp/_include/sample/sample_jp.md
+{{</* include "test_jp.csv"  */>}} # /content/jp/_include/test_jp.csv
 ```
 
+* _includeディレクトリ内のファイルは言語サフィックスをつけてください。（同名ファイルがあるとenが優先される場合がある）
 * _includeディレクトリ内のMarkdownにはフロントマターは記載しません。
 * _includeディレクトリ内のMarkdownでは、ショートコードは使用できません。（よって多重includeはできません）
 * includeショートコードは`{{</* */>}}`スタイル（Markdownレンダリング無し）で記述してください。`{{%/* */%}}`スタイル（Markdownレンダリングあり）で記述すると、csv読み込みが正しく動作しません。
@@ -83,7 +84,7 @@ Markdownファイル、csvファイルの「部品」を用意しておき、原
 csvファイルについては行を決定するためのkeyと列名を指定することで特定の値のみを参照することもできます。keyには最も左の列が使われます。重複する値がある場合は最初に見つかったものが優先されます。
 
 ```bash
-{{</* include "test.csv" "003" "Name" */>}} # /content/jp/_include/test.csv の "003" にマッチした行の "Name" 列の値
+{{</* include "test_jp.csv" "003" "Name" */>}} # /content/jp/_include/test_jp.csv の "003" にマッチした行の "Name" 列の値
 ```
 
 上記の場合、1列目の値が`003`である行の`Name`列の値がショートコードの位置に挿し込まれます。

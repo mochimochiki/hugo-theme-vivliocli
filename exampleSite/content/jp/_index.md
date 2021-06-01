@@ -2,4 +2,4 @@
 title: Hugo-theme-vivliocli
 ---
 
-{{< include introduction.md >}}
+{{< include introduction_jp.md >}}
