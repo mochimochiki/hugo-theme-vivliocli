@@ -72,6 +72,7 @@ Markdownファイル、csvファイルの「部品」を用意しておき、原
 {{</* include "test_jp.md"  */>}} # /content/jp/_include/test_jp.md
 {{</* include "/sample/sample_jp.md" */>}} # /content/jp/_include/sample/sample_jp.md
 {{</* include "test_jp.csv"  */>}} # /content/jp/_include/test_jp.csv
+{{</* include "./test.csv"  */>}} # /(md file dir path)/test_jp.csv
 ```
 
 * _includeディレクトリ内のファイルは言語サフィックスをつけてください。（同名ファイルがあるとenが優先される場合がある）
@@ -88,3 +89,30 @@ csvファイルについては行を決定するためのkeyと列名を指定�
 ```
 
 上記の場合、1列目の値が`003`である行の`Name`列の値がショートコードの位置に挿し込まれます。
+
+### 高度な表をincludeする（セル結合/Markdown/幅指定/ヘッダー有無指定）
+
+csvファイルのincludeでは、Markdownよりも高度な表を描画することができます。
+
+![rich.csv](assets/2021-06-04-23-59-14.png)
+
+```bash
+{{</* include 
+      src="./rich.csv" # sourceファイルのパス
+      class="gray"      # tableに付加するclass属性。未指定/simple/gray
+      markdown=true     # trueにした場合表内部のMarkdownをレンダリング。初期値false
+      merge=true        # trueにした場合空セルを上のセルで結合。初期値false
+      head=true         # trueにした場合1行目をヘッダーとみなす。初期値true
+      width="90%"       # tableのwidth属性を設定。
+      width-ratio="5%-10%-70%-*" # tableの列幅の比率を-区切りで指定。"*"はauto。
+*/>}} 
+```
+
+{{< include 
+      src="./rich.csv" 
+      class="gray"
+      markdown=true
+      merge=true
+      head=true
+      width="90%"
+      width-ratio="5%-10%-70%-*" >}}
