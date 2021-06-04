@@ -4,12 +4,12 @@
 {{- if .PlainText }}
 <figure>
   <img 
-    src="{{ $url }}" 
+    src="{{ $url.Path }}" 
     alt="{{ .PlainText }}" 
     {{ with .PlainText }} class="fig"{{ end }}
-    {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
+    {{ range $querys }}{{ (printf "%s" .) | safeHTMLAttr }}{{ end }}>
   {{ with .PlainText }}<figcaption>{{ . }}</figcaption>{{ end }}
 </figure>
 {{- else }}
-<img src="{{ $url }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
+<img src="{{ $url.Path }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s" .) | safeHTMLAttr }}{{ end }}>
 {{- end }}
