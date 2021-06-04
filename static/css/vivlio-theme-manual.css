@@ -8,7 +8,7 @@
   font-feature-settings: "palt", "calt";
   line-height: 1.7;
 
-  /* variables */
+  /* variables (only for html. not supported by vivliostyle.js v2.8 #540) */
   --menu-width: 350px;
   --content-width: 1000px;
 }
