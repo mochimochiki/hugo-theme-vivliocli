@@ -20,7 +20,7 @@ module.exports = {
     '../jp/Test/TestChapter1/02_pageTOC.html',
     '../jp/Test/TestChapter1/03_include.html',
     '../jp/Test/TestChapter1/04_ShowIfHideIfShortCode.html',
-    '../jp/Test/TestChapter1/06_HideIfFrontMatter.html',
+    '../jp/Test/TestChapter1/05_ShowIfFrontMatter.html',
     '../jp/Test/TestChapter1/07_TableOfContents.html',
     '../jp/Test/TestChapter1/08_pagebreak.html',
     '../jp/Test/TestChapter1/09_ImageResize.html',
