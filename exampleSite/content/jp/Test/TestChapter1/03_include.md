@@ -61,3 +61,14 @@ weight: 30
       head=false
       width="90%"
       width-ratio="5%-10%-75%-*" >}}
+
+Markdownテスト。ショートコードはレンダリングされない。
+
+{{< include
+      src="./cell-merge3.csv"
+      class="gray"
+      markdown=true
+      merge=true
+      head=true
+      width="90%"
+      width-ratio="5%-10%-75%-*" >}}

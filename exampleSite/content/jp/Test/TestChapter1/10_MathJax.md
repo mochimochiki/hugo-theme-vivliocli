@@ -31,3 +31,20 @@ aaa
 
 * 箇条書き
 {{% /note %}}
+
+{{< note 注記 >}}
+noteの内部に箇条書きがある場合にもPDFで数式レンダリング可能
+
+{{< ShowIf a >}}
+aaa
+{{< /ShowIf >}}
+
+{{< ShowIf test >}}
+### test
+
+* aaa
+* bbb
+* ccc
+{{< /ShowIf >}}
+* 箇条書き
+{{< /note >}}
