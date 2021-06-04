@@ -39,3 +39,25 @@ weight: 30
 
 ↓表示されないはず。
 {{< include "test_jp.csv" "005" >}}
+
+## include csv - 複雑な表
+
+{{< include
+      src="./cell-merge1.csv"
+      class="simple"
+      markdown=true
+      merge=true
+      head=true
+      width="90%"
+      width-ratio="5%-10%-75%-*" >}}
+
+ヘッダでない1行目が空セルの場合は列数が足りなくなる。↓
+
+{{< include
+      src="./cell-merge2.csv"
+      class="simple"
+      markdown=true
+      merge=true
+      head=false
+      width="90%"
+      width-ratio="5%-10%-75%-*" >}}

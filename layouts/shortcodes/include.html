@@ -1,28 +1,39 @@
 {{- $source := .Get 0 }}
+{{- $srcName := .Get "src" }}
+{{- with $srcName }}{{ $source = $srcName }}{{ end }}
 {{- $key := .Get 1 }}
+{{- $keyName := .Get "key" }}
+{{- with $keyName }}{{ $key = $keyName }}{{ end }}
 {{- $column := .Get 2 }}
-{{- /*  {{- if $key }}{{ partial "log" (printf "key: %s" $key) }}{{ end }}  */}}
-{{- /*  {{- if $column }}{{ partial "log" (printf "column: %s" $column) }}{{ end }}  */}}
+{{- $columnName := .Get "column" }}
+{{- with $columnName }}{{ $column = $columnName }}{{ end }}
+{{- $markdown := .Get "markdown" | default true }}
+{{- $isMerge := .Get "merge" | default false }}
+{{- $class := .Get "class" }}
+{{- if and $isMerge (eq $class "") }}{{ $class = "gray" }}{{ end }}
+{{- $hasHead := .Get "head" | default true }}
+{{- $width := .Get "width" | default "*" }}
+{{- $width_list := split (replace ( .Get "width-ratio" | default "*" ) "*" "auto" ) "-" }}
 {{- $isMD := strings.HasSuffix $source "md" }}
 {{- $isCSV := strings.HasSuffix $source "csv" }}
 {{- if $isMD }}
-{{- $md := print "/_include/" $source }}
-{{ readFile $md | markdownify }}
+  {{/* markdown */}}
+  {{- $md := print "/_include/" $source }}
+{{ readFile $md | $.Page.RenderString }}
 {{- else if $isCSV}}
+  {{/* load csv */}}
   {{- $lang := .Site.Language.Lang }}
   {{- $filename := (path.Join $.Page.File.Dir $source) }}
-  {{- $csv := printf "%s/%s/%s" .Site.Params.contentRootDir $lang $filename }}
-  {{- if or (fileExists $csv ) ( or (hasPrefix $source "./" ) (hasPrefix $source "../" ) )}}
-    {{- partial "log" (printf "include csv: %s" $csv) }}
+  {{- $csvpath := printf "%s/%s/%s" .Site.Params.contentRootDir $lang $filename }}
+  {{- if or (fileExists $csvpath ) ( or (hasPrefix $source "./" ) (hasPrefix $source "../" ) )}}
   {{- else }}
-    {{- $csv = printf "%s/%s/_include/%s" .Site.Params.contentRootDir $lang $source }}
-    {{- partial "log" (printf "include csv: %s" $csv) }}
+    {{- $csvpath = printf "%s/%s/_include/%s" .Site.Params.contentRootDir $lang $source }}
   {{- end }}
-  {{- /* include one parameter */}}
   {{- if $key }}
+    {{- /* include one parameter */}}
     {{- $found := false }}
     {{- $colNo := -1 }}
-    {{- range $i, $r := getCSV "," $csv }}
+    {{- range $i, $r := getCSV "," $csvpath }}
       {{- if eq $found false }}
         {{- /*  {{- partial "log" (index $r 0) }}  */}}
         {{- /*  列を特定  */}}
@@ -45,14 +56,37 @@
         {{- end }}
       {{- end }}
     {{- end }}
-  {{- /* include csv table */}}
   {{- else }}
-  <table>
+    {{- /* include csv table */}}
+    {{- $csv := getCSV "," $csvpath }}
+    {{- $spanData := partial "functions/getCSVMergeMask.html" $csv }}
+  <table {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
     <tbody>
-      {{- range $i, $r := getCSV "," $csv }}
+      {{- range $row, $rowValues := getCSV "," $csvpath }}
       <tr>
-        {{ if eq $i 0}} {{range $r}} <th style="text-align: left"> {{ . }} </th>{{ end }}
-        {{ else }} {{range $r}} <td> {{ . }} </td>{{ end }}
+        {{- if eq $row 0 }}
+          {{- /* 1行目 */}}
+          {{- if $hasHead}}
+            {{- range $index, $cell := $rowValues}}
+          <th style="text-align: left; {{ with index $width_list $index }}width: {{ index $width_list $index }};{{ end }}">{{if $markdown}}{{ $cell | $.Page.RenderString }}{{ else }}{{ $cell }}{{ end }}</th>
+            {{- end }}
+          {{- else }}
+            {{- range $i, $cell := $rowValues}}
+              {{- $span := index (index $spanData $row) $i }}
+                {{- if or (ne $span "0") (eq $isMerge false) }}
+          <td style="{{ with index $width_list $i }}width: {{ index $width_list $i }};{{ end }}" {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $.Page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
+                {{- end }}
+            {{- end }}
+          {{- end }}
+        {{- else }}
+          {{- /*  2行目以降  */}}
+          {{- range $i, $cell := $rowValues}}
+            {{/*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
+            {{- $span := index (index $spanData $row) $i }}
+            {{- if or (ne $span "0") (eq $isMerge false) }}
+          <td {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $.Page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
+            {{- end }}
+          {{- end }}
         {{- end }}
       </tr>
       {{- end }}

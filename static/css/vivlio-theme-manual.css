@@ -175,6 +175,32 @@ th {
 table tr:nth-child(even) {
   background: #eee;
 }
+/* gray-table */
+table.gray th {
+  background: #605f5f;
+  border: solid 2px #fff;
+  border-bottom: solid 4px #fff;
+  color: #fff;
+}
+table.gray tr {
+  background: #ebebeb;
+}
+table.gray td {
+  border: solid 2px #fff;
+}
+/* simple-table */
+table.simple th {
+  background: inherit;
+  border: solid 1px;
+  border-bottom: double 3px;
+}
+table.simple tr {
+  background: inherit;
+}
+table.simple td {
+  border: solid 1px;
+}
+
 
 /* -------------------- */
 /* quote                */

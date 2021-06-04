@@ -1,0 +1,58 @@
+{{/*  csvのセル結合のためのマスクデータを取得する  */}}
+{{/*  例えば[[a,a][,a]]というcsvの場合マスクは[[2,1][0,1]]となる  */}}
+{{/*  in : csv  */}}
+{{/*  out: maskData  */}}
+{{- $csv := . }}
+{{- $reverseIndexList := seq (sub (len $csv) 1) -1 0 -}}
+{{- $spanDataReverse := slice }}
+{{- $buffer := slice }}
+{{- range seq (index $csv 0 | len) }}
+  {{- $buffer = $buffer | append 0 }}
+{{- end }}
+{{- /*  逆順インデックスを使ってcsvの一番下の列から上に上がっていく  */}}
+{{- range $reverseIndexList }}
+  {{- $rowValues := index $csv . }}
+  {{- $row := slice }}
+  {{- range $index, $cell := $rowValues }}
+    {{- $value := 0 }}
+    {{- if $cell }}
+      {{- $value = 1 }}
+      {{- $temp := slice}}
+      {{- range $i, $r := $buffer }}
+        {{- if eq $i $index }}
+          {{- $value = add $value $r }}
+          {{- $temp = $temp | append 0 }}
+        {{- else }}
+          {{- $temp = $temp | append $r}}
+        {{- end }}
+      {{- end}}
+      {{- $buffer = $temp }}
+    {{- else }}
+      {{- $temp := slice}}
+      {{- range $i, $r := $buffer }}
+        {{- if eq $i $index }}
+          {{- $temp = $temp | append (add $r 1) }}
+        {{- else }}
+          {{- $temp = $temp | append $r}}
+        {{- end }}
+      {{- end}}
+      {{- $buffer = $temp }}
+    {{- end }}
+    {{- $row = $row | append $value }}
+  {{- end }}
+  {{- $strRow := delimit $row " " }}
+  {{- $spanDataReverse = $spanDataReverse | append (slice $strRow) }}
+{{- end }}
+{{- $spanData := slice }}
+{{- range $reverseIndexList }}
+  {{- $rowValues := index $spanDataReverse . }}
+  {{- $spanData = $spanData | append (slice $rowValues) }}
+{{- end }}
+{{- $splitedData := slice }}
+{{- range $spanData }}
+  {{- $t := split . " " }}
+  {{- $splitedData = $splitedData | append (slice $t) }}
+{{- end }}
+{{- $spanData = $splitedData }}
+{{- return $spanData }}
+  
