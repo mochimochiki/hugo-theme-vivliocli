@@ -35,7 +35,7 @@
   </div>
   {{- /*  introduction  */}}
   {{- if .Page.Content }}
-  <div role="doc-introduction">
+  <div role="doc-introduction" class="doc-introduction">
   {{ .Page.Content }}
   </div>
   {{- end }}
@@ -44,7 +44,7 @@
 {{- /*  Table of Contents  */}}
 {{ $toc := .Params.toc | default true }}
 {{- if eq $toc true }}
-<nav id="toc" role="doc-toc">
+<nav id="toc" role="doc-toc" class="doc-toc">
 <h2>Table of Contents</h2>
 {{ partial "toc.html" .CurrentSection }}
 </nav>
