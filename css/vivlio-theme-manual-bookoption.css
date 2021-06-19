@@ -56,3 +56,21 @@
     border-right: none;
   }
 }
+
+/* introduction */
+div.doc-introduction {
+  break-before: right;
+}
+
+/* table of contents */
+nav.doc-toc {
+  break-before: right;
+}
+
+/* colophon */
+#colophon {
+  break-before: left;
+}
+#colophon-blank {
+  break-before: right;
+}
