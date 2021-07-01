@@ -13,7 +13,7 @@
   {{- partial "header.html" . -}}
 </head>
 
-<body>
+<body {{ if .Params.twoColumns }}class="two-columns"{{- end }}>
   <div id="content">
     {{- block "main" . }}{{- end }}
   </div>
