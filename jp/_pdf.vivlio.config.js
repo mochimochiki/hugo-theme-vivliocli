@@ -25,6 +25,8 @@ module.exports = {
     '../jp/Test/TestChapter1/08_pagebreak.html',
     '../jp/Test/TestChapter1/09_ImageResize.html',
     '../jp/Test/TestChapter1/10_MathJax.html',
+    '../jp/Test/TestChapter1/11_2columns.html',
+    '../jp/Test/TestChapter1/12_2columns_2.html',
     '../jp/test2.html',
     '_pdfcolophon.vivlio.colophon.html'
   ],
