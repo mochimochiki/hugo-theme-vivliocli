@@ -12,6 +12,10 @@
   {{- $link := printf "..%s" (. | relURL) }}
   <link rel="stylesheet" href="{{ $link }}">
   {{- end }}
+  {{- range .Site.Params.custom_css }}
+  {{- $link := printf "..%s" (. | relURL) }}
+  <link rel="stylesheet" href="{{ $link }}">
+  {{- end }}
 </head>
 
 <body>

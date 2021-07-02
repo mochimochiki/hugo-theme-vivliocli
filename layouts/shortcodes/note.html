@@ -1,5 +1,5 @@
 <div class="note">
-  <div class="note_title">{{ if len .Params | eq 1 }}{{ .Get 0 }}{{ else }}Note{{ end }}</div>
+  <div class="note_title">{{ if .Params }}{{ if len .Params | eq 1 }}{{ .Get 0 }}{{ else }}Note{{ end }}{{ else}}Note{{ end }}</div>
   <div class="note_content">
   {{ .Inner | $.Page.RenderString }}
   </div>
