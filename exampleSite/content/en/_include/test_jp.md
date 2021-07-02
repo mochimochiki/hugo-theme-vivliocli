@@ -1,6 +1,6 @@
 ### test.md
 
-test.mdが呼び出されました。
+test.md was called.
 
 | No  | content |
 | --- | --- |
@@ -9,5 +9,5 @@ test.mdが呼び出されました。
 | 3   | testC    |
 
 {{% note %}}
-ショートコードもincludeできます。
+shortcodes can be called.
 {{% /note %}}

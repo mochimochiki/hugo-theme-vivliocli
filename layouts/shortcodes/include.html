@@ -19,7 +19,10 @@
 {{- if $isMD }}
   {{/* markdown */}}
   {{- $md := print "/_include/" $source }}
-{{ readFile $md | $.Page.RenderString }}
+  {{ $page := .Site.GetPage $md }}
+  {{ with $page }}
+    {{ .Content }}
+  {{ end }}
 {{- else if $isCSV}}
   {{/* load csv */}}
   {{- $lang := .Site.Language.Lang }}
