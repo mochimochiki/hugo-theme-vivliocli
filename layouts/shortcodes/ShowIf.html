@@ -1,6 +1,13 @@
-{{ $condition := .Get 0 }}
-{{ range .Site.Params.showIfs}}
-{{ if eq . $condition }}
+{{- $args := .Params }}
+{{- $show := false }}
+{{- range .Site.Params.showIfs}}
+  {{- $condition := . }}
+  {{- range $args }}
+    {{- if eq . $condition }}
+      {{- $show = true }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- if eq $show true}}
 {{ $.Inner }}
-{{ end }}
-{{ end }}
+{{- end }}

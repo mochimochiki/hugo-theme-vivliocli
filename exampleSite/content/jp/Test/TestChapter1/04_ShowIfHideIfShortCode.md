@@ -43,3 +43,28 @@ weight: 40
 ### 共通の見出し3
 
 テスト
+
+
+## ShowIfでOr
+
+{{% ShowIf test test2 %}}
+ここはtestもしくはtest2で表示される。
+{{% /ShowIf %}}
+
+{{% ShowIf dummy test3 %}}
+ここはdummyもしくはtest3で表示される。
+{{% /ShowIf %}}
+
+## HideIfでOr
+
+{{% HideIf test test2 %}}
+ここはtestもしくはtest2で表示されない。
+{{% /HideIf %}}
+
+{{% HideIf dummy test3 %}}
+ここはdummyもしくはtest3で表示されない。
+{{% /HideIf %}}
+
+{{% HideIf dummy test4 %}}
+ここはdummyもしくはtest4で表示されない。
+{{% /HideIf %}}

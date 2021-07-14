@@ -1,8 +1,11 @@
-{{- $condition := .Get 0 }}
+{{- $args := .Params }}
 {{- $hide := false }}
 {{- range .Site.Params.showIfs}}
-  {{- if eq . $condition }}
-    {{- $hide = true }}
+  {{- $condition := . }}
+  {{- range $args }}
+    {{- if eq . $condition }}
+      {{- $hide = true }}
+    {{- end }}
   {{- end }}
 {{- end }}
 {{- if ne $hide true}}
