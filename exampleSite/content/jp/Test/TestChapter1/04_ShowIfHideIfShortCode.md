@@ -68,3 +68,36 @@ weight: 40
 {{% HideIf dummy test4 %}}
 ここはdummyもしくはtest4で表示されない。
 {{% /HideIf %}}
+
+## ShowIf内でのショートコード
+
+{{% ShowIf test %}}
+
+* この下にcsvのinclude。
+
+{{< include "./current-test.csv" >}}
+
+* この下にincludeディレクトリのcsvのinclude
+
+{{< include test_jp.csv >}}
+
+* この下に複雑な表のinclude
+
+{{< include
+      src="./cell-merge1.csv"
+      class="simple"
+      markdown=true
+      merge=true
+      head=true
+      width="90%"
+      width-ratio="5%-10%-75%-*" >}}
+
+* この下にmdのinclude
+
+{{< include test_jp.md >}}
+
+ここまで。
+
+
+{{% /ShowIf %}}
+
