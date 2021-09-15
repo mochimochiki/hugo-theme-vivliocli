@@ -26,4 +26,4 @@
   {{- $value = $page.Param $param }}
   {{- $found = true }}
 {{- end }}
-{{- $value }}
+{{- $value | markdownify }}
