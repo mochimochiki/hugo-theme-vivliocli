@@ -399,6 +399,10 @@ div.cover-top-center {
   visibility: hidden;
   string-set: top-center content();
 }
+div.cover-top-center2 {
+  visibility: hidden;
+  string-set: top-center2 content();
+}
 div.cover-bottom-left {
   visibility: hidden;
   string-set: bottom-left content();
@@ -418,7 +422,8 @@ div.cover-bottom-right {
   @top-center {
     font-size: 0.8rem;
     font-weight: 400;
-    content: string(top-center, first);
+    content: string(top-center, first)'\A'string(top-center2, first);
+    white-space: pre;
     text-align: right;
   }
   @bottom-left-corner {
@@ -431,6 +436,7 @@ div.cover-bottom-right {
     margin-top: 0mm;
     vertical-align: middle;
     text-align: left;
+    white-space: pre;
   }
   @bottom-center {
     font-size: 0.8rem;
@@ -439,6 +445,7 @@ div.cover-bottom-right {
     margin-top: 0mm;
     vertical-align: middle;
     text-align: center;
+    white-space: pre;
   }
   @bottom-right {
     font-size: 0.8rem;
@@ -447,6 +454,7 @@ div.cover-bottom-right {
     margin-top: 0mm;
     vertical-align: middle;
     text-align: right;
+    white-space: pre;
   }
   @bottom-right-corner {
     content: none;
