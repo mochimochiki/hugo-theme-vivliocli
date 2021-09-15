@@ -9,6 +9,7 @@ doc_number:
   default: 'doc-number'
 author: 'auther'
 company: 'Company'
+logo: 'img/logo.png'
 header:
   default: 'header'
 header2:

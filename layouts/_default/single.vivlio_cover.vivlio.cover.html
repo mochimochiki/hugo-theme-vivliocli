@@ -20,13 +20,14 @@
 
 <body>
   <div id="cover" role="doc-cover">
+    {{- if .Params.logo }}<div id="cover-logo"><img src="../{{ .Params.logo }}"></div>{{- end }}
     <div id="cover-title">
-      {{- if $doc_number }}<h2>{{ $doc_number}}</h2>{{- end }}
-      <h1>{{ $title }}</h1>
-      {{- if $subtitle }}<h2>{{ $subtitle }}</h2>{{- end }}
+      {{- if $doc_number }}<div id="cover-doc_number"><h2>{{ $doc_number}}</h2></div>{{- end }}
+      <div id="cover-doctitle"><h1>{{ $title }}</h1></div>
+      {{- if $subtitle }}<div id="cover-subtitle"><h2>{{ $subtitle }}</h2></div>{{- end }}
     </div>
     {{- if .Params.author }}<div id="cover-author"><h2>{{ .Params.author }}</h2></div>{{- end }}
-    {{- if .Params.company }}<h3>{{ .Params.company }}</h3>{{- end }}
+    {{- if .Params.company }}<div id="cover-company"><h3>{{ .Params.company }}</h3></div>{{- end }}
     {{ partial "cover-custom.html" . }}
     {{- $top := partial "functions/outputEditionParam" (dict "page" . "param" "header" ) }}
     {{- $top2 := partial "functions/outputEditionParam" (dict "page" . "param" "header2" ) }}
