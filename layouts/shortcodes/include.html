@@ -64,8 +64,9 @@
     {{- $csv := getCSV "," $csvpath }}
     {{- $spanData := partial "functions/getCSVMergeMask.html" $csv }}
 <table {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
-  <tbody>
+  <thead>
     {{- range $row, $rowValues := getCSV "," $csvpath }}
+    {{- if eq $row 1 }}</thead><tbody>{{- end }}
     <tr>
       {{- if eq $row 0 }}
         {{- /* 1行目 */}}
