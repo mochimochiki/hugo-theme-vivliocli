@@ -14,7 +14,7 @@
 
 /* left page */
 @page :left {
-  font-family: '遊ゴシック', 'YuGothic', sans-serif; /* header or footer font */
+  font-family: "Segoe UI", "游ゴシック", "YuGothic", sans-serif; /* header or footer font */
   margin-left: 9%;
   margin-right: 11%;
   @top-center {
@@ -33,7 +33,7 @@
 }
 
 @page :right {
-  font-family: "遊ゴシック", sans-serif;
+  font-family: "Segoe UI", "游ゴシック", "YuGothic", sans-serif;
   margin-left: 11%;
   margin-right: 9%;
   @top-center {
@@ -62,8 +62,8 @@ div.doc-introduction {
   break-before: right;
 }
 
-/* table of contents */
-nav.doc-toc {
+/* doc-part section title */
+div.doc-part {
   break-before: right;
 }
 

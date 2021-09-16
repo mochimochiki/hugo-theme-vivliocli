@@ -3,7 +3,7 @@
 /* Root settings        */
 /* -------------------- */
 :root {
-  font-family: "游明朝", "YuMincho", serif;
+  font-family: "Segoe UI", "游ゴシック", "YuGothic", sans-serif;
   font-weight: 400;
   font-feature-settings: "palt", "calt";
   line-height: 1.7;
@@ -22,8 +22,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "游ゴシック", "YuGothic", sans-serif;
-  font-weight: 900;
+  font-family: "Segoe UI", "游ゴシック", "YuGothic", sans-serif;
+  font-weight: 600;
   font-feature-settings: "palt", "calt";
 }
 h1 {
@@ -209,7 +209,6 @@ blockquote {
   margin: 1.5rem 0.5rem;
   padding: 0.5rem 1rem;
   border-left: 6px solid #ccc;
-  font-style: italic;
 }
 
 blockquote :not(pre) > code {
@@ -265,9 +264,9 @@ div.note_title {
   padding-left: 10pt;
   padding-right: 10pt;
   background: #bbb;
-  font-family: "游ゴシック", "YuGothic", sans-serif;
+  font-family: "Segoe UI", "游ゴシック", "YuGothic", sans-serif;
   font-size: 1.1rem;
-  font-weight: 900;
+  font-weight: 600;
   break-after: avoid-page;
 }
 div.note li p {
@@ -293,7 +292,7 @@ section article {
 
 /* toc part */
 a.doc-part {
-  font-weight: 900;
+  font-weight: 600;
   font-size: 1.7rem;
 }
 
@@ -334,7 +333,7 @@ figure img.fig ~ figcaption::before {
 /* https://www.quackit.com/css/at-rules/css_top-center_at-rule.cfm */
 /* -------------------- */
 @page {
-  font-family: "遊ゴシック", "YuGothic", sans-serif; /* header or footer font */
+  font-family: "Segoe UI", "游ゴシック", "YuGothic", sans-serif; /* header or footer font */
   size: 182mm 257mm;
   margin-top: 8%;
   margin-bottom: 6%;
@@ -461,6 +460,14 @@ div.cover-bottom-right {
   }
 }
 
+@page :blank {
+  font-family: "Segoe UI", "游ゴシック", "YuGothic", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  content: "\A\A\A\A\A\A\A\A\A\A\A\A\A\A\A\A\A\AThis page is blank";
+  white-space: pre;
+}
+
 /* -------------------- */
 /* Role settings        */
 /* -------------------- */
@@ -535,7 +542,6 @@ div.cover-bottom-right {
   padding-bottom: 2rem;
   padding-left: 2rem;
   margin-top: 40%;
-  break-before: right;
 }
 
 [role="doc-part"] h1 {
@@ -642,6 +648,18 @@ div.cover-bottom-right {
     display: none;
   }
 
+  /* doc-part */
+  div.doc-part-blank {
+    text-align: center;
+  }
+  div.doc-part-blank::before {
+    font-size: 1.5rem;
+    font-family: "Segoe UI", "游ゴシック", "YuGothic", sans-serif;
+    text-align: center;
+    content: "\A\A\A\A\A\A\A\A\A\A\A\A\A\AThis page is blank";
+    white-space: pre;
+  }
+
   /* multi-column */
   .two-columns {
     text-align: justify;
@@ -657,7 +675,7 @@ div.cover-bottom-right {
 
 @media screen {
   :root {
-    font-family: "游ゴシック", "YuGothic", serif;
+    font-family: "Segoe UI", "游ゴシック", "YuGothic", sans-serif;
     font-size: 1.05rem;
     font-weight: 500;
   }
