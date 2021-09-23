@@ -306,12 +306,11 @@ figure img.fig {
   counter-increment: fig;
 }
 
-figure img.fig ~ figcaption::before {
-  content: "Fig. " counter(fig) ": ";
+figcaption span.fig-number::before {
+  content: "Fig. ";
 }
-
-:root:lang(ja) figure img.fig ~ figcaption::before {
-  content: "図" counter(fig) ": ";
+figcaption span.fig-number::after {
+  content: counter(fig) ": ";
 }
 
 /* footnote */
