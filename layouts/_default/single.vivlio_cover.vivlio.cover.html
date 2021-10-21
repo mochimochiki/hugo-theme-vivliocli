@@ -43,7 +43,9 @@
   {{- /*  introduction  */}}
   {{- if .Page.Content }}
   <div role="doc-introduction" class="doc-introduction">
-  {{ .Page.Content }}
+  {{- $content := .Page.Content }}
+  {{- $content = (replace $content "<img src=\"/" "<img data-proofer-ignore src=\"../") | safeHTML }}
+  {{ $content }}
   </div>
   {{- end }}
 
