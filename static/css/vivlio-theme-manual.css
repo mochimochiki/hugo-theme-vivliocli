@@ -332,6 +332,11 @@ figcaption span.fig-number::after {
   margin-right: 0.2rem;
 }
 
+/* break shortcode */
+#shortcodes-page-break {
+  break-before: page;
+}
+
 /* -------------------- */
 /* Page settings        */
 /* https://www.quackit.com/css/at-rules/css_top-center_at-rule.cfm */
