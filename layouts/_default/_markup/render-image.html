@@ -2,19 +2,25 @@
 {{- $querys := split $url.RawQuery "&"}}
 {{- $sectionNo := partial "functions/getSectionNoRaw" .Page.Page }}
 {{- $delimiter := .Page.Page.Site.Params.sectionDelimiter | default "." }}
-{{- if .PlainText }}
+{{- if .PlainText | findRE "[^\\s]" }}
+{{/* 代替テキストがあるならキャプション表示 */}}
 <figure>
-  <img 
-    src="{{ $url.Path }}" 
+  <img src="{{ $url.Path }}" 
     alt="{{ .PlainText }}" 
     {{ with .PlainText }} class="fig"{{ end }}
-    {{ range $querys }}{{ (printf "%s" .) | safeHTMLAttr }}{{ end }}>
+    {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
   {{- with .PlainText }}
     <figcaption>
       <span class="fig-number">{{- with $sectionNo}}{{ $sectionNo }}{{ $delimiter }}{{- end }}</span>{{ . }}
     </figcaption>
   {{- end }}
 </figure>
+{{- else if .PlainText }}
+{{/* 代替テキストが空白のみなら中央寄せ */}}
+<figure>
+  <img src="{{ $url.Path }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s" .) | safeHTMLAttr }}{{ end }}>
+</figure>
 {{- else }}
+{{/* 代替テキストなしならimgのみ */}}
 <img src="{{ $url.Path }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s" .) | safeHTMLAttr }}{{ end }}>
 {{- end }}
