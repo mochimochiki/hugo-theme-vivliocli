@@ -72,3 +72,7 @@ Markdownテスト。ショートコードはレンダリングされない。
       head=true
       width="90%"
       width-ratio="5%-10%-75%-*" >}}
+
+## include relative common md
+
+{{< include src="../common/common_test.md" >}}
