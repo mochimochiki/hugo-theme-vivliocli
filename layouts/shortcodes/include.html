@@ -17,11 +17,17 @@
 {{- $isMD := strings.HasSuffix $source "md" }}
 {{- $isCSV := strings.HasSuffix $source "csv" }}
 {{- if $isMD }}
-  {{- /* markdown */}}
-  {{- $md := print "/_include/" $source }}
-  {{- $page := .Site.GetPage $md }}
+  {{- /* markdown 相対パスもしくは_includeフォルダ。画像リンクはassetsフォルダに配置したもののみ相対パス記述可能 */}}
+  {{- $mdpath := (path.Join $.Page.File.Dir $source) }}
+  {{- if or (fileExists $mdpath ) ( or (hasPrefix $source "./" ) (hasPrefix $source "../" ) )}}
+  {{- else }}
+    {{- $mdpath = print "_include/" $source }}
+  {{- end }}
+  {{- $page := .Site.GetPage $mdpath }}
   {{- with $page }}
-{{ .Content }}
+    {{- $mdURL := printf "/%s/%s" .Site.Language.Lang $mdpath | path.Dir}}
+    {{- $content := (replace .Content "<img src=\"assets/" (printf "<img src=\"%s/assets/" $mdURL)) | safeHTML }}
+{{ $content }}
   {{- end }}
 {{- else if $isCSV}}
   {{- /* load csv */}}
