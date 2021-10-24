@@ -3,7 +3,7 @@
 {{- $sectionNo := partial "functions/getSectionNoRaw" .Page.Page }}
 {{- $delimiter := .Page.Page.Site.Params.sectionDelimiter | default "." }}
 {{- if .PlainText | findRE "[^\\s]" }}
-{{/* 代替テキストがあるならキャプション表示 */}}
+{{- /* 代替テキストがあるならキャプション表示 */}}
 <figure>
   <img src="{{ $url.Path }}" 
     alt="{{ .PlainText }}" 
@@ -16,11 +16,11 @@
   {{- end }}
 </figure>
 {{- else if .PlainText }}
-{{/* 代替テキストが空白のみなら中央寄せ */}}
+{{- /* 代替テキストが空白のみなら中央寄せ */}}
 <figure>
   <img src="{{ $url.Path }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s" .) | safeHTMLAttr }}{{ end }}>
 </figure>
 {{- else }}
-{{/* 代替テキストなしならimgのみ */}}
+{{- /* 代替テキストなしならimgのみ */}}
 <img src="{{ $url.Path }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s" .) | safeHTMLAttr }}{{ end }}>
 {{- end }}
