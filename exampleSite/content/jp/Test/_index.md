@@ -1,6 +1,5 @@
 ---
 title: "Test"
-role: doc-part
 weight: 30
 ---
 
