@@ -8,7 +8,7 @@ h2/h3タグが対象。.Page.Content の代わりに使用する。
 {{- $d := $page.Site.Params.sectionDelimiter | default "." }}
 {{- $pageLevel := (len (split $section $d)) }}
 {{- $settingLevel := $page.Site.Params.sectionNumberLevel | default 0 }}
-{{- $content := $page.Content }}
+{{- $content := (replace $page.Content "<span class=\"fig-number\"></span>" (printf "<span class=\"fig-number\">%s%s</span>" $section $d)) | safeHTML }}
 
 {{- /* pageLevel < settingLevel の場合h2に章番号を付加 */}}
 {{- if and (lt $pageLevel $settingLevel) ($section) }}
