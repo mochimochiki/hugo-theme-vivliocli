@@ -196,6 +196,7 @@ table.gray td {
 /* simple-table */
 table.simple th {
   background: inherit;
+  color: #000;
   border: solid 1px;
   border-bottom: double 3px;
 }
