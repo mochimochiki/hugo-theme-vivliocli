@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{- if .Params.role }}{{- if eq .Params.role "doc-part" }}<div class="doc-part-blank"></div>{{- end }}<div class="{{ .Params.role }}" role="{{ .Params.role }}">{{- end }}
+{{- if .Params.role }}{{- if eq .Params.role "doc-part" }}{{- if eq .Site.Params.isPDF true }}<div class="doc-part-blank"></div>{{- end}}{{- end }}<div class="{{ .Params.role }}" role="{{ .Params.role }}">{{- end }}
 {{- $sectionNo := partial "functions/getSectionNo" . }}
 <h1 id="section-title" {{- if .Params.role }} class="{{ .Params.role }}" {{- end }}>{{ $sectionNo }} {{ .Title }}</h1>
 {{- $content := .Page.Content }}
