@@ -802,10 +802,11 @@ div.cover-bottom-right {
   }
 
   .menu-content ul {
-    padding: 0 0 0 1rem;
+    padding: 0 0 0 0;
   }
   .menu-content ul li {
     list-style: none;
+    padding-left: 0.8rem;
   }
 
   .menu-content li ul {
@@ -819,6 +820,10 @@ div.cover-bottom-right {
     box-sizing: border-box;
     color: #ffffff;
     padding: 3px 0px 3px 0px;
+  }
+
+  .menu-content details > ul {
+    padding-left: 1rem;
   }
 
   #menu .logo img {
@@ -921,7 +926,7 @@ div.cover-bottom-right {
   #TableOfContents-sidebar  ul {
     list-style-type: none;
   }
-  #TableOfContents-sidebar li, summary {
+  #TableOfContents-sidebar li,#TableOfContents-sidebar summary {
     padding-top: 0;
     font-weight: normal;
     border-bottom: dashed 1px lightgray;
