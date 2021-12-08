@@ -1027,11 +1027,12 @@ div.cover-bottom-right {
     background-color: #333;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    font-size: 1.2rem;
   }
   .menu-content ul li a {
     display: block;
     width: 100%;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     box-sizing: border-box;
     color: #ffffff;
     text-decoration: none;
