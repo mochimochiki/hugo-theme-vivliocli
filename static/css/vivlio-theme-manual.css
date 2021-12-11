@@ -856,6 +856,9 @@ div.cover-bottom-right {
     display: none;
   }
 
+  /* -------------------- */
+  /* copy button          */
+  /* -------------------- */
   .copy-button {
     color: #bbb;
     background-color: #fff;
@@ -893,6 +896,34 @@ div.cover-bottom-right {
   pre {
     margin-top: 0;
   }
+
+  /* -------------------- */
+  /* Tags                 */
+  /* -------------------- */
+  .taglist {
+    font-size: 0.8rem;
+    list-style: none;
+    margin: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .taglist li {
+    display: inline-block;
+  }
+  .taglist a {
+    display: inline-block;
+    margin: 0 0.1rem 0.2rem 0;
+    padding: 0.3rem;
+    line-height: 1rem;
+    text-decoration: none;
+    color: #3498db;
+    border: 1px solid #3498db;
+    border-left: 3px solid #3498db;
+  }
+  .taglist a:hover {
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    border-left: 3px solid #e74c3c;
+  }
 }
 
 /* ---------------- */
@@ -928,7 +959,7 @@ div.cover-bottom-right {
   #TableOfContents-sidebar  ul {
     list-style-type: none;
   }
-  #TableOfContents-sidebar li,#TableOfContents-sidebar summary {
+  #TableOfContents-sidebar ul li,#TableOfContents-sidebar summary {
     padding-top: 0;
     font-weight: normal;
     border-bottom: dashed 1px lightgray;

@@ -5,7 +5,7 @@
   {{- $content := partial "content-with-section.html" (dict "sectionNo" $sectionNoRaw "page" .Page ) }}
   {{- .Scratch.Set "Content" $content }}
   {{- if ne .Site.Params.isPDF true }}
-    {{ partial "page-toc-sidebar.html" $content }}
+    {{ partial "page-toc-sidebar.html" (dict "content" $content "page" .Page ) }}
     {{- $content = partial "functions/addAnchorNextToHeader" $content }}
   {{- end }}
   {{ $content }}

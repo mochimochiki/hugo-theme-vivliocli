@@ -2,13 +2,21 @@
 page-toc-sidebar.html
 記事の右側に表示されるページ内TOC
 ------------------- */}}
-{{- $Content := . -}}
+{{- $Content := .content -}}
+{{- $Page := .page -}}
 {{- /* (?:.|\n) : 後方参照不要なグループ化 . or \n */ -}}
 {{- $pattern := `<h([23]).*?id="(.+?)".*?>((?:.|\n)*?)</h[23]>` -}}
 {{- $headers := findRE $pattern $Content -}}
 {{- $scratch := newScratch -}}
 {{- $scratch.Set "prev_level" 0 -}}
 <nav id="TableOfContents-sidebar">
+    {{- with $Page.Params.tags }}
+    <div class="taglist">
+      {{- range $Page.Params.tags }}
+      <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}.html">{{- . }}</a></li>
+      {{- end }}
+    </div>
+    {{- end }}
     <ul>
         {{- range $headers -}}
             {{- $level := . | replaceRE $pattern `$1` -}}
