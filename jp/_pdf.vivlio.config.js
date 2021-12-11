@@ -14,6 +14,7 @@ module.exports = {
     '../jp/Configuration/frontmatter.html',
     '../jp/Configuration/MarkdownShowcase.html',
     '../jp/Configuration/edition.html',
+    '../jp/Configuration/Tags.html',
     '../jp/Test.html',
     '../jp/Test/TestChapter1.html',
     '../jp/Test/TestChapter1/01_日本語ファイル.html',
@@ -27,6 +28,7 @@ module.exports = {
     '../jp/Test/TestChapter1/10_MathJax.html',
     '../jp/Test/TestChapter1/11_2columns.html',
     '../jp/Test/TestChapter1/12_2columns_2.html',
+    '../jp/Test/TestChapter1/13_Tags.html',
     '../jp/test2.html',
     '_pdfcolophon.vivlio.colophon.html'
   ],
