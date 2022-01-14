@@ -1101,11 +1101,6 @@ div.cover-bottom-right {
     min-width: 200px;
   }
 
-  #TableOfContents-sidebar > ul:before {
-    content: "Table of contents\A";
-    white-space: pre;
-  }
-  
   summary {
     display: block;
   }
