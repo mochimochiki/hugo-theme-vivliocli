@@ -1078,3 +1078,35 @@ div.cover-bottom-right {
 #humburger-btn-check {
   display: none;
 }
+
+/* IE11 */
+
+@media screen and (min-width: 780px) and (-ms-high-contrast:none) {
+  *::-ms-backdrop,
+  #content {
+    margin-left: 350px;
+    max-width: 1000px;
+  }
+  #menu {
+    width: 350px;
+  }
+
+  #menu .logo img {
+    max-width: 350px;
+  }
+
+  #TableOfContents-sidebar {
+    left: 1350px;
+    width: calc(98% - 1350px);
+    min-width: 200px;
+  }
+
+  #TableOfContents-sidebar > ul:before {
+    content: "Table of contents\A";
+    white-space: pre;
+  }
+  
+  summary {
+    display: block;
+  }
+}
