@@ -840,12 +840,21 @@ div.cover-bottom-right {
     box-sizing: border-box;
   }
 
+  .language-selector summary:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #e74c3c;
+    background-color: #444;
+  }
+
   .select-language {
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-left: 1rem;
-    font-size: 1rem;
-    width: 50%;
+  }
+
+  .one-language {
+    margin-left: 0.8rem;
   }
 
   .menu-footer-space {

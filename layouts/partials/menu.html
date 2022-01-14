@@ -9,7 +9,7 @@ menu.html
     <section id="menu-header">
       {{ partial "menu-header.html" . }}
     </section>
-    <h4><a href="{{ .Site.Home.Permalink }}">{{ .Site.Home.Title }}</a></h4>
+    <h4><a href="{{ .Site.Home.RelPermalink }}index.html">{{ .Site.Home.Title }}</a></h4>
 
     <nav id="menu-navigation">
     {{- template "menu-tree" (dict "section" .Site.Home "current" .) }}

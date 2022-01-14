@@ -5,27 +5,28 @@ menu-footer.html
 ------------------- */}}
 <hr>
 {{- /* language selector */}}
+{{- $isHome := .IsHome }}
 {{ if .Site.IsMultiLingual }}
 <div class="language-selector">
-  <select class="select-language" onchange="location = this.value;">
-    {{- $siteLanguages := .Site.Languages}}
-    {{- $pageLang := .Page.Lang}}
-    {{- range .Page.AllTranslations }}
-    {{- $translation := .}}
-    {{- range $siteLanguages }}
-    {{- if eq $translation.Lang .Lang }}
-    {{- $selected := false }}
-    {{- if eq $pageLang .Lang}}
-    <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}</option>
-    {{- else }}
-    <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
-    {{- end }}
-    {{- end }}
-    {{- end }}
-    {{- end }}
-  </select>
+<details class="select-language"><summary>Languages</summary>
+{{- $siteLanguages := .Site.Languages}}
+{{- $pageLanguages := .Page.AllTranslations}}
+{{- range $siteLanguages }}
+{{- $oneLang := .}}
+{{- range $pageLanguages }}
+{{- $onePageLang := .}}
+{{- if eq $onePageLang.Lang $oneLang.Lang }}
+{{- if $isHome }}
+<div class="one-language"><a href="{{ $onePageLang.RelPermalink }}index.html">{{ $oneLang.LanguageName }}</a></div>
+{{- else }}
+<div class="one-language"><a href="{{ $onePageLang.RelPermalink }}">{{ $oneLang.LanguageName }}</a></div>
+{{- end }}
+{{- end}}
+{{- end }}
+{{- end }}
+</details>
 </div>
-{{end}}
+{{- end}}
 
 {{- /*  tags  */}}
 {{- range $name, $taxonomy := .Site.Taxonomies }}
