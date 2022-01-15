@@ -1110,7 +1110,7 @@ div.cover-bottom-right {
     min-width: 200px;
   }
 
-  summary {
+  details {
     display: block;
   }
 }
