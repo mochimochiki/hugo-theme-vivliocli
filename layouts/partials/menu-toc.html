@@ -11,8 +11,7 @@
   {{- $sectionNo := partial "functions/getSectionNo" . }}
   {{- if (.Page.IsSection) }}
   <details>
-    <summary><a href="{{ .RelPermalink }}" id="{{ with .File }}{{ .UniqueID }}{{ end }}">{{ $sectionNo}} {{ .Title
-        }}</a></summary>
+    <summary><a href="{{ .RelPermalink }}" id="{{ with .File }}{{ .UniqueID }}{{ end }}">{{ $sectionNo}} {{ .Title }}</a></summary>
     {{- template "menu-tree" (dict "section" . "current" $current) }}
   </details>
   {{- else}}
