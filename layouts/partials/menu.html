@@ -28,18 +28,13 @@ menu.html
   {{- range $section.Pages.ByWeight }}
   {{- if partial "functions/isShow" . }}
   {{- $sectionNo := partial "functions/getSectionNo" . }}
-    {{- if and (.IsAncestor $current) (.Page.IsSection) }}
-    <details open>
-      <summary><a href="{{ .RelPermalink }}" id="{{ if (eq . $current) }}menu-selected{{ end }}" class="{{ if (eq . $current) }}menu-selected{{ end }}">{{ $sectionNo}} {{ .Title }}</a></summary>
-    {{- template "menu-tree" (dict "section" . "current" $current) }}
-    </details>
-    {{- else if (.Page.IsSection) }}
-    <details close>
-      <summary><a href="{{ .RelPermalink }}" id="{{ if (eq . $current) }}menu-selected{{ end }}" class="{{ if (eq . $current) }}menu-selected{{ end }}">{{ $sectionNo}} {{ .Title }}</a></summary>
+    {{- if (.Page.IsSection) }}
+    <details>
+      <summary><a href="{{ .RelPermalink }}" id="{{ with .File }}{{ .UniqueID }}{{ end }}">{{ $sectionNo}} {{ .Title }}</a></summary>
       {{- template "menu-tree" (dict "section" . "current" $current) }}
     </details>
     {{- else}}
-      <li><a href="{{ .RelPermalink }}" id="{{ if (eq . $current) }}menu-selected{{ end }}" class="{{ if (eq . $current) }}menu-selected{{ end }}">{{ $sectionNo}} {{ .Title }}</a>
+      <li><a href="{{ .RelPermalink }}" id="{{ with .File }}{{ .UniqueID }}{{ end }}">{{ $sectionNo}} {{ .Title }}</a>
     {{- end }}
     {{- end }}
     {{- end }}

@@ -4,4 +4,4 @@ header.html
 メニュー描画。
 ------------------- */}}
 {{ partial "custom-header.html" . }}
-{{- if ne .Site.Params.isPDF true }} {{- partial "menu.html" . -}} {{- end }}
+{{- if ne .Site.Params.isPDF true }} {{- partialCached "menu.html" . -}} {{- end }}
