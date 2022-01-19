@@ -767,6 +767,9 @@ div.cover-bottom-right {
     padding: 20px 40px;
     max-width: min(var(--content-width), calc(98% - var(--menu-width) - var(--toc-min-width)));
   }
+  video {
+    max-width: 100%;
+  }
   /* Side Menu */
   #menu {
     box-sizing: border-box;
@@ -780,6 +783,7 @@ div.cover-bottom-right {
     padding: 0px 20px;
     margin-left: 0px;
     font-size: 0.9rem;
+    z-index: 80;
   }
 
   #menu .logo img {
