@@ -15,10 +15,11 @@ canonifyURLs = true
 
 [params]
     contentRootDir = "content"
-    theme_css = ["/css/vivlio-theme-manual.css"]
+    theme_css = ["/css/style.css"]
     isPDF = false
     showIfs = ["test", "test2", "test3"]
     sectionNumberLevel = 3
+    copyClipboard = true
     # sectionDelimiter = "-"
     # sectionTopFormat = "Chapter %s"
 

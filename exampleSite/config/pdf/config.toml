@@ -6,8 +6,8 @@ publishDir = "public_pdf"
 [params]
   isPDF = true
   theme_css = [
-    "/css/vivlio-theme-manual.css",
-    "/css/vivlio-theme-manual-bookoption.css" # add book style (consider left/right page)
+    "/css/style.css",
+    "/css/style-book.css" # add book style (consider left/right page)
     ]
   #custom_css = []
   showIfs = ["test"]

@@ -21,7 +21,7 @@ PDFかどうか。この設定は通常Webサイト用のconfig.tomlでは`false
 
 ### theme_css
 
-組版に使用するcssを指定します。`/static/css/yourtheme.css`を使用する場合`/css/yourtheme.css`と、指定します。vivliosytleのcssテーマファイルをここに配置して参照することでvivliostyleのテーマをあてることができます。なおデフォルトではテーマの`static/css`下にある`vivlio-theme-manual.css`が参照されています。
+組版に使用するcssを指定します。`/static/css/yourtheme.css`を使用する場合`/css/yourtheme.css`と、指定します。vivliosytleのcssテーマファイルをここに配置して参照することでvivliostyleのテーマをあてることができます。なおデフォルトではテーマの`static/css`下にある`style.css`が参照されています。
 
 ### showIfs
 

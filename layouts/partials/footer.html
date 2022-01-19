@@ -4,10 +4,14 @@ footer.html
 主にscript読み込み。
 ------------------- */}}
 {{- if ne .Site.Params.isPDF true }}
-<script src="{{"js/menuscroll.js" | relURL}}"></script>
-  {{ if (findRE "<pre" .Content 1) }}
-  <script src="{{"js/clipboard.js" | relURL}}"></script>
-  {{ end }}
+{{- $menuscroll := resources.Get "js/menuscroll.js" | resources.Minify -}}
+<script src="{{$menuscroll.RelPermalink }}"></script>
+{{- if .Site.Params.copyClipboard }}
+  {{- if (findRE "<pre" .Content 1) }}
+    {{- $copyclip := resources.Get "js/copyclipboard.js" | resources.Minify }}
+<script src="{{$copyclip.RelPermalink }}"></script>
+    {{- end }}
+  {{- end }}
 {{- end }}
 {{- if .Params.math }}
 {{- if ne .Site.Params.isPDF true }}
