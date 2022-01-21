@@ -2,8 +2,8 @@ baseURL = "https://mochimochiki.github.io/hugo-theme-vivliocli"
 themesdir = "../.."
 title = "Hugo theme for Vivliosytle-cli."
 theme = "hugo-theme-vivliocli"
-languageCode = "ja-jp"
-DefaultContentLanguage = "jp"
+languageCode = "en"
+DefaultContentLanguage = "en"
 enableInlineShortcodes = true
 disablePathToLower= true
 enableGitInfo = false
@@ -15,7 +15,7 @@ canonifyURLs = true
 
 [params]
     contentRootDir = "content"
-    theme_css = ["/css/style.css"]
+    theme_css = ["/css/style-main.css"]
     isPDF = false
     showIfs = ["test", "test2", "test3"]
     sectionNumberLevel = 3
@@ -25,12 +25,14 @@ canonifyURLs = true
 
 [languages]
   [languages.jp]
+    languageCode = "ja-jp"
     htmlLang = "ja"
     languageName = "Japanese"
     contentDir = "content/jp"
     weight = 1
     dateFormat = "2006年01月02日"
   [languages.en]
+    languageCode = "en"
     htmlLang = "en"
     languageName = "English"
     contentDir = "content/en"

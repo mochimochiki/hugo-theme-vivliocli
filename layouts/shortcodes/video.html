@@ -1,0 +1,8 @@
+{{- $src := .Get "src" }}
+{{- $width := .Get "width" }}
+<div class="video-box">
+  <video controls="controls" {{ if $width }}width="{{ $width }}"{{ end }}>
+    <source src="{{ $src }}" type="video/mp4">
+    <span>{{ i18n "video-caution" }}</span>
+  </video>
+</div>
