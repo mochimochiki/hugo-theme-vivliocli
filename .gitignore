@@ -1,6 +1,7 @@
 public/
 public_*/
 *.log
+.hugo_build.lock
 
 # Dependency directories
 node_modules/
