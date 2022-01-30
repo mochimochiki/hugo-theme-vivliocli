@@ -685,7 +685,7 @@ div.cover-bottom-right {
     margin-bottom: 2rem;
   }
 
-  .video-box {
+  .videobox {
     display: none;
   }
 }
@@ -773,7 +773,7 @@ div.cover-bottom-right {
   video {
     max-width: 100%;
   }
-  .video-box {
+  .videobox {
     text-align: center;
   }
 
