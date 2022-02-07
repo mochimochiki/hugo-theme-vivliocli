@@ -3,3 +3,6 @@ other = "目次"
 
 [video-caution]
 other = "ご使用のブラウザは埋め込み動画をサポートしていないようです。"
+
+[editThisPage]
+other = "このページを編集する"

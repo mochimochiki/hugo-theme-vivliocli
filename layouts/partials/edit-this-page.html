@@ -1,0 +1,11 @@
+{{- if $.Site.Params.editURL }}
+  {{- with .File }}
+    {{- $filepath := replace .Path "\\" "/" }}
+    {{- $filepath = $filepath | relLangURL }}
+    {{- $url := printf "%s%s" $.Site.Params.editURL  $filepath }}
+    <div class="EditThisPage">
+    <a href="{{ $url }}">{{ i18n "editThisPage" }}</a>
+    </div>
+  {{- end }}
+{{- end }}
+

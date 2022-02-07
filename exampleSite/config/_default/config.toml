@@ -20,6 +20,7 @@ canonifyURLs = true
     showIfs = ["test", "test2", "test3"]
     sectionNumberLevel = 3
     copyClipboard = true
+    # editURL = "https://github.com/your/repository/edit/master/content"
     # sectionDelimiter = "-"
     # sectionTopFormat = "Chapter %s"
 

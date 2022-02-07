@@ -4,12 +4,14 @@ page-toc-sidebar.html
 ------------------- */}}
 {{- $Content := .content -}}
 {{- $Page := .page -}}
+{{- $this := .this }}
 {{- /* (?:.|\n) : 後方参照不要なグループ化 . or \n */ -}}
 {{- $pattern := `<h([23]).*?id="(.+?)".*?>((?:.|\n)*?)</h[23]>` -}}
 {{- $headers := findRE $pattern $Content -}}
 {{- $scratch := newScratch -}}
 {{- $scratch.Set "prev_level" 0 -}}
 <nav id="TableOfContents-sidebar">
+    {{- partial "edit-this-page.html" $this }}
     {{- with $Page.Params.tags }}
     <div class="taglist">
       {{- range $Page.Params.tags }}
