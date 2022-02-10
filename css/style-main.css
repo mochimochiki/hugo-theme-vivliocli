@@ -874,7 +874,7 @@ div.cover-bottom-right {
     margin-top: 10rem;
   }
 
-  #TableOfContents,#TableOfContents-sidebar {
+  #TableOfContents {
     display: none;
   }
 
@@ -952,9 +952,9 @@ div.cover-bottom-right {
     border-left: 3px solid #e74c3c;
   }
 
-  /* --------------- */
-  /* accordion buton */
-  /* --------------- */
+  /* -------------------- */
+  /* menu accordion buton */
+  /* -------------------- */
   .accordion-btn {
     position: fixed;
     top: 0px;
@@ -968,6 +968,7 @@ div.cover-bottom-right {
   }
   .accordion-btn:hover {
     background-color: #ddd;
+    cursor: pointer;
   }
   .accordion-btn:hover span {
     background-color: #fff;
@@ -994,12 +995,10 @@ div.cover-bottom-right {
   #accordion-btn-check {
     display: none;
   }
-}
 
-/* ---------------- */
-/* page toc sidebar */
-/* ---------------- */
-@media screen and (min-width: 1500px) {
+  /* ---------------- */
+  /* page toc sidebar */
+  /* ---------------- */
   #TableOfContents-sidebar {
     display: inline;
     position: fixed;
@@ -1042,6 +1041,40 @@ div.cover-bottom-right {
   #TableOfContents-sidebar summary:hover {
     cursor: pointer;
     background-color: #EFEFEF;
+  }
+  #pagetoc-accordion-btn-check, .pagetoc-accordion-btn {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  /* -------- */
+  /* pagetoc  */
+  /* -------- */
+  #TableOfContents-sidebar {
+    display: block;
+    position: static;
+    width: 100%;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    transition: all 0.2s;
+  }
+  .pagetoc-accordion-btn {
+    color: #fafafa;
+    background: #333;
+    display: block;
+    margin-bottom: 1px;
+    padding: 10px;
+  }
+  .pagetoc-accordion-btn:hover {
+    background-color: #555;
+    cursor: pointer;
+  }
+  #pagetoc-accordion-btn-check:checked ~ #TableOfContents-sidebar {
+    max-height: 400px;
+    border: solid 1px lightgray;
   }
 }
 
