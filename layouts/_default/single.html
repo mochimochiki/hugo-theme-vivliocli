@@ -1,6 +1,5 @@
 {{ define "main" }}
   {{- $sectionNo := partial "functions/getSectionNo" . }}
-  <h1>{{ $sectionNo }} {{ .Title }}</h1>
   {{- $sectionNoRaw := partial "functions/getSectionNoRaw" . }}
   {{- $content := partial "content-with-section.html" (dict "sectionNo" $sectionNoRaw "page" .Page ) }}
   {{- .Scratch.Set "Content" $content }}
@@ -8,5 +7,6 @@
     {{ partial "page-toc-sidebar.html" (dict "content" $content "page" .Page "this" .) }}
     {{- $content = partial "functions/addAnchorNextToHeader" $content }}
   {{- end }}
+  <h1>{{ $sectionNo }} {{ .Title }}</h1>
   {{ $content }}
 {{ end }}
