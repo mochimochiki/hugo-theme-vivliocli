@@ -769,6 +769,7 @@ div.cover-bottom-right {
     margin-left: var(--menu-width);
     padding: 20px 40px;
     max-width: min(var(--content-width), calc(98% - var(--menu-width) - var(--toc-min-width)));
+    transition: all 0.1s ease-out;
   }
   video {
     max-width: 100%;
@@ -791,6 +792,7 @@ div.cover-bottom-right {
     margin-left: 0px;
     font-size: 0.9rem;
     z-index: 80;
+    transition: all 0.1s ease-out;
   }
 
   #menu .logo img {
@@ -949,6 +951,49 @@ div.cover-bottom-right {
     border: 1px solid #e74c3c;
     border-left: 3px solid #e74c3c;
   }
+
+  /* --------------- */
+  /* accordion buton */
+  /* --------------- */
+  .accordion-btn {
+    position: fixed;
+    top: 0px;
+    left: var(--menu-width);
+    display: flex;
+    height: 100%;
+    width: 15px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.1s ease-out;
+  }
+  .accordion-btn:hover {
+    background-color: #ddd;
+  }
+  .accordion-btn:hover span {
+    background-color: #fff;
+    width: 10px;
+    height: 20px;
+    clip-path: polygon(100% 0%, 100% 100%, 0% 50%);
+  }
+  /* accordion checked = close */
+  #accordion-btn-check:checked ~ .accordion-btn {
+    background-color: #333;
+    left: 0px;
+  }
+  #accordion-btn-check:checked ~ .accordion-btn:hover span {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
+  }
+  #accordion-btn-check:checked ~ #content {
+    margin-left: 0px;
+    max-width: calc(min(var(--content-width), calc(98% - var(--toc-min-width) - var(--menu-width))) + var(--menu-width));
+  }
+  #accordion-btn-check:checked ~ #menu {
+    width: 0px;
+    padding: 0px;
+  }
+  #accordion-btn-check {
+    display: none;
+  }
 }
 
 /* ---------------- */
@@ -1005,6 +1050,9 @@ div.cover-bottom-right {
   #content {
     max-width: var(--content-width);
   }
+  #accordion-btn-check:checked ~ #content {
+    max-width: calc(var(--content-width) + var(--menu-width));
+  }
 }
 
 /* ----------------------------- */
@@ -1020,6 +1068,9 @@ div.cover-bottom-right {
   #menu {
     height: 0%;
     width: 0%;
+  }
+  .accordion-btn {
+    display: none;
   }
 
   /* --------------- */
