@@ -769,7 +769,7 @@ div.cover-bottom-right {
     margin-left: var(--menu-width);
     padding: 20px 40px;
     max-width: min(var(--content-width), calc(98% - var(--menu-width) - var(--toc-min-width)));
-    transition: all 0.1s ease-out;
+    transition: all 0.2s ease-out;
   }
   video {
     max-width: 100%;
@@ -792,7 +792,7 @@ div.cover-bottom-right {
     margin-left: 0px;
     font-size: 0.9rem;
     z-index: 80;
-    transition: all 0.1s ease-out;
+    transition: all 0.2s ease-out;
   }
 
   #menu .logo img {
@@ -964,7 +964,7 @@ div.cover-bottom-right {
     width: 15px;
     justify-content: center;
     align-items: center;
-    transition: all 0.1s ease-out;
+    transition: all 0.2s ease-out;
   }
   .accordion-btn:hover {
     background-color: #ddd;
@@ -991,9 +991,6 @@ div.cover-bottom-right {
   #accordion-btn-check:checked ~ #menu {
     width: 0px;
     padding: 0px;
-  }
-  #accordion-btn-check {
-    display: none;
   }
 
   /* ---------------- */
@@ -1042,9 +1039,12 @@ div.cover-bottom-right {
     cursor: pointer;
     background-color: #EFEFEF;
   }
-  #pagetoc-accordion-btn-check, .pagetoc-accordion-btn {
-    display: none;
-  }
+}
+#accordion-btn-check {
+  display: none;
+}
+#pagetoc-accordion-btn-check, .pagetoc-accordion-btn {
+  display: none;
 }
 
 @media screen and (max-width: 1500px) {
