@@ -1,0 +1,12 @@
+{{- /* SecitonNoRawから親のSectionNoフォーマットを得る。 */}}
+{{- /* in : .this:. .sectionNoRaw:sectionNoRaw */}}
+{{- /* out: string章節番号 */}}
+{{- $delimiter := .this.Site.Params.sectionDelimiter | default "." }}
+{{- $parentSectionNo := "" }}
+{{- $sectionSlice := (split .sectionNoRaw $delimiter)}}
+{{- if ge (len $sectionSlice) 2 }}
+  {{- $parentSlice := first (sub (len $sectionSlice) 1) $sectionSlice}}
+  {{- $parentSectionNoRaw := delimit $parentSlice $delimiter }}
+  {{- $parentSectionNo = partial "functions/formatSectionNo" (dict "this" .this "sectionNoRaw" $parentSectionNoRaw)}}
+{{- end }}
+{{- return $parentSectionNo }}

@@ -3,6 +3,13 @@
 {{- /* out: string章節番号 ex) 1.2.1, 1章(トップレベルかつフォーマット指定時) */}}
 {{ $delimiter := .Site.Params.sectionDelimiter | default "." }}
 {{- $sectionNo := partial "functions/getSectionNoRaw" . }}
+{{- $sectionNoLevel := .Site.Params.sectionNumberLevel }}
+{{- if or ($sectionNoLevel) (eq $sectionNoLevel 0) }}
+  {{- /*  Level設定より深ければ表示しない  */}}
+  {{- if gt (len (split $sectionNo $delimiter)) $sectionNoLevel }}
+    {{ $sectionNo = "" }}
+  {{- end }}
+{{- end }}
 {{- $ret := "" }}
 {{- if and (eq (len (split $sectionNo $delimiter)) 1) (.Site.Params.sectionTopFormat) }}
   {{- if ne $sectionNo "" }}

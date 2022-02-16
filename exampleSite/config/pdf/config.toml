@@ -12,8 +12,9 @@ publishDir = "public_pdf"
   #custom_css = []
   showIfs = ["test"]
   sectionNumberLevel = 3
-  # sectionDelimiter = "-"
+  sectionDelimiter = "."
   # sectionTopFormat = "Chapter %s"
+  inPageChapterPDF = false
 
 [languages]
   [languages.jp.params]

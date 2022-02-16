@@ -13,13 +13,21 @@ PDFの目次。cover用テンプレートおよびサイトトップ（list.html
   <li>
     {{- if ne .IsSection true }}
       {{- /* https://nasust.com/hugo/a1fe8f73-9e3f-4fa3-89c2-a5de90806121 */}}
-      {{- $sectionNo := partial "functions/getSectionNo" . }}
       {{- $sectionNoRaw := partial "functions/getSectionNoRaw" . }}
-      <a {{ printf "href=..%s" .RelPermalink | safeHTMLAttr }}>{{ $sectionNo }} {{ .Title }}</a>
+      {{- $sectionNo := partial "functions/formatSectionNo" (dict "this" . "sectionNoRaw" $sectionNoRaw) }}
+      <a {{ printf "href=\"..%s\"" .RelPermalink | safeHTMLAttr }}>{{ $sectionNo }} {{ .Title }}</a>
       {{- template "pagetoc" (dict "sectionNo" $sectionNoRaw "page" .Page ) }}
     {{- end }}
     {{- if .IsSection }}
-      <a {{ printf "href=..%s#section-title" .RelPermalink | safeHTMLAttr }} {{- if .Params.role }} class="{{ .Params.role }}" {{- end }}>{{ partial "functions/getSectionNo" . }} {{ .Title }}</a>
+      {{- $role := .Params.role | default "doc-chapter" }}
+      {{- if and ($.Site.Params.inPageChapterPDF) (eq $role "doc-chapter") }}
+        {{- if .Pages }}
+          {{- $firstChildPage := (index .Pages 0) }}
+      <a {{ printf "href=\"..%s\"" $firstChildPage.RelPermalink | safeHTMLAttr }} class="{{ $role }}" >{{ partial "functions/getSectionNo" . }} {{ .Title }}</a>
+        {{- end }}
+      {{- else }}
+      <a {{ printf "href=\"..%s#section-title\"" .RelPermalink | safeHTMLAttr }} class="{{ $role }}" >{{ partial "functions/getSectionNo" . }} {{ .Title }}</a>
+      {{- end }}
       {{- /*  section は pdftoc に非対応  */}}
     {{- template "section_hierarchy" . }}
     {{- end -}}

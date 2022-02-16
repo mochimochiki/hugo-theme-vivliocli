@@ -12,8 +12,16 @@ module.exports = {
           {{- $url := urls.Parse (.RelPermalink | urlize) }}
           {{- $path := $url.Path }}
           {{- $link := printf "..%s" $path }}
+          {{- if .IsSection }}
+            {{- if eq .Params.role "doc-part" }}
     '{{ $link }}',
-          {{- if .IsSection }}{{ template "entry_hierarchy" . }}{{ end }}
+            {{- else if ne $.Site.Params.inPageChapterPDF true }}
+    '{{ $link }}',
+            {{- end }}
+            {{- template "entry_hierarchy" . }}
+          {{- else }}
+    '{{ $link }}',
+          {{- end}}
         {{- end }}
       {{- end }}
     {{- end }}

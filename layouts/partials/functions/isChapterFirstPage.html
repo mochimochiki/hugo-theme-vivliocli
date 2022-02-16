@@ -1,0 +1,20 @@
+{{- /* Chapter内の最初のページか。 */}}
+{{- /* in : .this:. .sectionNoraw:sectionNoRaw */}}
+{{- /* out: true/false */}}
+{{- $ret := false }}
+{{ $delimiter := .this.Site.Params.sectionDelimiter | default "." }}
+{{- $sectionSlice := (split .sectionNoRaw $delimiter)}}
+{{- $parentRole := "" }}
+{{- if .this.Parent }}
+  {{- $parentRole = .this.Parent.Params.role | default "doc-chapter" }}
+{{- end}}
+{{- /* ParentがChapterで、かつ現在のページがトップレベルではなく1ページ目（1.1など）の場合にtrueにする */}}
+{{- if eq $parentRole "doc-chapter" }}
+  {{- if ge (len $sectionSlice) 2 }}
+    {{- $number := index $sectionSlice (sub (len $sectionSlice) 1)}}
+    {{- if eq $number "1" }}
+      {{- $ret = true }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{ return $ret }}

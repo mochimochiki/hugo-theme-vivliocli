@@ -1,4 +1,4 @@
-{{- /* SecitonNoを取得する。 */}}
+{{- /* SecitonNoを取得する。sectionNoLevelに関わらず、本来であればこの番号のセクション番号であった、という値を返す */}}
 {{- /* in : Page */}}
 {{- /* out: string章節番号 ex) 1.2.1 */}}
 {{ $scratch := newScratch }}
@@ -34,15 +34,6 @@
 {{ $delimiter := .Site.Params.sectionDelimiter | default "." }}
 
 {{ $sectionSlice := $scratch.Get "sectionSlice" }}
-{{ $ret := "" }}
-{{ if .Site.Params.sectionNumberLevel }}
-  {{- /*  Level設定より深ければ表示しない  */}}
-  {{ if gt (len $sectionSlice) .Site.Params.sectionNumberLevel }}
-    {{ $ret = "" }}
-  {{- /* 通常のフォーマット */}}
-  {{ else }}
-    {{ $ret = delimit $sectionSlice $delimiter }}
-  {{ end }}
-{{ end }}
+{{ $ret := delimit $sectionSlice $delimiter }}
 
 {{ return $ret }}

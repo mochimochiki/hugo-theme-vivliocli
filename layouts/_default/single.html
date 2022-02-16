@@ -1,9 +1,16 @@
 {{ define "main" }}
-  {{- $sectionNo := partial "functions/getSectionNo" . }}
   {{- $sectionNoRaw := partial "functions/getSectionNoRaw" . }}
+  {{- $sectionNo := partial "functions/formatSectionNo" (dict "this" . "sectionNoRaw" $sectionNoRaw) }}
   {{- $content := partial "content-with-section.html" (dict "sectionNo" $sectionNoRaw "page" .Page ) }}
   {{- .Scratch.Set "Content" $content }}
-  {{- if ne .Site.Params.isPDF true }}
+  {{- if .Site.Params.isPDF }}
+    {{- if $.Site.Params.inPageChapterPDF }}
+      {{- $isChapterFirstPage := partial "functions/isChapterFirstPage" (dict "this" . "sectionNoRaw" $sectionNoRaw)}}
+      {{- if $isChapterFirstPage }}
+        {{- template "inpage-chapter" (dict "page" . "sectionNoRaw" $sectionNoRaw) }}
+      {{- end }}
+    {{- end }}
+  {{- else }}
     {{ partial "page-toc-sidebar.html" (dict "content" $content "page" .Page "this" .) }}
     {{- $content = partial "functions/addAnchorNextToHeader" $content }}
   {{- end }}

@@ -1,0 +1,21 @@
+{{- /* SecitonNoRawからSectionNoフォーマットを得る。 */}}
+{{- /* in : .this:. .sectionNoraw:sectionNoRaw */}}
+{{- /* out: string章節番号 */}}
+{{ $delimiter := .this.Site.Params.sectionDelimiter | default "." }}
+{{ $sectionNo := .sectionNoRaw }}
+{{ $sectionNoLevel := .this.Site.Params.sectionNumberLevel }}
+{{- $ret := "" }}
+{{- if or ($sectionNoLevel) (eq $sectionNoLevel 0) }}
+  {{- /*  Level設定より深ければ表示しない  */}}
+  {{- if gt (len (split $sectionNo $delimiter)) $sectionNoLevel }}
+    {{ $sectionNo = "" }}
+  {{- end }}
+{{- end }}
+{{- if and (eq (len (split $sectionNo $delimiter)) 1) (.this.Site.Params.sectionTopFormat) }}
+  {{- if ne $sectionNo "" }}
+    {{- $ret = (printf .this.Site.Params.sectionTopFormat $sectionNo) }}
+  {{- end }}
+{{- else }}
+  {{- $ret = $sectionNo }}
+{{- end }}
+{{ return $ret }}
