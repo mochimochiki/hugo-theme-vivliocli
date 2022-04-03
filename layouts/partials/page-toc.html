@@ -24,9 +24,9 @@ PDF目次に表示するページ内TOCの生成。PDFの目次生成用にtoc.h
                     </ul></li>
                 {{- end -}}
                 {{- if . | findRE "class=.*?pdftoc.*?" }}
-                <li><a href="#{{ $id }}" class="pdftoc">{{ $header }}</a>
+                <li><a href="#{{ $id }}" class="pdftoc" data-proofer-ignore>{{ $header }}</a>
                 {{- else }}
-                <li><a href="#{{ $id }}">{{ $header }}</a>
+                <li><a href="#{{ $id }}" data-proofer-ignore>{{ $header }}</a>
                 {{- end }}
             {{- else if eq $level `3` -}}
                 {{- if eq $prev_level `2` -}}
@@ -35,9 +35,9 @@ PDF目次に表示するページ内TOCの生成。PDFの目次生成用にtoc.h
                     <li><ul>
                 {{- end -}}
                 {{- if . | findRE "class=.*?pdftoc.*?" }}
-                <li><a href="#{{ $id }}" class="pdftoc">{{ $header }}</a></li>
+                <li><a href="#{{ $id }}" class="pdftoc" data-proofer-ignore>{{ $header }}</a></li>
                 {{- else }}
-                <li><a href="#{{ $id }}">{{ $header }}</a></li>
+                <li><a href="#{{ $id }}" data-proofer-ignore>{{ $header }}</a></li>
                 {{- end }}
             {{- end -}}
             {{- $scratch.Set "prev_level" $level -}}
