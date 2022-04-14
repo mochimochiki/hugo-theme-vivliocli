@@ -3,7 +3,7 @@
     {{- $parent := .page.Parent }}
     {{- $parentSectionNo := partial "functions/formatParentSectionNo" (dict "this" .page "sectionNoRaw" .sectionNoRaw) }}
     <div class="doc-chapter" role="doc-chapter">
-      <h1 id="section-title" class="doc-chapter">{{$parentSectionNo}} {{ $parent.Title }}</h1>
+      <h1 id="section-title" class="doc-chapter"><span class="section-number">{{$parentSectionNo}}</span><span>{{ $parent.Title }}</span></h1>
     </div>
   {{- end }}
 {{- end }}

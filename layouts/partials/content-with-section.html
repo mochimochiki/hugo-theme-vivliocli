@@ -20,7 +20,7 @@ h2/h3タグが対象。.Page.Content の代わりに使用する。
   {{- range $h2List }}
     {{- $i = add $i 1 }}
     {{- $h2section := (printf "%s%s%d" $section $d $i) }}
-    {{- $h2replaced := . | replaceRE "(<h2.*?>)((.|\n)*?</h2>)" (printf "${1}%s ${2}" $h2section) }}
+    {{- $h2replaced := . | replaceRE "(<h2.*?>)((.|\n)*?</h2>)" (printf "${1}<span class=\"section-number\">%s</span><span>${2}</span>" $h2section) }}
     {{- $h2replaced = partial "functions/addPdftoc" $h2replaced }}
     {{- $content = (replace $content . $h2replaced) | safeHTML }}
     {{- if lt (add $pageLevel 1) $settingLevel }}
@@ -33,7 +33,7 @@ h2/h3タグが対象。.Page.Content の代わりに使用する。
       {{- range $h3List }}
         {{- $j = add $j 1 }}
         {{- $h3section := (printf "%s%s%d" $h2section $d $j) }}
-        {{- $h3replaced := . | replaceRE "(<h3.*?>)((.|\n)*?</h3>)" (printf "${1}%s ${2}" $h3section) }}
+        {{- $h3replaced := . | replaceRE "(<h3.*?>)((.|\n)*?</h3>)" (printf "${1}<span class=\"section-number\">%s</span><span>${2}</span>" $h3section) }}
         {{- $h3replaced = partial "functions/addPdftoc" $h3replaced }}
         {{- $content = (replace $content . $h3replaced) | safeHTML }}
       {{- end }}

@@ -22,7 +22,7 @@ canonifyURLs = true
     copyClipboard = true
     # editURL = "https://github.com/your/repository/edit/master/content"
     # sectionDelimiter = "-"
-    # sectionTopFormat = "Chapter %s"
+    sectionTopFormat = "第%s章"
 
 [languages]
   [languages.jp]
