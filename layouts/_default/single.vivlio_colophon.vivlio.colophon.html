@@ -16,6 +16,10 @@
   {{- $link := printf "..%s" (. | relURL) }}
   <link rel="stylesheet" href="{{ $link }}">
   {{- end -}}
+  {{- range .Site.Params.lang_css -}}
+  {{- $link := printf "..%s" (. | relURL) }}
+  <link rel="stylesheet" href="{{ $link }}">
+  {{- end -}}
 </head>
 
 <body>

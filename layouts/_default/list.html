@@ -13,6 +13,9 @@
   {{- range .Site.Params.custom_css -}}
   <link rel="stylesheet" href="{{ . | relURL }}">
   {{- end -}}
+  {{- range .Site.Params.lang_css -}}
+  <link rel="stylesheet" href="{{ . | relURL }}">
+  {{- end -}}
   {{- partial "header.html" . -}}
 </head>
 
