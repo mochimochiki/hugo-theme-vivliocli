@@ -21,15 +21,6 @@
     content: env(pub-title);
     text-align: left;
   }
-  @bottom-left {
-    font-size: 0.8rem;
-    content: counter(page);
-    border-left: 1px solid;
-    margin-top: 6mm;
-    padding-left: 4mm;
-    padding-right: 4mm;
-    vertical-align: top;
-  }
 }
 
 @page :right {
@@ -40,21 +31,15 @@
     content: env(doc-title);
     text-align: right;
   }
-  @bottom-right {
-    font-size: 0.8rem;
-    content: counter(page);
-    border-right: 1px solid;
-    margin-top: 6mm;
-    padding-left: 4mm;
-    padding-right: 4mm;
-    vertical-align: top;
-  }
 }
 
-@page :first {
-  @bottom-right {
-    border-right: none;
-  }
+@page :blank {
+  font-family: "游ゴシック", "YuGothic", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  content: "\A\A\A\A\A\A\A\A\A\A\A\A\A\A\AThis page is blank";
+  white-space: pre;
 }
 
 /* introduction */
@@ -73,4 +58,21 @@ div.doc-part {
 }
 #colophon-blank {
   break-before: right;
+}
+
+@media print {
+  /* doc-part */
+  div.doc-part-blank {
+    margin-top: 1.2rem;
+    text-align: center;
+  }
+
+  div.doc-part-blank::before {
+    font-size: 1.5rem;
+    font-family: "游ゴシック", "YuGothic", sans-serif;
+    font-weight: 500;
+    text-align: center;
+    content: "\A\A\A\A\A\A\A\A\A\A\A\A\A\AThis page is blank";
+    white-space: pre;
+  }
 }

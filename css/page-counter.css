@@ -1,0 +1,25 @@
+@page {
+  counter-increment: page-number;
+}
+@page :left {
+  @bottom-left {
+    content: counter(page-number);
+    font-size: 0.8rem;
+    border-left: 1px solid;
+    margin-top: 6mm;
+    padding-left: 4mm;
+    padding-right: 4mm;
+    vertical-align: top;
+  }
+}
+@page :right {
+  @bottom-right {
+    content: counter(page-number);
+    font-size: 0.8rem;
+    border-right: 1px solid;
+    margin-top: 6mm;
+    padding-left: 4mm;
+    padding-right: 4mm;
+    vertical-align: top;
+  }
+}
