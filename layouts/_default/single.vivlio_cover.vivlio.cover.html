@@ -8,6 +8,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ $title }}</title>
+  {{- if ne .Site.Params.pageCountAfterToc true }}
+  {{- $counter_css := printf "..%s" ("/css/page-counter.css" | relURL) }}
+  <link rel="stylesheet" href="{{ $counter_css }}">
+  {{- end }}
   {{- range .Site.Params.theme_css }}
   {{- $link := printf "..%s" (. | relURL) }}
   <link rel="stylesheet" href="{{ $link }}">

@@ -23,6 +23,7 @@ canonifyURLs = true
     # editURL = "https://github.com/your/repository/edit/master/content"
     # sectionDelimiter = "-"
     sectionTopFormat = "第%s章"
+    pageCountAfterToc = true
 
 [languages]
   [languages.jp]

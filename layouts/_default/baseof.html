@@ -8,6 +8,7 @@
   <title>{{ .Title }}</title>
   <link rel="shortcut icon" type="image/x-icon" href="{{ "img/favicon.ico" | relURL }}">
   <!-- css -->
+  <link rel="stylesheet" href="{{ "/css/page-counter.css" | relURL }}">
   {{- range .Site.Params.theme_css -}}
   <link rel="stylesheet" href="{{ . | relURL }}">
   {{- end -}}
