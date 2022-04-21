@@ -170,6 +170,7 @@ figure img[src$=".webp"] {
 
 img {
   max-width: 100%;
+  object-fit: contain;
 }
 
 /* -------------------- */
