@@ -1,0 +1,22 @@
+baseURL = ""
+relativeURLs = true
+canonifyURLs = true
+publishDir = "public_pdfFast"
+ignorefiles = [ "Test/.*" ]
+
+[params]
+  isPDF = true
+  theme_css = [
+    "/css/style-main.css",
+    "/css/style-book.css" # add book style (consider left/right page)
+    ]
+  #custom_css = []
+  showIfs = ["test"]
+  sectionNumberLevel = 3
+  sectionDelimiter = "."
+  # sectionTopFormat = "Chapter %s"
+  inPageChapterPDF = false
+
+[languages]
+  [languages.jp.params]
+    sectionTopFormat = "第%s章"
