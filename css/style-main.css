@@ -3,7 +3,6 @@
 /* Root settings        */
 /* -------------------- */
 :root {
-  font-family: "游ゴシック", "YuGothic", sans-serif;
   font-weight: 400;
   font-feature-settings: "palt", "calt";
   line-height: 1.7;
@@ -15,6 +14,13 @@
 }
 
 /* -------------------- */
+/* font                 */
+/* -------------------- */
+:root { font-family: "游ゴシック", "YuGothic", sans-serif; }
+@page { font-family: "游ゴシック", "YuGothic", sans-serif; }
+pre, :not(pre)>code, pre code { font-family: "Consolas", "游ゴシック", "YuGothic", monospace, sans-serif; }
+
+/* -------------------- */
 /* Header               */
 /* -------------------- */
 h1,
@@ -23,7 +29,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "游ゴシック", "YuGothic", sans-serif;
   font-weight: 600;
   font-feature-settings: "palt", "calt";
 }
@@ -116,8 +121,6 @@ pre {
   padding: 1em 2em;
   background-color: #eee;
   box-decoration-break: clone;
-  font-family: "Consolas", "メイリオ", "Meiryo", "MS Gothic", monospace,
-    sans-serif;
   white-space: pre-wrap;
   word-break: break-all;
   line-height: 1.4;
@@ -247,8 +250,6 @@ blockquote :not(pre) > code {
 /* -------------------- */
 /* inline code */
 :not(pre) > code {
-  font-family: "Consolas", "メイリオ", "Meiryo", "MS Gothic", monospace,
-    sans-serif;
   padding: 2pt;
   margin-top: 20pt;
   background-color: #eee;
@@ -257,8 +258,6 @@ blockquote :not(pre) > code {
 }
 /* code block */
 pre code {
-  font-family: "Consolas", "メイリオ", "Meiryo", "MS Gothic", monospace,
-    sans-serif;
   white-space: pre-wrap;
   word-break: break-all;
 }
@@ -289,7 +288,6 @@ div.note_title {
   padding-left: 10pt;
   padding-right: 10pt;
   background: #bbb;
-  font-family: "游ゴシック", "YuGothic", sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   break-after: avoid-page;
@@ -361,7 +359,6 @@ figcaption span.fig-number::after {
 /* Page settings        */
 /* -------------------- */
 @page {
-  font-family: "游ゴシック", "YuGothic", sans-serif; /* header or footer font */
   size: 210mm 297mm;
   margin-top: 8%;
   margin-bottom: 6%;
