@@ -16,8 +16,8 @@
 /* -------------------- */
 /* font                 */
 /* -------------------- */
-:root { font-family: "游ゴシック", "YuGothic", sans-serif; }
-@page { font-family: "游ゴシック", "YuGothic", sans-serif; }
+:root { font-family: "Yu Gothic", "YuGothic", sans-serif; }
+@page { font-family: "Yu Gothic", "YuGothic", sans-serif; }
 pre, :not(pre)>code, pre code { font-family: "Consolas", "游ゴシック", "YuGothic", monospace, sans-serif; }
 
 /* -------------------- */
