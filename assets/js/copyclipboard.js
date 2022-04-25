@@ -9,12 +9,12 @@ function AddCopyButton(clipboard) {
       try {
         if (clipboard) {
           // for https
-          clipboard.writeText(code.innerText);
+          clipboard.writeText(code.textContent);
         } else {
           // for http
           var buffer = document.createElement("textarea");
           focus = document.activeElement;
-          buffer.value = code.innerText;
+          buffer.value = code.textContent;
           document.body.appendChild(buffer);
           buffer.select();
           document.execCommand("copy");
