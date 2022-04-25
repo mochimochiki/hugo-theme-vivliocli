@@ -15,7 +15,7 @@ PDFの目次。cover用テンプレートおよびサイトトップ（list.html
       {{- /* https://nasust.com/hugo/a1fe8f73-9e3f-4fa3-89c2-a5de90806121 */}}
       {{- $sectionNoRaw := partial "functions/getSectionNoRaw" . }}
       {{- $sectionNo := partial "functions/formatSectionNo" (dict "this" . "sectionNoRaw" $sectionNoRaw) }}
-      <a {{ printf "href=\"..%s\"" .RelPermalink | safeHTMLAttr }} data-proofer-ignore><span class="section-number">{{ $sectionNo }}</span><span>{{ .Title }}</span></a>
+      <a {{ printf "href=\"..%s\"" .RelPermalink | safeHTMLAttr }} data-proofer-ignore>{{ if $sectionNo }}<span class="section-number">{{ $sectionNo }}</span>{{ end }}<span>{{ .Title }}</span></a>
       {{- template "pagetoc" (dict "sectionNo" $sectionNoRaw "page" .Page ) }}
     {{- end }}
     {{- if .IsSection }}
@@ -23,10 +23,12 @@ PDFの目次。cover用テンプレートおよびサイトトップ（list.html
       {{- if and ($.Site.Params.inPageChapterPDF) (eq $role "doc-chapter") }}
         {{- if .Pages }}
           {{- $firstChildPage := (index .Pages 0) }}
-      <a {{ printf "href=\"..%s\"" $firstChildPage.RelPermalink | safeHTMLAttr }} class="{{ $role }}" data-proofer-ignore><span class="section-number">{{ partial "functions/getSectionNo" . }}</span><span>{{ .Title }}</span></a>
+          {{- $sectionNo := partial "functions/getSectionNo" . }}
+      <a {{ printf "href=\"..%s\"" $firstChildPage.RelPermalink | safeHTMLAttr }} class="{{ $role }}" data-proofer-ignore>{{ if $sectionNo }}<span class="section-number">{{ $sectionNo }}</span>{{ end }}<span>{{ .Title }}</span></a>
         {{- end }}
       {{- else }}
-      <a {{ printf "href=\"..%s#section-title\"" .RelPermalink | safeHTMLAttr }} class="{{ $role }}" data-proofer-ignore><span class="section-number">{{ partial "functions/getSectionNo" . }}</span><span>{{ .Title }}</span></a>
+      {{- $sectionNo := partial "functions/getSectionNo" . }}
+      <a {{ printf "href=\"..%s#section-title\"" .RelPermalink | safeHTMLAttr }} class="{{ $role }}" data-proofer-ignore>{{ if $sectionNo }}<span class="section-number">{{ $sectionNo }}</span>{{ end }}<span>{{ .Title }}</span></a>
       {{- end }}
       {{- /*  section は pdftoc に非対応  */}}
     {{- template "section_hierarchy" . }}

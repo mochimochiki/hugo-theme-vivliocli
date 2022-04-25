@@ -14,6 +14,6 @@
     {{ partial "page-toc-sidebar.html" (dict "content" $content "page" .Page "this" .) }}
     {{- $content = partial "functions/addAnchorNextToHeader" $content }}
   {{- end }}
-  <h1><span class="section-number">{{ $sectionNo }}</span><span>{{ .Title }}</span></h1>
+  <h1>{{ if $sectionNo }}<span class="section-number">{{ $sectionNo }}</span>{{ end }}<span>{{ .Title }}</span></h1>
   {{ $content }}
 {{ end }}
