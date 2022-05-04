@@ -251,7 +251,6 @@ blockquote :not(pre) > code {
 /* inline code */
 :not(pre) > code {
   padding: 2pt;
-  margin-top: 20pt;
   background-color: #eee;
   font-size: 1rem;
   white-space: pre-wrap;
