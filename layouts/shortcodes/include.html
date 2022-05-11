@@ -68,10 +68,13 @@
   {{- else }}
     {{- /* include csv table */}}
     {{- $csv := getCSV "," $csvpath }}
+    {{- with .Get "columns" }}
+      {{- $csv = partial "functions/csvColumnFilter.html" (dict "csv" $csv "columns" . )}}
+    {{- end }}
     {{- $spanData := partial "functions/getCSVMergeMask.html" $csv }}
 <table {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
   <thead>
-    {{- range $row, $rowValues := getCSV "," $csvpath }}
+    {{- range $row, $rowValues := $csv }}
     {{- if eq $row 1 }}</thead><tbody>{{- end }}
     <tr>
       {{- if eq $row 0 }}
