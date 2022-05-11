@@ -17,6 +17,7 @@ module.exports = {
     '../jp/Configuration/Tags.html',
     '../jp/Test.html',
     '../jp/Test/TestChapter1.html',
+    '../jp/Test/TestChapter1/00_test.html',
     '../jp/Test/TestChapter1/01_日本語ファイル.html',
     '../jp/Test/TestChapter1/02_pageTOC.html',
     '../jp/Test/TestChapter1/03_include.html',
