@@ -656,10 +656,10 @@ div.cover-bottom-right {
     text-align: left;
   }
 
-  #menu {
+  aside#menu {
     display: none;
   }
-  #TableOfContents, #TableOfContents-sidebar {
+  nav#TableOfContents, nav#TableOfContents-sidebar {
     display: none;
   }
 
@@ -757,7 +757,7 @@ div.cover-bottom-right {
     padding: 3rem 2rem;
   }
 
-  #content {
+  div#content {
     box-sizing: border-box;
     margin-left: var(--menu-width);
     padding: 20px 40px;
@@ -772,7 +772,7 @@ div.cover-bottom-right {
   }
 
   /* Side Menu */
-  #menu {
+  aside#menu {
     box-sizing: border-box;
     top: 0px;
     height: 100%;
@@ -788,32 +788,32 @@ div.cover-bottom-right {
     transition: all 0.2s ease-out;
   }
 
-  #menu .logo img {
+  aside#menu .logo img {
     max-width: var(--menu-width);
     margin-left: -20px;
   }
 
   /* menu color styling */
-  #menu a {
+  aside#menu a {
     text-decoration: none;
     color: #fafafa;
   }
 
-  #menu a:visited {
+  aside#menu a:visited {
     color: #fafafa;
   }
 
-  #menu .menu-selected {
+  aside#menu .menu-selected {
     background-color: #666;
   }
 
-  #menu a:hover {
+  aside#menu a:hover {
     text-decoration: underline;
     color: #e74c3c;
     background-color: #444;
   }
 
-  #menu ul li a {
+  aside#menu ul li a {
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -822,19 +822,19 @@ div.cover-bottom-right {
   }
 
   /* menu indent styling */
-  #menu ul {
+  aside#menu ul {
     padding: 0 0 0 1rem;
   }
-  #menu ul li {
+  aside#menu ul li {
     list-style: none;
   }
 
-  #menu details ul {
+  aside#menu details ul {
     margin: 0 0 0 1rem;
     padding: 0;
   }
 
-  #menu details > summary {
+  aside#menu details > summary {
     list-style-position: outside
   }
 
@@ -977,11 +977,11 @@ div.cover-bottom-right {
   #accordion-btn-check:checked ~ .accordion-btn:hover span {
     clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
   }
-  #accordion-btn-check:checked ~ #content {
+  #accordion-btn-check:checked ~ div#content {
     margin-left: 0px;
     max-width: calc(min(var(--content-width), calc(98% - var(--toc-min-width) - var(--menu-width))) + var(--menu-width));
   }
-  #accordion-btn-check:checked ~ #menu {
+  #accordion-btn-check:checked ~ aside#menu {
     width: 0px;
     padding: 0px;
   }
@@ -989,7 +989,7 @@ div.cover-bottom-right {
   /* ---------------- */
   /* page toc sidebar */
   /* ---------------- */
-  #TableOfContents-sidebar {
+  nav#TableOfContents-sidebar {
     display: inline;
     position: fixed;
     top: 50px;
@@ -1004,31 +1004,31 @@ div.cover-bottom-right {
     background: inherit;
     padding-right: 10px;
   }
-  #TableOfContents-sidebar > ul:before {
+  nav#TableOfContents-sidebar > ul:before {
     content: "Table of contents";
     font-weight: bolder;
   }
-  #TableOfContents-sidebar  h2 {
+  nav#TableOfContents-sidebar  h2 {
     background: inherit;
     text-align: inherit;
     border-bottom: 1px #eee solid;
     padding: 10px;
   }
-  #TableOfContents-sidebar  ul {
+  nav#TableOfContents-sidebar  ul {
     list-style-type: none;
   }
-  #TableOfContents-sidebar ul li,#TableOfContents-sidebar summary {
+  nav#TableOfContents-sidebar ul li,nav#TableOfContents-sidebar summary {
     padding-top: 0;
     font-weight: normal;
     border-bottom: dashed 1px lightgray;
   }
-  #TableOfContents-sidebar  li > ul {
+  nav#TableOfContents-sidebar  li > ul {
     padding-left: 1em;
   }
-  #TableOfContents-sidebar  details > ul {
+  nav#TableOfContents-sidebar  details > ul {
     padding-left: 2em;
   }
-  #TableOfContents-sidebar summary:hover {
+  nav#TableOfContents-sidebar summary:hover {
     cursor: pointer;
     background-color: #EFEFEF;
   }
@@ -1044,7 +1044,7 @@ div.cover-bottom-right {
   /* -------- */
   /* pagetoc  */
   /* -------- */
-  #TableOfContents-sidebar {
+  nav#TableOfContents-sidebar {
     display: block;
     position: static;
     width: 100%;
@@ -1065,7 +1065,7 @@ div.cover-bottom-right {
     background-color: #555;
     cursor: pointer;
   }
-  #pagetoc-accordion-btn-check:checked ~ #TableOfContents-sidebar {
+  #pagetoc-accordion-btn-check:checked ~ nav#TableOfContents-sidebar {
     max-height: 400px;
     border: solid 1px lightgray;
   }
@@ -1073,10 +1073,10 @@ div.cover-bottom-right {
 
 /* 900px - 1500px */
 @media screen and (max-width: 1500px) and (min-width: 900px) {
-  #content {
+  div#content {
     max-width: var(--content-width);
   }
-  #accordion-btn-check:checked ~ #content {
+  #accordion-btn-check:checked ~ div#content {
     max-width: calc(var(--content-width) + var(--menu-width));
   }
 }
@@ -1086,12 +1086,12 @@ div.cover-bottom-right {
 /* ----------------------------- */
 @media screen and (max-width: 900px) {
   /* content relocation */
-  #content {
+  div#content {
     padding: 20px 15px;
     margin-left: 0px;
     max-width: var(--content-width);
   }
-  #menu {
+  aside#menu {
     height: 0%;
     width: 0%;
   }
@@ -1183,19 +1183,19 @@ div.cover-bottom-right {
 /* IE11 */
 @media screen and (min-width: 900px) and (-ms-high-contrast:none) {
   *::-ms-backdrop,
-  #content {
+  div#content {
     margin-left: 350px;
     max-width: 1000px;
   }
-  #menu {
+  aside#menu {
     width: 350px;
   }
 
-  #menu .logo img {
+  aside#menu .logo img {
     max-width: 350px;
   }
 
-  #TableOfContents-sidebar {
+  nav#TableOfContents-sidebar {
     left: 1350px;
     width: calc(98% - 1350px);
     min-width: 200px;
@@ -1205,27 +1205,27 @@ div.cover-bottom-right {
     display: block;
   }
 
-  #content::before {
+  div#content::before {
     content: "This browser is not supported. Some content may be corrupted.";
   }
 }
 
 /* Edge HTML */
 @supports (-ms-ime-align: auto) {
-  #content {
+  div#content {
     margin-left: 350px;
     max-width: 1000px;
   }
 
-  #menu {
+  aside#menu {
     width: 350px;
   }
 
-  #menu .logo img {
+  aside#menu .logo img {
     max-width: 350px;
   }
 
-  #TableOfContents-sidebar {
+  nav#TableOfContents-sidebar {
     left: 1350px;
     width: calc(98% - 1350px);
     min-width: 200px;
@@ -1235,7 +1235,7 @@ div.cover-bottom-right {
     display: block;
   }
 
-  #content::before {
+  div#content::before {
     content: "This browser is not supported. Some content may be corrupted.";
   }
 }
