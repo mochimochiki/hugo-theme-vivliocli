@@ -546,7 +546,7 @@ div.cover-bottom-right {
 }
 [role="doc-toc"] li a::after {
   text-align: right;
-  content: target-counter(attr(href), page);
+  content: target-counter(attr(href), page-number);
   align-self: flex-end;
   flex: none;
   order: 2;
