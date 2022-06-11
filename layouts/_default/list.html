@@ -30,11 +30,12 @@
     {{- end }}
     {{ $content }}
 
-
+    {{- if or (eq .Site.Params.isPDF true) (eq .Site.Params.showTopTOC true) }}
     <nav id="toc" role="doc-toc">
       <h2>{{ i18n "toc" }}</h2>
       {{ partial "toc.html" . }}
     </nav>
+    {{- end }}
   </div>
   {{- partial "footer.html" . -}}
 </body>
