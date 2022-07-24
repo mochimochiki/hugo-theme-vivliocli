@@ -2,45 +2,28 @@
   margin-left: 8%;
   margin-right: 8%;
   @top-center {
-    font-size: 0.8rem;
-    font-weight: 400;
     content: string(top-center, first)'\A'string(top-center2, first);
     white-space: pre;
     text-align: right;
   }
-  @bottom-left-corner {
-    content: none;
-  }
   @bottom-left {
-    font-size: 0.8rem;
-    font-weight: 400;
     content: string(bottom-left, first);
-    margin-top: 0mm;
     vertical-align: middle;
     text-align: left;
     white-space: pre;
     border-left: none;
   }
   @bottom-center {
-    font-size: 0.8rem;
-    font-weight: 400;
     content: string(bottom-center, first);
-    margin-top: 0mm;
     vertical-align: middle;
     text-align: center;
     white-space: pre;
   }
   @bottom-right {
-    font-size: 0.8rem;
-    font-weight: 400;
     content: string(bottom-right, first);
-    margin-top: 0mm;
     vertical-align: middle;
     text-align: right;
     white-space: pre;
     border-right: none;
-  }
-  @bottom-right-corner {
-    content: none;
   }
 }

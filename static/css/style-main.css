@@ -364,55 +364,51 @@ figcaption span.fig-number::after {
   margin-left: 10%;
   margin-right: 10%;
   @top-left-corner {
-    /* border-bottom: 1px solid; */
     background-color: #333;
     color: #fafafa;
-    content: "";
     margin-bottom: 6mm;
-    margin-left: -3mm;
+    content: "";
+    font-size: 0.8rem;
+    font-weight: 400;
   }
   @top-center {
+    background-color: #333;
+    color: #fafafa;
+    margin-bottom: 6mm;
+    padding: 2mm;
+    text-align: left;
+    vertical-align: bottom;
     content: env(pub-title) " - " env(doc-title);
     font-size: 0.8rem;
     font-weight: 400;
-    /* border-bottom: 1px solid; */
-    background-color: #333;
-    color: #fafafa;
-    margin-left: -1mm;
-    margin-right: -1mm;
-    margin-bottom: 6mm;
-    padding-bottom: 2mm;
-    padding-left: 2mm;
-    padding-right: 2mm;
-    text-align: left;
-    vertical-align: bottom;
   }
   @top-right-corner {
-    /* border-bottom: 1px solid; */
     background-color: #333;
     color: #fafafa;
-    content: "";
     margin-bottom: 6mm;
-    margin-right: -3mm;
-  }
-  @bottom-center {
-    border-top: 1px;
-    border-color: #333;
+    content: "";
     font-size: 0.8rem;
+    font-weight: 400;
   }
   @bottom-left-corner {
-    content: "";
-    margin-top: -8mm;
-    margin-bottom: -3mm;
-    margin-left: -3mm;
-    z-index: 1000;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  @bottom-left {
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  @bottom-center {
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  @bottom-right {
+    font-size: 0.8rem;
+    font-weight: 400;
   }
   @bottom-right-corner {
-    content: "";
-    margin-top: -8mm;
-    margin-bottom: -3mm;
-    margin-right: -3mm;
-    z-index: 1000;
+    font-size: 0.8rem;
+    font-weight: 400;
   }
 }
 
@@ -509,7 +505,6 @@ div.cover-bottom-right {
 [role="doc-part"] {
   background-color: #333;
   color: #fafafa;
-  margin-right: -30%;
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-left: 2rem;
