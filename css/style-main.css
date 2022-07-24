@@ -522,17 +522,10 @@ div.cover-bottom-right {
 
 /* doc-chapter */
 [role="doc-chapter"] h1.doc-chapter {
+  border-left: solid 5px #333;
   font-size: 3rem;
-  background-color: #333;
-  color: #fafafa;
-  /* padding-top: 2rem; */
-  margin-top: -10%;
-  padding-top: 4%;
-  margin-left: -21%;
-  padding-left: 20%;
-  margin-right: -21%;
-  padding-right: 20%;
-  padding-bottom: 2rem;
+  background-color: initial;
+  color: initial;
 }
 
 /* doc-endnotes */
