@@ -438,53 +438,6 @@ div.cover-bottom-right {
   string-set: bottom-right content();
 }
 
-@page :first {
-  margin-left: 8%;
-  margin-right: 8%;
-  @top-center {
-    font-size: 0.8rem;
-    font-weight: 400;
-    content: string(top-center, first)'\A'string(top-center2, first);
-    white-space: pre;
-    text-align: right;
-  }
-  @bottom-left-corner {
-    content: none;
-  }
-  @bottom-left {
-    font-size: 0.8rem;
-    font-weight: 400;
-    content: string(bottom-left, first);
-    margin-top: 0mm;
-    vertical-align: middle;
-    text-align: left;
-    white-space: pre;
-    border-left: none;
-  }
-  @bottom-center {
-    font-size: 0.8rem;
-    font-weight: 400;
-    content: string(bottom-center, first);
-    margin-top: 0mm;
-    vertical-align: middle;
-    text-align: center;
-    white-space: pre;
-  }
-  @bottom-right {
-    font-size: 0.8rem;
-    font-weight: 400;
-    content: string(bottom-right, first);
-    margin-top: 0mm;
-    vertical-align: middle;
-    text-align: right;
-    white-space: pre;
-    border-right: none;
-  }
-  @bottom-right-corner {
-    content: none;
-  }
-}
-
 /* -------------------- */
 /* Role settings        */
 /* -------------------- */
@@ -656,10 +609,10 @@ div.cover-bottom-right {
     text-align: left;
   }
 
-  aside#menu {
+  #menu {
     display: none;
   }
-  nav#TableOfContents, nav#TableOfContents-sidebar {
+  #TableOfContents, #TableOfContents-sidebar {
     display: none;
   }
 
@@ -757,7 +710,7 @@ div.cover-bottom-right {
     padding: 3rem 2rem;
   }
 
-  div#content {
+  #content {
     box-sizing: border-box;
     margin-left: var(--menu-width);
     padding: 20px 40px;
@@ -772,7 +725,7 @@ div.cover-bottom-right {
   }
 
   /* Side Menu */
-  aside#menu {
+  #menu {
     box-sizing: border-box;
     top: 0px;
     height: 100%;
@@ -788,32 +741,32 @@ div.cover-bottom-right {
     transition: all 0.2s ease-out;
   }
 
-  aside#menu .logo img {
+  #menu .logo img {
     max-width: var(--menu-width);
     margin-left: -20px;
   }
 
   /* menu color styling */
-  aside#menu a {
+  #menu a {
     text-decoration: none;
     color: #fafafa;
   }
 
-  aside#menu a:visited {
+  #menu a:visited {
     color: #fafafa;
   }
 
-  aside#menu .menu-selected {
+  #menu .menu-selected {
     background-color: #666;
   }
 
-  aside#menu a:hover {
+  #menu a:hover {
     text-decoration: underline;
     color: #e74c3c;
     background-color: #444;
   }
 
-  aside#menu ul li a {
+  #menu ul li a {
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -822,19 +775,19 @@ div.cover-bottom-right {
   }
 
   /* menu indent styling */
-  aside#menu ul {
+  #menu ul {
     padding: 0 0 0 1rem;
   }
-  aside#menu ul li {
+  #menu ul li {
     list-style: none;
   }
 
-  aside#menu details ul {
+  #menu details ul {
     margin: 0 0 0 1rem;
     padding: 0;
   }
 
-  aside#menu details > summary {
+  #menu details > summary {
     list-style-position: outside
   }
 
@@ -977,11 +930,11 @@ div.cover-bottom-right {
   #accordion-btn-check:checked ~ .accordion-btn:hover span {
     clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
   }
-  #accordion-btn-check:checked ~ div#content {
+  #accordion-btn-check:checked ~ #content {
     margin-left: 0px;
     max-width: calc(min(var(--content-width), calc(98% - var(--toc-min-width) - var(--menu-width))) + var(--menu-width));
   }
-  #accordion-btn-check:checked ~ aside#menu {
+  #accordion-btn-check:checked ~ #menu {
     width: 0px;
     padding: 0px;
   }
@@ -989,7 +942,7 @@ div.cover-bottom-right {
   /* ---------------- */
   /* page toc sidebar */
   /* ---------------- */
-  nav#TableOfContents-sidebar {
+  #TableOfContents-sidebar {
     display: inline;
     position: fixed;
     top: 50px;
@@ -1004,31 +957,31 @@ div.cover-bottom-right {
     background: inherit;
     padding-right: 10px;
   }
-  nav#TableOfContents-sidebar > ul:before {
+  #TableOfContents-sidebar > ul:before {
     content: "Table of contents";
     font-weight: bolder;
   }
-  nav#TableOfContents-sidebar  h2 {
+  #TableOfContents-sidebar  h2 {
     background: inherit;
     text-align: inherit;
     border-bottom: 1px #eee solid;
     padding: 10px;
   }
-  nav#TableOfContents-sidebar  ul {
+  #TableOfContents-sidebar  ul {
     list-style-type: none;
   }
-  nav#TableOfContents-sidebar ul li,nav#TableOfContents-sidebar summary {
+  #TableOfContents-sidebar ul li,#TableOfContents-sidebar summary {
     padding-top: 0;
     font-weight: normal;
     border-bottom: dashed 1px lightgray;
   }
-  nav#TableOfContents-sidebar  li > ul {
+  #TableOfContents-sidebar  li > ul {
     padding-left: 1em;
   }
-  nav#TableOfContents-sidebar  details > ul {
+  #TableOfContents-sidebar  details > ul {
     padding-left: 2em;
   }
-  nav#TableOfContents-sidebar summary:hover {
+  #TableOfContents-sidebar summary:hover {
     cursor: pointer;
     background-color: #EFEFEF;
   }
@@ -1044,7 +997,7 @@ div.cover-bottom-right {
   /* -------- */
   /* pagetoc  */
   /* -------- */
-  nav#TableOfContents-sidebar {
+  #TableOfContents-sidebar {
     display: block;
     position: static;
     width: 100%;
@@ -1065,7 +1018,7 @@ div.cover-bottom-right {
     background-color: #555;
     cursor: pointer;
   }
-  #pagetoc-accordion-btn-check:checked ~ nav#TableOfContents-sidebar {
+  #pagetoc-accordion-btn-check:checked ~ #TableOfContents-sidebar {
     max-height: 400px;
     border: solid 1px lightgray;
   }
@@ -1073,10 +1026,10 @@ div.cover-bottom-right {
 
 /* 900px - 1500px */
 @media screen and (max-width: 1500px) and (min-width: 900px) {
-  div#content {
+  #content {
     max-width: var(--content-width);
   }
-  #accordion-btn-check:checked ~ div#content {
+  #accordion-btn-check:checked ~ #content {
     max-width: calc(var(--content-width) + var(--menu-width));
   }
 }
@@ -1086,12 +1039,12 @@ div.cover-bottom-right {
 /* ----------------------------- */
 @media screen and (max-width: 900px) {
   /* content relocation */
-  div#content {
+  #content {
     padding: 20px 15px;
     margin-left: 0px;
     max-width: var(--content-width);
   }
-  aside#menu {
+  #menu {
     height: 0%;
     width: 0%;
   }
@@ -1178,64 +1131,4 @@ div.cover-bottom-right {
 
 #humburger-btn-check {
   display: none;
-}
-
-/* IE11 */
-@media screen and (min-width: 900px) and (-ms-high-contrast:none) {
-  *::-ms-backdrop,
-  div#content {
-    margin-left: 350px;
-    max-width: 1000px;
-  }
-  aside#menu {
-    width: 350px;
-  }
-
-  aside#menu .logo img {
-    max-width: 350px;
-  }
-
-  nav#TableOfContents-sidebar {
-    left: 1350px;
-    width: calc(98% - 1350px);
-    min-width: 200px;
-  }
-
-  details {
-    display: block;
-  }
-
-  div#content::before {
-    content: "This browser is not supported. Some content may be corrupted.";
-  }
-}
-
-/* Edge HTML */
-@supports (-ms-ime-align: auto) {
-  div#content {
-    margin-left: 350px;
-    max-width: 1000px;
-  }
-
-  aside#menu {
-    width: 350px;
-  }
-
-  aside#menu .logo img {
-    max-width: 350px;
-  }
-
-  nav#TableOfContents-sidebar {
-    left: 1350px;
-    width: calc(98% - 1350px);
-    min-width: 200px;
-  }
-
-  details {
-    display: block;
-  }
-
-  div#content::before {
-    content: "This browser is not supported. Some content may be corrupted.";
-  }
 }
