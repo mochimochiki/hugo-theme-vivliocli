@@ -29,7 +29,7 @@ if not %errorlevel% == 0 exit /B 1
 :: math convert
 :: ----------
 pushd %scriptdir%\MathConverter
-powershell -NoProfile -ExecutionPolicy RemoteSigned ^
+powershell -NoProfile -ExecutionPolicy Bypass ^
   ".\MathConverter.ps1 -dir \"%hugodir%\public_%hugo_env%\" -logname MathConverter_%hugo_env%.log;exit $LASTEXITCODE"
 popd
 if not %errorlevel% == 0 exit /B 1
@@ -38,9 +38,9 @@ if not %errorlevel% == 0 exit /B 1
 :: JP PDF
 :: ----------
 pushd %scriptdir%
-powershell -NoProfile -ExecutionPolicy RemoteSigned ^
+powershell -NoProfile -ExecutionPolicy Bypass ^
   ".\CollectConfig.ps1 \"%hugodir%\public_%hugo_env%\jp\";exit $LASTEXITCODE"
-powershell -NoProfile -ExecutionPolicy RemoteSigned ^
+powershell -NoProfile -ExecutionPolicy Bypass ^
   ".\vivliocli.ps1 -dir \"%hugodir%\public_%hugo_env%\jp\*.*\";exit $LASTEXITCODE"
 popd
 if not %errorlevel% == 0 exit /B 1
@@ -49,9 +49,9 @@ if not %errorlevel% == 0 exit /B 1
 :: EN PDF
 :: ----------
 pushd %scriptdir%
-powershell -NoProfile -ExecutionPolicy RemoteSigned ^
+powershell -NoProfile -ExecutionPolicy Bypass ^
   ".\CollectConfig.ps1 \"%hugodir%\public_%hugo_env%\en\";exit $LASTEXITCODE"
-powershell -NoProfile -ExecutionPolicy RemoteSigned ^
+powershell -NoProfile -ExecutionPolicy Bypass ^
   ".\vivliocli.ps1 -dir \"%hugodir%\public_%hugo_env%\en\*.*\";exit $LASTEXITCODE"
 popd
 if not %errorlevel% == 0 exit /B 1
