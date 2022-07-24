@@ -1,0 +1,59 @@
+/* IE11 */
+@media screen and (min-width: 900px) and (-ms-high-contrast:none) {
+  *::-ms-backdrop,
+  #content {
+    margin-left: 350px;
+    max-width: 1000px;
+  }
+  #menu {
+    width: 350px;
+  }
+
+  #menu .logo img {
+    max-width: 350px;
+  }
+
+  #TableOfContents-sidebar {
+    left: 1350px;
+    width: calc(98% - 1350px);
+    min-width: 200px;
+  }
+
+  details {
+    display: block;
+  }
+
+  #content::before {
+    content: "This browser is not supported. Some content may be corrupted.";
+  }
+}
+
+/* Edge HTML */
+@supports (-ms-ime-align: auto) {
+  #content {
+    margin-left: 350px;
+    max-width: 1000px;
+  }
+
+  #menu {
+    width: 350px;
+  }
+
+  #menu .logo img {
+    max-width: 350px;
+  }
+
+  #TableOfContents-sidebar {
+    left: 1350px;
+    width: calc(98% - 1350px);
+    min-width: 200px;
+  }
+
+  details {
+    display: block;
+  }
+
+  #content::before {
+    content: "This browser is not supported. Some content may be corrupted.";
+  }
+}
