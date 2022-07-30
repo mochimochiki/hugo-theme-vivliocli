@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Hugo-theme-vivliocli Guide',
   author: 'auther',
-  size: 'A4',
+  size: 'A3',
   entry: [
     '_pdf.vivlio.cover.html',
     
