@@ -1,0 +1,14 @@
+{{- /* root pdfのパラメータを取得する */}}
+{{- /* in : .this, .param */}}
+{{- /* out: param value */}}
+{{- $thisPage := .this }}
+{{- $param := .pdfparam }}
+{{- $pdfList := partialCached "functions/getRootPDFList.html" $thisPage }}
+{{- $retParam := "" }}
+{{- range $pdfList }}
+  {{- $pdf := . }}
+  {{- if $pdf.CurrentSection.IsAncestor $thisPage }}
+    {{- $retParam = $pdf.Param $param }}
+  {{- end }}
+{{- end }}
+{{- return $retParam }}

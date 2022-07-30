@@ -1,0 +1,29 @@
+{{- /* root pdf.md のリストを取得する */}}
+{{- /* out: pdf.mdのリスト */}}
+{{ $scratch := newScratch }}
+{{ $scratch.Set "pdfList" slice }}
+{{- template "getRootPDFList_hierarchy" (dict "section" .Site.Home "scratch" $scratch) }}
+
+{{- define "getRootPDFList_hierarchy" }}
+  {{- $section := .section }}
+  {{- $scratch := .scratch }}
+  {{- $isPDFRoot := false}}
+  {{- /* PDF rootが見つかったらリストに追加 */}}
+  {{- range $section.Pages.ByWeight }}
+    {{- if .OutputFormats.Get "vivlio_cover" }}
+      {{- $pdf := . }}
+      {{- $isPDFRoot = true }}
+      {{- $scratch.Add "pdfList" (slice $pdf) }}
+    {{- end }}
+  {{- end }}
+  {{- /* PDF root階層でなければ下の階層を調べる */}}
+  {{- if ne $isPDFRoot true }}
+    {{- range $section.Sections }}
+      {{- template "getRootPDFList_hierarchy" (dict "section" . "scratch" $scratch) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- $ret := $scratch.Get "pdfList" }}
+
+{{- return $ret }}
