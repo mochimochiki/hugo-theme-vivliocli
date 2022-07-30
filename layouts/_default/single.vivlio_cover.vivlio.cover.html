@@ -9,8 +9,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ $title }}</title>
   {{- if ne .Site.Params.pageCountAfterToc true }}
-  {{- $counter_css := printf "..%s" ("/css/page-counter.css" | relURL) }}
-  <link rel="stylesheet" href="{{ $counter_css }}">
+    {{- $counter_css := printf "..%s" ("/css/page-counter-book.css" | relURL) }}
+    {{- $pagestyle := partial "functions/getRootPDFParam.html" (dict "this" . "pdfparam" "pagestyle") }}
+    {{- if eq $pagestyle "simple" }}
+      {{- $counter_css = printf "..%s" ("/css/page-counter-simple.css" | relURL) }}
+    {{- end }}
+    <link rel="stylesheet" href="{{ $counter_css }}">
   {{- end }}
   {{- range .Site.Params.theme_css }}
   {{- $link := printf "..%s" (. | relURL) }}

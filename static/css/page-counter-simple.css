@@ -1,0 +1,8 @@
+@page {
+  counter-increment: page-number;
+  @bottom-center {
+    content: counter(page-number);
+    margin-top: 6mm;
+    vertical-align: top;
+  }
+}
