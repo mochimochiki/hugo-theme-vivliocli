@@ -50,10 +50,10 @@ div.doc-part {
 }
 
 /* colophon */
-#colophon {
+#vivlio-colophon {
   break-before: left;
 }
-#colophon-blank {
+#vivlio-colophon-blank {
   break-before: right;
 }
 
