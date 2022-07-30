@@ -7,9 +7,6 @@ subtitle:
   default: 'Hugoサイトを<br>美しくPDF出力'
 doc_number:
   default: 'doc-number'
-author: 'auther'
-company: 'Company'
-logo: 'img/logo.png'
 header:
   default: 'header'
 header2:
@@ -20,8 +17,14 @@ footer-center:
   default: 'center'
 footer-right:
   default: 'right'
-pagesize: 'A4'
-colophon: true
+author: 'auther'
+company: 'Company'
+logo: 'img/logo.png'
+pagesize: 'A3' # A4 / A3 / A4 landscape / A3 landscape
+pagestyle: 'book' # book / simple
+cover: true # whether to output the cover page or not.
+toc: true # whether to output toc or not. (if cover: false, always toc is not output)
+colophon: true # whether to output colophon page or not.
 outputs:
 - vivlio_cover
 - vivlio_config
