@@ -5,7 +5,9 @@ module.exports = {
   {{ if .Params.author }}author: '{{ .Params.author }}',{{ end }}
   size: '{{ .Params.pagesize }}',
   entry: [
+    {{- if ne .Params.cover false }}
     '_pdf.vivlio.cover.html',
+    {{- end }}
     {{- define "entry_hierarchy" }}
       {{- range .Pages.ByWeight }}
         {{- if partial "functions/isShow" . }}

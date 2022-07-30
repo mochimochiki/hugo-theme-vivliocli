@@ -7,7 +7,6 @@ publishDir = "public_pdf"
   isPDF = true
   theme_css = [
     "/css/style-main.css",
-    "/css/style-first.css",
     "/css/style-browser.css"
     ]
   #custom_css = []

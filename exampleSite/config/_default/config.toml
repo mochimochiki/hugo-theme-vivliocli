@@ -17,7 +17,6 @@ canonifyURLs = true
     contentRootDir = "content"
     theme_css = [
       "/css/style-main.css",
-      "/css/style-first.css",
       "/css/style-browser.css"
       ]
     isPDF = false
