@@ -20,7 +20,7 @@ footer-right:
 author: 'auther'
 company: 'Company'
 logo: 'img/logo.png'
-pagesize: 'A3' # A4 / A3 / A4 landscape / A3 landscape
+pagesize: 'A4' # A4 / A3 / A4 landscape / A3 landscape
 pagestyle: 'book' # book / simple
 cover: true # whether to output the cover page or not.
 toc: true # whether to output toc or not. (if cover: false, always toc is not output)

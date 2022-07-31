@@ -32,11 +32,16 @@
 }
 
 @page :blank {
-  font-size: 1.5rem;
-  font-weight: 500;
-  text-align: center;
-  content: "\A\A\A\A\A\A\A\A\A\A\A\A\A\A\AThis page is blank";
-  white-space: pre;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    content: "This page is blank";
+    /* contentを縦中央にするためmargin50% */
+    margin-top: 50%;
+    /* margin-bottom: 88% とし全体の上部6% = 50% * 12% をヘッダー描画域とする  */
+    @top-left-corner { margin-bottom: 88%; }
+    @top-center { margin-bottom: 88%; }
+    @top-right-corner { margin-bottom: 88%; }
 }
 
 /* introduction */
@@ -58,17 +63,22 @@ div.doc-part {
 }
 
 @media print {
-  /* doc-part */
-  div.doc-part-blank {
-    margin-top: 1.2rem;
-    text-align: center;
-  }
-
   div.doc-part-blank::before {
     font-size: 1.5rem;
     font-weight: 500;
     text-align: center;
-    content: "\A\A\A\A\A\A\A\A\A\A\A\A\A\AThis page is blank";
+    content: "This page is blank";
     white-space: pre;
   }
+  div.doc-part-blank {
+    text-align: center;
+    page: blank-part;
+  }
+}
+
+@page blank-part {
+  margin-top: 50%;
+  @top-left-corner { margin-bottom: 88%; }
+  @top-center { margin-bottom: 88%; }
+  @top-right-corner { margin-bottom: 88%; }
 }
