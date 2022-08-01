@@ -8,17 +8,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ $title }}</title>
-  <link rel="stylesheet" href="{{ printf "..%s" ("/css/style-first.css" | relURL) }}">
+  {{- range .Site.Params.cover_css }}
+  {{- $link := printf "..%s" (. | relURL) }}
+  <link rel="stylesheet" href="{{ $link }}">
+  {{- end }}
   {{- /* PDF style */}}
-  {{- $pagestyle := partial "functions/getRootPDFParam.html" (dict "this" . "pdfparam" "pagestyle") }}
-  {{- if eq $pagestyle "simple" }}
+  {{- $isbook := partial "functions/getRootPDFParam.html" (dict "this" . "pdfparam" "book") }}
+  {{- if eq $isbook false }}
   {{- else }}
-  <link rel="stylesheet" href="{{ printf "..%s" ("/css/style-book.css" | relURL) }}">
+  {{- range .Site.Params.book_css }}
+  {{- $link := printf "..%s" (. | relURL) }}
+  <link rel="stylesheet" href="{{ $link }}">
+  {{- end }}
   {{- end }}
   {{- /* PDF page-counter */}}
   {{- if ne .Site.Params.pageCountAfterToc true }}
     {{- $counter_css := printf "..%s" ("/css/page-counter-book.css" | relURL) }}
-    {{- if eq $pagestyle "simple" }}
+    {{- if eq $isbook false }}
       {{- $counter_css = printf "..%s" ("/css/page-counter-simple.css" | relURL) }}
     {{- end }}
   <link rel="stylesheet" href="{{ $counter_css }}">

@@ -19,6 +19,8 @@ canonifyURLs = true
       "/css/style-main.css",
       "/css/style-browser.css"
       ]
+    book_css = [ "/css/style-book.css" ]
+    cover_css = [ "/css/style-first.css" ]
     isPDF = false
     showIfs = ["test", "test2", "test3"]
     sectionNumberLevel = 3

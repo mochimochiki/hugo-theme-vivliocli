@@ -9,29 +9,33 @@
   <link rel="shortcut icon" type="image/x-icon" href="{{ "img/favicon.ico" | relURL }}">
   <!-- css -->
   {{- /* PDF page style (book / simple) */}}
-  {{- $pagestyle := partial "functions/getRootPDFParam.html" (dict "this" . "pdfparam" "pagestyle") }}
-  {{- if eq $pagestyle "simple" }}
+  {{- $isbook := partial "functions/getRootPDFParam.html" (dict "this" . "pdfparam" "book") }}
+  {{- if eq $isbook false }}
   <link rel="stylesheet" href="{{ "/css/page-counter-simple.css" | relURL }}">
   {{- else }}
   <link rel="stylesheet" href="{{ "/css/page-counter-book.css" | relURL }}">
-  <link rel="stylesheet" href="{{ "/css/style-book.css" | relURL }}">
+  {{- range .Site.Params.book_css -}}
+  <link rel="stylesheet" href="{{ . | relURL }}">
+  {{- end}}
   {{- end }}
   {{- /* PDF cover */}}
   {{- $hascover := partial "functions/getRootPDFParam.html" (dict "this" . "pdfparam" "cover") }}
   {{- if eq $hascover false }}
   {{- else }}
-  <link rel="stylesheet" href="{{ "/css/style-first.css" | relURL }}">
+    {{- range .Site.Params.cover_css -}}
+  <link rel="stylesheet" href="{{ . | relURL }}">
+    {{- end}}
   {{- end }}
   {{- /* other css   */}}
-  {{- range .Site.Params.theme_css -}}
+  {{- range .Site.Params.theme_css }}
   <link rel="stylesheet" href="{{ . | relURL }}">
-  {{- end -}}
-  {{- range .Site.Params.custom_css -}}
+  {{- end }}
+  {{- range .Site.Params.custom_css }}
   <link rel="stylesheet" href="{{ . | relURL }}">
-  {{- end -}}
-  {{- range .Site.Params.lang_css -}}
+  {{- end }}
+  {{- range .Site.Params.lang_css }}
   <link rel="stylesheet" href="{{ . | relURL }}">
-  {{- end -}}
+  {{- end }}
   {{- partial "header.html" . -}}
 </head>
 
