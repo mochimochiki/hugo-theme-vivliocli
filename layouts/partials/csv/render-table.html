@@ -26,23 +26,23 @@
     {{- if eq $rowIndex 0 }}
       {{- /* 1行目 */}}
       {{- if $hasHead}}
-        {{- range $index, $cell := $rowData}}
-          <th style="text-align: left; {{ with index $width_list $index }}width: {{ index $width_list $index }};{{ end }}">{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</th>
+        {{- range $columnIndex, $cell := $rowData}}
+          <th style="text-align: left; {{ with index $width_list $columnIndex }}width: {{ index $width_list $columnIndex }};{{ end }}">{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</th>
         {{- end }}
       {{- else }}
-        {{- range $i, $cell := $rowData}}
-          {{- $span := index (index $mergeMask $rowIndex) $i }}
+        {{- range $columnIndex, $cell := $rowData}}
+          {{- $span := index (index $mergeMask $rowIndex) $columnIndex }}
           {{- if (ne $span "0") | or (eq $isMerge false) }}
-            <td style="{{ with index $width_list $i }}width: {{ index $width_list $i }};{{ end }}" {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
+            <td style="{{ with index $width_list $columnIndex }}width: {{ index $width_list $columnIndex }};{{ end }}" {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
           {{- end }}
         {{- end }}
       {{- end }}
     {{- else }}
       {{- /*  2行目以降  */}}
-      {{- range $i, $cell := $rowData}}
+      {{- range $columnIndex, $cell := $rowData}}
         {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
-        {{- $span := index (index $mergeMask $rowIndex) $i }}
-        {{- if or (ne $span "0") (eq $isMerge false) }}
+        {{- $span := index (index $mergeMask $rowIndex) $columnIndex }}
+        {{- if (ne $span "0") | or (eq $isMerge false) }}
           <td {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
         {{- end }}
       {{- end }}
