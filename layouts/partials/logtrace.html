@@ -1,0 +1,3 @@
+{{- if eq site.Params.debug true }}
+<script>console.debug('%cTrace%c %s','background: #696969;border-radius: 0.4em;color: white;font-weight: bold;padding: 2px 0.5em;','',{{ . }});</script>
+{{- end }}
