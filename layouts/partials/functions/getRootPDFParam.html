@@ -7,7 +7,7 @@
 {{- $retParam := "" }}
 {{- range $pdfList }}
   {{- $pdf := . }}
-  {{- if $pdf.CurrentSection.IsAncestor $thisPage }}
+  {{- if ($pdf.CurrentSection.IsAncestor $thisPage) | or (eq $pdf.CurrentSection $thisPage) }}
     {{- $retParam = $pdf.Param $param }}
   {{- end }}
 {{- end }}

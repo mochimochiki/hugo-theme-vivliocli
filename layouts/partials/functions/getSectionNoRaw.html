@@ -19,7 +19,7 @@
   {{- range $section.Pages.ByWeight }}
     {{- if partial "functions/isShow" . }}
       {{ $no = (add $no 1) }}
-      {{- if and (.IsAncestor $current) }}
+      {{- if (.IsAncestor $current) | or (eq . $current) }}
         {{ $sectionNo := $scratch.Get "sectionSlice" }}
         {{ if or $isPDFRoot (len $sectionNo) }}
           {{ $scratch.Add "sectionSlice" (slice $no) }}
