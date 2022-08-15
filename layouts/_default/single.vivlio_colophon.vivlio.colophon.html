@@ -12,6 +12,14 @@
   {{- $link := printf "..%s" (. | relURL) }}
   <link rel="stylesheet" href="{{ $link }}">
   {{- end -}}
+  {{- $isbook := partial "functions/getRootPDFParam.html" (dict "this" . "pdfparam" "book") }}
+  {{- if eq $isbook false }}
+  {{- else }}
+  {{- range .Site.Params.book_css }}
+  {{- $link := printf "..%s" (. | relURL) }}
+  <link rel="stylesheet" href="{{ $link }}">
+  {{- end }}
+  {{- end }}
   {{- range .Site.Params.custom_css -}}
   {{- $link := printf "..%s" (. | relURL) }}
   <link rel="stylesheet" href="{{ $link }}">
@@ -23,6 +31,7 @@
 </head>
 
 <body>
+  <div class="doc-part-blank"></div>
   <div id="vivlio-colophon">
     {{ .Page.Content }}
   </div>
