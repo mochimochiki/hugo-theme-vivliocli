@@ -14,6 +14,8 @@
 {{- $hasHead := .Get "head" | default true }}
 {{- $width := .Get "width" | default "*" }}
 {{- $width_list := split (replace ( .Get "width-ratio" | default "*" ) "*" "auto" ) "-" }}
+{{- $columns := .Get "columns" }}
+
 {{- $isMD := strings.HasSuffix $source "md" }}
 {{- $isCSV := strings.HasSuffix $source "csv" }}
 {{- if $isMD }}
@@ -30,80 +32,12 @@
 {{ $content }}
   {{- end }}
 {{- else if $isCSV}}
-  {{- /* load csv */}}
-  {{- $lang := .Site.Language.Lang }}
-  {{- $filename := (path.Join $.Page.File.Dir $source) }}
-  {{- $csvpath := printf "%s/%s/%s" .Site.Params.contentRootDir $lang $filename }}
-  {{- if or (fileExists $csvpath ) ( or (hasPrefix $source "./" ) (hasPrefix $source "../" ) )}}
-  {{- else }}
-    {{- $csvpath = printf "%s/%s/_include/%s" .Site.Params.contentRootDir $lang $source }}
-  {{- end }}
+  {{- $csvpath := partial "csv/get-csvpath.html" (dict "page" .Page "relPath" $source) }}
   {{- if $key }}
-    {{- /* include one parameter */}}
-    {{- $found := false }}
-    {{- $colNo := -1 }}
-    {{- range $i, $r := getCSV "," $csvpath }}
-      {{- if eq $found false }}
-        {{- /*  {{- partial "log" (index $r 0) }}  */}}
-        {{- /*  列を特定  */}}
-        {{- if eq $i 0}} 
-          {{- $index := 0 }}
-          {{- range $r}}
-            {{- if eq . $column }}
-              {{- /*  {{- partial "log" $index }}  */}}
-              {{- $colNo = $index }}
-          {{- end }}
-            {{- $index = add $index 1 }}
-          {{- end }}
-        {{- end }}
-        {{- /*  行を特定  */}}
-        {{- if eq (index $r 0) $key }}
-          {{- if ne $colNo -1 }}
-            {{- /*  {{- partial "log" (index $r $colNo ) }}  */}}
-            {{- index $r $colNo }}
-          {{- end }}
-        {{- end }}
-      {{- end }}
-    {{- end }}
+    {{/*  include csv key value  */}}
+    {{- partial "csv/render-keyvalue.html" (dict "csvpath" $csvpath "key" $key "column" $column) }}
   {{- else }}
     {{- /* include csv table */}}
-    {{- $csv := getCSV "," $csvpath }}
-    {{- with .Get "columns" }}
-      {{- $csv = partial "functions/csvColumnFilter.html" (dict "csv" $csv "columns" . )}}
-    {{- end }}
-    {{- $spanData := partial "functions/getCSVMergeMask.html" $csv }}
-<table {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
-  <thead>
-    {{- range $row, $rowValues := $csv }}
-    {{- if eq $row 1 }}</thead><tbody>{{- end }}
-    <tr>
-      {{- if eq $row 0 }}
-        {{- /* 1行目 */}}
-        {{- if $hasHead}}
-          {{- range $index, $cell := $rowValues}}
-        <th style="text-align: left; {{ with index $width_list $index }}width: {{ index $width_list $index }};{{ end }}">{{if $markdown}}{{ $cell | $.Page.RenderString }}{{ else }}{{ $cell }}{{ end }}</th>
-          {{- end }}
-        {{- else }}
-          {{- range $i, $cell := $rowValues}}
-            {{- $span := index (index $spanData $row) $i }}
-              {{- if or (ne $span "0") (eq $isMerge false) }}
-        <td style="{{ with index $width_list $i }}width: {{ index $width_list $i }};{{ end }}" {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $.Page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
-              {{- end }}
-          {{- end }}
-        {{- end }}
-      {{- else }}
-        {{- /*  2行目以降  */}}
-        {{- range $i, $cell := $rowValues}}
-          {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
-          {{- $span := index (index $spanData $row) $i }}
-          {{- if or (ne $span "0") (eq $isMerge false) }}
-        <td {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $.Page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
-          {{- end }}
-        {{- end }}
-      {{- end }}
-    </tr>
-    {{- end }}
-  </tbody>
-</table>
+    {{- partial "csv/render-table.html" (dict "page" .Page "csvpath" $csvpath "class" $class "width" $width "hasHead" $hasHead "width_list" $width_list "markdown" $markdown "isMerge" $isMerge "columns" $columns)}}
   {{- end }}
 {{- end }}

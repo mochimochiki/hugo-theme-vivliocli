@@ -29,6 +29,7 @@ canonifyURLs = true
     # sectionDelimiter = "-"
     sectionTopFormat = "第%s章"
     pageCountAfterToc = true
+    debug = false
 
 [languages]
   [languages.jp]

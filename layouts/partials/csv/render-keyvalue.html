@@ -1,0 +1,33 @@
+{{- /* include one parameter */}}
+{{/*  csv path  */}}
+{{- $csvpath := .csvpath }}
+{{/*  parameter key: 行を特定するためのキー。最左列で検索  */}}
+{{- $key := .key }}
+{{/*  column: 表示する値を決定するための列名  */}}
+{{- $column := .column }}
+
+{{- $found := false }}
+{{- $colNo := -1 }}
+{{- range $rowIndex, $rowData := getCSV "," $csvpath }}
+  {{- if eq $found false }}
+    {{- /*  列を特定  */}}
+    {{- if eq $rowIndex 0}} 
+      {{- $index := 0 }}
+      {{- range $rowData}}
+        {{- if eq . $column }}
+          {{- partial "logdebug" (printf "column index: %d" $index) }}
+          {{- $colNo = $index }}
+      {{- end }}
+        {{- $index = add $index 1 }}
+      {{- end }}
+    {{- end }}
+    {{- /*  行を特定  */}}
+    {{- if $key | eq (index $rowData 0) }}
+      {{- if ne $colNo -1 }}
+        {{- partial "logdebug" (printf "row index: %d" $rowIndex) }}
+        {{- partial "logdebug" (printf "value: %s" (index $rowData $colNo )) }}
+        {{- index $rowData $colNo }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}

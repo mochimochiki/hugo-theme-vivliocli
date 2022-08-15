@@ -1,0 +1,12 @@
+{{- /* get localized csv path */}}
+{{- $page := .page }}
+{{- $relPath := .relPath}}
+
+{{- $lang := site.Language.Lang }}
+{{- $filename := (path.Join $page.File.Dir $relPath) }}
+{{- $csvpath := printf "%s/%s/%s" site.Params.contentRootDir $lang $filename }}
+{{- if fileExists $csvpath | or (hasPrefix $relPath "./") | or (hasPrefix $relPath "../" ) }}
+{{- else }}
+  {{- $csvpath = printf "%s/%s/_include/%s" site.Params.contentRootDir $lang $relPath }}
+{{- end }}
+{{- return $csvpath }}

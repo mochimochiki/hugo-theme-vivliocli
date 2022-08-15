@@ -1,0 +1,53 @@
+{{- $page := .page }}
+{{- $csvpath := .csvpath }}
+{{- $class := .class }}
+{{- $width := .width }}
+{{- $hasHead := .hasHead }}
+{{- $width_list := .width_list }}
+{{- $markdown := .markdown }}
+{{- $isMerge := .isMerge }}
+{{- $columns := .columns }}
+
+{{- $csv := getCSV "," $csvpath }}
+{{- with $columns }}
+  {{- $csv = partial "csv/get-selected-columns-csv.html" (dict "csv" $csv "columns" . )}}
+{{- end }}
+{{- $mergeMask := partial "csv/get-csv-merge-mask.html" $csv }}
+{{- partial "logtrace" (printf "mask: %s" $mergeMask) }}
+
+<table {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
+  <thead>
+  {{- range $rowIndex, $rowData := $csv }}
+    {{- if eq $rowIndex 1 }}
+      </thead>
+      <tbody>
+    {{- end }}
+    <tr>
+    {{- if eq $rowIndex 0 }}
+      {{- /* 1行目 */}}
+      {{- if $hasHead}}
+        {{- range $index, $cell := $rowData}}
+          <th style="text-align: left; {{ with index $width_list $index }}width: {{ index $width_list $index }};{{ end }}">{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</th>
+        {{- end }}
+      {{- else }}
+        {{- range $i, $cell := $rowData}}
+          {{- $span := index (index $mergeMask $rowIndex) $i }}
+          {{- if (ne $span "0") | or (eq $isMerge false) }}
+            <td style="{{ with index $width_list $i }}width: {{ index $width_list $i }};{{ end }}" {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    {{- else }}
+      {{- /*  2行目以降  */}}
+      {{- range $i, $cell := $rowData}}
+        {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
+        {{- $span := index (index $mergeMask $rowIndex) $i }}
+        {{- if or (ne $span "0") (eq $isMerge false) }}
+          <td {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
+        {{- end }}
+      {{- end }}
+    {{- end }}
+    </tr>
+  {{- end }}
+  </tbody>
+</table>
