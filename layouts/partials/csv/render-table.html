@@ -18,13 +18,9 @@
 <table {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
   <thead>
   {{- range $rowIndex, $rowData := $csv }}
-    {{- if eq $rowIndex 1 }}
-      </thead>
-      <tbody>
-    {{- end }}
-    <tr>
     {{- if eq $rowIndex 0 }}
       {{- /* 1行目 */}}
+      <tr>
       {{- if $hasHead}}
         {{- range $columnIndex, $cell := $rowData}}
           <th style="text-align: left; {{ with index $width_list $columnIndex }}width: {{ index $width_list $columnIndex }};{{ end }}">{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</th>
@@ -37,8 +33,12 @@
           {{- end }}
         {{- end }}
       {{- end }}
+      </tr>
+  </thead>
+  <tbody>
     {{- else }}
       {{- /*  2行目以降  */}}
+      <tr>
       {{- range $columnIndex, $cell := $rowData}}
         {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
         {{- $span := index (index $mergeMask $rowIndex) $columnIndex }}
@@ -46,8 +46,8 @@
           <td {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
         {{- end }}
       {{- end }}
+      </tr>
     {{- end }}
-    </tr>
   {{- end }}
   </tbody>
 </table>
