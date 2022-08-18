@@ -11,7 +11,7 @@
 {{- $isMerge := .Get "merge" | default false }}
 {{- $class := .Get "class" }}
 {{- if and $isMerge (eq $class "") }}{{ $class = "gray" }}{{ end }}
-{{- $hasHead := .Get "head" | default true }}
+{{- $head := .Get "head" | default true }}
 {{- $width := .Get "width" | default "*" }}
 {{- $width_list := split (replace ( .Get "width-ratio" | default "*" ) "*" "auto" ) "-" }}
 {{- $columns := .Get "columns" }}
@@ -38,6 +38,6 @@
     {{- partial "csv/render-keyvalue.html" (dict "csvpath" $csvpath "key" $key "column" $column) }}
   {{- else }}
     {{- /* include csv table */}}
-    {{- partial "csv/render-table.html" (dict "page" .Page "csvpath" $csvpath "class" $class "width" $width "hasHead" $hasHead "width_list" $width_list "markdown" $markdown "isMerge" $isMerge "columns" $columns)}}
+    {{- partial "csv/render-table.html" (dict "page" .Page "csvpath" $csvpath "class" $class "width" $width "head" $head "width_list" $width_list "markdown" $markdown "isMerge" $isMerge "columns" $columns)}}
   {{- end }}
 {{- end }}

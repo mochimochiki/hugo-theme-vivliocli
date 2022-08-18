@@ -2,7 +2,7 @@
 {{- $csvpath := .csvpath }}
 {{- $class := .class }}
 {{- $width := .width }}
-{{- $hasHead := .hasHead }}
+{{- $head := .head }}
 {{- $width_list := .width_list }}
 {{- $markdown := .markdown }}
 {{- $isMerge := .isMerge }}
@@ -16,12 +16,12 @@
 {{- partial "logtrace" (printf "mask: %s" $mergeMask) }}
 
 <table {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
-  <thead>
+  {{ if $head }}<thead>{{ else }}<tbody>{{ end }}
   {{- range $rowIndex, $rowData := $csv }}
     {{- if eq $rowIndex 0 }}
       {{- /* 1行目 */}}
       <tr>
-      {{- if $hasHead}}
+      {{- if $head}}
         {{- range $columnIndex, $cell := $rowData}}
           <th style="text-align: left; {{ with index $width_list $columnIndex }}width: {{ index $width_list $columnIndex }};{{ end }}">{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</th>
         {{- end }}
@@ -34,7 +34,8 @@
         {{- end }}
       {{- end }}
       </tr>
-  </thead>
+  {{ if $head }}</thead>{{ end }}
+  {{ if $head}}<tbody>{{ end }}
   <tbody>
     {{- else }}
       {{- /*  2行目以降  */}}
