@@ -3,6 +3,8 @@
 {{- $class := .class }}
 {{- $width := .width }}
 {{- $head := .head }}
+{{- if eq $head true}}{{ $head = 1 }}{{ end }}
+{{- if eq $head false}}{{ $head = 0 }}{{ end }}
 {{- $width_list := .width_list }}
 {{- $markdown := .markdown }}
 {{- $isEmptyMerge := .isEmptyMerge }}

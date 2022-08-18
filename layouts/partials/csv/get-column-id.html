@@ -1,0 +1,4 @@
+{{- $cell := . }}
+{{- $id := index (findRE " \\[\\[.+?\\]\\]" $cell) 0 | strings.TrimPrefix " " }}
+{{- if not $id }}{{ $id = ""}}{{ end }}
+{{- return $id }}

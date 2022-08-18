@@ -9,14 +9,27 @@
 {{- range $rowIndex, $rowData := $csv }}
   {{- if lt $rowIndex $head }}
     <tr>
-      {{- range $i, $cell := $rowData }}
-        {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
-        {{- $rowspan := index (index $mergeMaskV $rowIndex) $i }}
-        {{- $colspan := index (index $mergeMaskH $rowIndex) $i }}
-        {{- if ((ne $rowspan "0") | and (ne $colspan "0")) }}
-          <th style="{{ with index $width_list $i }}width: {{ index $width_list $i }};{{ end }}" colspan="{{ $colspan }}" rowspan="{{ $rowspan }}">{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</th>
-        {{- end }}
+    {{- range $i, $cell := $rowData }}
+      {{- $columnId := ""}}
+      {{- if eq $rowIndex (sub $head 1) }}
+        {{- $columnIdCode := partial "csv/get-column-id.html" $cell }}
+        {{- $columnId = $columnIdCode | strings.TrimPrefix "[[" | strings.TrimSuffix "]]" }}
+        {{- $cell = replace $cell $columnIdCode "" }}
+      {{- end}}
+      {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
+      {{- $rowspan := index (index $mergeMaskV $rowIndex) $i }}
+      {{- $colspan := index (index $mergeMaskH $rowIndex) $i }}
+      {{- if ((ne $rowspan "0") | and (ne $colspan "0")) }}
+        {{ partial "csv/render-table-headercell.html"
+          (dict "page" $page
+                "cell" $cell
+                "columnId" $columnId
+                "width" (index $width_list $i)
+                "colspan" $colspan
+                "rowspan" $rowspan
+                "markdown" $markdown) }}
       {{- end }}
+    {{- end }}
     </tr>
   {{- end }}
 {{- end }}

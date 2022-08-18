@@ -6,7 +6,15 @@
 {{- $mergeMaskV := .mergeMaskV }}
 {{- $mergeMaskH := .mergeMaskH }}
 <tbody>
+{{- $columnIds := slice }}
 {{- range $rowIndex, $rowData := $csv }}
+  {{- if eq $rowIndex (sub $head 1) }}
+    {{- range $i, $cell := $rowData }}
+      {{- $columnIdCode := partial "csv/get-column-id.html" $cell }}
+      {{- $columnIds = $columnIds | append ($columnIdCode | strings.TrimPrefix "[[" | strings.TrimSuffix "]]") }}
+    {{- end }}
+    {{- partial "logdebug" (printf "[render-table-body]columnIds(%d): %s" (len $columnIds) $columnIds)}}
+  {{- end}}
   {{- if ge $rowIndex $head }}
     <tr>
     {{- range $i, $cell := $rowData }}
@@ -14,7 +22,14 @@
       {{- $rowspan := index (index $mergeMaskV $rowIndex) $i }}
       {{- $colspan := index (index $mergeMaskH $rowIndex) $i }}
       {{- if ((ne $rowspan "0") | and (ne $colspan "0") ) }}
-        <td style="{{ with index $width_list $i }}width: {{ index $width_list $i }};{{ end }}" colspan="{{ $colspan }}" rowspan="{{ $rowspan }}">{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
+        {{ partial "csv/render-table-bodycell.html"
+            (dict "page" $page
+                  "cell" $cell
+                  "columnId" (index $columnIds $i)
+                  "width" (index $width_list $i)
+                  "colspan" $colspan
+                  "rowspan" $rowspan
+                  "markdown" $markdown) }}
       {{- end }}
     {{- end }}
     </tr>

@@ -1,0 +1,15 @@
+{{- $page := .page }}
+{{- $cell := .cell }}
+{{- $columnId := .columnId }}
+{{- $width := .width}}
+{{- $colspan := .colspan }}
+{{- $rowspan := .rowspan }}
+{{- $markdown := .markdown }}
+{{- if $markdown}}
+{{- $cell = $cell | $page.RenderString }}
+{{- end -}}
+<th
+  {{- with $columnId }} class="{{ . }}"{{ end }}
+  {{- with $width }} style="width: {{ . }};"{{ end }}
+  {{- with $colspan }} colspan="{{ $colspan }}"{{ end }}
+  {{- with $rowspan }} rowspan="{{ $rowspan }}"{{ end }}>{{ $cell }}</th>
