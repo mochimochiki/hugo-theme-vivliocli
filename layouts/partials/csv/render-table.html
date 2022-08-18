@@ -16,34 +16,25 @@
 {{- partial "logtrace" (printf "mask: %s" $mergeMask) }}
 
 <table {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
-  {{ if $head }}<thead>{{ else }}<tbody>{{ end }}
+  {{ if $head }}<thead>{{ end }}
   {{- range $rowIndex, $rowData := $csv }}
-    {{- if eq $rowIndex 0 }}
-      {{- /* 1行目 */}}
+    {{- if eq $rowIndex 0 | and $head }}
+      {{- /* header */}}
       <tr>
-      {{- if $head}}
         {{- range $columnIndex, $cell := $rowData}}
-          <th style="text-align: left; {{ with index $width_list $columnIndex }}width: {{ index $width_list $columnIndex }};{{ end }}">{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</th>
+          <th style="{{ with index $width_list $columnIndex }}width: {{ index $width_list $columnIndex }};{{ end }}">{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</th>
         {{- end }}
-      {{- else }}
-        {{- range $columnIndex, $cell := $rowData}}
-          {{- $span := index (index $mergeMask $rowIndex) $columnIndex }}
-          {{- if (ne $span "0") | or (eq $isMerge false) }}
-            <td style="{{ with index $width_list $columnIndex }}width: {{ index $width_list $columnIndex }};{{ end }}" {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
-          {{- end }}
-        {{- end }}
-      {{- end }}
       </tr>
   {{ if $head }}</thead>{{ end }}
-  {{ if $head}}<tbody>{{ end }}
+  <tbody>
     {{- else }}
-      {{- /*  2行目以降  */}}
+      {{- /*  body  */}}
       <tr>
       {{- range $columnIndex, $cell := $rowData}}
         {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
         {{- $span := index (index $mergeMask $rowIndex) $columnIndex }}
         {{- if (ne $span "0") | or (eq $isMerge false) }}
-          <td {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
+          <td style="{{ with index $width_list $columnIndex }}width: {{ index $width_list $columnIndex }};{{ end }}" {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
         {{- end }}
       {{- end }}
       </tr>
