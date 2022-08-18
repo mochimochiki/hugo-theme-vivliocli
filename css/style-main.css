@@ -194,8 +194,10 @@ td, th {
 th {
   background: #605f5f;
   border: solid 2px #fff;
-  border-bottom: solid 4px #fff;
   color: #fff;
+}
+thead {
+  border-bottom: solid 4px #fff;
 }
 tr {
   background: #ebebeb;
@@ -207,8 +209,10 @@ td {
 table.gray th {
   background: #605f5f;
   border: solid 2px #fff;
-  border-bottom: solid 4px #fff;
   color: #fff;
+}
+table.gray thead {
+  border-bottom: solid 4px #fff;
 }
 table.gray tr {
   background: #ebebeb;
@@ -221,6 +225,8 @@ table.simple th {
   background: inherit;
   color: #000;
   border: solid 1px;
+}
+table.simple thead {
   border-bottom: double 3px;
 }
 table.simple tr {
