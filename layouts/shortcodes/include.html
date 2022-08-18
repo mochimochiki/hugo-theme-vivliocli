@@ -9,8 +9,7 @@
 {{- with $columnName }}{{ $column = $columnName }}{{ end }}
 {{- $markdown := .Get "markdown" | default true }}
 {{- $isEmptyMerge := .Get "merge" | default false }}
-{{- $class := .Get "class" }}
-{{- if and $isEmptyMerge (eq $class "") }}{{ $class = "gray" }}{{ end }}
+{{- $class := .Get "class" | default "gray" }}
 {{- $head := .Get "head" | default true }}
 {{- $width := .Get "width" | default "*" }}
 {{- $width_list := split (replace ( .Get "width-ratio" | default "*" ) "*" "auto" ) "-" }}
