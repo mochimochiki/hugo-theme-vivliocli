@@ -1,0 +1,34 @@
+{{/*  csvのセル結合のためのマスクデータを取得する(横方向)  */}}
+{{/*  例えば[[a,->][,a]]というcsvの場合マスクは[[2,0][1,1]]となる  */}}
+{{/*  in : csv  */}}
+{{/*  out: maskData  */}}
+{{- $csv := . }}
+
+{{- $spanData := slice }}
+{{- range $rowData := $csv }}
+  {{- $colspans := slice}}
+  {{- $span := 0}}
+  {{- range $i, $cell := $rowData }}
+    {{- if (trim $cell " ") | eq "->"}}
+      {{- /* ->は横結合。spanを1増やすだけ  */}}
+    {{- else }}
+      {{- if ne $i 0 }}
+        {{- $colspans = $colspans | append $span }}
+        {{- range $j := seq (sub $span 1) }}
+          {{- $colspans = $colspans | append 0 }}
+        {{- end }}
+      {{- end }}
+      {{- $span = 0 }}
+    {{- end }}
+    {{- $span = add $span 1 }}
+  {{- end }}
+  {{- /* 最終グループのcolspanはこの時点で含まれていないので、追加する  */}}
+  {{- $colspans = $colspans | append $span }}
+  {{- range $j := seq (sub $span 1) }}
+    {{- $colspans = $colspans | append 0 }}
+  {{- end }}
+  {{- $spanData = $spanData | append (slice (split (delimit $colspans " ") " ")) }}
+{{- end }}
+
+{{- return $spanData }}
+

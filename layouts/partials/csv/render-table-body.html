@@ -1,0 +1,23 @@
+{{- $page := .page }}
+{{- $csv := .csv }}
+{{- $head := .head }}
+{{- $width_list := .width_list }}
+{{- $markdown := .markdown }}
+{{- $mergeMaskV := .mergeMaskV }}
+{{- $mergeMaskH := .mergeMaskH }}
+<tbody>
+{{- range $rowIndex, $rowData := $csv }}
+  {{- if ge $rowIndex $head }}
+    <tr>
+    {{- range $i, $cell := $rowData }}
+      {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
+      {{- $rowspan := index (index $mergeMaskV $rowIndex) $i }}
+      {{- $colspan := index (index $mergeMaskH $rowIndex) $i }}
+      {{- if ((ne $rowspan "0") | and (ne $colspan "0") ) }}
+        <td style="{{ with index $width_list $i }}width: {{ index $width_list $i }};{{ end }}" colspan="{{ $colspan }}" rowspan="{{ $rowspan }}">{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
+      {{- end }}
+    {{- end }}
+    </tr>
+  {{- end }}
+{{- end }}
+</tbody>

@@ -1,44 +1,22 @@
 {{- $page := .page }}
-{{- $csvpath := .csvpath }}
+{{- $csv := .csv }}
 {{- $class := .class }}
 {{- $width := .width }}
 {{- $head := .head }}
 {{- $width_list := .width_list }}
 {{- $markdown := .markdown }}
-{{- $isMerge := .isMerge }}
+{{- $isEmptyMerge := .isEmptyMerge }}
 {{- $columns := .columns }}
 
-{{- $csv := getCSV "," $csvpath }}
-{{- with $columns }}
-  {{- $csv = partial "csv/get-selected-columns-csv.html" (dict "csv" $csv "columns" . )}}
+{{- $mergeMaskV := partial "csv/get-csv-merge-mask-v.html" . }}
+{{- $mergeMaskH := partial "csv/get-csv-merge-mask-h.html" $csv }}
+{{- range $i, $r := $mergeMaskV }}
+  {{- partial "logtrace" (printf "[render-table]merge mask V(%d): %s" $i $r) }}
 {{- end }}
-{{- $mergeMask := partial "csv/get-csv-merge-mask.html" $csv }}
-{{- partial "logtrace" (printf "mask: %s" $mergeMask) }}
-
+{{- range $i, $r := $mergeMaskH }}
+  {{- partial "logtrace" (printf "[render-table]merge mask H(%d): %s" $i $r) }}
+{{- end }}
 <table {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
-  {{ if $head }}<thead>{{ end }}
-  {{- range $rowIndex, $rowData := $csv }}
-    {{- if eq $rowIndex 0 | and $head }}
-      {{- /* header */}}
-      <tr>
-        {{- range $columnIndex, $cell := $rowData}}
-          <th style="{{ with index $width_list $columnIndex }}width: {{ index $width_list $columnIndex }};{{ end }}">{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</th>
-        {{- end }}
-      </tr>
-  {{ if $head }}</thead>{{ end }}
-  <tbody>
-    {{- else }}
-      {{- /*  body  */}}
-      <tr>
-      {{- range $columnIndex, $cell := $rowData}}
-        {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
-        {{- $span := index (index $mergeMask $rowIndex) $columnIndex }}
-        {{- if (ne $span "0") | or (eq $isMerge false) }}
-          <td style="{{ with index $width_list $columnIndex }}width: {{ index $width_list $columnIndex }};{{ end }}" {{ if $isMerge }}rowspan="{{ $span }}"{{ end }}>{{if $markdown}}{{ $cell | $page.RenderString }}{{ else }}{{ $cell }}{{ end }}</td>
-        {{- end }}
-      {{- end }}
-      </tr>
-    {{- end }}
-  {{- end }}
-  </tbody>
+  {{- if $head }}{{ partial "csv/render-table-header.html" (dict "page" $page "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH) }}{{ end }}
+  {{- partial "csv/render-table-body.html" (dict "page" $page "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH) }}
 </table>

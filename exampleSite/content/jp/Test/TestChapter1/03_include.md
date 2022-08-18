@@ -9,7 +9,7 @@ weight: 30
 
 ## include csv from current dir
 
-{{< include "./current-test.csv" >}}
+{{< include src="./current-test.csv" head=2 >}}
 
 ## include csv from relative path
 

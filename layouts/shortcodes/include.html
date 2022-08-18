@@ -8,9 +8,9 @@
 {{- $columnName := .Get "column" }}
 {{- with $columnName }}{{ $column = $columnName }}{{ end }}
 {{- $markdown := .Get "markdown" | default true }}
-{{- $isMerge := .Get "merge" | default false }}
+{{- $isEmptyMerge := .Get "merge" | default false }}
 {{- $class := .Get "class" }}
-{{- if and $isMerge (eq $class "") }}{{ $class = "gray" }}{{ end }}
+{{- if and $isEmptyMerge (eq $class "") }}{{ $class = "gray" }}{{ end }}
 {{- $head := .Get "head" | default true }}
 {{- $width := .Get "width" | default "*" }}
 {{- $width_list := split (replace ( .Get "width-ratio" | default "*" ) "*" "auto" ) "-" }}
@@ -38,6 +38,10 @@
     {{- partial "csv/render-keyvalue.html" (dict "csvpath" $csvpath "key" $key "column" $column) }}
   {{- else }}
     {{- /* include csv table */}}
-    {{- partial "csv/render-table.html" (dict "page" .Page "csvpath" $csvpath "class" $class "width" $width "head" $head "width_list" $width_list "markdown" $markdown "isMerge" $isMerge "columns" $columns)}}
+    {{- $csv := getCSV "," $csvpath }}
+    {{- with $columns }}
+      {{- $csv = partial "csv/get-selected-columns-csv.html" (dict "csv" $csv "columns" . )}}
+    {{- end }}
+    {{- partial "csv/render-table.html" (dict "page" .Page "csv" $csv "class" $class "width" $width "head" $head "width_list" $width_list "markdown" $markdown "isEmptyMerge" $isEmptyMerge)}}
   {{- end }}
 {{- end }}

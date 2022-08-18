@@ -1,8 +1,10 @@
-{{/*  csvのセル結合のためのマスクデータを取得する  */}}
-{{/*  例えば[[a,a][,a]]というcsvの場合マスクは[[2,1][0,1]]となる  */}}
+{{/*  csvのセル結合のためのマスクデータを取得する(縦方向)  */}}
+{{/*  例えば[[a,a][||,a]]というcsvの場合マスクは[[2,1][0,1]]となる  */}}
+{{/*  merge=trueの場合、空セルもマージ対象になる  */}}
 {{/*  in : csv  */}}
 {{/*  out: maskData  */}}
-{{- $csv := . }}
+{{- $csv := .csv }}
+{{- $isEmptyMerge := .isEmptyMerge}}
 {{- $reverseIndexList := seq (sub (len $csv) 1) -1 0 -}}
 {{- $spanDataReverse := slice }}
 {{- $buffer := slice }}
@@ -15,7 +17,7 @@
   {{- $row := slice }}
   {{- range $index, $cell := $rowValues }}
     {{- $value := 0 }}
-    {{- if $cell }}
+    {{- if ($cell | and (ne (trim $cell " ") "||")) | or (not $cell | and (not $isEmptyMerge)) }}
       {{- $value = 1 }}
       {{- $temp := slice}}
       {{- range $i, $r := $buffer }}
