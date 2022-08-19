@@ -9,8 +9,8 @@
 
   /* variables */
   --menu-width: 350px;
-  --content-width: 1000px;
-  --toc-min-width: 200px;
+  --content-width: 5000px;
+  --toc-min-width: 300px;
 }
 
 /* -------------------- */
@@ -932,6 +932,49 @@ div.cover-bottom-right {
     padding: 0px;
   }
 
+  /* --------------------- */
+  /* right accordion buton */
+  /* --------------------- */
+  .right-accordion-btn {
+    position: fixed;
+    top: 0px;
+    left: calc(min(calc(var(--menu-width) + var(--content-width)), calc(98% - var(--toc-min-width))) - 15px);
+    display: flex;
+    height: 100%;
+    width: 15px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-out;
+  }
+  .right-accordion-btn:hover {
+    background-color: #ddd;
+    cursor: pointer;
+  }
+  .right-accordion-btn:hover span {
+    background-color: #fff;
+    width: 10px;
+    height: 20px;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
+  }
+  /* right-accordion checked = close */
+  #right-accordion-btn-check:checked ~ .right-accordion-btn {
+    background-color: #333;
+    left: calc(100% - 15px);
+  }
+  #right-accordion-btn-check:checked ~ .right-accordion-btn:hover span {
+    clip-path: polygon(100% 0%, 100% 100%, 0% 50%);
+  }
+  #right-accordion-btn-check:checked ~ #content {
+    max-width: 100%;
+  }
+  #right-accordion-btn-check:checked ~ #content #TableOfContents-sidebar {
+    left: 100%;
+    width: 0px;
+    min-width: 0px;
+    padding: 0px;
+  }
+
+
   /* ---------------- */
   /* page toc sidebar */
   /* ---------------- */
@@ -949,6 +992,7 @@ div.cover-bottom-right {
     border: solid 1px lightgray;
     background: inherit;
     padding-right: 10px;
+    transition: all 0.2s ease-out;
   }
   #TableOfContents-sidebar > ul:before {
     content: "Table of contents";
@@ -982,6 +1026,9 @@ div.cover-bottom-right {
 #accordion-btn-check {
   display: none;
 }
+#right-accordion-btn-check {
+  display: none;
+}
 #pagetoc-accordion-btn-check, .pagetoc-accordion-btn {
   display: none;
 }
@@ -999,6 +1046,9 @@ div.cover-bottom-right {
     margin: 0;
     border: none;
     transition: all 0.2s;
+  }
+  .right-accordion-btn {
+    display: none;
   }
   .pagetoc-accordion-btn {
     color: #fafafa;
