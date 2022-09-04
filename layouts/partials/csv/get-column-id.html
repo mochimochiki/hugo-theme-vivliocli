@@ -1,4 +1,5 @@
 {{- $cell := . }}
-{{- $id := index (findRE " \\[\\[.+?\\]\\]" $cell) 0 | strings.TrimPrefix " " }}
+{{- $regex := "(?m)( |^)\\[\\[.+?\\]\\]( |$)" }}
+{{- $id := index (findRE $regex $cell) 0 }}
 {{- if not $id }}{{ $id = ""}}{{ end }}
 {{- return $id }}
