@@ -26,15 +26,6 @@ popd
 if not %errorlevel% == 0 exit /B 1
 
 :: ----------
-:: math convert
-:: ----------
-pushd %scriptdir%\MathConverter
-powershell -NoProfile -ExecutionPolicy Bypass ^
-  ".\MathConverter.ps1 -dir \"%hugodir%\public_%hugo_env%\" -logname MathConverter_%hugo_env%.log;exit $LASTEXITCODE"
-popd
-if not %errorlevel% == 0 exit /B 1
-
-:: ----------
 :: JP PDF
 :: ----------
 pushd %scriptdir%
