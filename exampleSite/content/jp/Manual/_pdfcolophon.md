@@ -4,19 +4,11 @@ outputs:
 - vivlio_colophon
 ---
 
-## プロフィール
-
-著者のプロフィールなどをここに記載します。
-
-
-
-
-
 <div role="doc-colophon">
 
-## 本のタイトル
+## Hugo-theme-vivliocli Manual
 
-2021年2月14日　初版発行
+2021年2月14日　新規作成
 
 | | |
 | -- | --  |

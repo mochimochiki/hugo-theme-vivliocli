@@ -1,8 +1,8 @@
 ---
 pdfname : 
-  default: 'Guide'
+  default: 'Hugo_Theme_Vivliocli_Manual'
 doctitle:
-  default: 'Hugo-theme-vivliocli Guide'
+  default: 'Hugo-theme-vivliocli Manual'
 subtitle:
   default: 'Hugoサイトを<br>美しくPDF出力'
 doc_number:
