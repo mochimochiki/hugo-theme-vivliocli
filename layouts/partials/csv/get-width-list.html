@@ -1,0 +1,22 @@
+{{- $csv := .csv }}
+{{- $head := .head }}
+{{- $scratch := .scratch }}
+{{- $width_list := slice }}
+{{- $code_count := 0 }}
+{{- range $rowIndex, $rowData := $csv }}
+  {{- if eq $rowIndex (sub $head 1) }}
+    {{- range $i, $cell := $rowData }}
+      {{- if (findRE ".*\\[\\[.*@w=([^ ]+).*\\]\\]" $cell 1) }}
+        {{- $code_count = add $code_count 1 }}
+        {{- $width := $cell | replaceRE ".*\\[\\[.*@w=([^ ]+).*\\]\\]" "${1}" }}
+        {{- $width = replace $width "*" "auto" }}
+        {{- $width_list = $width_list | append $width }}
+      {{- else}}
+        {{- $width_list = $width_list | append "auto" }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- if eq $code_count 0 }}{{ $width_list = slice }}{{ end }}
+
+{{- return $width_list }}

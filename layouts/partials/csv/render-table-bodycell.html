@@ -1,9 +1,12 @@
 {{- $page := .page }}
+{{- $scratch := .scratch }}
 {{- $cell := .cell }}
 {{- $columnId := .columnId }}
 {{- $width := .width}}
 {{- $colspan := .colspan }}
 {{- $rowspan := .rowspan }}
+{{- $rowNo := .rowNo }}
+{{- $colNo := .colNo }}
 {{- $markdown := .markdown }}
 {{- if $markdown}}
 {{- $cell = $cell | $page.RenderString }}
@@ -12,4 +15,4 @@
   {{- with $columnId }} class="{{ . }}"{{ end }}
   {{- with $width }} style="width: {{ . }};"{{ end }}
   {{- with $colspan }} colspan="{{ $colspan }}"{{ end }}
-  {{- with $rowspan }} rowspan="{{ $rowspan }}"{{ end }}>{{ $cell }}</td>
+  {{- with $rowspan }} rowspan="{{ $rowspan }}"{{ end }}><div class="csvtable-cell csvtable-body-cell">{{ $cell }}</div></td>

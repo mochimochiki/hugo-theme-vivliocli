@@ -1,4 +1,5 @@
 {{- $page := .page }}
+{{- $scratch := .scratch }}
 {{- $csv := .csv }}
 {{- $class := .class }}
 {{- $width := .width }}
@@ -9,9 +10,13 @@
 {{- $markdown := .markdown }}
 {{- $isEmptyMerge := .isEmptyMerge }}
 {{- $columns := .columns }}
+{{- $trimId := .trimId }}
+
+{{- $width_list_temp := partial "csv/get-width-list.html" (dict "csv" $csv "head" $head "scratch" $scratch)}}
+{{- if $width_list_temp }}{{ $width_list = $width_list_temp }}{{ end }}
 
 {{- $mergeMaskV := partial "csv/get-csv-merge-mask-v.html" . }}
-{{- $mergeMaskH := partial "csv/get-csv-merge-mask-h.html" $csv }}
+{{- $mergeMaskH := partial "csv/get-csv-merge-mask-h.html" (dict "csv" $csv "trimId" $trimId) }}
 {{- range $i, $r := $mergeMaskV }}
   {{- partial "logtrace" (printf "[render-table]merge mask V(%d): %s" $i $r) }}
 {{- end }}
@@ -19,6 +24,6 @@
   {{- partial "logtrace" (printf "[render-table]merge mask H(%d): %s" $i $r) }}
 {{- end }}
 <table {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
-  {{- if $head }}{{ partial "csv/render-table-header.html" (dict "page" $page "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH) }}{{ end }}
-  {{- partial "csv/render-table-body.html" (dict "page" $page "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH) }}
+  {{- if $head }}{{ partial "csv/render-table-header.html" (dict "page" $page "scratch" $scratch "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH "trimId" $trimId) }}{{ end }}
+  {{- partial "csv/render-table-body.html" (dict "page" $page "scratch" $scratch "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH) }}
 </table>

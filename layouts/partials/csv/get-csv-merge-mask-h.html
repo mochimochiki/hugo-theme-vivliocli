@@ -1,14 +1,17 @@
 {{/*  csvのセル結合のためのマスクデータを取得する(横方向)  */}}
 {{/*  例えば[[a,->][,a]]というcsvの場合マスクは[[2,0][1,1]]となる  */}}
-{{/*  in : csv  */}}
+{{/*  [[xxx]] という記載は削除して判定する（columnID） */}}
+{{/*  in : csv/trimId  */}}
 {{/*  out: maskData  */}}
-{{- $csv := . }}
+{{- $csv := .csv }}
+{{- $trimId := .trimId }}
 
 {{- $spanData := slice }}
 {{- range $rowData := $csv }}
   {{- $colspans := slice}}
   {{- $span := 0}}
   {{- range $i, $cell := $rowData }}
+    {{- if $trimId }}{{ $cell = partial "csv/trim-column-id.html" $cell }}{{ end }}
     {{- if (trim $cell " ") | eq "->"}}
       {{- /* ->は横結合。spanを1増やすだけ  */}}
     {{- else }}

@@ -1,5 +1,9 @@
-{{- $cell := . }}
-{{- $regex := "(?m)( |^)\\[\\[.+?\\]\\]( |$)" }}
-{{- $id := index (findRE $regex $cell) 0 }}
+{{- $row := .row }}
+{{- $index := .index }}
+{{- $cell := index $row $index }}
+{{- $id := "" }}
+{{- if (findRE ".*\\[\\[.*@id=([^ ]+).*\\]\\]" $cell 1) }}
+  {{- $id = $cell | replaceRE ".*\\[\\[.*@id=([^ ]+).*\\]\\]" "${1}" }}
+{{- end }}
 {{- if not $id }}{{ $id = ""}}{{ end }}
 {{- return $id }}
