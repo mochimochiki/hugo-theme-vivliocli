@@ -3,7 +3,7 @@
 
 name = "hugo-theme-vivliocli"
 license = "Apache-2.0"
-licenselink = "https://github.com/mochimochiki/hugo-theme-vivlio/blob/master/LICENSE"
+licenselink = "https://github.com/mochimochiki/hugo-theme-vivlio/blob/main/LICENSE"
 description = "HUGO theme for Vivliosytle-cli."
 homepage = "http://example.com/"
 tags = []

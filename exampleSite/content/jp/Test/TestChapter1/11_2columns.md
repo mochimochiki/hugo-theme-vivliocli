@@ -52,7 +52,7 @@ git init
 git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hugo-theme-vivliocli
 ```
 
-gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/master.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
+gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/main.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
 
 ### exampleSiteからファイルをコピーする
 
@@ -255,7 +255,7 @@ git init
 git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hugo-theme-vivliocli
 ```
 
-gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/master.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
+gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/main.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
 
 ### exampleSiteからファイルをコピーする
 
@@ -458,7 +458,7 @@ git init
 git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hugo-theme-vivliocli
 ```
 
-gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/master.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
+gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/main.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
 
 ### exampleSiteからファイルをコピーする
 
@@ -661,7 +661,7 @@ git init
 git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hugo-theme-vivliocli
 ```
 
-gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/master.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
+gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/main.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
 
 ### exampleSiteからファイルをコピーする
 
@@ -864,7 +864,7 @@ git init
 git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hugo-theme-vivliocli
 ```
 
-gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/master.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
+gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/main.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
 
 ### exampleSiteからファイルをコピーする
 
@@ -1067,7 +1067,7 @@ git init
 git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hugo-theme-vivliocli
 ```
 
-gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/master.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
+gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/main.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
 
 ### exampleSiteからファイルをコピーする
 
@@ -1270,7 +1270,7 @@ git init
 git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hugo-theme-vivliocli
 ```
 
-gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/master.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
+gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/main.zip)をダウンロード・解凍し、`themes\hugo-theme-vivliocil`に配置します。
 
 ### exampleSiteからファイルをコピーする
 

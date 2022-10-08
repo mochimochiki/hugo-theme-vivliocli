@@ -8,3 +8,6 @@ hugo-theme-vivliocli is a Hugo theme for converting websites to PDF using [Vivli
 
 see the [Hugo theme for Vivliostyle-cli Guide (JP)](https://mochimochiki.github.io/hugo-theme-vivliocli/jp/).
 
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/mochimochiki/hugo-theme-vivliocli/blob/main/LICENSE) file for details
