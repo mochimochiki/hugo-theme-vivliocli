@@ -3,10 +3,8 @@ param(
 )
 
 Write-Output @"
------------------------
 vivliocli.ps1
 target dir: $($dir)
------------------------
 "@
 
 Get-ChildItem $dir -include *.js | ForEach-Object {
