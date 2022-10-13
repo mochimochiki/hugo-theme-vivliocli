@@ -35,7 +35,7 @@ showIfs = ["edition1", "edition2"]
 
 ### sectionNumberLevel
 
-`pdfconfig.md` をルートとして各記事に章・節版号を付加するレベルを指定します。0の場合章番号の付加は行われません。
+`pdfconfig.md` をルートとして各記事に章・節版号を付加するレベルを指定します。0の場合章番号の付加は行われません。`_pdf.md`の設定が優先されます。
 
 ### sectionDelimiter
 
