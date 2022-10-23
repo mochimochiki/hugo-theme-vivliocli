@@ -39,3 +39,5 @@ see the [Hugo theme for Vivliostyle-cli Guide (JP)](https://mochimochiki.github.
 ## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/mochimochiki/hugo-theme-vivliocli/blob/main/LICENSE) file for details.
+
+Files in assets/js and static/css are licensed under [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/legalcode) unless otherwise noted.
