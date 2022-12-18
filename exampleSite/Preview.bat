@@ -1,2 +1,2 @@
 @echo off
-hugo server --config "config/default.toml"
+hugo server -D --config "config/default.toml"
