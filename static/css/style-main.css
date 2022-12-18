@@ -773,6 +773,7 @@ div.cover-bottom-right {
   }
   #menu ul li {
     list-style: none;
+    margin: 0;
   }
 
   #menu details ul {
