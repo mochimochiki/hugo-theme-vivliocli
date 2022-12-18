@@ -6,16 +6,19 @@
 {{- $markdown := .markdown }}
 {{- $mergeMaskV := .mergeMaskV }}
 {{- $mergeMaskH := .mergeMaskH }}
-{{- $trimId := .trimId }}
+{{- $useColumnCode := .useColumnCode }}
 <thead>
 {{- range $rowIndex, $rowData := $csv }}
   {{- if lt $rowIndex $head }}
     <tr>
     {{- range $i, $cell := $rowData }}
       {{- $columnId := ""}}
-      {{- if eq $rowIndex (sub $head 1) }}
-        {{- $columnId := partial "csv/get-column-id.html" (dict "row" $rowData "index" $i) }}
-        {{- if $trimId}}{{ $cell = partial "csv/trim-column-id.html" $cell }}{{ end }}
+      {{- /* column codeを利用する場合  */}}
+      {{- if $useColumnCode }}
+        {{- if eq $rowIndex (sub $head 1) }}
+          {{- $columnId := partial "csv/get-column-id.html" (dict "row" $rowData "index" $i) }}
+          {{ $cell = partial "csv/trim-column-id.html" $cell }}
+        {{- end}}
       {{- end}}
       {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
       {{- $rowspan := index (index $mergeMaskV $rowIndex) $i }}

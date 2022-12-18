@@ -1,20 +1,20 @@
 {{- $source := .Get 0 }}
-{{- $srcName := .Get "src" }}
+{{- $srcName := .Get "src" }}{{/* src path ".md" is considered markdown, ".csv" is considered csv. */}}
 {{- with $srcName }}{{ $source = $srcName }}{{ end }}
 {{- $key := .Get 1 }}
-{{- $keyName := .Get "key" }}
+{{- $keyName := .Get "key" }}{{/* csv row's key */}}
 {{- with $keyName }}{{ $key = $keyName }}{{ end }}
 {{- $column := .Get 2 }}
-{{- $columnName := .Get "column" }}
+{{- $columnName := .Get "column" }}{{/* csv column's key */}}
 {{- with $columnName }}{{ $column = $columnName }}{{ end }}
-{{- $markdown := .Get "markdown" | default true }}
-{{- $isEmptyMerge := .Get "merge" | default false }}
-{{- $class := .Get "class" | default "gray" }}
-{{- $head := .Get "head" | default true }}
-{{- $width := .Get "width" | default "*" }}
-{{- $width_list := split (replace ( .Get "width-ratio" | default "*" ) "*" "auto" ) "-" }}
-{{- $columns := .Get "columns" }}
-{{- $trimId := .Get "trim-id" | default false }}
+{{- $markdown := .Get "markdown" | default true }}{{/* Cell contents are considered Markdown */}}
+{{- $isEmptyMerge := .Get "merge" | default false }}{{/* obsolute */}}
+{{- $class := .Get "class" | default "gray" }}{{/* table class */}}
+{{- $head := .Get "head" | default 1 }}{{/* header row number (0 or false: no header table) */}}
+{{- $width := .Get "width" | default "*" }}{{/* table width */}}
+{{- $width_list := split (replace ( .Get "width-ratio" | default "*" ) "*" "auto" ) "-" }}{{/* column width list "20%-30%-*" */}}
+{{- $columns := .Get "columns" }}{{/* column names for column filtering */}}
+{{- $useColumnCode := .Get "code" | default true }}{{/* [[@xxx]] on the last line of the Header is considered a [[@ColumnCode]] and trimmed */}}
 
 {{- $isMD := strings.HasSuffix $source "md" }}
 {{- $isCSV := strings.HasSuffix $source "csv" }}
@@ -42,6 +42,6 @@
     {{- with $columns }}
       {{- $csv = partial "csv/get-selected-columns-csv.html" (dict "csv" $csv "columns" . )}}
     {{- end }}
-    {{- partial "csv/render-table.html" (dict "page" .Page "scratch" .Scratch "csv" $csv "class" $class "width" $width "head" $head "width_list" $width_list "markdown" $markdown "isEmptyMerge" $isEmptyMerge "trimId" $trimId)}}
+    {{- partial "csv/render-table.html" (dict "page" .Page "scratch" .Scratch "csv" $csv "class" $class "width" $width "head" $head "width_list" $width_list "markdown" $markdown "isEmptyMerge" $isEmptyMerge "useColumnCode" $useColumnCode)}}
   {{- end }}
 {{- end }}

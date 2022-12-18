@@ -6,16 +6,21 @@
 {{- $markdown := .markdown }}
 {{- $mergeMaskV := .mergeMaskV }}
 {{- $mergeMaskH := .mergeMaskH }}
+{{- $useColumnCode := .useColumnCode }}
 <tbody>
 {{- $columnIds := slice }}
 {{- range $rowIndex, $rowData := $csv }}
-  {{- if eq $rowIndex (sub $head 1) }}
-    {{- range $i, $cell := $rowData }}
-      {{- $columnId := partial "csv/get-column-id.html" (dict "row" $rowData "index" $i) }}
-      {{- $columnIds = $columnIds | append $columnId }}
+  {{- /* column codeを利用する場合 header最終行からcolumnIdsを取得  */}}
+  {{- if $useColumnCode }}
+    {{- if eq $rowIndex (sub $head 1) }}
+      {{- range $i, $cell := $rowData }}
+        {{- $columnId := partial "csv/get-column-id.html" (dict "row" $rowData "index" $i) }}
+        {{- $columnIds = $columnIds | append $columnId }}
+      {{- end }}
+      {{- partial "logdebug" (printf "[render-table-body]columnIds(%d): %s" (len $columnIds) $columnIds)}}
     {{- end }}
-    {{- partial "logdebug" (printf "[render-table-body]columnIds(%d): %s" (len $columnIds) $columnIds)}}
-  {{- end}}
+  {{- end }}
+
   {{- if ge $rowIndex $head }}
     {{- $row_no := sub $rowIndex (sub $head 1) }}
     <tr>

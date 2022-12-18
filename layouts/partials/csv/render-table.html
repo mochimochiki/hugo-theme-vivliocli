@@ -10,13 +10,16 @@
 {{- $markdown := .markdown }}
 {{- $isEmptyMerge := .isEmptyMerge }}
 {{- $columns := .columns }}
-{{- $trimId := .trimId }}
+{{- $useColumnCode := .useColumnCode }}
 
-{{- $width_list_temp := partial "csv/get-width-list.html" (dict "csv" $csv "head" $head "scratch" $scratch)}}
-{{- if $width_list_temp }}{{ $width_list = $width_list_temp }}{{ end }}
+{{- if $useColumnCode }}
+  {{- /* csv header行に [[@w=xx]] がある場合、width_listとみなす   */}}
+  {{- $width_list_temp := partial "csv/get-width-list.html" (dict "csv" $csv "head" $head "scratch" $scratch)}}
+  {{- if $width_list_temp }}{{ $width_list = $width_list_temp }}{{ end }}
+{{- end }}
 
 {{- $mergeMaskV := partial "csv/get-csv-merge-mask-v.html" . }}
-{{- $mergeMaskH := partial "csv/get-csv-merge-mask-h.html" (dict "csv" $csv "trimId" $trimId) }}
+{{- $mergeMaskH := partial "csv/get-csv-merge-mask-h.html" (dict "csv" $csv "useColumnCode" $useColumnCode) }}
 {{- range $i, $r := $mergeMaskV }}
   {{- partial "logtrace" (printf "[render-table]merge mask V(%d): %s" $i $r) }}
 {{- end }}
@@ -24,6 +27,6 @@
   {{- partial "logtrace" (printf "[render-table]merge mask H(%d): %s" $i $r) }}
 {{- end }}
 <table {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
-  {{- if $head }}{{ partial "csv/render-table-header.html" (dict "page" $page "scratch" $scratch "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH "trimId" $trimId) }}{{ end }}
-  {{- partial "csv/render-table-body.html" (dict "page" $page "scratch" $scratch "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH) }}
+  {{- if $head }}{{ partial "csv/render-table-header.html" (dict "page" $page "scratch" $scratch "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH "useColumnCode" $useColumnCode) }}{{ end }}
+  {{- partial "csv/render-table-body.html" (dict "page" $page "scratch" $scratch "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH "useColumnCode" $useColumnCode) }}
 </table>
