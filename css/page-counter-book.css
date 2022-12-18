@@ -3,8 +3,7 @@
 }
 @page :left {
   @bottom-left {
-    content: counter(page-
-    number);
+    content: counter(page-number);
     border-left: 1px solid;
     margin-top: 6mm;
     padding-left: 4mm;
