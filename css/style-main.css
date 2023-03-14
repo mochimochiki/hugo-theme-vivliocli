@@ -1023,6 +1023,12 @@ div.cover-bottom-right {
     cursor: pointer;
     background-color: #EFEFEF;
   }
+
+  /* break shortcode */
+  #shortcodes-page-break {
+    border-top: 1px dashed #ccc;
+    break-before: page;
+  }
 }
 #accordion-btn-check {
   display: none;
