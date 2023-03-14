@@ -42,6 +42,8 @@
     {{- with $columns }}
       {{- $csv = partial "csv/get-selected-columns-csv.html" (dict "csv" $csv "columns" . )}}
     {{- end }}
+<div style="page-break-inside: avoid;">
     {{- partial "csv/render-table.html" (dict "page" .Page "scratch" .Scratch "csv" $csv "class" $class "width" $width "head" $head "width_list" $width_list "markdown" $markdown "isEmptyMerge" $isEmptyMerge "useColumnCode" $useColumnCode)}}
+</div>
   {{- end }}
 {{- end }}
