@@ -23,27 +23,27 @@
 
   {{- if ge $rowIndex $head }}
     {{- $row_no := sub $rowIndex (sub $head 1) }}
-    <tr>
+<tr>
     {{- range $i, $cell := $rowData }}
       {{- $column_no := add $i 1 }}
       {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
       {{- $rowspan := index (index $mergeMaskV $rowIndex) $i }}
       {{- $colspan := index (index $mergeMaskH $rowIndex) $i }}
       {{- if ((ne $rowspan "0") | and (ne $colspan "0") ) }}
-        {{ partial "csv/render-table-bodycell.html"
-            (dict "page" $page
-                  "scratch" $scratch
-                  "cell" $cell
-                  "columnId" (index $columnIds $i)
-                  "width" (index $width_list $i)
-                  "colspan" $colspan
-                  "rowspan" $rowspan
-                  "rowNo" $row_no
-                  "colNo" $column_no
-                  "markdown" $markdown) }}
+{{ partial "csv/render-table-bodycell.html"
+    (dict "page" $page
+          "scratch" $scratch
+          "cell" $cell
+          "columnId" (index $columnIds $i)
+          "width" (index $width_list $i)
+          "colspan" $colspan
+          "rowspan" $rowspan
+          "rowNo" $row_no
+          "colNo" $column_no
+          "markdown" $markdown) }}
       {{- end }}
     {{- end }}
-    </tr>
+</tr>
   {{- end }}
 {{- end }}
 </tbody>

@@ -10,32 +10,32 @@
 <thead>
 {{- range $rowIndex, $rowData := $csv }}
   {{- if lt $rowIndex $head }}
-    <tr>
-    {{- range $i, $cell := $rowData }}
-      {{- $columnId := ""}}
-      {{- /* column codeを利用する場合  */}}
-      {{- if $useColumnCode }}
-        {{- if eq $rowIndex (sub $head 1) }}
-          {{- $columnId := partial "csv/get-column-id.html" (dict "row" $rowData "index" $i) }}
-          {{ $cell = partial "csv/trim-column-id.html" $cell }}
-        {{- end}}
-      {{- end}}
-      {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
-      {{- $rowspan := index (index $mergeMaskV $rowIndex) $i }}
-      {{- $colspan := index (index $mergeMaskH $rowIndex) $i }}
-      {{- if ((ne $rowspan "0") | and (ne $colspan "0")) }}
-        {{ partial "csv/render-table-headercell.html"
-          (dict "page" $page
-                "scratch" $scratch
-                "cell" $cell
-                "columnId" $columnId
-                "width" (index $width_list $i)
-                "colspan" $colspan
-                "rowspan" $rowspan
-                "markdown" $markdown) }}
-      {{- end }}
-    {{- end }}
-    </tr>
+<tr>
+{{- range $i, $cell := $rowData }}
+  {{- $columnId := ""}}
+  {{- /* column codeを利用する場合  */}}
+  {{- if $useColumnCode }}
+    {{- if eq $rowIndex (sub $head 1) }}
+      {{- $columnId := partial "csv/get-column-id.html" (dict "row" $rowData "index" $i) }}
+      {{ $cell = partial "csv/trim-column-id.html" $cell }}
+    {{- end}}
+  {{- end}}
+  {{- /*  $spanは結合セル数。0の場合上のセルによる結合対象セルなので描画しない  */}}
+  {{- $rowspan := index (index $mergeMaskV $rowIndex) $i }}
+  {{- $colspan := index (index $mergeMaskH $rowIndex) $i }}
+  {{- if ((ne $rowspan "0") | and (ne $colspan "0")) }}
+{{ partial "csv/render-table-headercell.html"
+  (dict "page" $page
+        "scratch" $scratch
+        "cell" $cell
+        "columnId" $columnId
+        "width" (index $width_list $i)
+        "colspan" $colspan
+        "rowspan" $rowspan
+        "markdown" $markdown) }}
+  {{- end }}
+{{- end }}
+</tr>
   {{- end }}
 {{- end }}
 </thead>
