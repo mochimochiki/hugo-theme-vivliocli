@@ -9,6 +9,8 @@
   {{- $pdf := . }}
   {{- if ($pdf.CurrentSection.IsAncestor $thisPage) | or (eq $pdf.CurrentSection $thisPage) }}
     {{- $retParam = $pdf.Param $param }}
+  {{- else if in ($thisPage.RelPermalink) ($pdf.RelPermalink | path.Dir)}}
+    {{- $retParam = $pdf.Param $param }}
   {{- end }}
 {{- end }}
 {{- return $retParam }}
