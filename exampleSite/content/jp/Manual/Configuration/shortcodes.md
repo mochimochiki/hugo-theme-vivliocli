@@ -85,18 +85,22 @@ csvファイルのincludeでは、Markdownよりも高度な表を描画する�
 ```bash
 {{</* include 
       src="./rich.csv" # sourceファイルのパス
+      caption="サンプル表" # キャプション
       class="gray"      # tableに付加するclass属性。未指定/simple/gray
       markdown=true     # trueにした場合表内部のMarkdownをレンダリング。初期値false
       head=1         # trueにした場合1行目をヘッダーとみなす。初期値true。数値の場合数値行数をヘッダーとみなす。
+      align="left"  # 表自体を左寄せ/中央寄せ/右寄せ。 left / center / right
       width="90%"       # tableのwidth属性を設定。
 */>}} 
 ```
 
 {{< include 
       src="./rich.csv" 
+      caption="サンプル表"
       class="gray"
       markdown=true
       head=1
+      align="left"
       width="90%" >}}
 
 ### csvの書式
@@ -111,6 +115,7 @@ csvファイルのincludeでは、Markdownよりも高度な表を描画する�
 
 * `[[@id=myColumnId]]` : この列の全セルの`<td>`タグに`myColumnId`を`class`属性として埋め込みます。
 * `[[@w=20%]]` : この列の幅をテーブルの20%とします。指定のない列は`auto`とみなされます。本コードが1つでもあると、`include`ショートコードの`width_ratio`オプションは無視されます。
+* `[[@align=left]]` : この列を左寄せで描画します。 選択肢： `left` / `center` / `right`
 
 ![rich.csv](assets/20220820215713.png)
 
