@@ -1,0 +1,17 @@
+{{- $ret := 0 }}
+{{- if (eq . "A5") | or (eq . "A4 landscape") }}
+  {{- $ret = 160 }}
+{{- else if (eq . "A4") | or (eq . "A3 landscape") }}
+  {{- $ret = 225 }}
+{{- else if (eq . "A3") | or (eq . "A2 landscape") }}
+  {{- $ret = 320 }}
+{{- else if (eq . "A2") | or (eq . "A1 landscape") }}
+  {{- $ret = 450 }}
+{{- else if (eq . "A1") | or (eq . "A0 landscape") }}
+  {{- $ret = 640 }}
+{{- else if (eq . "letter") }}
+  {{- $ret = 210 }}
+{{- else if (eq . "letter landscape") }}
+  {{- $ret = 160 }}
+{{- end }}
+{{- return $ret }}

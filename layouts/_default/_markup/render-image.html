@@ -1,8 +1,11 @@
 {{- $url := .Destination | safeURL | urls.Parse }}
 {{- $querys := split $url.RawQuery "&"}}
+{{- $ispdf := .Page.Site.Params.isPDF }}
+{{- $pdfSize := partial "functions/getRootPDFParam.html" (dict "this" .Page "pdfparam" "pagesize") }}
+{{- $maxheight := partial "functions/getPDFContentHeight_mm.html" $pdfSize }}
 {{- if .PlainText | findRE "[^\\s]" }}
 {{- /* 代替テキストがあるならキャプション表示 */}}
-<figure>
+<figure {{ if $ispdf | and (gt $maxheight 0) }}style="max-height: {{ $maxheight}}mm;"{{ end }}>
   <img src="{{ $url.Path }}" 
     alt="{{ .PlainText }}" 
     {{ with .PlainText }} class="fig"{{ end }}
@@ -15,10 +18,10 @@
 </figure>
 {{- else if .PlainText }}
 {{- /* 代替テキストが空白のみなら中央寄せ */}}
-<figure>
+<figure {{ if $ispdf | and (gt $maxheight 0) }}style="max-height: {{ $maxheight}}mm;"{{ end }}>
   <img src="{{ $url.Path }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
 </figure>
 {{- else }}
 {{- /* 代替テキストなしならimgのみ */}}
-<img src="{{ $url.Path }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
+<img {{ if $ispdf | and (gt $maxheight 0) }}style="max-height: {{ $maxheight}}mm;"{{ end }} src="{{ $url.Path }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
 {{- end }}
