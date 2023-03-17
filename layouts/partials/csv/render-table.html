@@ -8,6 +8,11 @@
 {{- if eq $head false}}{{ $head = 0 }}{{ end }}
 {{- $width_list := .width_list }}
 {{- $markdown := .markdown }}
+{{- $caption := .caption }}
+{{- $align := .align }}
+{{- $alignstyle := "margin: auto;" }}
+{{- if eq $align "left"}}{{ $alignstyle = "margin-left: 0; margin-right: auto;"}}{{ end }}
+{{- if eq $align "right"}}{{ $alignstyle = "margin-left: auto; margin-right: 0;"}}{{ end }}
 {{- $isEmptyMerge := .isEmptyMerge }}
 {{- $columns := .columns }}
 {{- $useColumnCode := .useColumnCode }}
@@ -26,7 +31,8 @@
 {{- range $i, $r := $mergeMaskH }}
   {{- partial "logtrace" (printf "[render-table]merge mask H(%d): %s" $i $r) }}
 {{- end }}
-<table {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
+<table style="{{ $alignstyle | safeCSS }}" {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
+  {{- if ne $caption "" }}<caption>{{ $page.Site.Params.tablecaption }}<span class="caption-number"></span>{{ $caption }}</caption>{{ end }}
   {{- if $head }}{{ partial "csv/render-table-header.html" (dict "page" $page "scratch" $scratch "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH "useColumnCode" $useColumnCode) }}{{ end }}
   {{- partial "csv/render-table-body.html" (dict "page" $page "scratch" $scratch "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH "useColumnCode" $useColumnCode) }}
 </table>

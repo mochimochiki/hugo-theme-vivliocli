@@ -7,6 +7,8 @@
 {{- $column := .Get 2 }}
 {{- $columnName := .Get "column" }}{{/* csv column's key */}}
 {{- with $columnName }}{{ $column = $columnName }}{{ end }}
+{{- $caption := .Get "caption" | default "" }}{{/* Table caption */}}
+{{- $align := .Get "align" | default "center" }} {{/* Table align */}}
 {{- $markdown := .Get "markdown" | default true }}{{/* Cell contents are considered Markdown */}}
 {{- $isEmptyMerge := .Get "merge" | default false }}{{/* obsolute */}}
 {{- $class := .Get "class" | default "gray" }}{{/* table class */}}
@@ -43,7 +45,7 @@
       {{- $csv = partial "csv/get-selected-columns-csv.html" (dict "csv" $csv "columns" . )}}
     {{- end }}
 <div style="page-break-inside: avoid;">
-    {{- partial "csv/render-table.html" (dict "page" .Page "scratch" .Scratch "csv" $csv "class" $class "width" $width "head" $head "width_list" $width_list "markdown" $markdown "isEmptyMerge" $isEmptyMerge "useColumnCode" $useColumnCode)}}
+    {{- partial "csv/render-table.html" (dict "page" .Page "scratch" .Scratch "csv" $csv "class" $class "width" $width "head" $head "width_list" $width_list "markdown" $markdown "isEmptyMerge" $isEmptyMerge "useColumnCode" $useColumnCode "caption" $caption "align" $align )}}
 </div>
   {{- end }}
 {{- end }}

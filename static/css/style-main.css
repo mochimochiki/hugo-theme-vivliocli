@@ -305,7 +305,7 @@ div.note li p {
 /* styling              */
 /* -------------------- */
 body {
-  counter-reset: section subsection fig tbl footnote cite;
+  counter-reset: section subsection fig tbl footnote cite tablecaption;
 }
 
 /* Section */
@@ -334,6 +334,15 @@ figcaption span.fig-number::before {
 }
 figcaption span.fig-number::after {
   content: counter(fig) ": ";
+}
+
+/* table caption */
+table {
+  counter-increment: tablecaption;
+}
+
+caption span.caption-number::after {
+  content: counter(tablecaption) ": ";
 }
 
 /* footnote */

@@ -39,6 +39,7 @@ canonifyURLs = true
     contentDir = "content/jp"
     weight = 1
     dateFormat = "2006年01月02日"
+    tableCaption = "表 "
     # lang_css = ["/css/jp.css"]
   [languages.en]
     languageCode = "en"
@@ -47,6 +48,7 @@ canonifyURLs = true
     contentDir = "content/en"
     weight = 2
     dateFormat = "Jan. 2, 2006"
+    tableCaption = "Table "
     # lang_css = ["/css/en.css"]
 
 # goldmark settings
