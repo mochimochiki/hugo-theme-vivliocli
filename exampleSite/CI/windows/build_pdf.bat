@@ -27,6 +27,27 @@ hugo --config "config/default.toml","config/%hugo_env%.toml" -b "" -d %publish_d
 if not %errorlevel% == 0 exit /B 1
 popd
 
+:: npm setup
+pushd %scriptdir%
+@echo.
+@echo -------------------------------------
+@echo node version
+node -v
+@echo npm version
+call npm -v
+@echo npx version
+call npx -v
+@echo -------------------------------------
+call npm install
+popd
+
+:: pre rendering
+pushd %scriptdir%
+powershell -NoProfile -ExecutionPolicy Bypass ^
+  ".\pre_js_rendering.ps1 -dir \"%hugodir%\%publish_dir%\" -logname pre_js_rendering.log;exit $LASTEXITCODE"
+popd
+if not %errorlevel% == 0 exit /B 1
+
 :: PDF build
 pushd %scriptdir%
 for /d %%A in (%hugodir%\content\*) do (

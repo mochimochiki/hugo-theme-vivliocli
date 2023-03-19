@@ -1,0 +1,18 @@
+{{- $height := .Attributes.height }}
+{{- $width := .Attributes.width }}
+{{- $mermaid_id := printf "mermaid_block_%d" .Ordinal }}
+{{- with $height }}
+  <style>div[id={{$mermaid_id}}] svg { height: {{$height}} }</style>
+{{- end }}
+{{- with $width }}
+  <style>div[id={{$mermaid_id}}] svg { width: {{$width}} }</style>
+{{- end }}
+{{- if .Page.Site.Params.isPDF }}
+  {{- $pdfSize := partial "functions/getRootPDFParam.html" (dict "this" .Page "pdfParam" "pagesize") }}
+  {{- $pdfPageMaxHeight := partial "functions/getPDFContentHeight_mm.html" $pdfSize }}
+  {{- if gt $pdfPageMaxHeight 0 }}<style>div[id={{$mermaid_id}}] svg { max-height: {{$pdfPageMaxHeight}}mm; }</style>{{ end }}
+{{- end }}
+<div class="mermaid" id="{{$mermaid_id}}" align="center">
+  {{ .Inner | safeHTML }}
+</div>
+{{- .Page.Scratch.Set "use_mermaid" true }}

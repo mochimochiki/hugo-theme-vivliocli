@@ -1,0 +1,7 @@
+{{- $mathjax_id := printf "mathjax_block_%d" .Ordinal }}
+<div class="mathjaxblock" id="{{$mathjax_id}}">
+  $$
+  {{ .Inner }}
+  $$
+</div>
+{{- .Page.Scratch.Set "use_mathjax" true }}

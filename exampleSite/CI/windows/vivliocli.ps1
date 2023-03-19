@@ -12,7 +12,7 @@ Get-ChildItem $dir -include *.js | ForEach-Object {
   if ($_.GetType().Name -eq "FileInfo") {
     try {
       Write-Output "build...$($_.FullName)"
-      vivliostyle build -c "$($_.FullName)"
+      npx vivliostyle build -c "$($_.FullName)"
     }
     catch {
       Write-Output $_.Exception.Message
