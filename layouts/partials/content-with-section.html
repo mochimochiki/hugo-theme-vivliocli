@@ -13,7 +13,7 @@ h2/h3タグが対象。.Page.Content の代わりに使用する。
 {{- $content := $page.Content }}
 {{- if (le $pageLevel $settingLevel)}}
   {{- $content = (replace $page.Content "<span class=\"fig-number\"></span>" (printf "<span class=\"fig-number\">%s%s</span>" $section $d)) | safeHTML }}
-  {{- $content = (replace $page.Content "<span class=\"caption-number\"></span>" (printf "<span class=\"caption-number\">%s%s</span>" $section $d)) | safeHTML }}
+  {{- $content = (replace $content "<span class=\"caption-number\"></span>" (printf "<span class=\"caption-number\">%s%s</span>" $section $d)) | safeHTML }}
 {{- end }}
 
 {{- /* pageLevel < settingLevel の場合h2に章番号を付加 */}}
