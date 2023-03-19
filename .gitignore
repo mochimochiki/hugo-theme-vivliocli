@@ -5,3 +5,4 @@ public_*/
 
 # Dependency directories
 node_modules/
+exampleSite/CI/windows/package-lock.json
