@@ -16,11 +16,18 @@
 {{- $isEmptyMerge := .isEmptyMerge }}
 {{- $columns := .columns }}
 {{- $useColumnCode := .useColumnCode }}
+{{- $header_align_list := slice }}
+{{- $body_align_list := slice }}
 
 {{- if $useColumnCode }}
-  {{- /* csv header行に [[@w=xx]] がある場合、width_listとみなす   */}}
+  {{- /* csv header codes */}}
+  {{- /* [[@w=xxx]] / [[@width=xxx]] : width_list  */}}
   {{- $width_list_temp := partial "csv/get-width-list.html" (dict "csv" $csv "head" $head "scratch" $scratch)}}
   {{- if $width_list_temp }}{{ $width_list = $width_list_temp }}{{ end }}
+  {{- /* [[@align=xxx]] : body_align_list  */}}
+  {{- $body_align_list = partial "csv/get-body-align-list.html" (dict "csv" $csv "head" $head "scratch" $scratch)}}
+  {{- /* [[@header_align=xxx]] : header_align_list  */}}
+  {{- $header_align_list = partial "csv/get-header-align-list.html" (dict "csv" $csv "head" $head "scratch" $scratch)}}
 {{- end }}
 
 {{- $mergeMaskV := partial "csv/get-csv-merge-mask-v.html" . }}
@@ -33,6 +40,6 @@
 {{- end }}
 <table style="{{ $alignstyle | safeCSS }}" {{ with $class }}class="{{ $class }}"{{ end }} {{with $width}}width="{{ $width }}"{{ end }}>
   {{- if ne $caption "" }}<caption>{{ $page.Site.Params.tablecaption }}<span class="caption-number"></span>{{ $caption }}</caption>{{ end }}
-  {{- if $head }}{{ partial "csv/render-table-header.html" (dict "page" $page "scratch" $scratch "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH "useColumnCode" $useColumnCode) }}{{ end }}
-  {{- partial "csv/render-table-body.html" (dict "page" $page "scratch" $scratch "csv" $csv "head" $head "width_list" $width_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH "useColumnCode" $useColumnCode) }}
+  {{- if $head }}{{ partial "csv/render-table-header.html" (dict "page" $page "scratch" $scratch "csv" $csv "head" $head "width_list" $width_list "align_list" $header_align_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH "useColumnCode" $useColumnCode) }}{{ end }}
+  {{- partial "csv/render-table-body.html" (dict "page" $page "scratch" $scratch "csv" $csv "head" $head "width_list" $width_list "align_list" $body_align_list "markdown" $markdown "mergeMaskV" $mergeMaskV "mergeMaskH" $mergeMaskH "useColumnCode" $useColumnCode) }}
 </table>

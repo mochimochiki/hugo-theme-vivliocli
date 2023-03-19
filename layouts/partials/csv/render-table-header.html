@@ -3,6 +3,7 @@
 {{- $csv := .csv }}
 {{- $head := .head }}
 {{- $width_list := .width_list }}
+{{- $align_list := .align_list }}
 {{- $markdown := .markdown }}
 {{- $mergeMaskV := .mergeMaskV }}
 {{- $mergeMaskH := .mergeMaskH }}
@@ -12,6 +13,7 @@
   {{- if lt $rowIndex $head }}
 <tr>
 {{- range $i, $cell := $rowData }}
+  {{- $column_no := add $i 1 }}
   {{- $columnId := ""}}
   {{- /* column codeを利用する場合  */}}
   {{- if $useColumnCode }}
@@ -28,8 +30,10 @@
   (dict "page" $page
         "scratch" $scratch
         "cell" $cell
+        "colNo" $column_no
         "columnId" $columnId
         "width" (index $width_list $i)
+        "align" (index $align_list $i)
         "colspan" $colspan
         "rowspan" $rowspan
         "markdown" $markdown) }}

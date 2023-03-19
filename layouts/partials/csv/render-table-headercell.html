@@ -1,8 +1,10 @@
 {{- $page := .page }}
 {{- $scratch := .scratch }}
 {{- $cell := .cell }}
+{{- $columnNo := .colNo }}
 {{- $columnId := .columnId }}
 {{- $width := .width}}
+{{- $align := .align }}
 {{- $colspan := .colspan }}
 {{- $rowspan := .rowspan }}
 {{- $markdown := .markdown }}
@@ -11,6 +13,6 @@
 {{- end -}}
 <th
   {{- with $columnId }} class="{{ . }}"{{ end }}
-  {{- with $width }} style="width: {{ . }};"{{ end }}
+  style="{{- with $width }}width: {{ . }};{{ end }} {{- with $align }} text-align: {{.}};{{ end }}"
   {{- with $colspan }} colspan="{{ $colspan }}"{{ end }}
   {{- with $rowspan }} rowspan="{{ $rowspan }}"{{ end }}><div class="csvtable-cell csvtable-header-cell">{{ $cell }}</div></th>

@@ -1,0 +1,36 @@
+{{- $csv := .csv }}
+{{- $head := .head }}
+{{- $scratch := .scratch }}
+{{- $align_list := slice }}
+{{- $code_count := 0 }}
+{{- $baseAlign := $scratch.Get "baseHeaderAlign"}}
+{{- with $baseAlign }}{{- $code_count = add $code_count 1 }}{{end}}
+{{- range $rowIndex, $rowData := $csv }}
+  {{- if eq $rowIndex (sub $head 1) }}
+    {{- range $i, $cell := $rowData }}
+     {{- if (findRE ".*\\[\\[.*@h:-+:.*\\]\\]" $cell 1) }}
+        {{- $code_count = add $code_count 1 }}
+        {{- $align_list = $align_list | append "center" }}
+      {{- else if (findRE ".*\\[\\[.*@h-+:.*\\]\\]" $cell 1) }}
+        {{- $code_count = add $code_count 1 }}
+        {{- $align_list = $align_list | append "right" }}
+      {{- else if (findRE ".*\\[\\[.*@h:-+[^:]*.*\\]\\]" $cell 1)}}
+        {{- $code_count = add $code_count 1 }}
+        {{- $align_list = $align_list | append "left" }}
+      {{- else if (findRE ".*\\[\\[.*@header_align=([^ ]+).*\\]\\]" $cell 1) }}
+        {{- $code_count = add $code_count 1 }}
+        {{- $align := $cell | replaceRE ".*\\[\\[.*@header_align=([^ ]+).*\\]\\]" "${1}" }}
+        {{- $align_list = $align_list | append $align }}
+      {{- else}}
+        {{- if $baseAlign }}
+          {{- $align_list = $align_list | append $baseAlign }}
+        {{- else }}
+          {{- $align_list = $align_list | append "left" }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- if eq $code_count 0 }}{{ $align_list = slice }}{{ end }}
+
+{{- return $align_list }}

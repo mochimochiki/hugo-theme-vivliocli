@@ -17,6 +17,10 @@
 {{- $width_list := split (replace ( .Get "width-ratio" | default "*" ) "*" "auto" ) "-" }}{{/* column width list "20%-30%-*" */}}
 {{- $columns := .Get "columns" }}{{/* column names for column filtering */}}
 {{- $useColumnCode := .Get "code" | default true }}{{/* [[@xxx]] on the last line of the Header is considered a [[@ColumnCode]] and trimmed */}}
+{{- $headerAlign := .Get "head_align" | default "" }}
+{{- with $headerAlign}}{{- $.Scratch.Set "baseHeaderAlign" $headerAlign }}{{end}}
+{{- $bodyAlign := .Get "body_align" | default "" }}
+{{- with $bodyAlign}}{{- $.Scratch.Set "baseBodyAlign" $bodyAlign }}{{end}}
 
 {{- $isMD := strings.HasSuffix $source "md" }}
 {{- $isCSV := strings.HasSuffix $source "csv" }}

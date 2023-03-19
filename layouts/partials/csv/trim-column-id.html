@@ -1,4 +1,4 @@
 {{- $cell := . }}
-{{- $id := index (findRE "\\[\\[.*@.*=([^ ]+).*\\]\\]" $cell) 0 | strings.TrimPrefix " " }}
+{{- $id := index (findRE "\\[\\[.*@.+\\]\\]" $cell) 0 | strings.TrimPrefix " " }}
 {{- $cell = replace $cell $id "" }}
 {{- return $cell }}

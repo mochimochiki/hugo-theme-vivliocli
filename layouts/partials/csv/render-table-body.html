@@ -3,6 +3,7 @@
 {{- $csv := .csv }}
 {{- $head := .head }}
 {{- $width_list := .width_list }}
+{{- $align_list := .align_list }}
 {{- $markdown := .markdown }}
 {{- $mergeMaskV := .mergeMaskV }}
 {{- $mergeMaskH := .mergeMaskH }}
@@ -36,6 +37,7 @@
           "cell" $cell
           "columnId" (index $columnIds $i)
           "width" (index $width_list $i)
+          "align" (index $align_list $i)
           "colspan" $colspan
           "rowspan" $rowspan
           "rowNo" $row_no
