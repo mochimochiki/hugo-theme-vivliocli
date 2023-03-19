@@ -1,6 +1,7 @@
 ---
 title: "Getting Started"
 tags: ["tutorial"]
+weight: 1
 ---
 
 ## 対象環境
@@ -124,7 +125,7 @@ outputs:
 ```
 
 {{% note %}}
-詳細は[pdf configファイルの作成](../Configuration/pdfconfig.html)を参照してください。
+詳細は[pdf configファイルの作成](./pdfconfig.html)を参照してください。
 {{% /note %}}
 
 ### 記事の作成
@@ -178,7 +179,7 @@ hugo server --config config/default.toml
 hugo --config config/default.toml,config/pdf.toml
 ```
 
-`--config`オプションに`/config/pdf.toml`を追加で指定することで、`/config/pdf.toml`の設定をオーバーライドしています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
+`--config`オプションに`/config/pdf.toml`を追加で指定することで、`/config/pdf.toml`の設定をオーバーライドしています。詳細は[config.tomlの設定](./config.html)を参照してください。
 
 これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/jp/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
@@ -209,7 +210,7 @@ sectionNumberLevel: 2 # -> 1に変更
     sectionTopFormat = "第%s章" # -> "Chapter %s" に変更
 ```
 
-> その他のconfigパラメータについては[config.tomlの設定](../Configuration/config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
+> その他のconfigパラメータについては[config.tomlの設定](./config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
 
 一旦`public_pdf`を削除し、今度は`build_pdf.bat`でビルドしてみます。
 
@@ -232,7 +233,7 @@ build_pdf.bat
 ## NextStep
 
 * PDFの表紙や奥付をカスタマイズするには...
-  * [config.tomlの設定](../Configuration/config.html)
-  * [pdf configファイルの作成](../Configuration/pdfconfig.html)
-* 複数のエディションを作るには...[エディション](../Configuration/edition.html)
+  * [config.tomlの設定](./config.html)
+  * [pdf configファイルの作成](./pdfconfig.html)
+* 複数のエディションを作るには...[エディション](./edition.html)
 
