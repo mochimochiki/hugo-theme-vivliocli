@@ -6,15 +6,13 @@ module.exports = {
     '_pdf.vivlio.cover.html',
     
     '../jp/Manual/GettingStarted.html',
-    '../jp/Manual/GettingStarted/GettingStarted.html',
-    '../jp/Manual/Configuration.html',
-    '../jp/Manual/Configuration/config.html',
-    '../jp/Manual/Configuration/pdfconfig.html',
-    '../jp/Manual/Configuration/shortcodes.html',
-    '../jp/Manual/Configuration/frontmatter.html',
-    '../jp/Manual/Configuration/MarkdownShowcase.html',
-    '../jp/Manual/Configuration/edition.html',
-    '../jp/Manual/Configuration/Tags.html',
+    '../jp/Manual/config.html',
+    '../jp/Manual/pdfconfig.html',
+    '../jp/Manual/shortcodes.html',
+    '../jp/Manual/frontmatter.html',
+    '../jp/Manual/MarkdownShowcase.html',
+    '../jp/Manual/edition.html',
+    '../jp/Manual/Tags.html',
     '_pdfcolophon.vivlio.colophon.html'
   ],
   output: [
