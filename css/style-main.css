@@ -258,7 +258,7 @@ blockquote :not(pre) > code {
 :not(pre) > code {
   padding: 2pt;
   background-color: #eee;
-  font-size: 1rem;
+  font-size: 1em;
   white-space: pre-wrap;
 }
 /* code block */
