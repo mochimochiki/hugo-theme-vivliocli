@@ -8,7 +8,7 @@
     {{- range $i, $cell := $rowData }}
       {{- if (findRE ".*\\[\\[.*@(w|width)=([^ ]+).*\\]\\]" $cell 1) }}
         {{- $code_count = add $code_count 1 }}
-        {{- $width := $cell | replaceRE ".*\\[\\[.*@(w|width)=([^ ]+).*\\]\\]" "${1}" }}
+        {{- $width := $cell | replaceRE ".*\\[\\[.*@(w|width)=([^ ]+).*\\]\\]" "${2}" }}
         {{- $width = replace $width "*" "auto" }}
         {{- $width_list = $width_list | append $width }}
       {{- else}}
