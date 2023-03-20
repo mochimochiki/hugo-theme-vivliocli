@@ -34,7 +34,7 @@
   {{- $page := .Site.GetPage $mdpath }}
   {{- with $page }}
     {{- $mdURL := printf "/%s/%s" .Site.Language.Lang $mdpath | path.Dir}}
-    {{- $content := (replace .Content "<img src=\"assets/" (printf "<img src=\"%s/assets/" $mdURL)) | safeHTML }}
+    {{- $content := (.Content | replaceRE "<img (.*?)src=\"assets/(.*?)>" (printf "<img ${1}src=\"%s/assets/${2}>" $mdURL)) | safeHTML }}
 {{ $content }}
   {{- end }}
 {{- else if $isCSV}}
