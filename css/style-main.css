@@ -337,7 +337,7 @@ figcaption span.fig-number::after {
 }
 
 /* table caption */
-table {
+table caption {
   counter-increment: tablecaption;
 }
 
