@@ -19,6 +19,20 @@ weight: 30
 
 {{< include test_jp.csv >}}
 
+## columns
+
+{{< include 
+  src="test_jp.csv" 
+  columns="id,名称"
+  >}}
+
+## ignore_columns
+
+{{< include 
+  src="test_jp.csv" 
+  ignore_columns="number,名称"
+  >}}
+
 ## include csv one parameter
 
 ### パラメータをinclude

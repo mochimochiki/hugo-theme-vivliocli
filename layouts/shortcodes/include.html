@@ -16,6 +16,7 @@
 {{- $width := .Get "width" | default "*" }}{{/* table width */}}
 {{- $width_list := split (replace ( .Get "width-ratio" | default "*" ) "*" "auto" ) "-" }}{{/* column width list "20%-30%-*" */}}
 {{- $columns := .Get "columns" }}{{/* column names for column filtering */}}
+{{- $ignore_columns := .Get "ignore_columns" }}{{/* ignore column names for column filtering */}}
 {{- $useColumnCode := .Get "code" | default true }}{{/* [[@xxx]] on the last line of the Header is considered a [[@ColumnCode]] and trimmed */}}
 {{- $headerAlign := .Get "head_align" | default "" }}
 {{- with $headerAlign}}{{- $.Scratch.Set "baseHeaderAlign" $headerAlign }}{{end}}
@@ -45,6 +46,9 @@
   {{- else }}
     {{- /* include csv table */}}
     {{- $csv := getCSV "," $csvpath }}
+    {{- with $ignore_columns }}
+      {{- $csv = partial "csv/get-ignored-columns-csv.html" (dict "csv" $csv "ignore_columns" . )}}
+    {{- end }}
     {{- with $columns }}
       {{- $csv = partial "csv/get-selected-columns-csv.html" (dict "csv" $csv "columns" . )}}
     {{- end }}
