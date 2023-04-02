@@ -25,7 +25,7 @@ book: true
 cover: true # whether to output the cover page or not.
 toc: true # whether to output toc or not. (if cover: false, always toc is not output)
 sectionNumberLevel: 2 # override config.toml settings.
-colophon: true # whether to output colophon page or not.
+colophon: false # whether to output colophon page or not.
 outputs:
 - vivlio_cover
 - vivlio_config

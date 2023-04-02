@@ -1,5 +1,5 @@
 ---
-title: content1_page1
+title: page1
 weight: 20
 tags: ["sample"]
 ---
@@ -7,4 +7,4 @@ tags: ["sample"]
 
 This is content1 page.
 
-[Link to content2](../content2/test.html)
+[Link to content2](../content2/page.html)

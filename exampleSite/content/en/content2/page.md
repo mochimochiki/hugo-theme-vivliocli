@@ -1,5 +1,5 @@
 ---
-title: content2_page
+title: page
 weight: 10
 ---
 ## Test

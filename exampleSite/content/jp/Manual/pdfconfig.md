@@ -1,6 +1,6 @@
 ---
 title: pdf configファイルの作成
-weight: 20
+weight: 50
 ---
 
 本テーマではvivliostyleで利用される構成ファイル/カバーページ（目次）/奥付を生成するために、以下のconfigファイルを利用しています。

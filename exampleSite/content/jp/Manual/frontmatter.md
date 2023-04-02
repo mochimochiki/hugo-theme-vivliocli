@@ -1,6 +1,6 @@
 ---
-title: "フロントマター・記事"
-weight: 40
+title: "フロントマター"
+weight: 30
 ---
 
 セクションや各記事の設定について解説します。
@@ -37,13 +37,9 @@ ShowIf: ["edition1"]
 
 `math: true` としたページにはTex数式（Mathjax数式）を記述することができます。インライン数式は`$E = mc^2$`のように記載します。ブロック数式は以下のように記載します。
 
-```tex
-$$
-y = ax^2 + bx + \frac{c}{d}
-$$
-```
-
-なお数式はPDF出力時、MathjaxのCDNでは描画できません。PDF出力で数式を正しく描画するためには、`isPDF: true`にした上でhugoサイトビルド後にMathjaxのNode.jsパッケージを利用して数式を事前レンダリングし、その後vivliostyleに渡す必要があります。実装は`/exampleSite/CI/MathConverter/MathConverter.ps1`です。`build.bat`ではこのpowershellスクリプトをhugoサイトビルド後に実行することでMathjax数式をレンダリングしています。
+    ```math
+    y = ax^2 + bx + \frac{c}{d}
+    ```
 
 ## 各記事のヘッダをPDF目次に表示する
 

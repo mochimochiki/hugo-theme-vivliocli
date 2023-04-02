@@ -1,5 +1,5 @@
 ---
-title: "content1_index"
+title: "content1"
 chapter: true
 weight: 1
 ---

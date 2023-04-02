@@ -1,6 +1,6 @@
 ---
 title: config.tomlの設定
-weight: 10
+weight: 40
 ---
 
 `config.toml`の主な項目の説明をします。設定項目については[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)も合わせて参照してください。
