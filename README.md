@@ -34,7 +34,7 @@ git init
 git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hugo-theme-vivliocli
 ```
 
-see the [Hugo theme for Vivliostyle-cli Guide (JP)](https://mochimochiki.github.io/hugo-theme-vivliocli/jp/) for details.
+see the [Hugo theme for Vivliostyle-cli Guide (J)](https://mochimochiki.github.io/hugo-theme-vivliocli/jp/) for details.
 
 ## License
 
