@@ -1,6 +1,12 @@
+# site base url
 baseURL = "https://mochimochiki.github.io/hugo-theme-vivliocli"
+
+# theme directory
 themesdir = "../.."
+
+# site title
 title = "Hugo theme for Vivliosytle-cli."
+
 theme = "hugo-theme-vivliocli"
 languageCode = "en"
 DefaultContentLanguage = "en"
@@ -14,33 +20,65 @@ relativeURLs = true
 canonifyURLs = true
 
 [params]
+    # content root directory.
     contentRootDir = "content"
+
+    # theme css. you can add or replace to original css.
     theme_css = [
       "/css/style-main.css",
       "/css/style-browser.css"
       ]
+
+    # book style css. This is loaded for "book: true" pdf. you can add or replace to original css.
     book_css = [ "/css/style-book.css" ]
+
+    # cover page css. you can add or replace to original css.
     cover_css = [ "/css/style-first.css" ]
+
+    # if true, render with pdf mode (suppress menu, etc...)
     isPDF = false
+
+    # The tags defined here can be used in frontmatter and ShowIf/HideIf shortcode.
     showIfs = ["test", "test2", "test3"]
+
+    # output section number level. 3 -> 1.1.1
     sectionNumberLevel = 3
+
+    # If true, enable copy clipboard button on codeblocks.
     copyClipboard = true
+
+    # github edit URL. specify your content directory.
     # editURL = "https://github.com/your/repository/edit/main/content"
+    
+    # section delimiter. "-" -> 1-1-2
     # sectionDelimiter = "-"
-    sectionTopFormat = "第%s章"
+
+    # section top format. %s (section number) is needed.
+    sectionTopFormat = "Chapter %s"
+
+    # table caption.
+    tableCaption = "Table "
+
+    # if true, page counter is started after table of content.
     pageCountAfterToc = true
+
+    # if true, output debug log
     debug = false
 
 [languages]
-  [languages.jp]
+  [languages.ja]
     languageCode = "ja-jp"
     htmlLang = "ja"
     languageName = "Japanese"
-    contentDir = "content/jp"
+    contentDir = "content/ja"
     weight = 1
     dateFormat = "2006年01月02日"
+    sectionTopFormat = "第%s章"
     tableCaption = "表 "
-    # lang_css = ["/css/jp.css"]
+
+    # language css. you can load additional css for this language.
+    # lang_css = ["/css/ja.css"]
+
   [languages.en]
     languageCode = "en"
     htmlLang = "en"
@@ -48,7 +86,10 @@ canonifyURLs = true
     contentDir = "content/en"
     weight = 2
     dateFormat = "Jan. 2, 2006"
+    sectionTopFormat = "Chapter %s"
     tableCaption = "Table "
+
+    # language css. you can load additional css for this language.
     # lang_css = ["/css/en.css"]
 
 # goldmark settings
@@ -56,7 +97,7 @@ canonifyURLs = true
   hardWraps = true
   unsafe = true
 
-
+# media types / output formats
 [mediaTypes]
   [mediaTypes."text/vivlio_config"]
     suffixes = ["vivlio.config.js"]

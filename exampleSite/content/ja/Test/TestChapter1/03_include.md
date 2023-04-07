@@ -5,7 +5,7 @@ weight: 30
 
 ## include md
 
-{{< include test_jp.md >}}
+{{< include test_ja.md >}}
 
 ## include csv from current dir
 
@@ -17,19 +17,19 @@ weight: 30
 
 ## include csv from _include dir
 
-{{< include test_jp.csv >}}
+{{< include test_ja.csv >}}
 
 ## columns
 
 {{< include 
-  src="test_jp.csv" 
+  src="test_ja.csv" 
   columns="id,名称"
   >}}
 
 ## ignore_columns
 
 {{< include 
-  src="test_jp.csv" 
+  src="test_ja.csv" 
   ignore_columns="number,名称"
   >}}
 
@@ -37,22 +37,22 @@ weight: 30
 
 ### パラメータをinclude
 
-{{< include "test_jp.csv" "005" "名称" >}}
+{{< include "test_ja.csv" "005" "名称" >}}
 
 ### 列がマッチしない
 
 ↓表示されないはず。
-{{< include "test_jp.csv" "005" "存在しない列名" >}}
+{{< include "test_ja.csv" "005" "存在しない列名" >}}
 
 ### 行がマッチしない
 
 ↓表示されないはず。
-{{< include "test_jp.csv" "9999" "名称" >}}
+{{< include "test_ja.csv" "9999" "名称" >}}
 
 ### パラメータが足りない
 
 ↓表示されないはず。
-{{< include "test_jp.csv" "005" >}}
+{{< include "test_ja.csv" "005" >}}
 
 ## include csv - 複雑な表
 

@@ -76,14 +76,14 @@ themesdir = "../.."
 
 ### 表紙の作成
 
-`content`ディレクトリ下に`jp\firstpdf`,`en\firstpdf`ディレクトリを作成します。
+`content`ディレクトリ下に`ja\firstpdf`,`en\firstpdf`ディレクトリを作成します。
 
 ```bat
-mkdir content\jp\firstpdf
+mkdir content\ja\firstpdf
 mkdir content\en\firstpdf
 ```
 
-次に`jp\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
+次に`ja\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
 
 ```bash
 ---
@@ -108,7 +108,7 @@ colophon: true とすると奥付ページも生成されます。`_pdfcolophon.
 
 ### 記事の作成
 
-次に記事を作成します。`\content\jp\firstpdf`に`_index.md`を作成して以下のように編集します。
+次に記事を作成します。`\content\ja\firstpdf`に`_index.md`を作成して以下のように編集します。
 
 ```md
 ---
@@ -119,7 +119,7 @@ weight: 10
 `_index.md`はサイト上のセクションページになります。PDFには含まれません。
 ```
 
-また`\content\jp\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
+また`\content\ja\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
 
 ```md
 ---
@@ -159,18 +159,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/jp/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\jp
+cd .\public_pdf\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\jp`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\jp\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -179,7 +179,7 @@ vivliostyle build -c _pdf.vivlio.config.js
 ```bash
 sectionNumberLevel = 3 # -> 1に変更
 ...
-  [languages.jp.params]
+  [languages.ja.params]
     sectionTopFormat = "第%s章" # -> この行を削除もしくはコメントアウト
 ```
 
@@ -195,7 +195,7 @@ rmdir public_pdf /s /q
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\jp\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
@@ -279,14 +279,14 @@ themesdir = "../.."
 
 ### 表紙の作成
 
-`content`ディレクトリ下に`jp\firstpdf`,`en\firstpdf`ディレクトリを作成します。
+`content`ディレクトリ下に`ja\firstpdf`,`en\firstpdf`ディレクトリを作成します。
 
 ```bat
-mkdir content\jp\firstpdf
+mkdir content\ja\firstpdf
 mkdir content\en\firstpdf
 ```
 
-次に`jp\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
+次に`ja\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
 
 ```bash
 ---
@@ -311,7 +311,7 @@ colophon: true とすると奥付ページも生成されます。`_pdfcolophon.
 
 ### 記事の作成
 
-次に記事を作成します。`\content\jp\firstpdf`に`_index.md`を作成して以下のように編集します。
+次に記事を作成します。`\content\ja\firstpdf`に`_index.md`を作成して以下のように編集します。
 
 ```md
 ---
@@ -322,7 +322,7 @@ weight: 10
 `_index.md`はサイト上のセクションページになります。PDFには含まれません。
 ```
 
-また`\content\jp\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
+また`\content\ja\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
 
 ```md
 ---
@@ -362,18 +362,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/jp/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\jp
+cd .\public_pdf\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\jp`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\jp\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -382,7 +382,7 @@ vivliostyle build -c _pdf.vivlio.config.js
 ```bash
 sectionNumberLevel = 3 # -> 1に変更
 ...
-  [languages.jp.params]
+  [languages.ja.params]
     sectionTopFormat = "第%s章" # -> この行を削除もしくはコメントアウト
 ```
 
@@ -398,7 +398,7 @@ rmdir public_pdf /s /q
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\jp\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
@@ -482,14 +482,14 @@ themesdir = "../.."
 
 ### 表紙の作成
 
-`content`ディレクトリ下に`jp\firstpdf`,`en\firstpdf`ディレクトリを作成します。
+`content`ディレクトリ下に`ja\firstpdf`,`en\firstpdf`ディレクトリを作成します。
 
 ```bat
-mkdir content\jp\firstpdf
+mkdir content\ja\firstpdf
 mkdir content\en\firstpdf
 ```
 
-次に`jp\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
+次に`ja\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
 
 ```bash
 ---
@@ -514,7 +514,7 @@ colophon: true とすると奥付ページも生成されます。`_pdfcolophon.
 
 ### 記事の作成
 
-次に記事を作成します。`\content\jp\firstpdf`に`_index.md`を作成して以下のように編集します。
+次に記事を作成します。`\content\ja\firstpdf`に`_index.md`を作成して以下のように編集します。
 
 ```md
 ---
@@ -525,7 +525,7 @@ weight: 10
 `_index.md`はサイト上のセクションページになります。PDFには含まれません。
 ```
 
-また`\content\jp\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
+また`\content\ja\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
 
 ```md
 ---
@@ -565,18 +565,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/jp/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\jp
+cd .\public_pdf\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\jp`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\jp\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -585,7 +585,7 @@ vivliostyle build -c _pdf.vivlio.config.js
 ```bash
 sectionNumberLevel = 3 # -> 1に変更
 ...
-  [languages.jp.params]
+  [languages.ja.params]
     sectionTopFormat = "第%s章" # -> この行を削除もしくはコメントアウト
 ```
 
@@ -601,7 +601,7 @@ rmdir public_pdf /s /q
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\jp\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
@@ -685,14 +685,14 @@ themesdir = "../.."
 
 ### 表紙の作成
 
-`content`ディレクトリ下に`jp\firstpdf`,`en\firstpdf`ディレクトリを作成します。
+`content`ディレクトリ下に`ja\firstpdf`,`en\firstpdf`ディレクトリを作成します。
 
 ```bat
-mkdir content\jp\firstpdf
+mkdir content\ja\firstpdf
 mkdir content\en\firstpdf
 ```
 
-次に`jp\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
+次に`ja\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
 
 ```bash
 ---
@@ -717,7 +717,7 @@ colophon: true とすると奥付ページも生成されます。`_pdfcolophon.
 
 ### 記事の作成
 
-次に記事を作成します。`\content\jp\firstpdf`に`_index.md`を作成して以下のように編集します。
+次に記事を作成します。`\content\ja\firstpdf`に`_index.md`を作成して以下のように編集します。
 
 ```md
 ---
@@ -728,7 +728,7 @@ weight: 10
 `_index.md`はサイト上のセクションページになります。PDFには含まれません。
 ```
 
-また`\content\jp\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
+また`\content\ja\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
 
 ```md
 ---
@@ -768,18 +768,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/jp/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\jp
+cd .\public_pdf\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\jp`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\jp\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -788,7 +788,7 @@ vivliostyle build -c _pdf.vivlio.config.js
 ```bash
 sectionNumberLevel = 3 # -> 1に変更
 ...
-  [languages.jp.params]
+  [languages.ja.params]
     sectionTopFormat = "第%s章" # -> この行を削除もしくはコメントアウト
 ```
 
@@ -804,7 +804,7 @@ rmdir public_pdf /s /q
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\jp\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
@@ -888,14 +888,14 @@ themesdir = "../.."
 
 ### 表紙の作成
 
-`content`ディレクトリ下に`jp\firstpdf`,`en\firstpdf`ディレクトリを作成します。
+`content`ディレクトリ下に`ja\firstpdf`,`en\firstpdf`ディレクトリを作成します。
 
 ```bat
-mkdir content\jp\firstpdf
+mkdir content\ja\firstpdf
 mkdir content\en\firstpdf
 ```
 
-次に`jp\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
+次に`ja\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
 
 ```bash
 ---
@@ -920,7 +920,7 @@ colophon: true とすると奥付ページも生成されます。`_pdfcolophon.
 
 ### 記事の作成
 
-次に記事を作成します。`\content\jp\firstpdf`に`_index.md`を作成して以下のように編集します。
+次に記事を作成します。`\content\ja\firstpdf`に`_index.md`を作成して以下のように編集します。
 
 ```md
 ---
@@ -931,7 +931,7 @@ weight: 10
 `_index.md`はサイト上のセクションページになります。PDFには含まれません。
 ```
 
-また`\content\jp\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
+また`\content\ja\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
 
 ```md
 ---
@@ -971,18 +971,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/jp/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\jp
+cd .\public_pdf\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\jp`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\jp\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -991,7 +991,7 @@ vivliostyle build -c _pdf.vivlio.config.js
 ```bash
 sectionNumberLevel = 3 # -> 1に変更
 ...
-  [languages.jp.params]
+  [languages.ja.params]
     sectionTopFormat = "第%s章" # -> この行を削除もしくはコメントアウト
 ```
 
@@ -1007,7 +1007,7 @@ rmdir public_pdf /s /q
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\jp\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
@@ -1091,14 +1091,14 @@ themesdir = "../.."
 
 ### 表紙の作成
 
-`content`ディレクトリ下に`jp\firstpdf`,`en\firstpdf`ディレクトリを作成します。
+`content`ディレクトリ下に`ja\firstpdf`,`en\firstpdf`ディレクトリを作成します。
 
 ```bat
-mkdir content\jp\firstpdf
+mkdir content\ja\firstpdf
 mkdir content\en\firstpdf
 ```
 
-次に`jp\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
+次に`ja\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
 
 ```bash
 ---
@@ -1123,7 +1123,7 @@ colophon: true とすると奥付ページも生成されます。`_pdfcolophon.
 
 ### 記事の作成
 
-次に記事を作成します。`\content\jp\firstpdf`に`_index.md`を作成して以下のように編集します。
+次に記事を作成します。`\content\ja\firstpdf`に`_index.md`を作成して以下のように編集します。
 
 ```md
 ---
@@ -1134,7 +1134,7 @@ weight: 10
 `_index.md`はサイト上のセクションページになります。PDFには含まれません。
 ```
 
-また`\content\jp\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
+また`\content\ja\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
 
 ```md
 ---
@@ -1174,18 +1174,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/jp/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\jp
+cd .\public_pdf\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\jp`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\jp\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -1194,7 +1194,7 @@ vivliostyle build -c _pdf.vivlio.config.js
 ```bash
 sectionNumberLevel = 3 # -> 1に変更
 ...
-  [languages.jp.params]
+  [languages.ja.params]
     sectionTopFormat = "第%s章" # -> この行を削除もしくはコメントアウト
 ```
 
@@ -1210,7 +1210,7 @@ rmdir public_pdf /s /q
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\jp\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
@@ -1294,14 +1294,14 @@ themesdir = "../.."
 
 ### 表紙の作成
 
-`content`ディレクトリ下に`jp\firstpdf`,`en\firstpdf`ディレクトリを作成します。
+`content`ディレクトリ下に`ja\firstpdf`,`en\firstpdf`ディレクトリを作成します。
 
 ```bat
-mkdir content\jp\firstpdf
+mkdir content\ja\firstpdf
 mkdir content\en\firstpdf
 ```
 
-次に`jp\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
+次に`ja\firstpdf\_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。PDF出力したいディレクトリに`_pdf.md`を置く、と覚えておきましょう。
 
 ```bash
 ---
@@ -1326,7 +1326,7 @@ colophon: true とすると奥付ページも生成されます。`_pdfcolophon.
 
 ### 記事の作成
 
-次に記事を作成します。`\content\jp\firstpdf`に`_index.md`を作成して以下のように編集します。
+次に記事を作成します。`\content\ja\firstpdf`に`_index.md`を作成して以下のように編集します。
 
 ```md
 ---
@@ -1337,7 +1337,7 @@ weight: 10
 `_index.md`はサイト上のセクションページになります。PDFには含まれません。
 ```
 
-また`\content\jp\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
+また`\content\ja\firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
 
 ```md
 ---
@@ -1377,18 +1377,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/jp/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\jp
+cd .\public_pdf\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\jp`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\jp\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -1397,7 +1397,7 @@ vivliostyle build -c _pdf.vivlio.config.js
 ```bash
 sectionNumberLevel = 3 # -> 1に変更
 ...
-  [languages.jp.params]
+  [languages.ja.params]
     sectionTopFormat = "第%s章" # -> この行を削除もしくはコメントアウト
 ```
 
@@ -1413,7 +1413,7 @@ rmdir public_pdf /s /q
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\jp\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている

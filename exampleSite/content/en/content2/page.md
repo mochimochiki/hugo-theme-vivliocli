@@ -6,4 +6,4 @@ weight: 10
 
 This is content2 page.
 
-{{< include test_jp.md >}}
+{{< include test_ja.md >}}

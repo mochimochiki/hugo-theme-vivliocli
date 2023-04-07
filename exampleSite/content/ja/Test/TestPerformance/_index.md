@@ -1,7 +1,7 @@
 ---
 title: "Test Performance"
 _build:
-  list: true
+  list: false
 ---
 
 test1

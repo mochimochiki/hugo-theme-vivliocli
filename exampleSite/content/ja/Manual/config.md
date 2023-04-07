@@ -48,7 +48,7 @@ showIfs = ["edition1", "edition2"]
 例)`sectionTopFormat = "Chapter %s"`
 
 ```
-[languages.jp.params]
+[languages.ja.params]
 sectionTopFormat = "第%s章"
 [languages.en.params]
 sectionTopFormat = "Chapter %s"

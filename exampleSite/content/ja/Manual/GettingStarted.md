@@ -17,7 +17,7 @@ hugo version
 :: Hugo Static Site Generator vx.xx.x ...
 ```
 
-本テーマでは[vivliostyle-cli](https://github.com/vivliostyle/vivliostyle-cli)を利用してPDF出力を行うため、[Node.js](https://nodejs.org/jp/)上で動作するvivliostyle-cliのインストールを実施します。
+本テーマでは[vivliostyle-cli](https://github.com/vivliostyle/vivliostyle-cli)を利用してPDF出力を行うため、[Node.js](https://nodejs.org/ja/)上で動作するvivliostyle-cliのインストールを実施します。
 
 ```bat
 node -v
@@ -80,14 +80,14 @@ title = "My PDF Site"
 
 ### 表紙の作成
 
-`content`下に`jp/firstpdf`,`en/firstpdf`ディレクトリを作成します。
+`content`下に`ja/firstpdf`,`en/firstpdf`ディレクトリを作成します。
 
 ```bat
-mkdir content/jp/firstpdf
+mkdir content/ja/firstpdf
 mkdir content/en/firstpdf
 ```
 
-次に`jp/firstpdf/_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。`_pdf.md`を配置したディレクトリ下がPDF出力の単位となります。
+次に`ja/firstpdf/_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。`_pdf.md`を配置したディレクトリ下がPDF出力の単位となります。
 
 ```bash
 ---
@@ -130,7 +130,7 @@ outputs:
 
 ### 記事の作成
 
-次に記事を作成します。`/content/jp/firstpdf`に`_index.md`を作成して以下のように編集します。
+次に記事を作成します。`/content/ja/firstpdf`に`_index.md`を作成して以下のように編集します。
 
 ```md
 ---
@@ -141,7 +141,7 @@ weight: 10
 `_index.md`はサイト上のセクションページになります。PDFには含まれません。
 ```
 
-また`/content/jp/firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
+また`/content/ja/firstpdf`下に`first.md`, `second.md`を作成して以下のように編集して保存します。
 
 ```md
 ---
@@ -181,18 +181,18 @@ hugo --config config/default.toml,config/pdf.toml
 
 `--config`オプションに`/config/pdf.toml`を追加で指定することで、`/config/pdf.toml`の設定をオーバーライドしています。詳細は[config.tomlの設定](./config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/jp/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd ./public_pdf/jp
+cd ./public_pdf/ja
 move /Y firstpdf/_pdf.vivlio.config.js .
 move /Y firstpdf/_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`は`_pdf.md`から生成されるVivliostyleのConfigファイルで、ビルド時に`/public_pdf/jp`直下に置く必要があります。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`は`_pdf.md`から生成されるVivliostyleのConfigファイルで、ビルド時に`/public_pdf/ja`直下に置く必要があります。
 
-`/public_pdf/jp/firstPDF.pdf`が成果物です。確認してみましょう。
+`/public_pdf/ja/firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -205,7 +205,7 @@ sectionNumberLevel: 2 # -> 1に変更
 また、トップレベルの出力形式やデリミタの設定は `/config/pdf.toml` で設定できます。
 
 ```bash
-  [languages.jp.params]
+  [languages.ja.params]
     sectionDelimiter = "."
     sectionTopFormat = "第%s章" # -> "Chapter %s" に変更
 ```
@@ -223,7 +223,7 @@ build_pdf.bat
 
 > エラーが出力された場合、PDFを開いたままにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`/public_pdf/jp/firstpdf.pdf` で以下のことを確認します。
+`/public_pdf/ja/firstpdf.pdf` で以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている

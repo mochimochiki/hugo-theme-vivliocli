@@ -19,5 +19,5 @@ publishDir = "public_pdf"
   inPageChapterPDF = false
 
 [languages]
-  [languages.jp.params]
+  [languages.ja.params]
     sectionTopFormat = "第%s章"

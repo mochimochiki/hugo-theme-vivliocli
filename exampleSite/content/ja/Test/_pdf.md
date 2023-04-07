@@ -1,10 +1,10 @@
 ---
-pdfname : 
+pdfname :
   default: 'Test'
 doctitle:
-  default: 'Test'
+  default: 'Test document'
 subtitle:
-  default: 'Test'
+  default: 'subtitle'
 doc_number:
   default: 'doc-number'
 header:
@@ -25,9 +25,12 @@ book: true
 cover: true # whether to output the cover page or not.
 toc: true # whether to output toc or not. (if cover: false, always toc is not output)
 sectionNumberLevel: 2 # override config.toml settings.
+colophon: false # whether to output colophon page or not.
 outputs:
 - vivlio_cover
 - vivlio_config
 ---
 
-{{< include introduction_jp.md >}}
+# はじめに
+
+{{< include introduction_ja.md >}}

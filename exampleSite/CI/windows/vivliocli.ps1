@@ -1,5 +1,5 @@
 param(
-  [String]$dir = "public\jp"
+  [String]$dir = "public\ja"
 )
 
 Write-Output @"

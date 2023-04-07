@@ -254,10 +254,10 @@ URLクエリパラメータとして属性を付加すれば画像サイズ変�
 Markdownファイル、csvファイルの「部品」を用意しておき、原稿の任意の箇所に「挿し込む」事ができます。部品ファイルを`/content/<language>/_include`以下に配置しておけば、以下のショートコードでincludeすることができます。
 
 ```bash
-{{</* include "test_jp.md"  */>}} # /content/jp/_include/test_jp.md
-{{</* include "/sample/sample_jp.md" */>}} # /content/jp/_include/sample/sample_jp.md
-{{</* include "test_jp.csv"  */>}} # /content/jp/_include/test_jp.csv
-{{</* include "./test.csv"  */>}} # /(md file dir path)/test_jp.csv
+{{</* include "test_ja.md"  */>}} # /content/ja/_include/test_ja.md
+{{</* include "/sample/sample_ja.md" */>}} # /content/ja/_include/sample/sample_ja.md
+{{</* include "test_ja.csv"  */>}} # /content/ja/_include/test_ja.csv
+{{</* include "./test.csv"  */>}} # /(md file dir path)/test_ja.csv
 ```
 
 * _includeディレクトリ内のMarkdownにはフロントマターは記載しません。
@@ -314,7 +314,7 @@ csvファイルのincludeでは、Markdownよりも高度な表を描画する�
 csvファイルについては行を決定するためのkeyと列名を指定することで特定の値のみを参照することもできます。keyには最も左の列が使われます。重複する値がある場合は最初に見つかったものが優先されます。
 
 ```bash
-{{</* include "test_jp.csv" "003" "Name" */>}} # /content/jp/_include/test_jp.csv の "003" にマッチした行の "Name" 列の値
+{{</* include "test_ja.csv" "003" "Name" */>}} # /content/ja/_include/test_ja.csv の "003" にマッチした行の "Name" 列の値
 ```
 
 上記の場合、1列目の値が`003`である行の`Name`列の値がショートコードの位置に挿し込まれます。

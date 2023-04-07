@@ -79,7 +79,7 @@ weight: 40
 
 * この下にincludeディレクトリのcsvのinclude
 
-{{< include test_jp.csv >}}
+{{< include test_ja.csv >}}
 
 * この下に複雑な表のinclude
 
@@ -94,7 +94,7 @@ weight: 40
 
 * この下にmdのinclude
 
-{{< include test_jp.md >}}
+{{< include test_ja.md >}}
 
 ここまで。
 

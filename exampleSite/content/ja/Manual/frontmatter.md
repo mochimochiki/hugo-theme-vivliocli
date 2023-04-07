@@ -1,5 +1,6 @@
 ---
 title: "フロントマター"
+role: "doc-part"
 weight: 30
 ---
 
