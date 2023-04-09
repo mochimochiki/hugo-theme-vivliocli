@@ -11,7 +11,7 @@ weight: 60
 
 ### 特定要素の表示/非表示を切り替える
 
-[ShowIf](./shortcodes.html)/[HideIf](./shortcodes.html)ショートコード/フロントマターと共に`showIfs`を使用することで表示/非表示を切り替えます。
+[ShowIf](./MarkdownShowcase.html)/[HideIf](./MarkdownShowcase.html)ショートコード/フロントマターと共に`showIfs`を使用することで表示/非表示を切り替えます。
 
 ```toml
 [params]
