@@ -1,7 +1,6 @@
 ---
 title: page2
 weight: 30
-tags: ["sample"]
 ---
 
 ## Test

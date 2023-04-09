@@ -1,8 +1,8 @@
 ---
 title: "MarkdownとShortcodes"
 weight: 20
-tags: ["tutorial"]
 math: true
+tags: ["tutorial"]
 ---
 
 本テーマで利用できるMarkdownとShortcodesのショーケースです。

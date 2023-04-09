@@ -17,6 +17,5 @@ weight: 70
 ---
 title: ページにタグ付けする
 weight: 70
-tags: ["tagA", "tagB"]
 ---
 ```

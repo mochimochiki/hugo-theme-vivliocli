@@ -1,7 +1,7 @@
 ---
 title: "Getting Started"
-tags: ["tutorial"]
 weight: 10
+tags: ["tutorial"]
 ---
 
 ## 対象環境
