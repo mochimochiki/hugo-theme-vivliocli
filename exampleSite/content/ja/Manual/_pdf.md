@@ -6,7 +6,7 @@ subtitle: 'User Guide' # サブタイトル：PDF表紙のサブタイトル
 header: '2023/4/7' # ヘッダー1：PDF表紙右上ヘッダー1行目
 #header2: 'header2' # ヘッダー2：PDF表紙右上ヘッダー2行目
 #footer-left: 'left' # 左フッター：PDF表紙左下フッター
-#footer-center: 'center' # 中央フッター：PDF表紙中央フッター
+footer-center: 'v0.16.0' # 中央フッター：PDF表紙中央フッター
 #footer-right: 'right' # 右フッター：PDF表紙右下フッター
 author: 'mochimo' # 著者：PDF表紙著者名
 #company: 'Company' # 社名：PDF表紙社名
