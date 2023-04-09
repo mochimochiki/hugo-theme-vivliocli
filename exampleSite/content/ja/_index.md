@@ -2,11 +2,11 @@
 title: Hugo-theme-vivliocli
 ---
 
-`hugo-theme-vivliocli` は、<u>**美しい組版PDFが出力できるドキュメントサイト**</u>を構築するためのHugoテーマです。このテーマでは[Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli) を利用することで、サイトの任意のセクションを、表紙・目次・しおり・章番号・ページ番号を含むPDFとして出力できます。
+`hugo-theme-vivliocli` は、<u>**組版PDF出力できるドキュメントサイト**</u>を構築するためのHugoテーマです。このテーマでは[Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli) を利用することで、サイトの任意のセクションを、表紙・目次・しおり・章番号・ページ番号を含むPDFとして出力できます。
 
 ## 特徴
 
-#### 美しい組版PDF出力
+#### 組版PDF出力
 
 `_pdf.md`ファイルが配置された任意のセクションを、<u>**表紙・目次・しおり・章番号・ページ番号を含む組版PDF**</u>として出力できます（[Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli)により実現）。出力形式は左右ページを使用する書籍スタイルと全ページが同じシンプルスタイルを選択できます。章節番号はMarkdownファイルの階層とヘッダレベルに基き自動で割り当てられます。章節番号の出力レベルや最上位レベルのフォーマット（第X章など）を指定できます。
 
