@@ -1,36 +1,23 @@
 ---
-pdfname :
-  default: 'Hugo_Theme_Vivliocli_Manual'
-doctitle:
-  default: 'Hugo-theme-vivliocli Manual'
-subtitle:
-  default: 'Hugoサイトを美しくPDF出力'
-doc_number:
-  default: 'doc-number'
-header:
-  default: 'header'
-header2:
-  default: 'header2'
-footer-left:
-  default: 'left'
-footer-center:
-  default: 'center'
-footer-right:
-  default: 'right'
-author: 'auther'
-company: 'Company'
-logo: 'img/logo.png'
-pagesize: 'A4' # A4 / A3 / A4 landscape / A3 landscape
-book: true
-cover: true # whether to output the cover page or not.
-toc: true # whether to output toc or not. (if cover: false, always toc is not output)
-sectionNumberLevel: 2 # override config.toml settings.
-colophon: false # whether to output colophon page or not.
-outputs:
+pdfname : 'UserGuide' # PDF名称：サイト内で一意である必要があります
+doctitle: 'Hugo-theme-vivliocli' # タイトル：PDF表紙のタイトル
+subtitle: 'User Guide' # サブタイトル：PDF表紙のサブタイトル
+#doc_number: 'doc-number' # 文書番号：PDF表紙の文書番号
+header: '2023/4/7' # ヘッダー1：PDF表紙右上ヘッダー1行目
+#header2: 'header2' # ヘッダー2：PDF表紙右上ヘッダー2行目
+#footer-left: 'left' # 左フッター：PDF表紙左下フッター
+#footer-center: 'center' # 中央フッター：PDF表紙中央フッター
+#footer-right: 'right' # 右フッター：PDF表紙右下フッター
+author: 'mochimo' # 著者：PDF表紙著者名
+#company: 'Company' # 社名：PDF表紙社名
+#logo: 'img/logo.png' # ロゴ：PDF表紙左上ロゴ
+pagesize: 'A4' # PDFサイズ：A4 / A3 / A4 landscape / A3 landscape
+book: true # true:書籍スタイル false:シンプルスタイル
+cover: true # 表紙を出力するか
+toc: true # 目次を出力するか
+sectionNumberLevel: 2 # 章節番号の出力レベル
+colophon: false # 奥付を出力するか：trueの場合_colophon.mdが必要です。
+outputs: # VivlioCLI用Config出力：基本的に編集しません。
 - vivlio_cover
 - vivlio_config
 ---
-
-# はじめに
-
-{{< include introduction_ja.md >}}
