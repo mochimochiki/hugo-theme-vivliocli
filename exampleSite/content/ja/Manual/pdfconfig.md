@@ -1,5 +1,5 @@
 ---
-title: pdf configファイルの作成
+title: _pdf.mdの設定
 weight: 50
 ---
 

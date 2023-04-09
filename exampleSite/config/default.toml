@@ -5,7 +5,7 @@ baseURL = "https://mochimochiki.github.io/hugo-theme-vivliocli"
 themesdir = "../.."
 
 # site title
-title = "Hugo theme for Vivliosytle-cli."
+title = "Hugo-theme-vivliocli"
 
 theme = "hugo-theme-vivliocli"
 languageCode = "en"

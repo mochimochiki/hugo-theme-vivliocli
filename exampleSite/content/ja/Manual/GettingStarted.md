@@ -91,33 +91,17 @@ mkdir content/en/firstpdf
 
 ```bash
 ---
-pdfname :
-  default: 'firstpdf'
-doctitle:
-  default: 'My first pdf'
-subtitle:
-  default: 'subtitle'
-doc_number:
-  default: 'doc-number'
-header:
-  default: 'header'
-header2:
-  default: 'header2'
-footer-left:
-  default: 'left'
-footer-center:
-  default: 'center'
-footer-right:
-  default: 'right'
+pdfname: 'firstpdf'
+doctitle: 'My first pdf'
+subtitle: 'subtitle'
+header: '<日付>'
 author: 'auther'
-company: 'Company'
-logo: 'img/logo.png'
-pagesize: 'A4' # A4 / A3 / A4 landscape / A3 landscape
+pagesize: 'A4'
 book: true
-cover: true # whether to output the cover page or not.
-toc: true # whether to output toc or not. (if cover: false, always toc is not output)
-sectionNumberLevel: 2 # override config.toml settings.
-colophon: false # whether to output colophon page or not.
+cover: true
+toc: true
+sectionNumberLevel: 2
+colophon: false
 outputs:
 - vivlio_cover
 - vivlio_config
@@ -125,7 +109,7 @@ outputs:
 ```
 
 {{% note %}}
-詳細は[pdf configファイルの作成](./pdfconfig.html)を参照してください。
+詳細は[_pdf.mdの設定](./pdfconfig.html)を参照してください。
 {{% /note %}}
 
 ### 記事の作成
@@ -167,7 +151,7 @@ weight: 20
 
 以下のコマンドでHugoのプレビューを表示してメニューの`Languages` から`Japanese`を選択し、作成した記事が表示されることを確認します。記事を編集して保存すると、LiveReloadがかかり、プレビューも更新されます。
 
-```
+```bat
 hugo server --config config/default.toml
 ```
 
@@ -176,33 +160,23 @@ hugo server --config config/default.toml
 `Ctrl+C` でhugoのプレビューを終了し、以下のコマンドを実行してHugoサイトをビルドします。
 
 ```bat
-hugo --config config/default.toml,config/pdf.toml
+cd CI/windows
+build_pdf.bat
 ```
 
-`--config`オプションに`/config/pdf.toml`を追加で指定することで、`/config/pdf.toml`の設定をオーバーライドしています。詳細は[config.tomlの設定](./config.html)を参照してください。
+> エラーが出力された場合、PDFを開いたままにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+`/public_default/ja/firstPDF.pdf`が成果物です。確認してみましょう。
 
-```bat
-cd ./public_pdf/ja
-move /Y firstpdf/_pdf.vivlio.config.js .
-move /Y firstpdf/_pdf.vivlio.cover.html .
-vivliostyle build -c _pdf.vivlio.config.js
-```
+### 章節番号をカスタマイズする
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`は`_pdf.md`から生成されるVivliostyleのConfigファイルで、ビルド時に`/public_pdf/ja`直下に置く必要があります。
-
-`/public_pdf/ja/firstPDF.pdf`が成果物です。確認してみましょう。
-
-### セクション番号をカスタマイズする
-
-成果物には1.1、などのセクション番号の出力レベルは`_pdf.md`でカスタマイズすることができます。`_pdf.md`を開き、以下の箇所を変更してみましょう。
+`1.1`などの章節番号の出力レベルは`_pdf.md`でカスタマイズすることができます。`_pdf.md`を開き、以下の箇所を変更してみましょう。
 
 ```bash
 sectionNumberLevel: 2 # -> 1に変更
 ```
 
-また、トップレベルの出力形式やデリミタの設定は `/config/pdf.toml` で設定できます。
+また、トップレベルの出力形式やデリミタの設定は `/config/default.toml` で設定できます。
 
 ```bash
   [languages.ja.params]
@@ -212,28 +186,19 @@ sectionNumberLevel: 2 # -> 1に変更
 
 > その他のconfigパラメータについては[config.tomlの設定](./config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
 
-一旦`public_pdf`を削除し、今度は`build_pdf.bat`でビルドしてみます。
-
-```bat
-cd ../..
-rmdir public_pdf /s /q
-cd CI/windows
-build_pdf.bat
-```
-
-> エラーが出力された場合、PDFを開いたままにしていないか確認してください。開いているとPDFの上書きに失敗します。
-
-`/public_pdf/ja/firstpdf.pdf` で以下のことを確認します。
+`/public_default/ja/firstpdf.pdf` で以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
 * `sectionTopFormat`の指定を"Chapter %s"にしたことで「第1章」ではなく「Chapter 1」となっている
 
-
 ## NextStep
 
-* PDFの表紙や奥付をカスタマイズするには...
+* 原稿で利用できるMarkdownやShortcodesを確認する
+  * [MarkdownとShortcodes](./MarkdownShowcase.html)
+* PDFの表紙や奥付をカスタマイズする
   * [config.tomlの設定](./config.html)
-  * [pdf configファイルの作成](./pdfconfig.html)
-* 複数のエディションを作るには...[エディション](./edition.html)
+  * [_pdf.mdの設定](./pdfconfig.html)
+* 複数のエディションを作る
+  * [エディション](./edition.html)
 

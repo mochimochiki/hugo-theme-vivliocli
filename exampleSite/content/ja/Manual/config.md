@@ -3,13 +3,7 @@ title: config.tomlの設定
 weight: 40
 ---
 
-`config.toml`の主な項目の説明をします。設定項目については[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)も合わせて参照してください。
-
-## config.toml直下の設定項目
-
-### publishDir
-
-出力ディレクトリです。`public_(config名)`と設定します。例えば`pdf_sample`ディレクトリに配置した`config.toml`では`public_pdf_sample`と設定します。hugo-theme-vivliocliではpublishDirがこの命名規則に従っている前提でビルドが行われます。
+`config.toml`の主な項目の説明をします。設定項目については[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)や`default.toml`のコメントも合わせて参照してください。
 
 ## \[params\] の設定項目
 
@@ -17,11 +11,11 @@ weight: 40
 
 ### isPDF
 
-PDFかどうか。この設定は通常Webサイト用のconfig.tomlでは`false`としVivliostyleを使用したPDF生成用のconfig.tomlでは`true`にします。trueにすると各htmlページでのmenu生成が抑制されます。
+PDFかどうか。trueにすると各htmlページでのmenu生成が抑制されます。PDFビルド時は`true`に設定します。
 
 ### theme_css
 
-組版に使用するcssを指定します。`/static/css/yourtheme.css`を使用する場合`/css/yourtheme.css`と、指定します。vivliosytleのcssテーマファイルをここに配置して参照することでvivliostyleのテーマをあてることができます。なおデフォルトではテーマの`static/css`下にある`style-main.css`が参照されています。
+組版に使用するcssを指定します。`/static/css/yourtheme.css`を使用する場合`/css/yourtheme.css`と、指定します。デフォルトではテーマの`static/css`下にある`style-main.css`が参照されています。
 
 ### showIfs
 
@@ -35,7 +29,7 @@ showIfs = ["edition1", "edition2"]
 
 ### sectionNumberLevel
 
-`pdfconfig.md` をルートとして各記事に章・節版号を付加するレベルを指定します。0の場合章番号の付加は行われません。`_pdf.md`の設定が優先されます。
+デフォルトの章節番号を付加するレベルを指定します。0の場合章番号の付加は行われません。
 
 ### sectionDelimiter
 

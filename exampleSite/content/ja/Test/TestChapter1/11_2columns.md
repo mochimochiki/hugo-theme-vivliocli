@@ -103,7 +103,7 @@ outputs:
 
 {{% note %}}
 colophon: true とすると奥付ページも生成されます。`_pdfcolophon.md`も必要になります。
-参考：[pdf configファイルの作成](../Configuration/pdfconfig.html)
+参考：[_pdf.mdの設定](../Configuration/pdfconfig.html)
 {{% /note %}}
 
 ### 記事の作成
@@ -159,18 +159,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_default`にHugoサイトがビルドされました。firstpdfは`/public_default/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\ja
+cd .\public_default\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_default\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_default\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -185,17 +185,17 @@ sectionNumberLevel = 3 # -> 1に変更
 
 > その他のconfigパラメータについては[ヘルプの構成](../Configuration/config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
 
-一旦`public_pdf`を消して、今度は`build.bat`でビルドしてみます。
+一旦`public_default`を消して、今度は`build.bat`でビルドしてみます。
 
 ```bat
 cd ..\..
-rmdir public_pdf /s /q
+rmdir public_default /s /q
 .\CI\build.bat
 ```
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_default\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
@@ -306,7 +306,7 @@ outputs:
 
 {{% note %}}
 colophon: true とすると奥付ページも生成されます。`_pdfcolophon.md`も必要になります。
-参考：[pdf configファイルの作成](../Configuration/pdfconfig.html)
+参考：[_pdf.mdの設定](../Configuration/pdfconfig.html)
 {{% /note %}}
 
 ### 記事の作成
@@ -362,18 +362,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_default`にHugoサイトがビルドされました。firstpdfは`/public_default/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\ja
+cd .\public_default\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_default\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_default\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -388,17 +388,17 @@ sectionNumberLevel = 3 # -> 1に変更
 
 > その他のconfigパラメータについては[ヘルプの構成](../Configuration/config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
 
-一旦`public_pdf`を消して、今度は`build.bat`でビルドしてみます。
+一旦`public_default`を消して、今度は`build.bat`でビルドしてみます。
 
 ```bat
 cd ..\..
-rmdir public_pdf /s /q
+rmdir public_default /s /q
 .\CI\build.bat
 ```
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_default\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
@@ -509,7 +509,7 @@ outputs:
 
 {{% note %}}
 colophon: true とすると奥付ページも生成されます。`_pdfcolophon.md`も必要になります。
-参考：[pdf configファイルの作成](../Configuration/pdfconfig.html)
+参考：[_pdf.mdの設定](../Configuration/pdfconfig.html)
 {{% /note %}}
 
 ### 記事の作成
@@ -565,18 +565,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_default`にHugoサイトがビルドされました。firstpdfは`/public_default/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\ja
+cd .\public_default\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_default\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_default\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -591,17 +591,17 @@ sectionNumberLevel = 3 # -> 1に変更
 
 > その他のconfigパラメータについては[ヘルプの構成](../Configuration/config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
 
-一旦`public_pdf`を消して、今度は`build.bat`でビルドしてみます。
+一旦`public_default`を消して、今度は`build.bat`でビルドしてみます。
 
 ```bat
 cd ..\..
-rmdir public_pdf /s /q
+rmdir public_default /s /q
 .\CI\build.bat
 ```
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_default\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
@@ -712,7 +712,7 @@ outputs:
 
 {{% note %}}
 colophon: true とすると奥付ページも生成されます。`_pdfcolophon.md`も必要になります。
-参考：[pdf configファイルの作成](../Configuration/pdfconfig.html)
+参考：[_pdf.mdの設定](../Configuration/pdfconfig.html)
 {{% /note %}}
 
 ### 記事の作成
@@ -768,18 +768,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_default`にHugoサイトがビルドされました。firstpdfは`/public_default/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\ja
+cd .\public_default\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_default\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_default\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -794,17 +794,17 @@ sectionNumberLevel = 3 # -> 1に変更
 
 > その他のconfigパラメータについては[ヘルプの構成](../Configuration/config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
 
-一旦`public_pdf`を消して、今度は`build.bat`でビルドしてみます。
+一旦`public_default`を消して、今度は`build.bat`でビルドしてみます。
 
 ```bat
 cd ..\..
-rmdir public_pdf /s /q
+rmdir public_default /s /q
 .\CI\build.bat
 ```
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_default\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
@@ -915,7 +915,7 @@ outputs:
 
 {{% note %}}
 colophon: true とすると奥付ページも生成されます。`_pdfcolophon.md`も必要になります。
-参考：[pdf configファイルの作成](../Configuration/pdfconfig.html)
+参考：[_pdf.mdの設定](../Configuration/pdfconfig.html)
 {{% /note %}}
 
 ### 記事の作成
@@ -971,18 +971,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_default`にHugoサイトがビルドされました。firstpdfは`/public_default/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\ja
+cd .\public_default\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_default\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_default\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -997,17 +997,17 @@ sectionNumberLevel = 3 # -> 1に変更
 
 > その他のconfigパラメータについては[ヘルプの構成](../Configuration/config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
 
-一旦`public_pdf`を消して、今度は`build.bat`でビルドしてみます。
+一旦`public_default`を消して、今度は`build.bat`でビルドしてみます。
 
 ```bat
 cd ..\..
-rmdir public_pdf /s /q
+rmdir public_default /s /q
 .\CI\build.bat
 ```
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_default\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
@@ -1118,7 +1118,7 @@ outputs:
 
 {{% note %}}
 colophon: true とすると奥付ページも生成されます。`_pdfcolophon.md`も必要になります。
-参考：[pdf configファイルの作成](../Configuration/pdfconfig.html)
+参考：[_pdf.mdの設定](../Configuration/pdfconfig.html)
 {{% /note %}}
 
 ### 記事の作成
@@ -1174,18 +1174,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_default`にHugoサイトがビルドされました。firstpdfは`/public_default/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\ja
+cd .\public_default\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_default\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_default\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -1200,17 +1200,17 @@ sectionNumberLevel = 3 # -> 1に変更
 
 > その他のconfigパラメータについては[ヘルプの構成](../Configuration/config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
 
-一旦`public_pdf`を消して、今度は`build.bat`でビルドしてみます。
+一旦`public_default`を消して、今度は`build.bat`でビルドしてみます。
 
 ```bat
 cd ..\..
-rmdir public_pdf /s /q
+rmdir public_default /s /q
 .\CI\build.bat
 ```
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_default\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
@@ -1321,7 +1321,7 @@ outputs:
 
 {{% note %}}
 colophon: true とすると奥付ページも生成されます。`_pdfcolophon.md`も必要になります。
-参考：[pdf configファイルの作成](../Configuration/pdfconfig.html)
+参考：[_pdf.mdの設定](../Configuration/pdfconfig.html)
 {{% /note %}}
 
 ### 記事の作成
@@ -1377,18 +1377,18 @@ hugo -e pdf
 
 `-e`オプションに`pdf`をつけることで、`/config/pdf/config.toml`の設定を適用しています。詳細は[config.tomlの設定](../Configuration/config.html)を参照してください。
 
-これで`/public_pdf`にHugoサイトがビルドされました。firstpdfは`/public_pdf/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
+これで`/public_default`にHugoサイトがビルドされました。firstpdfは`/public_default/ja/firstpdf`に出力されているはずです。次にfirstpdfを`vivliostyle-cli`でPDF出力します。
 
 ```bat
-cd .\public_pdf\ja
+cd .\public_default\ja
 move /Y firstpdf\_pdf.vivlio.config.js .
 move /Y firstpdf\_pdf.vivlio.cover.html .
 vivliostyle build -c _pdf.vivlio.config.js
 ```
 
-`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_pdf\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
+`_pdf.vivlio.config.js`, `_pdf.vivlio.cover.html`を移動しています。これらは`_pdf.md`から生成されたもので、ビルド時に`.\public_default\ja`直下に置く必要があるため、あらかじめ移動してからconfigファイルを指定してビルドしています。
 
-`\public_pdf\ja\firstPDF.pdf`が成果物です。確認してみましょう。
+`\public_default\ja\firstPDF.pdf`が成果物です。確認してみましょう。
 
 ### セクション番号をカスタマイズする
 
@@ -1403,17 +1403,17 @@ sectionNumberLevel = 3 # -> 1に変更
 
 > その他のconfigパラメータについては[ヘルプの構成](../Configuration/config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
 
-一旦`public_pdf`を消して、今度は`build.bat`でビルドしてみます。
+一旦`public_default`を消して、今度は`build.bat`でビルドしてみます。
 
 ```bat
 cd ..\..
-rmdir public_pdf /s /q
+rmdir public_default /s /q
 .\CI\build.bat
 ```
 
 > もしエラーが出力された場合、PDFを開きっぱなしにしていないか確認してください。開いているとPDFの上書きに失敗します。
 
-`public_pdf\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
+`public_default\ja\firstpdf.pdf` を見てみましょう。以下のことを確認します。
 
 * `sectionNumberLevel = 1`としたことでセクション番号がトップレベルのみ表示されている
 * 同時にPDFの目次にもトップレベルのみが表示されるようになっている
