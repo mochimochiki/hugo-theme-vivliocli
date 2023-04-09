@@ -7,7 +7,7 @@ weight: 60
 
 ## エディションのconfigを作成する
 
-`/config/pdf_other`というディレクトリを作成し、`/config/pdf_sample/config.toml`をコピーして編集することで簡単に`pdf_other`エディションを作成することができます。それぞれのエディションのconfigは[config.tomlの設定](./config.html)に沿って編集します。以下では主要な設定変更について説明します。
+`/config/myedition.toml`を作成し、ビルド時に`default.toml`とともに指定することで簡単に`myedition`エディションを作成することができます。
 
 ### 特定要素の表示/非表示を切り替える
 
