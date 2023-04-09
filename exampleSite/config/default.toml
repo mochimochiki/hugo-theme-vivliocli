@@ -9,7 +9,7 @@ title = "Hugo theme for Vivliosytle-cli."
 
 theme = "hugo-theme-vivliocli"
 languageCode = "en"
-DefaultContentLanguage = "en"
+defaultContentLanguage = "en"
 enableInlineShortcodes = true
 disablePathToLower= true
 enableGitInfo = false
@@ -49,7 +49,7 @@ canonifyURLs = true
 
     # github edit URL. specify your content directory.
     # editURL = "https://github.com/your/repository/edit/main/content"
-    
+
     # section delimiter. "-" -> 1-1-2
     # sectionDelimiter = "-"
 
@@ -61,6 +61,9 @@ canonifyURLs = true
 
     # if true, page counter is started after table of content.
     pageCountAfterToc = true
+
+    # if true, role: "doc-chapter" is rendered as inpage chapter.
+    inPageChapterPDF = true
 
     # if true, output debug log
     debug = false

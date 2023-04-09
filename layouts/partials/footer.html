@@ -15,7 +15,7 @@ footer.html
 {{- end }}
 
 {{- /* PDF化時にフォーマット崩れを防ぐため事前レンダリングするscriptはここに記載する */}}
-{{- if .Params.math | or (.Page.Scratch.Get "use_mathjax") | or (.Page.Scratch.Get "use_mermaid") }}
+{{- if .Params.math | or (.Page.Scratch.Get "use_mathjax") | or .Params.mermaid | or (.Page.Scratch.Get "use_mermaid") }}
 <div id="pre_rendering_type_js">
 {{- /* Mathjax */}}
 {{- if .Params.math | or (.Page.Scratch.Get "use_mathjax") }}
@@ -33,7 +33,7 @@ footer.html
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
 {{- end }}
 {{- /* Mermaid */}}
-{{- with .Page.Scratch.Get "use_mermaid" }}
+{{- with .Params.mermaid | or (.Page.Scratch.Get "use_mermaid") }}
   {{- if $.Site.Params.isPDF }}<span class=""@pre_rendering_type_js></span>{{ end }}
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script>mermaid.initialize({startOnLoad: true});</script>

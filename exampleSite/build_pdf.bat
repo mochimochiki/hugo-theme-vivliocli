@@ -1,2 +1,2 @@
 @echo off
-call ./CI/windows/build_pdf.bat pdf
+call ./CI/windows/build_pdf.bat

@@ -2,8 +2,8 @@
 
 :: set config
 if "%1" == "" (
-  echo "arg1:config was not specified. Build with [pdf.toml] ..."
-  set hugo_env="pdf"
+  echo "arg1:config was not specified. Build with [default.toml] ..."
+  set hugo_env="default"
 ) else (
   set hugo_env=%1
 )
