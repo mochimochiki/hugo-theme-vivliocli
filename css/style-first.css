@@ -1,10 +1,23 @@
 @page :first {
   margin-left: 8%;
   margin-right: 8%;
+  @top-left-corner {
+    border-bottom: none;
+    background-color: #fff;
+    color: #000;
+  }
   @top-center {
     content: string(top-center, first)'\A'string(top-center2, first);
     white-space: pre;
     text-align: right;
+    border-bottom: none;
+    background-color: #fff;
+    color: #000;
+  }
+  @top-right-corner {
+    border-bottom: none;
+    background-color: #fff;
+    color: #000;
   }
   @bottom-left {
     content: string(bottom-left, first);
@@ -26,4 +39,13 @@
     white-space: pre;
     border-right: none;
   }
+}
+
+/* logo */
+#cover-logo {
+  position: absolute;
+  padding: 0mm;
+  width: 20%;
+  left: 0mm;
+  top: 0mm;
 }

@@ -11,6 +11,8 @@
   --menu-width: 350px;
   --content-width: 5000px;
   --toc-min-width: 300px;
+  --theme-color: #555559;
+  --theme-text-color: #fafafa;
 }
 
 /* -------------------- */
@@ -50,15 +52,15 @@ h1 {
   padding-left: 1.5rem;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
-  color: #fafafa;
-  background: #333;
+  border-left: solid 5px var(--theme-color);
+  background: #eee;
 }
 h2 {
   margin-top: 3rem;
   margin-bottom: 0.5rem;
   font-size: 1.8rem;
   line-height: 1.2;
-  border-bottom: solid #333;
+  border-bottom: solid var(--theme-color);
   border-width: 1px;
 }
 h3 {
@@ -382,16 +384,16 @@ caption span.caption-number::after {
   margin-left: 10%;
   margin-right: 10%;
   @top-left-corner {
-    background-color: #333;
-    color: #fafafa;
+    background-color: var(--theme-color);
+    color: var(--theme-text-color);
     margin-bottom: 25%; /* 8% * 25% = 2%. ヘッダー描画域は全体の6% */
     content: "";
     font-size: 0.8rem;
     font-weight: 400;
   }
   @top-center {
-    background-color: #333;
-    color: #fafafa;
+    background-color: var(--theme-color);
+    color: var(--theme-text-color);
     margin-bottom: 25%;
     padding: 2mm;
     text-align: left;
@@ -401,8 +403,8 @@ caption span.caption-number::after {
     font-weight: 400;
   }
   @top-right-corner {
-    background-color: #333;
-    color: #fafafa;
+    background-color: var(--theme-color);
+    color: var(--theme-text-color);
     margin-bottom: 25%;
     content: "";
     font-size: 0.8rem;
@@ -463,8 +465,8 @@ div.cover-bottom-right {
 }
 
 [role="doc-cover"] #cover-title {
-  color: #fafafa;
-  background-color: #333;
+  color: var(--theme-text-color);
+  background-color: var(--theme-color);
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
@@ -472,6 +474,8 @@ div.cover-bottom-right {
   font-size: 3rem;
   margin-right: 2rem;
   margin-left: 2rem;
+  color: var(--theme-text-color);
+  background: var(--theme-color);
 }
 [role="doc-cover"] h1,
 [role="doc-cover"] h2,
@@ -521,8 +525,8 @@ div.cover-bottom-right {
 
 /* doc-part */
 [role="doc-part"] {
-  background-color: #333;
-  color: #fafafa;
+  background-color: var(--theme-color);
+  color: var(--theme-text-color);
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-left: 2rem;
@@ -530,6 +534,8 @@ div.cover-bottom-right {
 }
 
 [role="doc-part"] h1 {
+  color: var(--theme-text-color);
+  background: var(--theme-color);
   margin-right: 20%;
   font-size: 3.5rem;
 }
@@ -540,7 +546,10 @@ div.cover-bottom-right {
 
 /* doc-chapter */
 [role="doc-chapter"] h1.doc-chapter {
-  border-left: solid 5px #333;
+  border-left: solid 5px var(--theme-color);
+  border-bottom: none;
+  border-right: none;
+  border-top: none;
   font-size: 3rem;
   background-color: initial;
   color: initial;
@@ -738,7 +747,7 @@ div.cover-bottom-right {
     width: var(--menu-width);
     position: fixed;
     overflow: auto;
-    color: #fff;
+    color: #fafafa;
     background: #333;
     padding: 0px 20px;
     margin-left: 0px;
@@ -931,7 +940,7 @@ div.cover-bottom-right {
   }
   /* accordion checked = close */
   #accordion-btn-check:checked ~ .accordion-btn {
-    background-color: #333;
+    background-color: var(--theme-color);
     left: 0px;
   }
   #accordion-btn-check:checked ~ .accordion-btn:hover span {
@@ -972,7 +981,7 @@ div.cover-bottom-right {
   }
   /* right-accordion checked = close */
   #right-accordion-btn-check:checked ~ .right-accordion-btn {
-    background-color: #333;
+    background-color: var(--theme-color);
     left: calc(100% - 15px);
   }
   #right-accordion-btn-check:checked ~ .right-accordion-btn:hover span {
@@ -1072,7 +1081,7 @@ div.cover-bottom-right {
   }
   .pagetoc-accordion-btn {
     color: #fafafa;
-    background: #333;
+    background: var(--theme-color);
     display: block;
     margin-bottom: 1px;
     padding: 10px;
@@ -1128,7 +1137,7 @@ div.cover-bottom-right {
     justify-content: center;
     align-items: center;
     z-index: 90;
-    background-color: #333;
+    background-color: var(--theme-color);
   }
   .humburger-btn span,
   .humburger-btn span:before,
@@ -1174,7 +1183,7 @@ div.cover-bottom-right {
     left: 100%;
     z-index: 80;
     transition: all 0.5s;
-    background-color: #333;
+    background-color: var(--theme-color);
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     font-size: 1.2rem;
