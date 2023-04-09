@@ -10,6 +10,8 @@ title: Hugo-theme-vivliocli
 
 `_pdf.md`ファイルが配置された任意のセクションを、<u>**表紙・目次・しおり・章番号・ページ番号を含む組版PDF**</u>として出力できます（[Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli)により実現）。出力形式は左右ページを使用する書籍スタイルと全ページが同じシンプルスタイルを選択できます。章節番号はMarkdownファイルの階層とヘッダレベルに基き自動で割り当てられます。章節番号の出力レベルや最上位レベルのフォーマット（第X章など）を指定できます。
 
+この User Guide がHugo-theme-vivliocliによるサイトのサンプルも兼ねています。PDFは[こちら](./UserGuide.pdf)。
+
 ![ ](assets/hugo-theme-vivliocli.png?width=50%)
 
 #### セル結合を含む複雑な表の描画
