@@ -93,8 +93,8 @@ title = "My PDF Site"
 `content`下に`ja/firstpdf`,`en/firstpdf`ディレクトリを作成します。
 
 ```bat
-mkdir content/ja/firstpdf
-mkdir content/en/firstpdf
+mkdir content\ja\firstpdf
+mkdir content\en\firstpdf
 ```
 
 次に`ja/firstpdf/_pdf.md`ファイルを作成して以下のように編集し、文字コードUTF-8で保存します。このファイルはPDFの表紙/前書/目次となります。`_pdf.md`を配置したディレクトリ下がPDF出力の単位となります。
@@ -162,7 +162,7 @@ weight: 20
 以下のコマンドでHugoのプレビューを表示してメニューの`Languages` から`Japanese`を選択し、作成した記事が表示されることを確認します。記事を編集して保存すると、LiveReloadがかかり、プレビューも更新されます。
 
 ```bat
-hugo server --config config/default.toml
+hugo server --config config\default.toml
 ```
 
 ### ビルド
@@ -170,7 +170,7 @@ hugo server --config config/default.toml
 `Ctrl+C` でhugoのプレビューを終了し、以下のコマンドを実行してHugoサイトをビルドします。
 
 ```bat
-cd CI/windows
+cd CI\windows
 build_pdf.bat
 ```
 
