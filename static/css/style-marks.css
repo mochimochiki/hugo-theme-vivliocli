@@ -1,0 +1,37 @@
+:root {
+  --bleed: 3mm;
+  --bleedmargin: -3mm;
+}
+
+@page {
+  marks: crop cross;
+  bleed: var(--bleed);
+  @top-left-corner {
+    margin-left: var(--bleedmargin);
+    margin-top: var(--bleedmargin);
+  }
+  @top-center {
+    margin-top: var(--bleedmargin);
+  }
+  @top-right-corner {
+    margin-top: var(--bleedmargin);
+    margin-right: var(--bleedmargin);
+  }
+  @bottom-left-corner {
+    margin-bottom: var(--bleedmargin);
+    margin-left: var(--bleedmargin);
+  }
+  @bottom-left {
+    margin-bottom: var(--bleedmargin);
+  }
+  @bottom-center {
+    margin-bottom: var(--bleedmargin);
+  }
+  @bottom-right {
+    margin-bottom: var(--bleedmargin);
+  }
+  @bottom-right-corner {
+    margin-bottom: var(--bleedmargin);
+    margin-right: var(--bleedmargin);
+  }
+}

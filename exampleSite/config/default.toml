@@ -32,6 +32,9 @@ canonifyURLs = true
     # book style css. This is loaded for "book: true" pdf. you can add or replace to original css.
     book_css = [ "/css/style-book.css" ]
 
+    # marks style css. This is loaded for "marks: true" pdf. you can add or replace to original css.
+    marks_css = [ "/css/style-marks.css" ]
+
     # cover page css. you can add or replace to original css.
     cover_css = [ "/css/style-first.css" ]
 

@@ -22,6 +22,13 @@
   <link rel="stylesheet" href="{{ . | relURL }}">
   {{- end}}
   {{- end }}
+  {{- /* pdf marks */}}
+  {{- $ismarks := partial "functions/getRootPDFParam.html" (dict "this" . "pdfparam" "marks") }}
+  {{- if eq $ismarks true }}
+  {{- range .Site.Params.marks_css }}
+  <link rel="stylesheet" href="{{ . | relURL }}">
+  {{- end }}
+  {{- end}}
   {{- /* other css   */}}
   {{- range .Site.Params.custom_css }}
   <link rel="stylesheet" href="{{ . | relURL }}">
