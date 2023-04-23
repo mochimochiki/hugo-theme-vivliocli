@@ -58,9 +58,6 @@ div.doc-part {
 #vivlio-colophon {
   break-before: left;
 }
-#vivlio-colophon-blank {
-  break-before: right;
-}
 
 @media print {
   div.doc-part-blank::before {

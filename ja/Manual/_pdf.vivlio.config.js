@@ -12,6 +12,7 @@ module.exports = {
     '../ja/Manual/pdfconfig.html',
     '../ja/Manual/edition.html',
     '../ja/Manual/Tags.html',
+    '_pdfcolophon.vivlio.colophon.html'
   ],
   output: [
     'UserGuide.pdf'
