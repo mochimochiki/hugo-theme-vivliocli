@@ -10,14 +10,18 @@ tags: ["tutorial"]
 
 ## インストール
 
-[Hugo](https://gohugo.io/)`v0.94.0`以上をインストールします。
+### Hugoのインストール
+
+[Hugo](https://gohugo.io/)`v0.94.0`以上を[公式ページのインストール手順](https://gohugo.io/installation/windows/)に従いインストールします。インストールが完了したら、以下のコマンドでHugoのバージョンが表示されることを確認します。
 
 ```bat
 hugo version
 :: Hugo Static Site Generator vx.xx.x ...
 ```
 
-本テーマでは[vivliostyle-cli](https://github.com/vivliostyle/vivliostyle-cli)を利用してPDF出力を行うため、[Node.js](https://nodejs.org/ja/)上で動作するvivliostyle-cliのインストールを実施します。
+### Node.jsとVivliostyleのインストール
+
+[Node.js](https://nodejs.org/ja/)のLTS版をインストールします。インストールが完了したら、以下のコマンドでNode.jsおよびnpmのバージョンが表示されることを確認します。
 
 ```bat
 node -v
@@ -26,39 +30,45 @@ node -v
 
 npm -v
 :: X.X.X
+```
 
+次にnpmで[vivliostyle-cli](https://github.com/vivliostyle/vivliostyle-cli)をインストールします。インストールが完了したら、vivliostyleのバージョンが表示されることを確認します。
+
+```bat
 npm install -g @vivliostyle/cli
 vivliostyle -v
 :: cli: X.X.X
 :: core: X.X.X
 ```
 
-### hugo-theme-vivliocliのインストール
+### サイト作成とテーマのインストール
 
-新しいプロジェクトを作成します。ここでは`myPDF`という名称とします。
+Hugoで新しいサイトを作成します。ここでは`myPDF`という名称とします。
 
 ```bat
 hugo new site myPDF
 cd myPDF
 ```
 
-次に本テーマをsubmoduleとして導入します。
+[releases](https://github.com/mochimochiki/hugo-theme-vivliocli/releases)から最新の`Source code (zip)`をダウンロード・解凍し、`/themes/hugo-theme-vivliocli`に配置します。
+
+{{% note %}}
+gitを利用する場合、submoduleとして導入することもできます。
 
 ```bat
 git init
 git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hugo-theme-vivliocli
 ```
-
-gitを利用しない場合は、[zip](https://github.com/mochimochiki/hugo-theme-vivliocli/archive/main.zip)をダウンロード・解凍し、`/themes/hugo-theme-vivliocil`に配置します。
+{{% /note %}}
 
 ### exampleSiteからファイルをコピーする
 
 テーマの中にテンプレートとして利用できるexampleSiteがあります。exampleSiteから必要なファイルをコピーします。また、デフォルトのconfig.tomlは削除しておきます。
 
 ```bat
-xcopy /s themes/hugo-theme-vivliocli/exampleSite/config config/
-xcopy /s themes/hugo-theme-vivliocli/exampleSite/CI CI/
-rm config.toml
+xcopy /s themes\hugo-theme-vivliocli\exampleSite\config config\
+xcopy /s themes\hugo-theme-vivliocli\exampleSite\CI CI\
+del config.toml
 ```
 
 ## 最初のサイトの作成
@@ -94,7 +104,7 @@ mkdir content/en/firstpdf
 pdfname: 'firstpdf'
 doctitle: 'My first pdf'
 subtitle: 'subtitle'
-header: '<日付>'
+header: '2023/1/1'
 author: 'auther'
 pagesize: 'A4'
 book: true
