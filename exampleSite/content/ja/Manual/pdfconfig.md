@@ -17,22 +17,33 @@ weight: 50
 ```toml
 ---
 pdfname :
-  default: "pdfファイル名"
+  default: "pdfファイル名" # PDF名称：サイト内で一意である必要があります
   # editionA: "editionAファイル名"
 doctitle:
-  default: "表紙タイトル"
+  default: "表紙タイトル" # タイトル：PDF表紙のタイトル
   # editionA: "editionA表紙タイトル"
 subtitle:
-  default: "表紙サブタイトル"
+  default: "表紙サブタイトル" # サブタイトル：PDF表紙のサブタイトル
   # editionA: "editionA表紙サブタイトル"
 doc_number:
-  default: "文書番号"
+  default: "文書番号" # 文書番号：PDF表紙の文書番号
   # editionA: "editionA文書番号"
-author: "著者"
-company: "会社"
-pagesize: "A4"
-colophon: true
-outputs:
+header: '2023/4/7' # ヘッダー1：PDF表紙右上ヘッダー1行目
+header2: 'header2' # ヘッダー2：PDF表紙右上ヘッダー2行目
+footer-left: 'left' # 左フッター：PDF表紙左下フッター
+footer-center: 'v0.16.1' # 中央フッター：PDF表紙中央フッター
+footer-right: 'right' # 右フッター：PDF表紙右下フッター
+author: 'mochimo' # 著者：PDF表紙著者名
+company: 'Company' # 社名：PDF表紙社名
+logo: 'img/logo.png' # ロゴ：PDF表紙左上ロゴ
+pagesize: 'A5' # PDFサイズ：A5 / A4 / A3 / A4 landscape / A3 landscape
+book: true # true:書籍スタイル false:シンプルスタイル
+marks: false # true:トンボを出力するスタイル
+cover: true # 表紙を出力するか
+toc: true # 目次を出力するか
+sectionNumberLevel: 2 # 章節番号の出力レベル
+colophon: false # 奥付を出力するか：trueの場合_colophon.mdが必要です。
+outputs: # VivlioCLI用Config出力：基本的に編集しません。
 - vivlio_cover
 - vivlio_config
 ---
@@ -60,25 +71,9 @@ PDFファイル名です。必須です。`/content/<language>`以下では競�
 
 表紙に表示する文書番号です。エディションごとに切替可能です。
 
-### author
+### その他
 
-表紙に表示する著者です。
-
-### company
-
-表紙に表示する会社名です。
-
-### pagesize
-
-ページサイズです。必須です。vivliostyle.config.jsのpagesize項目になります。A4/A5など。
-
-### colophon
-
-奥付を生成するかどうか。trueで生成します。trueの場合に後述の_pdfcolophon.mdが必要になります。
-
-### outputs
-
-configファイルを生成するために必要な記述です。変更せずこのまま記載します。必須です。
+その他の項目はエディションごとに切り替え不可です。各項目の解説は`_pdf.md`のコメントを参照してください。
 
 ## _pdfcolophon.md
 
