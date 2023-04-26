@@ -59,6 +59,8 @@ tags: ["tutorial"]
 
 ### 表
 
+より高度な表現ができる[include](#include) も参照してください。
+
 | No. | item | note |
 | --- | --- | --- |
 | 1    | AAA    | noteA |
