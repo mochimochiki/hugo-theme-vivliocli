@@ -14,6 +14,10 @@ weight: 30
 `role: doc-part` : _index.mdはパートの表紙ページとしてPDF出力されます。
 `role: doc-chapter` : _index.mdはチャプターのタイトル及び最初の記事としてPDF出力されます。
 
+{{% note %}}
+`_pdf.md`と同階層の`_index.md`はPDFには出力されません。
+{{% /note %}}
+
 ## 各記事のフロントマター
 
 ### ShowIf

@@ -29,7 +29,7 @@ showIfs = ["edition1", "edition2"]
 
 ### sectionNumberLevel
 
-デフォルトの章節番号を付加するレベルを指定します。0の場合章番号の付加は行われません。
+章節番号を付加するレベルを指定します。0の場合章番号の付加は行われません。
 
 ### sectionDelimiter
 

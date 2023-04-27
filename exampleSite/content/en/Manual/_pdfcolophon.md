@@ -1,5 +1,5 @@
 ---
-title: "奥付"
+title: "colophon"
 outputs:
 - vivlio_colophon
 ---
@@ -8,12 +8,12 @@ outputs:
 
 ### Hugo-theme-vivliocli User Guide
 
-2023年4月23日
+April 26, 2023
 
 | | |
 | -- | --  |
-|著者| mochimo |
-|編集| mochimo |
+|Author| mochimo |
+|Editor| mochimo |
 
 © mochimo
 

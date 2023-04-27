@@ -200,7 +200,7 @@ URLクエリパラメータとして属性を付加すれば画像サイズ変�
 
 ### note
 
-注記です。以下のように`note`ショートコードで囲まれた部分が注記としてレンダリングされます。
+以下のように`note`ショートコードで囲まれた部分が注記としてレンダリングされます。
 
 ```
 {{%/* note */%}}
@@ -235,13 +235,18 @@ URLクエリパラメータとして属性を付加すれば画像サイズ変�
 
 ### include
 
-Markdownファイル、csvファイルの「部品」を用意しておき、原稿の任意の箇所に「挿し込む」事ができます。部品ファイルを`/content/<language>/_include`以下に配置しておけば、以下のショートコードでincludeすることができます。
+Markdownファイル、csvファイルの「部品」を用意しておき、記事の任意の箇所に「挿し込む」事ができます。`.`からパスを記述することで相対パス指定で読み込み可能です。
+
+```bash
+{{</* include "./test.csv"  */>}} # /(md file dir path)/test.csv
+```
+
+また、部品ファイルを`/content/<language>/_include`以下に配置しておけば、以下のようにincludeすることができます。
 
 ```bash
 {{</* include "test_ja.md"  */>}} # /content/ja/_include/test_ja.md
 {{</* include "/sample/sample_ja.md" */>}} # /content/ja/_include/sample/sample_ja.md
 {{</* include "test_ja.csv"  */>}} # /content/ja/_include/test_ja.csv
-{{</* include "./test.csv"  */>}} # /(md file dir path)/test_ja.csv
 ```
 
 * _includeディレクトリ内のMarkdownにはフロントマターは記載しません。

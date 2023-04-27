@@ -32,7 +32,7 @@ npm -v
 :: X.X.X
 ```
 
-次にnpmで[vivliostyle-cli](https://github.com/vivliostyle/vivliostyle-cli)をインストールします。インストールが完了したら、vivliostyleのバージョンが表示されることを確認します。
+次にnpmで[vivliostyle-cli](https://github.com/vivliostyle/vivliostyle-cli)をインストールします。インストールが完了したら、Vivliostyleのバージョンが表示されることを確認します。
 
 ```bat
 npm install -g @vivliostyle/cli

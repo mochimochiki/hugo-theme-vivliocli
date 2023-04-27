@@ -43,7 +43,7 @@ weight: 60
   showIfs = ["edition1"]
 ```
 
-`config.toml`に上記の用に"edition1"を含むとき、以下のページはPDFに含まれることになります。
+`config.toml`に"edition1"を含むとき、以下のページはPDFに含まれることになります。
 
 ```
 ---
@@ -51,8 +51,6 @@ title: edition1の説明
 ShowIf: ["edition1"]
 ---
 ```
-
-> `config.toml`で `showIfs = ["@all-pages"]` のように、`@all-pages` を含めると、各記事にShowIfフロントマターが書かれていても強制的に全ページをPDF描画対象とします。
 
 `HideIf`を使用し以下のようにすると、edition1のPDFには含まれなくなります。
 
@@ -66,8 +64,15 @@ HideIf: ["edition1"]
 
 ## ビルドする
 
-エディションを指定してビルドするには、引数にエディションを指定します。例えば`pdf_other`エディションをビルドするには以下のように指定します。
+エディションを指定してビルドするには、引数にエディションを指定します。例えば`other`エディションをビルドするには以下のように指定します。
 
+**Hugo**
 ```
-.\CI\build.bat pdf_other
+set HUGO_PARAMS_ISPDF=true
+hugo --config "config/default.toml","config/other.toml" -b ""
+```
+
+**Batch**
+```
+.\CI\build_pdf.bat other
 ```
