@@ -1,10 +1,10 @@
 # hugo-theme-vivliocli
 
-![ ](exampleSite/content/en/assets/hugo-theme-vivliocli.png)
-
 `hugo-theme-vivliocli` is a Hugo theme for building <u>**document sites that can output typeset PDF**</u>. This theme utilizes [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli) to output any section of the site as a typeset PDF.
 
 [![github pages](https://github.com/mochimochiki/hugo-theme-vivliocli/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/mochimochiki/hugo-theme-vivliocli/actions/workflows/gh-pages.yml)
+
+![ ](exampleSite/content/en/assets/hugo-theme-vivliocli.png)
 
 ## Features
 
