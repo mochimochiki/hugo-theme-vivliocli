@@ -10,7 +10,7 @@
 
 Any section of the site with an `_pdf.md` file can be output as a <u>**typeset PDF with cover, table of contents, bookmarks, chapter numbers, and page numbers**</u> (powered by [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli)). You can select between a book style with left and right pages or a simple style with all pages being the same. Chapter numbers are automatically assigned based on the hierarchy and header level of the Markdown file. You can specify the output level of chapter numbers and the format of the top-level (e.g. "Chapter X").
 
-This User Guide is also a sample site built with Hugo-theme-vivliocli. The PDF is available [here](/exampleSite/content/ja/UserGuide.pdf).
+This User Guide is also a sample site built with Hugo-theme-vivliocli. The PDF is available [here](/exampleSite/content/en/UserGuide.pdf).
 
 ![ ](exampleSite/content/ja/assets/hugo-theme-vivliocli.png)
 
@@ -35,7 +35,8 @@ git init
 git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hugo-theme-vivliocli
 ```
 
-see the [Hugo theme for Vivliostyle-cli Guide (Japanese)](https://mochimochiki.github.io/hugo-theme-vivliocli/ja/) for details.
+see the [User Guide](https://mochimochiki.github.io/hugo-theme-vivliocli/en/) for details.
+[日本語はこちら](https://mochimochiki.github.io/hugo-theme-vivliocli/ja/)
 
 ## Prerequisites
 
