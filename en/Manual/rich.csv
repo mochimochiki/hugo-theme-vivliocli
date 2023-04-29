@@ -1,0 +1,9 @@
+id,category, name,notes
+001,fruit, apple,![](assets/Apple.png)
+002,||, orange,"* setoka
+* kanpei"
+003,||, grape,delaware
+004,snacks, potato chips,"* Plain
+* Salt and Vineger"
+005,||, candy,"* orange
+* grape"
