@@ -1,0 +1,5 @@
+{{- $url := .Destination }}
+{{- if strings.HasSuffix .Destination "md" }}
+  {{- $url = $url | replaceRE "\\.md$" ".html" }}
+{{- end }}
+<a href="{{$url | safeURL}}">{{.Text | safeHTML }}</a>
