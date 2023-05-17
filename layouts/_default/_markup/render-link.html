@@ -1,5 +1,13 @@
-{{- $url := .Destination }}
-{{- if strings.HasSuffix .Destination "md" }}
-  {{- $url = $url | replaceRE "\\.md$" ".html" }}
+{{- $url := .Destination | safeURL | urls.Parse }}
+{{- $path := $url.Path }}
+{{- if strings.HasSuffix $path "md" }}
+  {{- $path = $path | replaceRE "\\.md$" ".html" }}
+  {{- if ne $url.RawQuery "" }}
+    {{- $path = printf "%s?%s" $path $url.RawQuery }}
+  {{- end }}
+  {{- if ne $url.Fragment "" }}
+    {{- $path = printf "%s#%s" $path $url.Fragment }}
+  {{- end }}
+  {{- $url = $path | safeURL | urls.Parse }}
 {{- end }}
 <a href="{{$url | safeURL}}">{{.Text | safeHTML }}</a>
