@@ -3,7 +3,7 @@ pdfname : 'UserGuide' # PDF名称：サイト内で一意である必要があ�
 doctitle: 'Hugo-theme-vivliocli' # タイトル：PDF表紙のタイトル
 subtitle: 'User Guide' # サブタイトル：PDF表紙のサブタイトル
 #doc_number: 'doc-number' # 文書番号：PDF表紙の文書番号
-header: '2023/4/7' # ヘッダー1：PDF表紙右上ヘッダー1行目
+header: '{{% now "2006/01/02" %}}' # ヘッダー1：PDF表紙右上ヘッダー1行目
 #header2: 'header2' # ヘッダー2：PDF表紙右上ヘッダー2行目
 #footer-left: 'left' # 左フッター：PDF表紙左下フッター
 footer-center: 'v0.16.1' # 中央フッター：PDF表紙中央フッター
