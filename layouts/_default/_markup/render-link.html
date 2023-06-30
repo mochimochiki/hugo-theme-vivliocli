@@ -1,7 +1,7 @@
 {{- $url := .Destination | safeURL | urls.Parse }}
 {{- $path := $url.Path }}
 {{- if strings.HasSuffix $path "md" }}
-  {{- if not (strings.HasPrefix $url.Scheme "http") }}
+  {{- if not $url.IsAbs }}
     {{- $path = $path | replaceRE "\\.md$" ".html" }}
     {{- if ne $url.RawQuery "" }}
       {{- $path = printf "%s?%s" $path $url.RawQuery }}
