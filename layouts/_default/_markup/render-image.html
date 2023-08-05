@@ -6,7 +6,7 @@
 {{- if .PlainText | findRE "[^\\s]" }}
 {{- /* 代替テキストがあるならキャプション表示 */}}
 <figure {{ if $ispdf | and (gt $maxheight 0) }}style="max-height: {{ $maxheight}}mm;"{{ end }}>
-  <img src="{{ $url.Path }}" alt="{{ .PlainText }}" {{ with .PlainText }} class="fig"{{ end }} {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
+  <img src="{{ $url }}" alt="{{ .PlainText }}" {{ with .PlainText }} class="fig"{{ end }} {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
   {{- with .PlainText }}
     <figcaption>
       <span class="fig-number"></span>{{ . }}
@@ -16,9 +16,9 @@
 {{- else if .PlainText }}
 {{- /* 代替テキストが空白のみなら中央寄せ */}}
 <figure {{ if $ispdf | and (gt $maxheight 0) }}style="max-height: {{ $maxheight}}mm;"{{ end }}>
-  <img src="{{ $url.Path }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
+  <img src="{{ $url }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
 </figure>
 {{- else }}
 {{- /* 代替テキストなしならimgのみ */}}
-<img src="{{ $url.Path }}" {{ if $ispdf | and (gt $maxheight 0) }}style="max-height: {{ $maxheight}}mm;"{{ end }} alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
+<img src="{{ $url }}" {{ if $ispdf | and (gt $maxheight 0) }}style="max-height: {{ $maxheight}}mm;"{{ end }} alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
 {{- end }}
