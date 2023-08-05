@@ -3,6 +3,11 @@
 {{- $ispdf := .Page.Site.Params.isPDF }}
 {{- $pdfSize := partial "functions/getRootPDFParam.html" (dict "this" .Page "pdfparam" "pagesize") }}
 {{- $maxheight := partial "functions/getPDFContentHeight_mm.html" $pdfSize }}
+{{- if .Page.IsSection | and (ne .Page.Site.Params.legacy_index_link true) | and (not $url.IsAbs) }}
+  {{- $sectionName := .Page.Section }}
+  {{- $path := (printf "%s/%s" $sectionName $url.Path ) | urlize}}
+  {{- $url = $path | safeURL | urls.Parse }}
+{{- end }}
 {{- if .PlainText | findRE "[^\\s]" }}
 {{- /* 代替テキストがあるならキャプション表示 */}}
 <figure {{ if $ispdf | and (gt $maxheight 0) }}style="max-height: {{ $maxheight}}mm;"{{ end }}>

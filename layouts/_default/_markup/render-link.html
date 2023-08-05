@@ -1,8 +1,17 @@
 {{- $url := .Destination | safeURL | urls.Parse }}
 {{- $path := $url.Path }}
-{{- if strings.HasSuffix $path "md" }}
-  {{- if not $url.IsAbs }}
+{{- if not $url.IsAbs }}
+  {{- $isReplaced := false }}
+  {{- if .Page.IsSection | and (ne .Page.Site.Params.legacy_index_link true) }}
+    {{- $sectionName := .Page.Section }}
+    {{- $path = (printf "%s/%s" $sectionName $path) | urlize}}
+    {{- $isReplaced = true }}
+  {{- end }}
+  {{- if strings.HasSuffix $path "md" }}
     {{- $path = $path | replaceRE "\\.md$" ".html" }}
+    {{- $isReplaced = true }}
+  {{- end }}
+  {{- if eq $isReplaced true }}
     {{- if ne $url.RawQuery "" }}
       {{- $path = printf "%s?%s" $path $url.RawQuery }}
     {{- end }}
