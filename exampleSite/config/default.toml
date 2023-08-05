@@ -71,6 +71,9 @@ canonifyURLs = true
     # if true, output debug log
     debug = false
 
+    # if true, show preview information when hugo server mode
+    showPreviewInfo = true
+
     # if true, render _index.md link in legacy mode ( v0.19.1 or earlier mode)
     legacy_index_link = false
 
