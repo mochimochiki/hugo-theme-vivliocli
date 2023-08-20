@@ -221,6 +221,18 @@ This is where the note article is written.
 * List level 1
 {{% /note %}}
 
+### now
+
+Outputs the timestamp at the time of build execution in the specified format. The format should be based on the date and time of `2006/1/2 15:04:05 Mon`
+
+```
+{{%/* now "2006/01/02" */%}}
+{{%/* now "2006-1-2 15:04" */%}}
+```
+
+{{% now "2006/01/02" %}}
+{{% now "2006-1-2 15:04" %}}
+
 ### include
 
 You can prepare "components" of Markdown files and csv files in advance and "insert" them anywhere in the article by specifying the relative path starting `.` for loading.
