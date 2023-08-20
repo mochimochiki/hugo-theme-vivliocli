@@ -17,9 +17,10 @@
       {{- else if (findRE ".*\\[\\[.*@:-+[^:]*.*\\]\\]" $cell 1)}}
         {{- $code_count = add $code_count 1 }}
         {{- $align_list = $align_list | append "left" }}
-      {{- else if (findRE ".*\\[\\[.*@align=([^ ]+).*\\]\\]" $cell 1) }}
+      {{- else if (findRE ".*\\[\\[.*@align *= *([^ ]+).*\\]\\]" $cell 1) }}
         {{- $code_count = add $code_count 1 }}
-        {{- $align := $cell | replaceRE ".*\\[\\[.*@align=([^ ]+).*\\]\\]" "${1}" }}
+        {{- $align := $cell | replaceRE ".*\\[\\[.*@align *= *([^ ]+).*\\]\\]" "${1}" }}
+        {{- $align = trim $align "\"'"}}
         {{- $align_list = $align_list | append $align }}
       {{- else}}
         {{- if $baseAlign }}

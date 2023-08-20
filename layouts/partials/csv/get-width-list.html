@@ -6,9 +6,10 @@
 {{- range $rowIndex, $rowData := $csv }}
   {{- if eq $rowIndex (sub $head 1) }}
     {{- range $i, $cell := $rowData }}
-      {{- if (findRE ".*\\[\\[.*@(w|width)=([^ ]+).*\\]\\]" $cell 1) }}
+      {{- if (findRE ".*\\[\\[.*@(w|width) *= *([^ ]+).*\\]\\]" $cell 1) }}
         {{- $code_count = add $code_count 1 }}
-        {{- $width := $cell | replaceRE ".*\\[\\[.*@(w|width)=([^ ]+).*\\]\\]" "${2}" }}
+        {{- $width := $cell | replaceRE ".*\\[\\[.*@(w|width) *= *([^ ]+).*\\]\\]" "${2}" }}
+        {{- $width = trim $width "\"'"}}
         {{- $width = replace $width "*" "auto" }}
         {{- $width_list = $width_list | append $width }}
       {{- else}}

@@ -2,8 +2,10 @@
 {{- $index := .index }}
 {{- $cell := index $row $index }}
 {{- $id := "" }}
-{{- if (findRE ".*\\[\\[.*@id=([^ ]+).*\\]\\]" $cell 1) }}
-  {{- $id = $cell | replaceRE ".*\\[\\[.*@id=([^ ]+).*\\]\\]" "${1}" }}
+{{- /* ...[[...@id=xxx ...]] のxxxを見つける  */}}
+{{- if (findRE ".*\\[\\[.*@id *= *([^ ]+).*\\]\\]" $cell 1) }}
+  {{- $id = $cell | replaceRE ".*\\[\\[.*@id *= *([^ ]+).*\\]\\]" "${1}" }}
+  {{- $id = trim $id "\"'"}}
 {{- end }}
 {{- if not $id }}{{ $id = ""}}{{ end }}
 {{- return $id }}
