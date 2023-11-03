@@ -80,10 +80,11 @@ canonifyURLs = true
 [languages]
   [languages.ja]
     languageCode = "ja-jp"
-    htmlLang = "ja"
     languageName = "Japanese"
-    contentDir = "content/ja"
     weight = 1
+    contentDir = "content/ja"
+  [languages.ja.params]
+    htmlLang = "ja"
     dateFormat = "2006年01月02日"
     sectionTopFormat = "第%s章"
     tableCaption = "表 "
@@ -93,10 +94,11 @@ canonifyURLs = true
 
   [languages.en]
     languageCode = "en"
-    htmlLang = "en"
     languageName = "English"
-    contentDir = "content/en"
     weight = 2
+    contentDir = "content/en"
+  [languages.en.params]
+    htmlLang = "en"
     dateFormat = "Jan. 2, 2006"
     sectionTopFormat = "Chapter %s"
     tableCaption = "Table "
