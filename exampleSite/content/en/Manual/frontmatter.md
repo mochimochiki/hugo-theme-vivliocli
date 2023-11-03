@@ -46,3 +46,7 @@ By setting `math: true`, you can write inline equations on the page. Inline equa
     y = ax^2 + bx + \frac{c}{d}
     ```
 ```
+
+### pagesize
+
+If you set `pagesize: "A4 landscape"`, the page generated from that `.md` will be A4 landscape. Possible values are the same as `pagesize` of `_pdf.md`.

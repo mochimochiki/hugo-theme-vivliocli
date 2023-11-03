@@ -35,7 +35,7 @@ ShowIf: ["edition1"]
 
 ### HideIf
 
-`HideIf`フロントまたーを指定すると、そのエディションでのみ非表示とする記事/セクションを作ることができます。詳しくは [エディション](./edition.html) を参照してください。
+`HideIf`フロントマターを指定すると、そのエディションでのみ非表示とする記事/セクションを作ることができます。詳しくは [エディション](./edition.html) を参照してください。
 
 ### math
 
@@ -46,3 +46,7 @@ ShowIf: ["edition1"]
     y = ax^2 + bx + \frac{c}{d}
     ```
 ```
+
+### pagesize
+
+`pagesize: "A4 landscape"`とした場合、その`.md`から生成されるページは A4 landscape になります。指定可能な値は `_pdf.md` の `pagesize` と同じです。
