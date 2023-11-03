@@ -36,6 +36,18 @@
   {{- range .Site.Params.lang_css }}
   <link rel="stylesheet" href="{{ . | relURL }}">
   {{- end }}
+  {{- /*  custom size page */ -}}
+  {{- if .Params.pagesize }}
+  <style>
+    @page customsize_{{.File.UniqueID}} {
+      size: {{ .Params.pagesize }};
+    }
+    #customsize_{{.File.UniqueID}} {
+      page: customsize_{{.File.UniqueID}};
+    }
+  </style>
+  {{- end }}
+  {{- /* header */ -}}
   {{- partial "header.html" . -}}
 </head>
 
@@ -44,9 +56,11 @@
   <input type="checkbox" id="right-accordion-btn-check">
   <label for="right-accordion-btn-check" class="right-accordion-btn"><span></span></label>
   {{- end }}
+  {{- if .Params.pagesize }}<div id="customsize_{{.File.UniqueID}}">{{end}}
   <div id="content">
     {{- block "main" . }}{{- end }}
   </div>
+  {{- if .Params.pagesize }}</div>{{end}}
   {{- partial "footer.html" . -}}
 </body>
 
