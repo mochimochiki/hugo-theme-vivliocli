@@ -46,6 +46,7 @@
   {{- else }}
     {{- /* include csv table */}}
     {{- $csv := getCSV "," $csvpath }}
+    {{- $csv = partial "csv/trim-csv-bom.html" (dict "csv" $csv )}}
     {{- with $ignore_columns }}
       {{- $csv = partial "csv/get-ignored-columns-csv.html" (dict "csv" $csv "ignore_columns" . )}}
     {{- end }}
