@@ -183,6 +183,47 @@ svg {
 }
 
 /* -------------------- */
+/* popup image          */
+/* -------------------- */
+.popup-image-background {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: all 250ms ease-in-out;
+}
+.pop-up-image-check {
+  display: none;
+}
+.pop-up-image-check:checked + .popup-image-background {
+  visibility: visible;
+  opacity: 1;
+  z-index: 100000;
+}
+.popup-image-window {
+  overflow: auto; /* scroll */
+  max-height: 95%;
+  max-width: 95vw;
+  min-width: fit-content;
+  position: fixed;
+  top: 50%; /* center */
+  left: 50%; /* center */
+  transform: translate(-50%, -50%); /* center */
+  z-index: 100010;
+  margin: 5px auto;
+  padding: 5px 5px;
+  background: #fff;
+}
+.popup-image-window img {
+  max-width: 95vw; /* max: browser 95% */
+  min-width: 50vw; /* min: browser 50% */
+}
+
+/* -------------------- */
 /* table                */
 /* -------------------- */
 table {

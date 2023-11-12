@@ -11,7 +11,16 @@
 {{- if .PlainText | findRE "[^\\s]" }}
 {{- /* 代替テキストがあるならキャプション表示 */}}
 <figure {{ if $ispdf | and (gt $maxheight 0) }}style="max-height: {{ $maxheight}}mm;"{{ end }}>
+  {{- /* Image popup */}}
+  {{- if .Page.Site.Params.zoom_image | and (not $ispdf) }}
+  <input type="checkbox" id="{{ $url }}" class="pop-up-image-check"/>
+  <label for="{{ $url }}" class="popup-image-background"><div class="popup-image-window"><img src="{{ $url }}" loading="lazy" /></div></label>
+  <label style="cursor: pointer" for="{{ $url }}">
+  {{- end }}
   <img src="{{ $url }}" alt="{{ .PlainText }}" {{ with .PlainText }} class="fig"{{ end }} {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
+  {{- if .Page.Site.Params.zoom_image | and (not $ispdf) }}
+  </label>
+  {{- end }}
   {{- with .PlainText }}
     <figcaption>
       <span class="fig-number"></span>{{ . }}
@@ -21,7 +30,16 @@
 {{- else if .PlainText }}
 {{- /* 代替テキストが空白のみなら中央寄せ */}}
 <figure {{ if $ispdf | and (gt $maxheight 0) }}style="max-height: {{ $maxheight}}mm;"{{ end }}>
+  {{- /* Image popup */}}
+  {{- if .Page.Site.Params.zoom_image | and (not $ispdf) }}
+  <input type="checkbox" id="{{ $url }}" class="pop-up-image-check"/>
+  <label for="{{ $url }}" class="popup-image-background"><div class="popup-image-window"><img src="{{ $url }}" loading="lazy" /></div></label>
+  <label style="cursor: pointer" for="{{ $url }}">
+  {{- end }}
   <img src="{{ $url }}" alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
+  {{- if .Page.Site.Params.zoom_image | and (not $ispdf) }}
+  </label>
+  {{- end }}
 </figure>
 {{- else }}
 {{- /* 代替テキストなしならimgのみ */}}

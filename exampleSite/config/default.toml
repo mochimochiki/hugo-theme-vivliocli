@@ -77,6 +77,9 @@ canonifyURLs = true
     # if true, render _index.md link in legacy mode ( v0.19.1 or earlier mode)
     legacy_index_link = false
 
+    # if true, image can be zoo
+    zoom_image = true
+
 [languages]
   [languages.ja]
     languageCode = "ja-jp"
