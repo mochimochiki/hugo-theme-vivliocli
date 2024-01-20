@@ -1,20 +1,22 @@
 {{/*  csvのセル結合のためのマスクデータを取得する(縦方向)  */}}
-{{/*  例えば[[a,a][||,a]]というcsvの場合マスクは[[2,1][0,1]]となる  */}}
+{{/*  例えば[[a,a][||,a]]というcsvの場合マスクは[[2,1][0,1]]となる。以下この例で各変数の値のコメント付記  */}}
+{{/*  実際に返すmaskDataは [map[0:2 1:1] map[0:0 1:1]] のように各行がインデックス付きmapのリストとなる */}}
 {{/*  merge=trueの場合、空セルもマージ対象になる  */}}
 {{/*  in : csv  */}}
 {{/*  out: maskData  */}}
 {{- $csv := .csv }}
 {{- $isEmptyMerge := .isEmptyMerge}}
+{{- /*  reverseIndexList: [1,0]  */}}
 {{- $reverseIndexList := seq (sub (len $csv) 1) -1 0 -}}
-{{- $spanDataReverse := slice }}
+{{- $spanDataReverse := slice (slice "") | after 1}}
 {{- $buffer := slice }}
 {{- range seq (index $csv 0 | len) }}
   {{- $buffer = $buffer | append 0 }}
 {{- end }}
-{{- /*  逆順インデックスを使ってcsvの一番下の列から上に上がっていく  */}}
+{{- /*  逆順インデックスを使ってcsvの一番下の列から上に上がっていく: 1 -> 0  */}}
 {{- range $reverseIndexList }}
   {{- $rowValues := index $csv . }}
-  {{- $row := slice }}
+  {{- $row := (slice "")  | after 1 }}
   {{- range $index, $cell := $rowValues }}
     {{- $value := 0 }}
     {{- if ($cell | and (ne (trim $cell " ") "||")) | or (not $cell | and (not $isEmptyMerge)) }}
@@ -40,21 +42,11 @@
       {{- end}}
       {{- $buffer = $temp }}
     {{- end }}
-    {{- $row = $row | append $value }}
+    {{- $row = $row | append (string $value) }}
   {{- end }}
-  {{- $strRow := delimit $row " " }}
-  {{- $spanDataReverse = $spanDataReverse | append (slice $strRow) }}
+  {{- $spanDataReverse = $spanDataReverse | append $row }}
 {{- end }}
-{{- $spanData := slice }}
-{{- range $reverseIndexList }}
-  {{- $rowValues := index $spanDataReverse . }}
-  {{- $spanData = $spanData | append (slice $rowValues) }}
-{{- end }}
-{{- $splitedData := slice }}
-{{- range $spanData }}
-  {{- $t := split . " " }}
-  {{- $splitedData = $splitedData | append (slice $t) }}
-{{- end }}
-{{- $spanData = $splitedData }}
+{{- /* spanDataReverse:  [[0 1] [2 1]] */}}
+{{- $spanData := $spanDataReverse | collections.Reverse }}
+{{- /* spanData: [[2 1] [0 1]] */}}
 {{- return $spanData }}
-  

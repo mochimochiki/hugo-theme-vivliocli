@@ -3,30 +3,30 @@
 {{- /*  一旦 @escape-delimiter@ @real-delimiter@ と表現し、エスケープをもとに戻した後 @real-delimiter@ で分割する  */}}
 {{- $column_filters := split (replace (replace (replace $columns "\\," "@escape-delimiter@" ) "," "@real-delimiter@" ) "@escape-delimiter@" ",") "@real-delimiter@" }}
 {{- $columnIndexList := slice }}
-{{- $csv_result := slice}}
+{{- $csv_result := slice (slice "") | after 1 }}
 {{- range $row, $rowValues := $csv_original }}
   {{- if eq $row 0 }}
     {{/* == header == */}}
-    {{- $row_result := slice}}
+    {{- $row_result := (slice "") | after 1 }}
     {{- range $columnIndex, $value := $rowValues}}
       {{ $value = partial "csv/trim-column-id.html" $value }}
       {{- if in $column_filters $value}}
         {{- /* フィルタ後に残すべき列 */}}
         {{- $columnIndexList = $columnIndexList | append $columnIndex }}
-        {{- $row_result = $row_result | append $value }}
+        {{- $row_result = $row_result | append (string $value) }}
       {{- end }}
     {{- end }}
-    {{- $csv_result = $csv_result | append (slice $row_result) }}
+    {{- $csv_result = $csv_result | append $row_result }}
   {{- else }}
     {{/* == data == */}}
-    {{- $row_result := slice}}
+    {{- $row_result := (slice "") | after 1}}
     {{- range $columnIndex, $value := $rowValues}}
       {{- if in $columnIndexList $columnIndex }}
         {{- /* フィルタ後に残すべき列 */}}
-        {{- $row_result = $row_result | append $value }}
+        {{- $row_result = $row_result | append (string $value) }}
       {{- end }}
     {{- end }}
-    {{- $csv_result = $csv_result | append (slice $row_result) }}
+    {{- $csv_result = $csv_result | append $row_result }}
   {{- end }}
 {{- end }}
 {{- return $csv_result }}

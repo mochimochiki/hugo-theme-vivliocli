@@ -6,9 +6,9 @@
 {{- $csv := .csv }}
 {{- $useColumnCode := .useColumnCode }}
 
-{{- $spanData := slice }}
+{{- $spanData := (slice (slice "")) | after 1}}
 {{- range $rowData := $csv }}
-  {{- $colspans := slice}}
+  {{- $colspans := slice }}
   {{- $span := 0}}
   {{- range $i, $cell := $rowData }}
     {{- if $useColumnCode }}{{ $cell = partial "csv/trim-column-id.html" $cell }}{{ end }}
@@ -16,9 +16,9 @@
       {{- /* ->は横結合。spanを1増やすだけ  */}}
     {{- else }}
       {{- if ne $i 0 }}
-        {{- $colspans = $colspans | append $span }}
+        {{- $colspans = $colspans | append (string $span) }}
         {{- range $j := seq (sub $span 1) }}
-          {{- $colspans = $colspans | append 0 }}
+          {{- $colspans = $colspans | append "0" }}
         {{- end }}
       {{- end }}
       {{- $span = 0 }}
@@ -26,12 +26,12 @@
     {{- $span = add $span 1 }}
   {{- end }}
   {{- /* 最終グループのcolspanはこの時点で含まれていないので、追加する  */}}
-  {{- $colspans = $colspans | append $span }}
+  {{- $colspans = $colspans | append (string $span) }}
   {{- range $j := seq (sub $span 1) }}
-    {{- $colspans = $colspans | append 0 }}
+    {{- $colspans = $colspans | append "0" }}
   {{- end }}
-  {{- $spanData = $spanData | append (slice (split (delimit $colspans " ") " ")) }}
+  {{- $spanData = $spanData | append $colspans }}
 {{- end }}
 
-{{- return $spanData }}
 
+{{- return $spanData}}
