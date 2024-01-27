@@ -12,7 +12,7 @@ tags: ["tutorial"]
 
 ### Hugoのインストール
 
-[Hugo](https://gohugo.io/)`v0.94.0`以上を[公式ページのインストール手順](https://gohugo.io/installation/windows/)に従いインストールします。インストールが完了したら、以下のコマンドでHugoのバージョンが表示されることを確認します。
+[Hugo](https://gohugo.io/)を[公式ページのインストール手順](https://gohugo.io/installation/windows/)に従いインストールします。インストールが完了したら、以下のコマンドでHugoのバージョンが表示されることを確認します。
 
 ```bat
 hugo version

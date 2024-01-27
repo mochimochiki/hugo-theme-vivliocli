@@ -47,5 +47,5 @@ First, please refer to <u>**[Getting Started](./Manual/GettingStarted.html)**</u
 
 ## Requirements
 
-* [Hugo](https://gohugo.io/)(v0.94.0 or later)
-* [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli)(v5.3.0 or later)
+* [Hugo](https://gohugo.io/)(v0.114.0 or later)
+* [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli)(v8.6.0 or later)

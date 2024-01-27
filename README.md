@@ -41,7 +41,7 @@ see the [User Guide](https://mochimochiki.github.io/hugo-theme-vivliocli/en/) fo
 ## Prerequisites
 
 * Install [Hugo](https://github.com/gohugoio/hugo) (v0.114.0 or later).
-* Install [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli) (v5.3.0 or later).
+* Install [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli) (v8.6.0 or later).
 
 ## License
 

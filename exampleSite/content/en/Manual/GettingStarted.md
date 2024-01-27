@@ -12,7 +12,7 @@ This guide is for Windows.
 
 ### Installing Hugo
 
-Install [Hugo](https://gohugo.io/) `v0.94.0` or higher by following the instructions on the [official website](https://gohugo.io/installation/windows/). After installing, confirm that the version of Hugo is displayed with the following command:
+Install [Hugo](https://gohugo.io/) by following the instructions on the [official website](https://gohugo.io/installation/windows/). After installing, confirm that the version of Hugo is displayed with the following command:
 
 ```bat
 hugo version
