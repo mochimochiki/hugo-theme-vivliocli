@@ -43,5 +43,15 @@
 </figure>
 {{- else }}
 {{- /* 代替テキストなしならimgのみ */}}
+{{- if .Page.Site.Params.zoom_image | and (not $ispdf) }}
+<div style="display: inline;">
+<input type="checkbox" id="{{ $url }}" class="pop-up-image-check"/>
+<label for="{{ $url }}" class="popup-image-background"><div class="popup-image-window"><img src="{{ $url }}" loading="lazy" /></div></label>
+<label style="cursor: pointer" for="{{ $url }}">
+{{- end }}
 <img src="{{ $url }}" {{ if $ispdf | and (gt $maxheight 0) }}style="max-height: {{ $maxheight}}mm;"{{ end }} alt="{{ .PlainText }}" {{ range $querys }}{{ (printf "%s " .) | safeHTMLAttr }}{{ end }}>
+{{- if .Page.Site.Params.zoom_image | and (not $ispdf) }}
+</label>
+</div>
+{{- end }}
 {{- end }}
