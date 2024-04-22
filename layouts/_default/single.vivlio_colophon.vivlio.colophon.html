@@ -38,7 +38,7 @@
 </head>
 
 <body>
-  <div class="doc-part-blank"></div>
+  {{ if eq $isbook true }}<div class="doc-part-blank"></div>{{ end }}
   <div id="vivlio-colophon">
     {{ .Page.Content }}
   </div>
