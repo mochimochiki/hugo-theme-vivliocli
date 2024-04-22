@@ -18,7 +18,7 @@
   {{- /* column codeを利用する場合  */}}
   {{- if $useColumnCode }}
     {{- if eq $rowIndex (sub $head 1) }}
-      {{- $columnId := partial "csv/get-column-id.html" (dict "row" $rowData "index" $i) }}
+      {{- $columnId = partial "csv/get-column-id.html" (dict "row" $rowData "index" $i) }}
       {{ $cell = partial "csv/trim-column-id.html" $cell }}
     {{- end}}
   {{- end}}
