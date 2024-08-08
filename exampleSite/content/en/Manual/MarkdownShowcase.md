@@ -309,3 +309,17 @@ You can also reference specific values in a CSV file by specifying a key to dete
 ```
 
 In the above example, the value in the `Name` column of the row where the first column value is `003` is inserted into the shortcode's position.
+
+### PDFProperty
+
+Values such as `doctitle` and `author` described in the front matter of `_pdf.md` can be embedded in the document.
+
+```sh
+{{%/* PDFProperty doctitle */%}}
+{{%/* PDFProperty subtitle */%}}
+{{%/* PDFProperty author */%}}
+```
+
+{{% PDFProperty doctitle %}}
+{{% PDFProperty subtitle %}}
+{{% PDFProperty author %}}

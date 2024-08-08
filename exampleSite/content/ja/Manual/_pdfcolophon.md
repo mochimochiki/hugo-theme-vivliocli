@@ -12,7 +12,7 @@ outputs:
 
 | | |
 | -- | --  |
-|著者| mochimo |
+|著者| {{% PDFProperty author %}} |
 |編集| mochimo |
 
 © mochimo

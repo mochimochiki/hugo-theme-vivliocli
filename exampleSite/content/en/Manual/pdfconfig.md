@@ -77,7 +77,7 @@ Other items cannot be switched for each edition. Refer to the comments in `_pdf.
 
 ## _pdfcolophon.md
 
-This is the template for colophon generation. This file is necessary when `colophon:true` is specified in the front matter of `_pdf.md`.
+This is the template for colophon generation. This file is necessary when `colophon:true` is specified in the front matter of `_pdf.md`. If you use properties described in the `_pdf.md`, the shortcode `PDFProperty` is useful.
 
 ```toml
 ---
@@ -98,7 +98,7 @@ First edition published on xxxx-xx-xx
 
 | | |
 | -- | --  |
-|Author| Author's name |
+|Author| {{%/* PDFProperty author */%}} |
 |Publisher| Publisher's name |
 |Printing and Binding| Printing company's name |
 

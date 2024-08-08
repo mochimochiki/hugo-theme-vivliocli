@@ -12,7 +12,7 @@ April 26, 2023
 
 | | |
 | -- | --  |
-|Author| mochimo |
+|Author| {{% PDFProperty author %}} |
 |Editor| mochimo |
 
 © mochimo
