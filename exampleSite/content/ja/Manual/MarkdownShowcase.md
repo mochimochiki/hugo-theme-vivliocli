@@ -326,16 +326,16 @@ csvファイルについては行を決定するためのkeyと列名を指定�
 
 上記の場合、1列目の値が`003`である行の`Name`列の値がショートコードの位置に挿し込まれます。
 
-### PDFProperty
+### PDFParam
 
 `_pdf.md`のフロントマターに記述した`doctitle`や`author`などの値を文書に埋め込むことができます。
 
 ```sh
-{{%/* PDFProperty doctitle */%}}
-{{%/* PDFProperty subtitle */%}}
-{{%/* PDFProperty author */%}}
+{{%/* PDFParam doctitle */%}}
+{{%/* PDFParam subtitle */%}}
+{{%/* PDFParam author */%}}
 ```
 
-{{% PDFProperty doctitle %}}
-{{% PDFProperty subtitle %}}
-{{% PDFProperty author %}}
+{{% PDFParam doctitle %}}
+{{% PDFParam subtitle %}}
+{{% PDFParam author %}}

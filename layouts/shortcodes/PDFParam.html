@@ -1,7 +1,7 @@
 {{- $property_name := .Get 0 -}}
 {{- $property_value := partial "functions/getRootPDFParam.html" (dict "this" .Page "pdfparam" $property_name) -}}
 {{- if eq $property_value "" -}}
-{{- errorf "PDFProperty: %s is not found. \t File: %s" $property_name .Page.File.Path -}}
+{{- errorf "PDFParam: %s is not found. \t File: %s" $property_name .Page.File.Path -}}
 {{- else -}}
 {{- $property_value | .Page.RenderString  -}}
 {{- end -}}

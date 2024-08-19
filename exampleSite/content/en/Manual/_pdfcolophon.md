@@ -8,11 +8,11 @@ outputs:
 
 ### Hugo-theme-vivliocli User Guide
 
-{{% PDFProperty header %}}
+{{% PDFParam header %}}
 
 | | |
 | -- | --  |
-|Author| {{% PDFProperty author %}} |
+|Author| {{% PDFParam author %}} |
 |Editor| mochimo |
 
 © mochimo
