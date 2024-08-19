@@ -8,7 +8,7 @@ outputs:
 
 ### Hugo-theme-vivliocli User Guide
 
-2023年4月23日
+{{% PDFProperty header %}}
 
 | | |
 | -- | --  |
