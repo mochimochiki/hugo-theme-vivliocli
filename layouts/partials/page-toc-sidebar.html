@@ -10,7 +10,7 @@ page-toc-sidebar.html
 {{- $headers := findRE $pattern $Content -}}
 {{- $scratch := newScratch -}}
 {{- $scratch.Set "prev_level" 0 -}}
-<input type="checkbox" id="pagetoc-accordion-btn-check">
+<input type="checkbox" id="pagetoc-accordion-btn-check"/>
 <label for="pagetoc-accordion-btn-check" class="pagetoc-accordion-btn">{{ i18n "toc" }}</label>
 <nav id="TableOfContents-sidebar">
     {{- partial "edit-this-page.html" $this }}

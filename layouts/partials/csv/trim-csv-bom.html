@@ -2,7 +2,7 @@
 {{- $header := index $csv_original 0 }}
 {{- $topCell := index $header 0 }}
 {{- $UTF8BOMFlag := "\xEF\xBB\xBF" }}
-{{- $csv_result := slice}}
+{{- $csv_result := slice (slice "") | after 1}}
 {{- /* UTF-8 BOMフラグが見つかった場合取り除いた表を作り直す   */}}
 {{- if in $topCell $UTF8BOMFlag }}
   {{- range $row, $rowValues := $csv_original }}
@@ -12,15 +12,15 @@
       {{- range $columnIndex, $cellValue := $rowValues }}
         {{- if eq $columnIndex 0 }}
           {{ $cellValue = trim $cellValue "\xEF\xBB\xBF" }}
-          {{- $row_result = $row_result | append (slice $cellValue) }}
+          {{- $row_result = $row_result | append (string $cellValue) }}
         {{- else }}
-        {{- $row_result = $row_result | append (slice $cellValue) }}
+        {{- $row_result = $row_result | append (string $cellValue) }}
         {{- end }}
       {{- end }}
-      {{- $csv_result = $csv_result | append (slice $row_result) }}
+      {{- $csv_result = $csv_result | append $row_result }}
     {{- else }}
       {{- /* == data == */}}
-      {{- $csv_result = $csv_result | append (slice $rowValues) }}
+      {{- $csv_result = $csv_result | append $rowValues }}
     {{- end }}
   {{- end }}
 {{- else }}

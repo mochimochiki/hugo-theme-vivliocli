@@ -30,7 +30,7 @@
   {{- $header_align_list = partial "csv/get-header-align-list.html" (dict "csv" $csv "head" $head "scratch" $scratch)}}
 {{- end }}
 
-{{- $mergeMaskV := partial "csv/get-csv-merge-mask-v.html" . }}
+{{- $mergeMaskV := partial "csv/get-csv-merge-mask-v.html" (dict "csv" $csv "useColumnCode" $useColumnCode "isEmptyMerge" $isEmptyMerge) }}
 {{- $mergeMaskH := partial "csv/get-csv-merge-mask-h.html" (dict "csv" $csv "useColumnCode" $useColumnCode) }}
 {{- range $i, $r := $mergeMaskV }}
   {{- partial "logtrace" (printf "[render-table]merge mask V(%d): %s" $i $r) }}

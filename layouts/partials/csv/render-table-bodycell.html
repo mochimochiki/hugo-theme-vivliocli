@@ -9,11 +9,16 @@
 {{- $rowNo := .rowNo }}
 {{- $colNo := .colNo }}
 {{- $markdown := .markdown }}
+{{- $isRightBorderHidden := false }}
+{{- if (trim $cell " ") | eq "<-"}}
+{{- $cell = "" }}
+{{- $isRightBorderHidden = true }}
+{{- end }}
 {{- if $markdown}}
 {{- $cell = $cell | $page.RenderString }}
 {{- end -}}
 <td
-  {{- with $columnId }} class="{{ . }}"{{ end }}
+  class="{{- with $columnId }}{{ . }}{{ end }}{{- if $isRightBorderHidden }} isRightBorderHidden {{ end }}"
   style="{{- with $width }}width: {{ . }};{{ end }} {{- with $align }} text-align: {{.}};{{ end }}"
   {{- with $colspan }} colspan="{{ $colspan }}"{{ end }}
   {{- with $rowspan }} rowspan="{{ $rowspan }}"{{ end }}><div class="csvtable-cell csvtable-body-cell">{{ $cell }}</div></td>

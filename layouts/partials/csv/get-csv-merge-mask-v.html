@@ -1,10 +1,12 @@
 {{/*  csvのセル結合のためのマスクデータを取得する(縦方向)  */}}
 {{/*  例えば[[a,a][||,a]]というcsvの場合マスクは[[2,1][0,1]]となる。以下この例で各変数の値のコメント付記  */}}
+{{/*  [[xxx]] という記載は削除して判定する（column code） */}}
 {{/*  実際に返すmaskDataは [map[0:2 1:1] map[0:0 1:1]] のように各行がインデックス付きmapのリストとなる */}}
 {{/*  merge=trueの場合、空セルもマージ対象になる  */}}
 {{/*  in : csv  */}}
 {{/*  out: maskData  */}}
 {{- $csv := .csv }}
+{{- $useColumnCode := .useColumnCode }}
 {{- $isEmptyMerge := .isEmptyMerge}}
 {{- /*  reverseIndexList: [1,0]  */}}
 {{- $reverseIndexList := seq (sub (len $csv) 1) -1 0 -}}
@@ -19,6 +21,7 @@
   {{- $row := (slice "")  | after 1 }}
   {{- range $index, $cell := $rowValues }}
     {{- $value := 0 }}
+    {{- if $useColumnCode }}{{ $cell = partial "csv/trim-column-id.html" $cell }}{{ end }}
     {{- if ($cell | and (ne (trim $cell " ") "||")) | or (not $cell | and (not $isEmptyMerge)) }}
       {{- $value = 1 }}
       {{- $temp := slice}}

@@ -1,0 +1,7 @@
+No [[@w=5%]],Item,->[[@w=20%]], Content[[@w=75%]]
+1,Main Item 1, ->, ->
+||,<-, Sub Item 1-1, Content 1-1
+||,<-, Sub Item 1-2, Content 1-2
+2,Main Item 2, ->, ->
+||,<-, Sub Item 2-1, Content 2-1
+||,<-, Sub Item 2-2, Content 2-2

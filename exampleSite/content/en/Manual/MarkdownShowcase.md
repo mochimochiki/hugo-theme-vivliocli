@@ -285,7 +285,9 @@ When including a csv file, you can draw a more advanced table than Markdown.
 
 ##### Merge Rows and Columns
 
-You can merge rows vertically using `||` and horizontally using `->`.
+You can merge rows vertically using `||` and horizontally using `->`. You can also merge cells with the right cell using `<-` (indent expression).
+
+{{< include src="./indent.csv" >}}
 
 ##### ColumnCodes
 

@@ -53,7 +53,7 @@
 
 <body {{ if .Params.twoColumns }}class="two-columns"{{- end }}>
   {{- if not .Site.Params.isPDF }}
-  <input type="checkbox" id="right-accordion-btn-check">
+  <input type="checkbox" id="right-accordion-btn-check"/>
   <label for="right-accordion-btn-check" class="right-accordion-btn"><span></span></label>
   {{- end }}
   {{- if .Params.pagesize }}<div id="customsize_{{.File.UniqueID}}">{{end}}

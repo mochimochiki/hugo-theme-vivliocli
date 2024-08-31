@@ -9,8 +9,8 @@
     {{/* == header == */}}
     {{- $row_result := (slice "") | after 1 }}
     {{- range $columnIndex, $value := $rowValues}}
-      {{ $value = partial "csv/trim-column-id.html" $value }}
-      {{- if in $column_filters $value}}
+      {{ $value_for_filter := partial "csv/trim-column-id.html" $value }}
+      {{- if in $column_filters $value_for_filter}}
         {{- /* フィルタ後に残すべき列 */}}
         {{- $columnIndexList = $columnIndexList | append $columnIndex }}
         {{- $row_result = $row_result | append (string $value) }}

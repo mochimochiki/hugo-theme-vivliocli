@@ -34,9 +34,9 @@ h6 {
   font-weight: 600;
   font-feature-settings: "palt", "calt";
 }
-h1,
-h2,
-h3 {
+h1:has(.section-number),
+h2:has(.section-number),
+h3:has(.section-number) {
   display: flex;
 }
 .section-number {
@@ -283,6 +283,14 @@ table.simple td {
   border: solid 1px;
 }
 
+/* <- : right border hidden */
+table td.isRightBorderHidden {
+  border-right: none;
+}
+table td.isRightBorderHidden + td {
+  border-left: none;
+}
+
 /* -------------------- */
 /* quote                */
 /* -------------------- */
@@ -307,6 +315,9 @@ blockquote :not(pre) > code {
   background-color: #eee;
   font-size: 1em;
   white-space: pre-wrap;
+}
+table :not(pre) > code {
+  background-color: #d0d0d0;
 }
 /* code block */
 pre code {
