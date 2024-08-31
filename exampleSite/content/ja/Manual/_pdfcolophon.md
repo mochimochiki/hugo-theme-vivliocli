@@ -8,11 +8,11 @@ outputs:
 
 ### Hugo-theme-vivliocli User Guide
 
-2023年4月23日
+{{% PDFParam header %}}
 
 | | |
 | -- | --  |
-|著者| mochimo |
+|著者| {{% PDFParam author %}} |
 |編集| mochimo |
 
 © mochimo
