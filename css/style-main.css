@@ -283,6 +283,31 @@ table.simple td {
   border: solid 1px;
 }
 
+/* paper-table */
+table.paper th {
+  background: inherit;
+  color: #000;
+  border: none;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+table.paper thead {
+  border-top: solid 2px;
+  border-bottom: solid 1px;
+}
+table.paper tbody {
+  border-bottom: solid 1px;
+}
+table.paper tr {
+  background: inherit;
+}
+table.paper td {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  vertical-align: top;
+  border: none;
+}
+
 /* <- : right border hidden */
 table td.isRightBorderHidden {
   border-right: none;
@@ -690,15 +715,32 @@ div.cover-bottom-right {
   }
 
   /* multi-column */
-  .two-columns {
+  body.two-columns {
     text-align: justify;
     columns: 2;
     column-gap: 2.2rem;
     column-rule-style: none;
   }
-  div.two-columns {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+
+  body.two-columns h1 {
+    float: block-start;
+    float-reference: page;
+  }
+
+  body.two-columns div.full-span-top {
+    float-reference: column;
+    float: top;
+    column-span: all;
+  }
+
+  body.two-columns div.full-span-bottom {
+    float-reference: column;
+    float: bottom;
+    column-span: all;
+  }
+
+  body.two-columns p {
+    text-align: justify;
   }
 
   .videobox {
