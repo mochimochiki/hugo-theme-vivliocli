@@ -1,0 +1,82 @@
+{{- if .Site.IsServer | and .Site.Params.showPreviewInfo }}
+<style>
+  #previewPanel {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+  }
+  #previewPageButton {
+    margin: 5px;
+    padding: 4px 4px;
+    cursor: pointer;
+    z-index: 1000;
+    display: none;
+  }
+</style>
+<div id="previewPanel">
+  <button id="previewPageButton">Preview Page</button>
+  <div style="width: 100%; font-size: 0.75rem; color: white; background-color: rgba(0, 0, 0, 0.8);">Preview... {{ .Page.File.Filename }}</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  // viewer URL
+  var viewerUrl = {{.Site.Home.Permalink}} + "../viewer";
+  // viewer ページが存在するかHEADリクエストで確認
+  fetch(viewerUrl, { method: 'HEAD' })
+    .then(function(response) {
+      if(response.ok) {
+        // 存在する場合は表示
+        var prevButton = document.getElementById('previewPageButton');
+        if(prevButton) { prevButton.style.display = 'block'; }
+      } else {
+        // viewer ページが存在しない場合、previewPanel を削除
+        var prevButton = document.getElementById('previewPageButton');
+        if(prevButton) { prevButton.remove(); }
+        return;
+      }
+    })
+    .catch(function(error) {
+      // エラー時は念のため previewPanel を削除
+      var prevButton = document.getElementById('previewPageButton');
+      if(prevButton) { prevButton.remove(); }
+      return;
+    });
+
+  // clickイベントで、ページのHTMLをシリアライズして、viewerに渡す
+  var btn = document.getElementById('previewPageButton');
+  if(btn) {
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      // 複製したHTMLから全ての<script>を削除
+      var clone = document.documentElement.cloneNode(true);
+      clone.querySelectorAll('script').forEach(function(el){
+        el.remove();
+      });
+      // previewPanelを削除
+      clone.querySelector('#previewPanel').remove();
+      // 現在ページのディレクトリパスを取得
+      var basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+      if(basePath.slice(-1) !== '/') { basePath += '/'; }
+      // src属性の変更: 値が"http://"、"https://"で始まらない場合、basePathを付与
+      clone.querySelectorAll('[src]').forEach(function(el){
+        var src = el.getAttribute('src');
+        if(src && !src.startsWith('http://') && !src.startsWith('https://')){
+          el.setAttribute('src', basePath + src);
+        }
+      });
+      // href属性の変更: 値が"http://"、"https://"、"#"で始まらない場合、basePathを付与
+      clone.querySelectorAll('[href]').forEach(function(el){
+        var href = el.getAttribute('href');
+        if(href && !href.startsWith('http://') && !href.startsWith('https://') && !href.startsWith('#')){
+          el.setAttribute('href', basePath + href);
+        }
+      });
+      var htmlString = clone.outerHTML;
+      // viewerページのURLに、シリアライズしたHTMLを#src=data:,...として渡す
+      window.location.href = viewerUrl + "#src=data:," + encodeURIComponent(htmlString) + "&bookMode=false&style=data:,/*<viewer>*/%0A@page%20%7B%20size:%20a4;%20%7D%0A/*</viewer>";
+    });
+  }
+});
+</script>
+{{- end }}

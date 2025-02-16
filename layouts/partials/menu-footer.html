@@ -42,6 +42,4 @@ menu-footer.html
 {{- /*  space  */}}
 <hr>
 <div class="menu-footer-space"></div>
-{{- if .Site.IsServer | and .Site.Params.showPreviewInfo }}
-<div style="position: fixed; bottom: 0; left: 0; padding: 0px 5px; width: 100%; font-size: 0.65rem; color: white; background-color: rgba(0, 0, 0, 0.8);">Preview... {{ .Page.File.Filename }}</div>
-{{- end }}
+{{ partial "menu-footer-previewpanel.html" . }}

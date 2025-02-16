@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@vivliostyle/viewer": "^2.31.0",
+    "copyfiles": "^2.4.1"
+  },
+  "scripts": {
+    "postinstall": "copyfiles -u 4 node_modules/@vivliostyle/viewer/lib/**/* static/viewer"
+  }
+}
