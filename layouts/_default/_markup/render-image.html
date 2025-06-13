@@ -8,6 +8,7 @@
   {{- $path := (printf "%s/%s" $sectionName $url.Path ) | urlize}}
   {{- $url = $path | safeURL | urls.Parse }}
 {{- end }}
+{{- $url = index (split $url "?") 0 }}
 {{- if .PlainText | findRE "[^\\s]" }}
 {{- /* 代替テキストがあるならキャプション表示 */}}
 <figure {{ if $ispdf | and (gt $maxheight 0) }}style="max-height: {{ $maxheight}}mm;"{{ end }}>
