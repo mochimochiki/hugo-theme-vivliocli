@@ -131,6 +131,25 @@ Alice->>Bob: Hello Bob.
 Bob-->>Alice: Hello Alice.
 ```
 
+Annotations can also be used in class diagrams.
+
+```mermaid
+classDiagram
+class Shape{
+    <<interface>>
+    noOfVertices
+    draw()
+}
+class Color{
+    <<enumeration>>
+    RED
+    BLUE
+    GREEN
+    WHITE
+    BLACK
+}
+```
+
 ### Images
 
 #### Regular Image
