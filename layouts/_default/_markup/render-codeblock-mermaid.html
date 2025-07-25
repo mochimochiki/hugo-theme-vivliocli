@@ -13,6 +13,6 @@
   {{- if gt $pdfPageMaxHeight 0 }}<style>div[id={{$mermaid_id}}] svg { max-height: {{$pdfPageMaxHeight}}mm; }</style>{{ end }}
 {{- end }}
 <div class="mermaid" id="{{$mermaid_id}}" align="center">
-  {{ .Inner | safeHTML }}
+  {{ .Inner | htmlEscape | safeHTML }}
 </div>
 {{- .Page.Scratch.Set "use_mermaid" true }}

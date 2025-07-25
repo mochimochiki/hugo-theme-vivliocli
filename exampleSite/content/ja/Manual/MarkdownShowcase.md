@@ -140,6 +140,25 @@ Alice->>Bob: Hello Bob.
 Bob-->>Alice: Hello Alice.
 ```
 
+`Annotation`はクラス図などでも使用できます。
+
+```mermaid
+classDiagram
+class Shape{
+    <<interface>>
+    noOfVertices
+    draw()
+}
+class Color{
+    <<enumeration>>
+    RED
+    BLUE
+    GREEN
+    WHITE
+    BLACK
+}
+```
+
 ### 図
 
 #### 通常の図
