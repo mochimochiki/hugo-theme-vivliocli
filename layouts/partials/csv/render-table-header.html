@@ -8,17 +8,26 @@
 {{- $mergeMaskV := .mergeMaskV }}
 {{- $mergeMaskH := .mergeMaskH }}
 {{- $useColumnCode := .useColumnCode }}
+{{- /* columnIdを先に取得する（columnId行より上の行にもcolumnIdを適用するため  */}}
+{{- $columnIds := slice }}
+{{- if $useColumnCode }}
+  {{- $columnId_row := (index $csv (sub $head 1)) }}
+    {{- range $i, $cell := $columnId_row }}
+      {{- $columnId := partial "csv/get-column-id.html" (dict "row" $columnId_row "index" $i) }}
+      {{- $columnIds = $columnIds | append $columnId }}
+    {{- end }}
+{{- end }}
 <thead>
 {{- range $rowIndex, $rowData := $csv }}
   {{- if lt $rowIndex $head }}
 <tr>
 {{- range $i, $cell := $rowData }}
   {{- $column_no := add $i 1 }}
-  {{- $columnId := ""}}
+  {{- $columnId := "" }}
   {{- /* column codeを利用する場合  */}}
   {{- if $useColumnCode }}
+    {{- $columnId = (index $columnIds $i) }}
     {{- if eq $rowIndex (sub $head 1) }}
-      {{- $columnId = partial "csv/get-column-id.html" (dict "row" $rowData "index" $i) }}
       {{ $cell = partial "csv/trim-column-id.html" $cell }}
     {{- end}}
   {{- end}}
