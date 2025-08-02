@@ -9,7 +9,7 @@ h2/h3タグが対象。.Page.Content の代わりに使用する。
 {{- $pageLevel := (len (split $section $d)) }}
 {{- $settingLevel := $page.Site.Params.sectionNumberLevel | default 0 }}
 {{- $pdfSpecifiedLevel := partial "functions/getRootPDFParam.html" (dict "this" $page "pdfparam" "sectionNumberLevel") }}
-{{- with $pdfSpecifiedLevel }}{{ $settingLevel = $pdfSpecifiedLevel }}{{ end }}
+{{- if ne $pdfSpecifiedLevel nil }}{{ $settingLevel = $pdfSpecifiedLevel }}{{ end }}
 {{- $content := $page.Content }}
 {{- if (le $pageLevel $settingLevel)}}
   {{- $content = (replace $page.Content "<span class=\"fig-number\"></span>" (printf "<span class=\"fig-number\">%s%s</span>" $section $d)) | safeHTML }}

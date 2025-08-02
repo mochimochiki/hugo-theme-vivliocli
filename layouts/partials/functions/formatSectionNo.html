@@ -5,7 +5,7 @@
 {{ $sectionNo := .sectionNoRaw }}
 {{ $sectionNoLevel := .this.Site.Params.sectionNumberLevel }}
 {{- $pdfSpecifiedLevel := partial "functions/getRootPDFParam.html" (dict "this" .this "pdfparam" "sectionNumberLevel") }}
-{{- with $pdfSpecifiedLevel }}{{ $sectionNoLevel = $pdfSpecifiedLevel }}{{ end }}
+{{- if ne $pdfSpecifiedLevel nil  }}{{ $sectionNoLevel = $pdfSpecifiedLevel }}{{ end }}
 {{- $ret := "" }}
 {{- if or ($sectionNoLevel) (eq $sectionNoLevel 0) }}
   {{- /*  Level設定より深ければ表示しない  */}}
