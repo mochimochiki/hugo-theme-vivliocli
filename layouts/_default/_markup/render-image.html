@@ -4,7 +4,11 @@
 {{- $pdfSize := partial "functions/getRootPDFParam.html" (dict "this" .Page "pdfparam" "pagesize") }}
 {{- $maxheight := partial "functions/getPDFContentHeight_mm.html" $pdfSize }}
 {{- if .Page.IsSection | and (ne .Page.Site.Params.legacy_index_link true) | and (not $url.IsAbs) }}
-  {{- $sectionName := .Page.Section }}
+  {{- /* Sectionではトップ階層が得られてしまうので、sectionNameはURLから取得する */}}
+  {{- $parts := split .Page.RelPermalink "/" }}
+  {{- $lastPartWithExt := index $parts (sub (len $parts) 1) }}
+  {{- $lastPart := replace $lastPartWithExt ".html" "" }}
+  {{- $sectionName := $lastPart }}
   {{- $path := (printf "%s/%s" $sectionName $url.Path ) | urlize}}
   {{- $url = $path | safeURL | urls.Parse }}
 {{- end }}

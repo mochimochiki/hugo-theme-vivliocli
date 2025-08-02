@@ -3,7 +3,11 @@
 {{- if not $url.IsAbs }}
   {{- $isReplaced := false }}
   {{- if .Page.IsSection | and (ne .Page.Site.Params.legacy_index_link true) }}
-    {{- $sectionName := .Page.Section }}
+    {{- /* Sectionではトップ階層が得られてしまうので、sectionNameはURLから取得する */}}
+    {{- $parts := split .Page.RelPermalink "/" }}
+    {{- $lastPartWithExt := index $parts (sub (len $parts) 1) }}
+    {{- $lastPart := replace $lastPartWithExt ".html" "" }}
+    {{- $sectionName := $lastPart }}
     {{- $path = (printf "%s/%s" $sectionName $path) | urlize}}
     {{- $isReplaced = true }}
   {{- end }}
