@@ -1144,7 +1144,8 @@ div.cover-bottom-right {
 
   /* break shortcode */
   #shortcodes-page-break {
-    border-top: 1px dashed #ccc;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #aaa;
     break-before: page;
   }
 }
