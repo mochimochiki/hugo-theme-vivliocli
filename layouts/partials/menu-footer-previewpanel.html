@@ -1,4 +1,7 @@
 {{- if .Site.IsServer | and .Site.Params.showPreviewInfo }}
+{{- $vivlioViewerFiles := resources.Match "viewer/**" }}
+{{- /*  assets内のファイルを出力するためにprintfで.RelMermalinkを呼んでいる（呼ばないと出力されないため）  */}}
+{{- range $vivlioViewerFiles }}{{ $load := printf "%s" .RelPermalink }}{{ end }}
 <style>
   #previewPanel {
     position: fixed;
