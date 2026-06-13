@@ -53,7 +53,7 @@ outputs: # VivlioCLI用Config出力：基本的に編集しません。
 (ここに目次前に表示したい文章を記述)
 ```
 
-`default`や`editionA`とリスト表記している設定値はconfig.tomlの`showIfs`で指定したエディション名を指定することでそのエディション用に設定できます。
+`default`や`editionA`とリスト表記している設定値はhugo.tomlの`showIfs`で指定したエディション名を指定することでそのエディション用に設定できます。
 
 ### pdfname
 

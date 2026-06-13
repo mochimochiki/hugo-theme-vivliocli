@@ -2,10 +2,12 @@
 
 :: set config
 if "%1" == "" (
-  echo "arg1:config was not specified. Build with [default.toml] ..."
-  set hugo_env="default"
+  echo "arg1:config was not specified. Build with [hugo.toml] ..."
+  set hugo_env=default
+  set config_opt=
 ) else (
   set hugo_env=%1
+  set config_opt=--config "hugo.toml","config/%1.toml"
 )
 
 set scriptdir=%~dp0
@@ -18,12 +20,12 @@ set HUGO_PARAMS_ISPDF=true
 :: Hugo build
 @echo -------------------------------------
 @echo Build Hugo site
-@echo config          : %hugo_env%.toml
+@echo config          : %hugo_env%
 @echo target directory: %publish_dir%
 @echo -------------------------------------
 pushd %hugodir%
 if exist %publish_dir% ( rmdir /s /q %publish_dir% )
-hugo --config "config/default.toml","config/%hugo_env%.toml" -b "" -d %publish_dir%
+hugo %config_opt% -b "" -d %publish_dir%
 if not %errorlevel% == 0 exit /B 1
 popd
 

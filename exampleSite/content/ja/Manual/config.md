@@ -1,9 +1,9 @@
 ---
-title: config.tomlの設定
+title: hugo.tomlの設定
 weight: 40
 ---
 
-`config.toml`の主な項目の説明をします。設定項目については[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)や`default.toml`のコメントも合わせて参照してください。
+`hugo.toml`の主な項目の説明をします。設定項目については[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)や`hugo.toml`のコメントも合わせて参照してください。
 
 ## \[params\] の設定項目
 

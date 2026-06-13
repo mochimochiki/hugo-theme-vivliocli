@@ -7,7 +7,7 @@ If you need to generate a family of PDFs with different contents, you can use th
 
 ## Creating a config for an edition
 
-Create `/config/myedition.toml`, and specify it with `default.toml` at build time to easily create the `myedition` edition.
+Create `/config/myedition.toml`, and specify it with `hugo.toml` at build time to easily create the `myedition` edition.
 
 ### Switching the display of specific elements on and off
 
@@ -43,7 +43,7 @@ When writing front matter like this, the article / section will be included in t
   showIfs = ["edition1"]
 ```
 
-If "edition1" is included in config.toml, the following pages will be included in the PDF.
+If "edition1" is included in hugo.toml, the following pages will be included in the PDF.
 
 ```
 ---
@@ -68,7 +68,7 @@ To build with a specified edition, specify the edition as an argument. For examp
 **Hugo**
 ```
 set HUGO_PARAMS_ISPDF=true
-hugo --config "config/default.toml","config/other.toml" -b ""
+hugo --config "hugo.toml","config/other.toml" -b ""
 ```
 
 **Batch**

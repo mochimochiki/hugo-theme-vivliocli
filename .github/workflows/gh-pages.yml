@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: |
           cd exampleSite
-          hugo --minify --config config/default.toml
+          hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

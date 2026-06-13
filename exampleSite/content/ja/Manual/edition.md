@@ -7,7 +7,7 @@ weight: 60
 
 ## エディションのconfigを作成する
 
-`/config/myedition.toml`を作成し、ビルド時に`default.toml`とともに指定することで簡単に`myedition`エディションを作成することができます。
+`/config/myedition.toml`を作成し、ビルド時に`hugo.toml`とともに指定することで簡単に`myedition`エディションを作成することができます。
 
 ### 特定要素の表示/非表示を切り替える
 
@@ -43,7 +43,7 @@ weight: 60
   showIfs = ["edition1"]
 ```
 
-`config.toml`に"edition1"を含むとき、以下のページはPDFに含まれることになります。
+`hugo.toml`に"edition1"を含むとき、以下のページはPDFに含まれることになります。
 
 ```
 ---
@@ -69,7 +69,7 @@ HideIf: ["edition1"]
 **Hugo**
 ```
 set HUGO_PARAMS_ISPDF=true
-hugo --config "config/default.toml","config/other.toml" -b ""
+hugo --config "hugo.toml","config/other.toml" -b ""
 ```
 
 **Batch**

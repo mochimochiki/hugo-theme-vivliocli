@@ -53,7 +53,7 @@ outputs: # Config output for VivlioCLI: Basically do not edit.
 (Description of what to display before the table of contents goes here)
 ```
 
-Settings specified as `default` or `editionA` in list format can be set for each edition by specifying the edition name specified in `showIfs` in `config.toml`.
+Settings specified as `default` or `editionA` in list format can be set for each edition by specifying the edition name specified in `showIfs` in `hugo.toml`.
 
 ### pdfname
 

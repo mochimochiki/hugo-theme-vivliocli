@@ -22,7 +22,7 @@ By default, `_index.md` is treated as a section at the same level as each articl
 
 ### ShowIf
 
-By specifying the `ShowIf` front matter, an article can only be rendered if it matches the keywords listed in the `showIfs` of `config.toml`. The following front matter specifies an article that will only be rendered if `showIfs = ["edition1"]`:
+By specifying the `ShowIf` front matter, an article can only be rendered if it matches the keywords listed in the `showIfs` of `hugo.toml`. The following front matter specifies an article that will only be rendered if `showIfs = ["edition1"]`:
 
 ```
 ---
