@@ -3,5 +3,17 @@ header.html
 記事のヘッダー。headの一番下に展開される。
 メニュー描画。
 ------------------- */}}
+{{- /* PDF装丁(style)切替: 各PDFを統べる _pdf.md の `style:` で装丁CSSを差し替える。      */}}
+{{- /*   style: elegant        -> /css/themes/elegant.css を読み込む                      */}}
+{{- /*   style: /css/foo.css   -> パスをそのまま読み込む ("/ "を含む or ".css"で終わる場合) */}}
+{{- /* <head>の最下部(=全ベースCSSの後)に展開されるため、後勝ちで上書きされる。            */}}
+{{- $style := partial "functions/getRootPDFParam.html" (dict "this" . "pdfparam" "style") }}
+{{- with $style }}
+  {{- $href := . }}
+  {{- if not (or (strings.Contains . "/") (strings.HasSuffix . ".css")) }}
+    {{- $href = printf "/css/themes/%s.css" . }}
+  {{- end }}
+  <link rel="stylesheet" href="{{ $href | relURL }}">
+{{- end }}
 {{ partial "custom-header.html" . }}
 {{- if ne .Site.Params.isPDF true }} {{- partial "menu.html" . -}} {{- end }}
