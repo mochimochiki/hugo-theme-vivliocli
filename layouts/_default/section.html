@@ -1,6 +1,8 @@
 {{ define "main" }}
 {{- $role := .Params.role | default "doc-chapter" }}
-{{- if eq $role "doc-part" }}{{- if eq .Site.Params.isPDF true }}<div class="doc-part-blank"></div>{{- end}}{{- end }}<div class="{{ $role }}" role="{{ $role }}">
+{{- /* PDF page style (book / simple) */}}
+{{- $isSimple := eq (partial "functions/getRootPDFParam.html" (dict "this" . "pdfparam" "book")) false }}
+{{- if and (and (eq $role "doc-part") (eq .Site.Params.isPDF true)) (not $isSimple) }}<div class="doc-part-blank"></div>{{- end}}<div class="{{ $role }}" role="{{ $role }}">
 {{- $sectionNo := partial "functions/getSectionNo" . }}
 <h1 id="section-title" class="{{ $role }}">{{ if $sectionNo }}<span class="section-number">{{ $sectionNo }}</span>{{ end }}<span>{{ .Title }}</span></h1>
 {{- $content := .Page.Content }}
