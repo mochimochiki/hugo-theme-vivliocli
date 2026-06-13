@@ -1,8 +1,21 @@
 {{- $url := .Destination | safeURL | urls.Parse }}
 {{- $path := $url.Path }}
+{{- $ignoreProofer := false }}
 {{- if not $url.IsAbs }}
   {{- $isReplaced := false }}
-  {{- if .Page.IsSection | and (ne .Page.Site.Params.legacy_index_link true) }}
+  {{- if (strings.HasSuffix $path ".md") | and (ne .Page.Site.Params.legacy_index_link true) }}
+    {{- $mdpath := path.Join .Page.File.Dir $path }}
+    {{- $targetPage := .Page.Site.GetPage $mdpath }}
+    {{- with $targetPage }}
+      {{- $path = .RelPermalink }}
+      {{- if $.Page.Site.Params.isPDF | and (strings.HasSuffix $.Page.File.Path "_pdf.md") }}
+        {{- $path = printf "..%s" $path }}
+        {{- $ignoreProofer = true }}
+      {{- end }}
+      {{- $isReplaced = true }}
+    {{- end }}
+  {{- end }}
+  {{- if (eq $isReplaced false) | and (.Page.IsSection) | and (ne .Page.Site.Params.legacy_index_link true) }}
     {{- /* Sectionではトップ階層が得られてしまうので、sectionNameはURLから取得する */}}
     {{- $parts := split .Page.RelPermalink "/" }}
     {{- $lastPartWithExt := index $parts (sub (len $parts) 1) }}
@@ -11,7 +24,7 @@
     {{- $path = (printf "%s/%s" $sectionName $path) | urlize}}
     {{- $isReplaced = true }}
   {{- end }}
-  {{- if strings.HasSuffix $path "md" }}
+  {{- if (eq $isReplaced false) | and (strings.HasSuffix $path ".md") }}
     {{- $path = $path | replaceRE "\\.md$" ".html" }}
     {{- $isReplaced = true }}
   {{- end }}
@@ -25,4 +38,4 @@
     {{- $url = $path | safeURL | urls.Parse }}
   {{- end }}
 {{- end }}
-<a href="{{$url | safeURL}}">{{.Text | safeHTML }}</a>
+<a href="{{$url | safeURL}}"{{ if $ignoreProofer }} data-proofer-ignore{{ end }}>{{.Text | safeHTML }}</a>
