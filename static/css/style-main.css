@@ -282,6 +282,19 @@ table.simple tr {
 table.simple td {
   border: solid 1px;
 }
+/* none-table */
+table.none th,
+table.none td {
+  background: none;
+  color: #000;
+  border: none;
+}
+table.none thead {
+  border-bottom: none;
+}
+table.none tr {
+  background: none;
+}
 
 /* paper-table */
 table.paper th {
