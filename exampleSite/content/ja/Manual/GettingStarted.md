@@ -63,19 +63,18 @@ git submodule add https://github.com/mochimochiki/hugo-theme-vivliocli themes/hu
 
 ### exampleSiteからファイルをコピーする
 
-テーマの中にテンプレートとして利用できるexampleSiteがあります。exampleSiteから必要なファイルをコピーします。また、デフォルトのconfig.tomlは削除しておきます。
+テーマの中にテンプレートとして利用できるexampleSiteがあります。exampleSiteから必要なファイルをコピーします。`hugo new site`で生成されたデフォルトのhugo.tomlはテーマのhugo.tomlで上書きします。
 
 ```bat
-xcopy /s themes\hugo-theme-vivliocli\exampleSite\config config\
+copy /y themes\hugo-theme-vivliocli\exampleSite\hugo.toml hugo.toml
 xcopy /s themes\hugo-theme-vivliocli\exampleSite\CI CI\
-del config.toml
 ```
 
 ## 最初のサイトの作成
 
-### config.tomlの編集
+### hugo.tomlの編集
 
-`/config/default.toml`を開き、以下の行をコメントアウトもしくは削除します。
+`/hugo.toml`を開き、以下の行をコメントアウトもしくは削除します。
 
 ```toml
 themesdir = "../.."
@@ -162,7 +161,7 @@ weight: 20
 以下のコマンドでHugoのプレビューを表示してメニューの`Languages` から`Japanese`を選択し、作成した記事が表示されることを確認します。記事を編集して保存すると、LiveReloadがかかり、プレビューも更新されます。
 
 ```bat
-hugo server --config config\default.toml
+hugo server
 ```
 
 ### ビルド
@@ -186,7 +185,7 @@ build_pdf.bat
 sectionNumberLevel: 2 # -> 1に変更
 ```
 
-また、トップレベルの出力形式やデリミタの設定は `/config/default.toml` で設定できます。
+また、トップレベルの出力形式やデリミタの設定は `/hugo.toml` で設定できます。
 
 ```bash
   [languages.ja.params]
@@ -194,7 +193,7 @@ sectionNumberLevel: 2 # -> 1に変更
     sectionTopFormat = "第%s章" # -> "Chapter %s" に変更
 ```
 
-> その他のconfigパラメータについては[config.tomlの設定](./config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
+> その他のconfigパラメータについては[hugo.tomlの設定](./config.html)および[HUGO公式ドキュメント](https://gohugo.io/getting-started/configuration/)などを参照してください。
 
 `/public_default/ja/firstpdf.pdf` で以下のことを確認します。
 
@@ -207,7 +206,7 @@ sectionNumberLevel: 2 # -> 1に変更
 * 原稿で利用できるMarkdownやShortcodesを確認する
   * [MarkdownとShortcodes](./MarkdownShowcase.html)
 * PDFの表紙や奥付をカスタマイズする
-  * [config.tomlの設定](./config.html)
+  * [hugo.tomlの設定](./config.html)
   * [_pdf.mdの設定](./pdfconfig.html)
 * 複数のエディションを作る
   * [エディション](./edition.html)

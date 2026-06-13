@@ -185,7 +185,7 @@ By adding attributes as URL query parameters, you can resize images or add borde
 
 ### ShowIf
 
-Specify the part to be rendered when it is enumerated in `showIfs` in `config.toml`. The following block is rendered when `showIfs = ["edition1"]`.
+Specify the part to be rendered when it is enumerated in `showIfs` in `hugo.toml`. The following block is rendered when `showIfs = ["edition1"]`.
 
 ```bash
 {{%/* ShowIf edition1 */%}}
@@ -197,7 +197,7 @@ For more information, see [Editions](./edition.html).
 
 ### HideIf
 
-Specify the part that is "not" rendered when it is enumerated in `showIfs` in `config.toml`. The following block will not be rendered when `showIfs = ["edition1"]`.
+Specify the part that is "not" rendered when it is enumerated in `showIfs` in `hugo.toml`. The following block will not be rendered when `showIfs = ["edition1"]`.
 
 ```bash
 {{%/* HideIf edition1 */%}}

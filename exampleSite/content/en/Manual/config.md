@@ -1,9 +1,9 @@
 ---
-title: config.toml
+title: hugo.toml
 weight: 40
 ---
 
-Here is an explanation of the main items in `config.toml`. Please also refer to the [Hugo official documentation](https://gohugo.io/getting-started/configuration/) and the comments in `default.toml` for information about each setting.
+Here is an explanation of the main items in `hugo.toml`. Please also refer to the [Hugo official documentation](https://gohugo.io/getting-started/configuration/) and the comments in `hugo.toml` for information about each setting.
 
 ## settings under \[params\]
 
