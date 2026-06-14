@@ -47,5 +47,5 @@ Bob-->>Alice: Hello Alice.
 
 ## 動作環境
 
-* [Hugo](https://gohugo.io/)(v0.114.0以降)
-* [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli)(8.6.0以降)
+* [Hugo](https://gohugo.io/)(v0.163.1以降)
+* [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli)(v8.6.0以降)
