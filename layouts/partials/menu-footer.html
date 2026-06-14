@@ -6,20 +6,20 @@ menu-footer.html
 <hr>
 {{- /* language selector */}}
 {{- $isHome := .IsHome }}
-{{ if .Site.IsMultiLingual }}
+{{ if hugo.IsMultilingual }}
 <div class="language-selector">
 <details class="select-language"><summary>Languages</summary>
-{{- $siteLanguages := .Site.Languages}}
+{{- $allSites := hugo.Sites}}
 {{- $pageLanguages := .Page.AllTranslations}}
-{{- range $siteLanguages }}
-{{- $oneLang := .}}
+{{- range $allSites }}
+{{- $oneLang := .Language}}
 {{- range $pageLanguages }}
 {{- $onePageLang := .}}
 {{- if eq $onePageLang.Lang $oneLang.Lang }}
 {{- if $isHome }}
-<div class="one-language"><a href="{{ $onePageLang.RelPermalink }}index.html">{{ $oneLang.LanguageName }}</a></div>
+<div class="one-language"><a href="{{ $onePageLang.RelPermalink }}index.html">{{ $oneLang.Label }}</a></div>
 {{- else }}
-<div class="one-language"><a href="{{ $onePageLang.RelPermalink }}">{{ $oneLang.LanguageName }}</a></div>
+<div class="one-language"><a href="{{ $onePageLang.RelPermalink }}">{{ $oneLang.Label }}</a></div>
 {{- end }}
 {{- end}}
 {{- end }}

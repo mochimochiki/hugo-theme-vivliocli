@@ -2,8 +2,8 @@
 title: "Test"
 role: "doc-part"
 weight: 30
-_build:
-  list: false
+build:
+  list: 'never'
 ---
 
 テストパート。 role:doc-part でパートを作成。

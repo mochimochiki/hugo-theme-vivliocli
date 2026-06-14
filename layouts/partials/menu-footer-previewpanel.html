@@ -1,4 +1,4 @@
-{{- if .Site.IsServer | and .Site.Params.showPreviewInfo }}
+{{- if hugo.IsServer | and .Site.Params.showPreviewInfo }}
 {{- $vivlioViewerFiles := resources.Match "viewer/**" }}
 {{- /*  assets内のファイルを出力するためにprintfで.RelMermalinkを呼んでいる（呼ばないと出力されないため）  */}}
 {{- range $vivlioViewerFiles }}{{ $load := printf "%s" .RelPermalink }}{{ end }}
@@ -19,7 +19,7 @@
 </style>
 <div id="previewPanel">
   <button id="previewPageButton">Preview Page</button>
-  <div style="width: 100%; font-size: 0.75rem; color: white; background-color: rgba(0, 0, 0, 0.8);">Preview... {{ .Page.File.Filename }}</div>
+  <div style="width: 100%; font-size: 0.75rem; color: white; background-color: rgba(0, 0, 0, 0.8);">Preview... {{ with .Page.File }}{{ .Filename }}{{ end }}</div>
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function(){

@@ -8,7 +8,7 @@
 
 {{- $found := false }}
 {{- $colNo := -1 }}
-{{- range $rowIndex, $rowData := getCSV "," $csvpath }}
+{{- range $rowIndex, $rowData := resources.FromString "data.csv" (os.ReadFile $csvpath) | transform.Unmarshal (dict "delimiter" ",") }}
   {{- if eq $found false }}
     {{- /*  列を特定  */}}
     {{- if eq $rowIndex 0}} 

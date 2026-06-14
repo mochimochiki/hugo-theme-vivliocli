@@ -45,7 +45,7 @@
     {{- partial "csv/render-keyvalue.html" (dict "csvpath" $csvpath "key" $key "column" $column) }}
   {{- else }}
     {{- /* include csv table */}}
-    {{- $csv := getCSV "," $csvpath }}
+    {{- $csv := resources.FromString "data.csv" (os.ReadFile $csvpath) | transform.Unmarshal (dict "delimiter" ",") }}
     {{- $csv = partial "csv/trim-csv-bom.html" (dict "csv" $csv )}}
     {{- with $ignore_columns }}
       {{- $csv = partial "csv/get-ignored-columns-csv.html" (dict "csv" $csv "ignore_columns" . )}}

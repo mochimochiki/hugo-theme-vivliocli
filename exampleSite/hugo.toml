@@ -8,12 +8,13 @@ themesdir = "../.."
 title = "Hugo-theme-vivliocli"
 
 theme = "hugo-theme-vivliocli"
-languageCode = "en"
+locale = "en"
 defaultContentLanguage = "en"
 enableInlineShortcodes = true
 disablePathToLower= true
 enableGitInfo = false
 defaultContentLanguageInSubdir= true
+disableDefaultSiteRedirect = true
 hasCJKLanguage = true
 uglyurls = true
 relativeURLs = true
@@ -82,8 +83,8 @@ canonifyURLs = true
 
 [languages]
   [languages.ja]
-    languageCode = "ja-jp"
-    languageName = "Japanese"
+    locale = "ja-jp"
+    label = "Japanese"
     weight = 1
     contentDir = "content/ja"
   [languages.ja.params]
@@ -96,8 +97,8 @@ canonifyURLs = true
     # lang_css = ["/css/ja.css"]
 
   [languages.en]
-    languageCode = "en"
-    languageName = "English"
+    locale = "en"
+    label = "English"
     weight = 2
     contentDir = "content/en"
   [languages.en.params]

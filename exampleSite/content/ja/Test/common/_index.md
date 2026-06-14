@@ -1,4 +1,4 @@
 ---
-_build:
-  list: false
+build:
+  list: 'never'
 ---
