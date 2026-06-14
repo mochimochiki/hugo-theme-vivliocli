@@ -1,1 +1,67 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>User Guide on Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual.html</link><description>Recent content in User Guide on Hugo-theme-vivliocli</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/GettingStarted.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/GettingStarted.html</guid><description>対象環境 本解説は Windows を対象環境としています。 インストール Hugoのインストール Hugoを 公式ページのインストール手順に従いインストールします。</description></item><item><title>MarkdownとShortcodes</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/MarkdownShowcase.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/MarkdownShowcase.html</guid><description>本テーマで利用できるMarkdownとShortcodesのショーケースです。 Markdown Header 2 Header 3 Header 4 Header 5 Header 6 テキスト 吾輩は猫である。名前はまだ無い。</description></item><item><title>フロントマター</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/frontmatter.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/frontmatter.html</guid><description>セクションや各記事の設定について解説します。 _index.mdのフロントマター _index.mdはデフォルトでは各記事と同等レベルのセクショ</description></item><item><title>hugo.tomlの設定</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/config.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/config.html</guid><description>hugo.tomlの主な項目の説明をします。設定項目については HUGO公式ドキュメントやhugo.tomlのコメントも合わせて参照してくださ</description></item><item><title>_pdf.mdの設定</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/pdfconfig.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/pdfconfig.html</guid><description>本テーマではvivliostyleで利用される構成ファイル/カバーページ（目次）/奥付を生成するために、以下のconfigファイルを利用して</description></item><item><title>エディション</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/edition.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/edition.html</guid><description>内容が異なるPDFのファミリーを生成する必要がある場合、HUGOの Configuration Directoryの仕組みを利用してエディションを作り分け、構成や記事内</description></item><item><title>タグ付け</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/Tags.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/Tags.html</guid><description>ページにタグ付けすることができます。タグ付けされたページは、タグごとに分類されたタグ一覧ページからリンクされます。 タグ一覧ページ タグ付けされ</description></item><item><title/><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/_pdf.vivlio.cover.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/_pdf.vivlio.cover.html</guid><description/></item><item><title>奥付</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/_pdfcolophon.vivlio.colophon.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/_pdfcolophon.vivlio.colophon.html</guid><description>Hugo-theme-vivliocli User Guide 2026/06/13 著者 mochimo 編集 mochimo © mochimo</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>User Guide on Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/index.html</link><description>Recent content in User Guide on Hugo-theme-vivliocli</description><generator>Hugo</generator><language>ja-jp</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/GettingStarted.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/GettingStarted.html</guid><description>&lt;h2 id="対象環境"&gt;対象環境&lt;/h2&gt;
+&lt;p&gt;本解説は Windows を対象環境としています。&lt;/p&gt;
+&lt;h2 id="インストール"&gt;インストール&lt;/h2&gt;
+&lt;h3 id="hugoのインストール"&gt;Hugoのインストール&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href="https://gohugo.io/"&gt;Hugo&lt;/a&gt;を
+&lt;a href="https://gohugo.io/installation/windows/"&gt;公式ページのインストール手順&lt;/a&gt;に従いインストールします。インストールが完了したら、以下のコマンドでHugoのバージョンが表示されることを確認します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bat" data-lang="bat"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: Hugo Static Site Generator vx.xx.x ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="nodejsとvivliostyleのインストール"&gt;Node.jsとVivliostyleのインストール&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href="https://nodejs.org/ja/"&gt;Node.js&lt;/a&gt;のLTS版をインストールします。インストールが完了したら、以下のコマンドでNode.jsおよびnpmのバージョンが表示されることを確認します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bat" data-lang="bat"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;node -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: vX.X.X&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: note: vivliostyle-cli is not working in Node v14.0.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: X.X.X&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;次にnpmで
+&lt;a href="https://github.com/vivliostyle/vivliostyle-cli"&gt;vivliostyle-cli&lt;/a&gt;をインストールします。インストールが完了したら、Vivliostyleのバージョンが表示されることを確認します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bat" data-lang="bat"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm install -g @vivliostyle/cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vivliostyle -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: cli: X.X.X&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: core: X.X.X&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="サイト作成とテーマのインストール"&gt;サイト作成とテーマのインストール&lt;/h3&gt;
+&lt;p&gt;Hugoで新しいサイトを作成します。ここでは&lt;code&gt;myPDF&lt;/code&gt;という名称とします。&lt;/p&gt;</description></item><item><title>MarkdownとShortcodes</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/MarkdownShowcase.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/MarkdownShowcase.html</guid><description>&lt;p&gt;本テーマで利用できるMarkdownとShortcodesのショーケースです。&lt;/p&gt;
+&lt;h2 id="markdown"&gt;Markdown&lt;/h2&gt;
+&lt;h2 id="header-2"&gt;Header 2&lt;/h2&gt;
+&lt;h3 id="header-3"&gt;Header 3&lt;/h3&gt;
+&lt;h4 id="header-4"&gt;Header 4&lt;/h4&gt;
+&lt;h5 id="header-5"&gt;Header 5&lt;/h5&gt;
+&lt;h6 id="header-6"&gt;Header 6&lt;/h6&gt;
+&lt;h3 id="テキスト"&gt;テキスト&lt;/h3&gt;
+&lt;p&gt;吾輩は猫である。名前はまだ無い。&lt;/p&gt;
+&lt;p&gt;どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。この書生というのは時々我々を捕えて煮て食うという話である。しかしその当時は何という考もなかったから別段恐しいとも思わなかった。ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。これが人間の飲む煙草というものである事はようやくこの頃知った。&lt;/p&gt;</description></item><item><title>フロントマター</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/frontmatter.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/frontmatter.html</guid><description>&lt;p&gt;セクションや各記事の設定について解説します。&lt;/p&gt;
+&lt;h2 id="_indexmdのフロントマター"&gt;_index.mdのフロントマター&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;_index.md&lt;/code&gt;はデフォルトでは各記事と同等レベルのセクションとして扱われますが、&lt;code&gt;role&lt;/code&gt;を設定することでパート/チャプターなどのより大きな枠とすることができます。&lt;/p&gt;</description></item><item><title>hugo.tomlの設定</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/config.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/config.html</guid><description>&lt;p&gt;&lt;code&gt;hugo.toml&lt;/code&gt;の主な項目の説明をします。設定項目については
+&lt;a href="https://gohugo.io/getting-started/configuration/"&gt;HUGO公式ドキュメント&lt;/a&gt;や&lt;code&gt;hugo.toml&lt;/code&gt;のコメントも合わせて参照してください。&lt;/p&gt;
+&lt;h2 id="params-の設定項目"&gt;[params] の設定項目&lt;/h2&gt;
+&lt;p&gt;[params]以下に設定する設定値です。&lt;/p&gt;
+&lt;h3 id="ispdf"&gt;isPDF&lt;/h3&gt;
+&lt;p&gt;PDFかどうか。trueにすると各htmlページでのmenu生成が抑制されます。PDFビルド時は&lt;code&gt;true&lt;/code&gt;に設定します。&lt;/p&gt;</description></item><item><title>_pdf.mdの設定</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/pdfconfig.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/pdfconfig.html</guid><description>&lt;p&gt;本テーマではvivliostyleで利用される構成ファイル/カバーページ（目次）/奥付を生成するために、以下のconfigファイルを利用しています。&lt;/p&gt;</description></item><item><title>エディション</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/edition.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/edition.html</guid><description>&lt;p&gt;内容が異なるPDFのファミリーを生成する必要がある場合、HUGOの
+&lt;a href="https://gohugo.io/getting-started/configuration/#configuration-directory"&gt;Configuration Directory&lt;/a&gt;の仕組みを利用してエディションを作り分け、構成や記事内容を切り替えてビルドできます。&lt;/p&gt;</description></item><item><title>タグ付け</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/Tags.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/Tags.html</guid><description>&lt;p&gt;ページにタグ付けすることができます。タグ付けされたページは、タグごとに分類されたタグ一覧ページからリンクされます。&lt;/p&gt;
+&lt;h2 id="タグ一覧ページ"&gt;タグ一覧ページ&lt;/h2&gt;
+&lt;p&gt;タグ付けされたページが一つでも存在する場合、メニューの言語セレクタの下にタグ一覧ページへのリンクが表示されます。&lt;/p&gt;</description></item><item><title/><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/_pdf.vivlio.cover.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/_pdf.vivlio.cover.html</guid><description/></item><item><title>奥付</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/_pdfcolophon.vivlio.colophon.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/_pdfcolophon.vivlio.colophon.html</guid><description>&lt;div role="doc-colophon"&gt;
+&lt;h3 id="hugo-theme-vivliocli-user-guide"&gt;Hugo-theme-vivliocli User Guide&lt;/h3&gt;
+&lt;p&gt;2026/06/14&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;&lt;/th&gt;
+					&lt;th&gt;&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;著者&lt;/td&gt;
+					&lt;td&gt;mochimo&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;編集&lt;/td&gt;
+					&lt;td&gt;mochimo&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;© mochimo&lt;/p&gt;
+&lt;/div&gt;</description></item></channel></rss>

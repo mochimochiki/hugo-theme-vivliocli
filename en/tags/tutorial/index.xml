@@ -1,5 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tutorial on Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/tags/tutorial.html</link><description>Recent content in tutorial on Hugo-theme-vivliocli</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/en/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/GettingStarted.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/GettingStarted.html</guid><description>Target Environment This guide is for Windows.
-Installation Installing Hugo Install Hugo by following the instructions on the official website. After installing, confirm that the version of Hugo is displayed with the following command:
-hugo version :: Hugo Static Site Generator vx.xx.x ... Installing Node.js and Vivliostyle Install the LTS version of Node.js. After installing, confirm the versions of Node.js and npm are displayed with the following command:
-node -v :: vX.</description></item><item><title>Markdown and Shortcodes</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/MarkdownShowcase.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/MarkdownShowcase.html</guid><description>This is a showcase of Markdown and Shortcodes that can be used in this theme.
-Markdown Header 2 Header 3 Header 4 Header 5 Header 6 Text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorial on Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/tags/tutorial.html</link><description>Recent content in Tutorial on Hugo-theme-vivliocli</description><generator>Hugo</generator><language>en</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/en/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/GettingStarted.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/GettingStarted.html</guid><description>&lt;h2 id="target-environment"&gt;Target Environment&lt;/h2&gt;
+&lt;p&gt;This guide is for Windows.&lt;/p&gt;
+&lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
+&lt;h3 id="installing-hugo"&gt;Installing Hugo&lt;/h3&gt;
+&lt;p&gt;Install 
+&lt;a href="https://gohugo.io/"&gt;Hugo&lt;/a&gt; by following the instructions on the 
+&lt;a href="https://gohugo.io/installation/windows/"&gt;official website&lt;/a&gt;. After installing, confirm that the version of Hugo is displayed with the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bat" data-lang="bat"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: Hugo Static Site Generator vx.xx.x ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="installing-nodejs-and-vivliostyle"&gt;Installing Node.js and Vivliostyle&lt;/h3&gt;
+&lt;p&gt;Install the LTS version of 
+&lt;a href="https://nodejs.org/en/"&gt;Node.js&lt;/a&gt;. After installing, confirm the versions of Node.js and npm are displayed with the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bat" data-lang="bat"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;node -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: vX.X.X&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: note: vivliostyle-cli is not working in Node v14.0.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: X.X.X&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Next, install 
+&lt;a href="https://github.com/vivliostyle/vivliostyle-cli"&gt;vivliostyle-cli&lt;/a&gt; with npm. After installing, confirm the version of Vivliostyle with the following command:&lt;/p&gt;</description></item><item><title>Markdown and Shortcodes</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/MarkdownShowcase.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/MarkdownShowcase.html</guid><description>&lt;p&gt;This is a showcase of Markdown and Shortcodes that can be used in this theme.&lt;/p&gt;
+&lt;h2 id="markdown"&gt;Markdown&lt;/h2&gt;
+&lt;h2 id="header-2"&gt;Header 2&lt;/h2&gt;
+&lt;h3 id="header-3"&gt;Header 3&lt;/h3&gt;
+&lt;h4 id="header-4"&gt;Header 4&lt;/h4&gt;
+&lt;h5 id="header-5"&gt;Header 5&lt;/h5&gt;
+&lt;h6 id="header-6"&gt;Header 6&lt;/h6&gt;
+&lt;h3 id="text"&gt;Text&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</description></item></channel></rss>

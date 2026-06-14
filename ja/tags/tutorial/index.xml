@@ -1,1 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tutorial on Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/tags/tutorial.html</link><description>Recent content in tutorial on Hugo-theme-vivliocli</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/ja/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/GettingStarted.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/GettingStarted.html</guid><description>対象環境 本解説は Windows を対象環境としています。 インストール Hugoのインストール Hugoを 公式ページのインストール手順に従いインストールします。</description></item><item><title>MarkdownとShortcodes</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/MarkdownShowcase.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/MarkdownShowcase.html</guid><description>本テーマで利用できるMarkdownとShortcodesのショーケースです。 Markdown Header 2 Header 3 Header 4 Header 5 Header 6 テキスト 吾輩は猫である。名前はまだ無い。</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorial on Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/tags/tutorial.html</link><description>Recent content in Tutorial on Hugo-theme-vivliocli</description><generator>Hugo</generator><language>ja-jp</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/ja/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/GettingStarted.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/GettingStarted.html</guid><description>&lt;h2 id="対象環境"&gt;対象環境&lt;/h2&gt;
+&lt;p&gt;本解説は Windows を対象環境としています。&lt;/p&gt;
+&lt;h2 id="インストール"&gt;インストール&lt;/h2&gt;
+&lt;h3 id="hugoのインストール"&gt;Hugoのインストール&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href="https://gohugo.io/"&gt;Hugo&lt;/a&gt;を
+&lt;a href="https://gohugo.io/installation/windows/"&gt;公式ページのインストール手順&lt;/a&gt;に従いインストールします。インストールが完了したら、以下のコマンドでHugoのバージョンが表示されることを確認します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bat" data-lang="bat"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: Hugo Static Site Generator vx.xx.x ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="nodejsとvivliostyleのインストール"&gt;Node.jsとVivliostyleのインストール&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href="https://nodejs.org/ja/"&gt;Node.js&lt;/a&gt;のLTS版をインストールします。インストールが完了したら、以下のコマンドでNode.jsおよびnpmのバージョンが表示されることを確認します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bat" data-lang="bat"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;node -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: vX.X.X&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: note: vivliostyle-cli is not working in Node v14.0.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: X.X.X&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;次にnpmで
+&lt;a href="https://github.com/vivliostyle/vivliostyle-cli"&gt;vivliostyle-cli&lt;/a&gt;をインストールします。インストールが完了したら、Vivliostyleのバージョンが表示されることを確認します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bat" data-lang="bat"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm install -g @vivliostyle/cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vivliostyle -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: cli: X.X.X&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: core: X.X.X&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="サイト作成とテーマのインストール"&gt;サイト作成とテーマのインストール&lt;/h3&gt;
+&lt;p&gt;Hugoで新しいサイトを作成します。ここでは&lt;code&gt;myPDF&lt;/code&gt;という名称とします。&lt;/p&gt;</description></item><item><title>MarkdownとShortcodes</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/MarkdownShowcase.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/MarkdownShowcase.html</guid><description>&lt;p&gt;本テーマで利用できるMarkdownとShortcodesのショーケースです。&lt;/p&gt;
+&lt;h2 id="markdown"&gt;Markdown&lt;/h2&gt;
+&lt;h2 id="header-2"&gt;Header 2&lt;/h2&gt;
+&lt;h3 id="header-3"&gt;Header 3&lt;/h3&gt;
+&lt;h4 id="header-4"&gt;Header 4&lt;/h4&gt;
+&lt;h5 id="header-5"&gt;Header 5&lt;/h5&gt;
+&lt;h6 id="header-6"&gt;Header 6&lt;/h6&gt;
+&lt;h3 id="テキスト"&gt;テキスト&lt;/h3&gt;
+&lt;p&gt;吾輩は猫である。名前はまだ無い。&lt;/p&gt;
+&lt;p&gt;どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。この書生というのは時々我々を捕えて煮て食うという話である。しかしその当時は何という考もなかったから別段恐しいとも思わなかった。ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。これが人間の飲む煙草というものである事はようやくこの頃知った。&lt;/p&gt;</description></item></channel></rss>

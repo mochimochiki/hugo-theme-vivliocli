@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/common.html</link><description>Recent content on Hugo-theme-vivliocli</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/common/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/common/common_test.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/common/common_test.html</guid><description>相対パスの共通文書のincludeテスト 絶対パス画像リンクはできるはず キャプション assetsフォルダのみ相対パスで記述可能</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/common/index.html</link><description>Recent content on Hugo-theme-vivliocli</description><generator>Hugo</generator><language>ja-jp</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/common/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/common/common_test.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/common/common_test.html</guid><description>&lt;h2 id="相対パスの共通文書のincludeテスト"&gt;相対パスの共通文書のincludeテスト&lt;/h2&gt;
+&lt;p&gt;絶対パス画像リンクはできるはず&lt;br&gt;
+
+&lt;figure &gt;
+ &lt;input type="checkbox" id="/ja/Test/TestChapter1/assets/2021-05-31-23-36-57.png" class="pop-up-image-check"/&gt;
+ &lt;label for="/ja/Test/TestChapter1/assets/2021-05-31-23-36-57.png" class="popup-image-background"&gt;&lt;div class="popup-image-window"&gt;&lt;img src="../../../ja/Test/TestChapter1/assets/2021-05-31-23-36-57.png" /&gt;&lt;/div&gt;&lt;/label&gt;
+ &lt;label style="cursor: pointer" for="/ja/Test/TestChapter1/assets/2021-05-31-23-36-57.png"&gt;
+ &lt;img src="../../../ja/Test/TestChapter1/assets/2021-05-31-23-36-57.png" alt="キャプション" class="fig" &gt;
+ &lt;/label&gt;
+ &lt;figcaption&gt;
+ &lt;span class="fig-number"&gt;&lt;/span&gt;キャプション
+ &lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;assetsフォルダのみ相対パスで記述可能&lt;br&gt;
+
+&lt;div style="display: inline;"&gt;
+&lt;input type="checkbox" id="assets/common.png" class="pop-up-image-check"/&gt;
+&lt;label for="assets/common.png" class="popup-image-background"&gt;&lt;div class="popup-image-window"&gt;&lt;img src="assets/common.png" /&gt;&lt;/div&gt;&lt;/label&gt;
+&lt;label style="cursor: pointer" for="assets/common.png"&gt;
+&lt;img src="assets/common.png" alt="" &gt;
+&lt;/label&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item></channel></rss>

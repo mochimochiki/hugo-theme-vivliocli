@@ -1,1 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/_include.html</link><description>Recent content on Hugo-theme-vivliocli</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/ja/_include/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/_include/test_ja.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/_include/test_ja.html</guid><description>test.md test.mdが呼び出されました。 No content 1 testA 2 testB 3 testC Note ショートコードもincludeできます。</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/_include/index.html</link><description>Recent content on Hugo-theme-vivliocli</description><generator>Hugo</generator><language>ja-jp</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/ja/_include/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/_include/test_ja.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/_include/test_ja.html</guid><description>&lt;h3 id="testmd"&gt;test.md&lt;/h3&gt;
+&lt;p&gt;test.mdが呼び出されました。&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;No&lt;/th&gt;
+					&lt;th&gt;content&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;1&lt;/td&gt;
+					&lt;td&gt;testA&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;2&lt;/td&gt;
+					&lt;td&gt;testB&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;3&lt;/td&gt;
+					&lt;td&gt;testC&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="note"&gt;
+ &lt;div class="note_title"&gt;Note&lt;/div&gt;
+ &lt;div class="note_content"&gt;
+&lt;p&gt;ショートコードもincludeできます。&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>

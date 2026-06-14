@@ -1,1 +1,535 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Test Chapter1 on Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1.html</link><description>Recent content in Test Chapter1 on Hugo-theme-vivliocli</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/index.xml" rel="self" type="application/rss+xml"/><item><title>temptest</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/00_test.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/00_test.html</guid><description> h1 h,3 h5 a1 c1 e1 c2 e2 a3 c3 e3 a4 e4</description></item><item><title>日本語ファイル</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/01_%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/01_%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB.html</guid><description>テスト 日本語ファイル名の出力テスト 日本語TOCの出力テスト このセクションはpdftocクラスをつけているためsectionNoLevelに関</description></item><item><title>pageTOC</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/02_pageTOC.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/02_pageTOC.html</guid><description>test AAAAAAAAAAAAAAAAAAAAAAAAAA test BBBBBBBBBBBBBBBBBBBBBBBBBB test CCCCCCCCCCCCCCCCCCCCCCCCCC テスト DDDDDDDDDDDDDDDDDDDDDDDDDD テスト EEEEEEEEEEEEEEEEEEEEEEEEEE テスト FFFFFFFFFFFFFFFFFFFFFFFFFF テスト GGGGGGGGGGGGGGGGGGGGGGGGGGGG</description></item><item><title>include</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/03_include.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/03_include.html</guid><description>include md test.md test.mdが呼び出されました。 No content 1 testA 2 testB 3 testC Note ショートコードもincludeできます。 include csv from current dir groupA groupB h1 h2 h,3 h4 h5 a1 c1 d1 e1 c2 d2 e2 a3 -&amp;gt;</description></item><item><title>ShowIf/HideIf ShortCode テスト</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/04_ShowIfHideIfShortCode.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/04_ShowIfHideIfShortCode.html</guid><description>ShowIf ここは共通。 ここは&amp;quot;test&amp;quot;をshowIfsに含む場合に出力。 ShowIf内の見出し2 テスト ShowIf内の見出し3</description></item><item><title>ShowIfFrontMatter</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/05_ShowIfFrontMatter.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/05_ShowIfFrontMatter.html</guid><description>test このページは出力される</description></item><item><title>HideIf FrontMatter</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/06_HideIfFrontMatter.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/06_HideIfFrontMatter.html</guid><description>test このページは出力されない。</description></item><item><title>Table of contents</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/07_TableOfContents.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/07_TableOfContents.html</guid><description>いきなりレベル3 ページ内目次 ページ内目次が大量に出力された場合に文字切れしない。 レベル3 レベル3 レベル3 レベル3 レベル3 レベル3 レベル3 ペー</description></item><item><title>Page break</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/08_pagebreak.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/08_pagebreak.html</guid><description>改ページテスト AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA Note 注記のタイトルと本文の間で改ページしない この下に改ページ。 改ページ後。 Note 大きなノート 大きなノート 大きなノ</description></item><item><title>ImageResize</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/09_ImageResize.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/09_ImageResize.html</guid><description>キャプションつき width=50% width=800px &amp;amp; border=5 width=800px &amp;amp; height=600px</description></item><item><title>MathJaxTest</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/10_MathJax.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/10_MathJax.html</guid><description>数式 $$ \int_0^1 x dx = \left[ \frac{x^2}{2} \right]_0^1 = \frac{1}{2} $$ Note 注記 noteの内部に箇条書きがある場合にもPDFで数式レンダリング可能 test aaa bbb ccc 箇条書き</description></item><item><title>2columns</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/11_2columns.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/11_2columns.html</guid><description>対象環境 本解説は Windows 10 を対象環境としています。 インストール Hugoのインストールがまだであればインストールしておきます。v0.68以上に対応し</description></item><item><title>2columns</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/12_2columns_2.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/12_2columns_2.html</guid><description>2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カ</description></item><item><title>タグ付けテスト</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/13_Tags.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/13_Tags.html</guid><description>大量に様々な形式のタグを付けても正しくタグページ生成とタグへのリンクが生成されることを確認</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Test Chapter1 on Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/index.html</link><description>Recent content in Test Chapter1 on Hugo-theme-vivliocli</description><generator>Hugo</generator><language>ja-jp</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/index.xml" rel="self" type="application/rss+xml"/><item><title>temptest</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/00_test.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/00_test.html</guid><description>&lt;div style="page-break-inside: avoid;"&gt;
+&lt;table style="margin: auto;" class="gray" width="100%"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;</description></item><item><title>日本語ファイル</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/01_%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/01_%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB.html</guid><description>&lt;h2 id="テスト"&gt;テスト&lt;/h2&gt;
+&lt;p&gt;日本語ファイル名の出力テスト&lt;/p&gt;
+&lt;h3 class="pdftoc" id="日本語tocの出力テスト"&gt;日本語TOCの出力テスト&lt;/h3&gt;
+&lt;p&gt;このセクションはpdftocクラスをつけているためsectionNoLevelに関わらず常に目次に表示される&lt;/p&gt;
+&lt;h4 class="pdftoc" id="日本語tocの出力テスト-1"&gt;日本語TOCの出力テスト&lt;/h4&gt;
+&lt;p&gt;このセクションは見出しレベル4なのでpdftocクラスをつけていても目次に表示されない。&lt;/p&gt;</description></item><item><title>pageTOC</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/02_pageTOC.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/02_pageTOC.html</guid><description>&lt;h2 id="test"&gt;test&lt;/h2&gt;
+&lt;p&gt;AAAAAAAAAAAAAAAAAAAAAAAAAA&lt;/p&gt;
+&lt;h3 id="test-1"&gt;test&lt;/h3&gt;
+&lt;p&gt;BBBBBBBBBBBBBBBBBBBBBBBBBB&lt;/p&gt;
+&lt;h4 id="test-2"&gt;test&lt;/h4&gt;
+&lt;p&gt;CCCCCCCCCCCCCCCCCCCCCCCCCC&lt;/p&gt;
+&lt;h2 id="テスト"&gt;テスト&lt;/h2&gt;
+&lt;p&gt;DDDDDDDDDDDDDDDDDDDDDDDDDD&lt;/p&gt;
+&lt;h3 id="テスト-1"&gt;テスト&lt;/h3&gt;
+&lt;p&gt;EEEEEEEEEEEEEEEEEEEEEEEEEE&lt;/p&gt;
+&lt;h4 id="テスト-2"&gt;テスト&lt;/h4&gt;
+&lt;p&gt;FFFFFFFFFFFFFFFFFFFFFFFFFF&lt;/p&gt;
+&lt;h4 class="pdftoc" id="テスト-3"&gt;テスト&lt;/h4&gt;
+&lt;p&gt;GGGGGGGGGGGGGGGGGGGGGGGGGGGG&lt;/p&gt;</description></item><item><title>include</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/03_include.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/03_include.html</guid><description>&lt;h2 id="include-md"&gt;include md&lt;/h2&gt;
+ 
+&lt;h3 id="testmd"&gt;test.md&lt;/h3&gt;
+&lt;p&gt;test.mdが呼び出されました。&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;No&lt;/th&gt;
+					&lt;th&gt;content&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;1&lt;/td&gt;
+					&lt;td&gt;testA&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;2&lt;/td&gt;
+					&lt;td&gt;testB&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;3&lt;/td&gt;
+					&lt;td&gt;testC&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="note"&gt;
+ &lt;div class="note_title"&gt;Note&lt;/div&gt;
+ &lt;div class="note_content"&gt;
+&lt;p&gt;ショートコードもincludeできます。&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id="include-csv-from-current-dir"&gt;include csv from current dir&lt;/h2&gt;
+ 
+&lt;div style="page-break-inside: avoid;"&gt;
+&lt;table style="margin: auto;" class="gray" width="*"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;カテゴリ&lt;/div&gt;&lt;/th&gt;
+&lt;th
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;名称[[@h:&amp;ndash;: @:&amp;ndash;:]]&lt;/div&gt;&lt;/th&gt;
+&lt;th
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;品種&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+ 
+&lt;th
+ style="width: auto;" colspan="1" rowspan="3"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;果物&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;りんご&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;紅玉&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;みかん&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;&lt;ul&gt;
+&lt;li&gt;せとか&lt;/li&gt;
+&lt;li&gt;甘平&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;ぶどう&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;デラウェア&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id="include-csv-from-relative-path"&gt;include csv from relative path&lt;/h2&gt;
+ 
+&lt;div style="page-break-inside: avoid;"&gt;
+&lt;table style="margin: auto;" class="gray" width="*"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+ 
+&lt;th
+ style="width: auto; text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;カテゴリ&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th
+ style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;名称&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th
+ style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;品種&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="width: auto; text-align: left;" colspan="1" rowspan="3"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;果物&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;りんご&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;紅玉&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;みかん&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;&lt;ul&gt;
+&lt;li&gt;せとか&lt;/li&gt;
+&lt;li&gt;甘平&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;ぶどう&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;デラウェア&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id="include-csv-from-_include-dir"&gt;include csv from _include dir&lt;/h2&gt;
+ 
+&lt;div style="page-break-inside: avoid;"&gt;
+&lt;table style="margin: auto;" class="gray" width="*"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+ 
+&lt;th
+ style="width: auto; text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;カテゴリ&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th
+ style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;名称&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th
+ style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;品種&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="width: auto; text-align: left;" colspan="1" rowspan="3"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;果物&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;りんご&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;紅玉&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;みかん&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;&lt;ul&gt;
+&lt;li&gt;せとか&lt;/li&gt;
+&lt;li&gt;甘平&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;ぶどう&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;デラウェア&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id="columns"&gt;columns&lt;/h2&gt;
+ 
+&lt;div style="page-break-inside: avoid;"&gt;
+&lt;table style="margin: auto;" class="gray" width="*"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+ 
+&lt;th
+ style="width: auto; text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;名称&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="width: auto; text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;りんご&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="width: auto; text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;みかん&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="width: auto; text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;ぶどう&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id="ignore_columns"&gt;ignore_columns&lt;/h2&gt;
+ 
+&lt;div style="page-break-inside: avoid;"&gt;
+&lt;table style="margin: auto;" class="gray" width="*"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+ 
+&lt;th
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;カテゴリ&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;品種&lt;/div&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="width: auto;" colspan="1" rowspan="3"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;果物&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;紅玉&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;&lt;ul&gt;
+&lt;li&gt;せとか&lt;/li&gt;
+&lt;li&gt;甘平&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;デラウェア&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id="include-csv-one-parameter"&gt;include csv one parameter&lt;/h2&gt;
+&lt;h3 id="パラメータをinclude"&gt;パラメータをinclude&lt;/h3&gt;
+ 
+ 
+
+
+
+
+&lt;h3 id="列がマッチしない"&gt;列がマッチしない&lt;/h3&gt;
+&lt;p&gt;↓表示されないはず。&lt;br&gt;
+ 
+ 
+
+
+
+&lt;/p&gt;</description></item><item><title>ShowIf/HideIf ShortCode テスト</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/04_ShowIfHideIfShortCode.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/04_ShowIfHideIfShortCode.html</guid><description>&lt;h2 id="showif"&gt;ShowIf&lt;/h2&gt;
+&lt;p&gt;ここは共通。&lt;/p&gt;
+&lt;p&gt;ここは&amp;quot;test&amp;quot;をshowIfsに含む場合に出力。&lt;/p&gt;
+&lt;h2 id="showif内の見出し2"&gt;ShowIf内の見出し2&lt;/h2&gt;
+&lt;p&gt;テスト&lt;/p&gt;
+&lt;h3 id="showif内の見出し3"&gt;ShowIf内の見出し3&lt;/h3&gt;
+&lt;p&gt;テスト&lt;/p&gt;
+&lt;h2 id="hideif"&gt;HideIf&lt;/h2&gt;
+&lt;p&gt;ここは共通。&lt;/p&gt;
+&lt;h2 id="共通の見出し2"&gt;共通の見出し2&lt;/h2&gt;
+&lt;p&gt;テスト&lt;/p&gt;
+&lt;h3 id="共通の見出し3"&gt;共通の見出し3&lt;/h3&gt;
+&lt;p&gt;テスト&lt;/p&gt;
+&lt;h2 id="showifでor"&gt;ShowIfでOr&lt;/h2&gt;
+&lt;p&gt;ここはtestもしくはtest2で表示される。&lt;/p&gt;</description></item><item><title>ShowIfFrontMatter</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/05_ShowIfFrontMatter.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/05_ShowIfFrontMatter.html</guid><description>&lt;h2 id="test"&gt;test&lt;/h2&gt;
+&lt;p&gt;このページは出力される&lt;/p&gt;</description></item><item><title>HideIf FrontMatter</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/06_HideIfFrontMatter.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/06_HideIfFrontMatter.html</guid><description>&lt;h2 id="test"&gt;test&lt;/h2&gt;
+&lt;p&gt;このページは出力されない。&lt;/p&gt;</description></item><item><title>Table of contents</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/07_TableOfContents.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/07_TableOfContents.html</guid><description>&lt;h3 id="いきなりレベル3"&gt;いきなりレベル3&lt;/h3&gt;
+&lt;h2 id="ページ内目次"&gt;ページ内目次&lt;/h2&gt;
+&lt;p&gt;ページ内目次が大量に出力された場合に文字切れしない。&lt;/p&gt;
+&lt;h3 id="レベル3"&gt;レベル3&lt;/h3&gt;
+&lt;h3 id="レベル3-1"&gt;レベル3&lt;/h3&gt;
+&lt;h3 id="レベル3-2"&gt;レベル3&lt;/h3&gt;
+&lt;h3 id="レベル3-3"&gt;レベル3&lt;/h3&gt;
+&lt;h3 id="レベル3-4"&gt;レベル3&lt;/h3&gt;
+&lt;h3 id="レベル3-5"&gt;レベル3&lt;/h3&gt;
+&lt;h3 id="レベル3-6"&gt;レベル3&lt;/h3&gt;
+&lt;h2 id="ページ内目次-1"&gt;ページ内目次&lt;/h2&gt;
+&lt;p&gt;ページ内目次が大量に出力された場合に文字切れしない。&lt;/p&gt;
+&lt;h3 id="レベル3-7"&gt;レベル3&lt;/h3&gt;
+&lt;h3 id="レベル3-8"&gt;レベル3&lt;/h3&gt;
+&lt;h3 id="レベル3-9"&gt;レベル3&lt;/h3&gt;
+&lt;h3 id="レベル3-10"&gt;レベル3&lt;/h3&gt;
+&lt;h3 id="レベル3-11"&gt;レベル3&lt;/h3&gt;
+&lt;h3 id="レベル3-12"&gt;レベル3&lt;/h3&gt;
+&lt;h3 id="レベル3-13"&gt;レベル3&lt;/h3&gt;
+&lt;h2 id="ページ内目次-2"&gt;ページ内目次&lt;/h2&gt;
+&lt;p&gt;ページ内目次が大量に出力された場合に文字切れしない。&lt;/p&gt;</description></item><item><title>Page break</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/08_pagebreak.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/08_pagebreak.html</guid><description>&lt;h2 id="改ページテスト"&gt;改ページテスト&lt;/h2&gt;
+&lt;h3 id="aaa"&gt;AAA&lt;/h3&gt;
+&lt;h3 id="aaa-1"&gt;AAA&lt;/h3&gt;
+&lt;h3 id="aaa-2"&gt;AAA&lt;/h3&gt;
+&lt;h3 id="aaa-3"&gt;AAA&lt;/h3&gt;
+&lt;h3 id="aaa-4"&gt;AAA&lt;/h3&gt;
+&lt;h3 id="aaa-5"&gt;AAA&lt;/h3&gt;
+&lt;h3 id="aaa-6"&gt;AAA&lt;/h3&gt;
+&lt;h3 id="aaa-7"&gt;AAA&lt;/h3&gt;
+&lt;h3 id="aaa-8"&gt;AAA&lt;/h3&gt;
+&lt;h3 id="aaa-9"&gt;AAA&lt;/h3&gt;
+&lt;div class="note"&gt;
+ &lt;div class="note_title"&gt;Note&lt;/div&gt;
+ &lt;div class="note_content"&gt;
+&lt;p&gt;注記のタイトルと本文の間で改ページしない&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;この下に改ページ。&lt;/p&gt;
+&lt;div id="shortcodes-page-break"&gt;&lt;/div&gt;
+&lt;p&gt;改ページ後。&lt;/p&gt;
+&lt;div class="note"&gt;
+ &lt;div class="note_title"&gt;Note&lt;/div&gt;
+ &lt;div class="note_content"&gt;
+&lt;h3 id="大きなノート"&gt;大きなノート&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;大きなノート
+&lt;ul&gt;
+&lt;li&gt;大きなノート&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;大きなノート
+&lt;ul&gt;
+&lt;li&gt;大きなノート&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;大きなノート
+&lt;ul&gt;
+&lt;li&gt;大きなノート&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;大きなノート
+&lt;ul&gt;
+&lt;li&gt;大きなノート&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;br&gt;
+大きなノート&lt;/p&gt;</description></item><item><title>ImageResize</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/09_ImageResize.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/09_ImageResize.html</guid><description>&lt;p&gt;
+&lt;div style="display: inline;"&gt;
+&lt;input type="checkbox" id="assets/2021-05-31-23-36-57.png" class="pop-up-image-check"/&gt;
+&lt;label for="assets/2021-05-31-23-36-57.png" class="popup-image-background"&gt;&lt;div class="popup-image-window"&gt;&lt;img src="assets/2021-05-31-23-36-57.png" /&gt;&lt;/div&gt;&lt;/label&gt;
+&lt;label style="cursor: pointer" for="assets/2021-05-31-23-36-57.png"&gt;
+&lt;img src="assets/2021-05-31-23-36-57.png" alt="" &gt;
+&lt;/label&gt;
+&lt;/div&gt;&lt;br&gt;
+
+&lt;figure &gt;
+ &lt;input type="checkbox" id="assets/2021-05-31-23-36-57.png" class="pop-up-image-check"/&gt;
+ &lt;label for="assets/2021-05-31-23-36-57.png" class="popup-image-background"&gt;&lt;div class="popup-image-window"&gt;&lt;img src="assets/2021-05-31-23-36-57.png" /&gt;&lt;/div&gt;&lt;/label&gt;
+ &lt;label style="cursor: pointer" for="assets/2021-05-31-23-36-57.png"&gt;
+ &lt;img src="assets/2021-05-31-23-36-57.png" alt="キャプションつき" class="fig" &gt;
+ &lt;/label&gt;
+ &lt;figcaption&gt;
+ &lt;span class="fig-number"&gt;&lt;/span&gt;キャプションつき
+ &lt;/figcaption&gt;
+&lt;/figure&gt;&lt;br&gt;
+
+&lt;figure &gt;
+ &lt;input type="checkbox" id="assets/2021-05-31-23-36-57.png" class="pop-up-image-check"/&gt;
+ &lt;label for="assets/2021-05-31-23-36-57.png" class="popup-image-background"&gt;&lt;div class="popup-image-window"&gt;&lt;img src="assets/2021-05-31-23-36-57.png" /&gt;&lt;/div&gt;&lt;/label&gt;
+ &lt;label style="cursor: pointer" for="assets/2021-05-31-23-36-57.png"&gt;
+ &lt;img src="assets/2021-05-31-23-36-57.png" alt="width=50%" class="fig" width=50% &gt;
+ &lt;/label&gt;
+ &lt;figcaption&gt;
+ &lt;span class="fig-number"&gt;&lt;/span&gt;width=50%
+ &lt;/figcaption&gt;
+&lt;/figure&gt;&lt;br&gt;
+
+&lt;figure &gt;
+ &lt;input type="checkbox" id="assets/2021-05-31-23-36-57.png" class="pop-up-image-check"/&gt;
+ &lt;label for="assets/2021-05-31-23-36-57.png" class="popup-image-background"&gt;&lt;div class="popup-image-window"&gt;&lt;img src="assets/2021-05-31-23-36-57.png" /&gt;&lt;/div&gt;&lt;/label&gt;
+ &lt;label style="cursor: pointer" for="assets/2021-05-31-23-36-57.png"&gt;
+ &lt;img src="assets/2021-05-31-23-36-57.png" alt="width=800px &amp;amp; border=5" class="fig" width=800px border=5 &gt;
+ &lt;/label&gt;
+ &lt;figcaption&gt;
+ &lt;span class="fig-number"&gt;&lt;/span&gt;width=800px &amp;amp; border=5
+ &lt;/figcaption&gt;
+&lt;/figure&gt;&lt;br&gt;
+
+&lt;figure &gt;
+ &lt;input type="checkbox" id="assets/2021-05-31-23-36-57.png" class="pop-up-image-check"/&gt;
+ &lt;label for="assets/2021-05-31-23-36-57.png" class="popup-image-background"&gt;&lt;div class="popup-image-window"&gt;&lt;img src="assets/2021-05-31-23-36-57.png" /&gt;&lt;/div&gt;&lt;/label&gt;
+ &lt;label style="cursor: pointer" for="assets/2021-05-31-23-36-57.png"&gt;
+ &lt;img src="assets/2021-05-31-23-36-57.png" alt="width=800px &amp;amp; height=600px" class="fig" width=800px height=300px &gt;
+ &lt;/label&gt;
+ &lt;figcaption&gt;
+ &lt;span class="fig-number"&gt;&lt;/span&gt;width=800px &amp;amp; height=600px
+ &lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;</description></item><item><title>MathJaxTest</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/10_MathJax.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/10_MathJax.html</guid><description>&lt;h2 id="数式"&gt;数式&lt;/h2&gt;
+
+&lt;div class="mathjaxblock" id="mathjax_block_0"&gt;
+ $$
+ \int_0^1 x dx
+= \left[ \frac{x^2}{2} \right]_0^1
+= \frac{1}{2}
+ $$
+&lt;/div&gt;&lt;h2 id="note"&gt;Note&lt;/h2&gt;
+&lt;div class="note"&gt;
+ &lt;div class="note_title"&gt;注記&lt;/div&gt;
+ &lt;div class="note_content"&gt;
+&lt;p&gt;noteの内部に箇条書きがある場合にもPDFで数式レンダリング可能&lt;/p&gt;
+&lt;h3 id="test"&gt;test&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;aaa&lt;/li&gt;
+&lt;li&gt;bbb&lt;/li&gt;
+&lt;li&gt;ccc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;箇条書き&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</description></item><item><title>2columns</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/11_2columns.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/11_2columns.html</guid><description>&lt;h2 id="対象環境"&gt;対象環境&lt;/h2&gt;
+&lt;p&gt;本解説は Windows 10 を対象環境としています。&lt;/p&gt;
+&lt;h2 id="インストール"&gt;インストール&lt;/h2&gt;
+&lt;p&gt;
+&lt;a href="https://gohugo.io/"&gt;Hugo&lt;/a&gt;のインストールがまだであればインストールしておきます。&lt;code&gt;v0.68&lt;/code&gt;以上に対応しています（フロントマターで
+&lt;a href="https://gohugo.io/content-management/build-options/#list"&gt;_buildオプションのlist&lt;/a&gt;を使用しているため）。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bat" data-lang="bat"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: Hugo Static Site Generator v0.80.0 ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;本テーマでは
+&lt;a href="https://github.com/vivliostyle/vivliostyle-cli"&gt;vivliostyle-cli&lt;/a&gt;を利用してPDF出力を行うため、
+&lt;a href="https://nodejs.org/ja/"&gt;Node.js&lt;/a&gt;およびvivliostyle-cliのインストールを実施します。以下はchocotaleyを用いた導入例です。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bat" data-lang="bat"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;choco install -y nodejs
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;node -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: vx.x.x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: note: vivliostyle-cli is not working in Node v14.0.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: x.x.x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm install -g @vivliostyle/cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vivliostyle -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: cli: x.x.x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: core: x.x.x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="hugo-theme-vivliocliのインストール"&gt;hugo-theme-vivliocliのインストール&lt;/h3&gt;
+&lt;p&gt;新しいプロジェクトを作成します。ここでは&lt;code&gt;myPDF&lt;/code&gt;という名称とします。&lt;/p&gt;</description></item><item><title>2columns</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/12_2columns_2.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/12_2columns_2.html</guid><description>&lt;p&gt;2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カラムです。2カラムのテストです。ここは序文で、1カラムです。&lt;/p&gt;</description></item><item><title>タグ付けテスト</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/13_Tags.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Test/TestChapter1/13_Tags.html</guid><description>&lt;p&gt;大量に様々な形式のタグを付けても正しくタグページ生成とタグへのリンクが生成されることを確認&lt;/p&gt;</description></item></channel></rss>

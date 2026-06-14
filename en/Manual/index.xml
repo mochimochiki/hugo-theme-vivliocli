@@ -1,17 +1,83 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>User Guide on Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual.html</link><description>Recent content in User Guide on Hugo-theme-vivliocli</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/GettingStarted.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/GettingStarted.html</guid><description>Target Environment This guide is for Windows.
-Installation Installing Hugo Install Hugo by following the instructions on the official website. After installing, confirm that the version of Hugo is displayed with the following command:
-hugo version :: Hugo Static Site Generator vx.xx.x ... Installing Node.js and Vivliostyle Install the LTS version of Node.js. After installing, confirm the versions of Node.js and npm are displayed with the following command:
-node -v :: vX.</description></item><item><title>Markdown and Shortcodes</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/MarkdownShowcase.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/MarkdownShowcase.html</guid><description>This is a showcase of Markdown and Shortcodes that can be used in this theme.
-Markdown Header 2 Header 3 Header 4 Header 5 Header 6 Text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</description></item><item><title>Frontmatter</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/frontmatter.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/frontmatter.html</guid><description>Explanation of the settings for each section and article:
-Front matter of _index.md By default, _index.md is treated as a section at the same level as each article, but by setting role, it can be used as a larger framework for parts/chapters.
-Note _index.md at the same level as _pdf.md will not be output to PDF.
-role role: doc-part: _index.md is output as the cover page for a part in a PDF.</description></item><item><title>hugo.toml</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/config.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/config.html</guid><description>Here is an explanation of the main items in hugo.toml. Please also refer to the Hugo official documentation and the comments in hugo.toml for information about each setting.
-settings under [params] isPDF Whether it is a PDF or not. If set to true, menu generation is suppressed on each html page. Set to true when building a PDF.
-theme_css Specify the css used for typesetting. If using /static/css/yourtheme.css, specify it as /css/yourtheme.</description></item><item><title>_pdf.md</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/pdfconfig.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/pdfconfig.html</guid><description>In this theme, the following config files are used to generate the configuration file / cover page (table of contents) / colophon used in vivliostyle:
-_pdf.md _pdfcolophon.md By placing these two files in the directory where you want to generate the PDF on your site, you can generate the configuration file for PDF generation (not just in the site root).
-_pdf.md _pdf.md is the config file and cover page template for vivliostyle.</description></item><item><title>Edition</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/edition.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/edition.html</guid><description>If you need to generate a family of PDFs with different contents, you can use the Configuration Directory mechanism in Hugo to create editions and switch configurations and article contents for building.
-Creating a config for an edition Create /config/myedition.toml, and specify it with hugo.toml at build time to easily create the myedition edition.
-Switching the display of specific elements on and off Use showIfs with ShowIf / HideIf shortcodes / front matter to switch the display on and off.</description></item><item><title>Tagging</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/Tags.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/Tags.html</guid><description>You can tag your pages, which allows them to be categorized and linked to from a page displaying all tags.
-Page displaying all tags If there is at least one page that has been tagged, a link to the page displaying all tags will be displayed below the language selector in the menu.
-How to tag To tag a page, all you need to do is declare a list of tags to be added to the page in its front matter like so: tags: [&amp;quot;tagA&amp;quot;, &amp;quot;tagB&amp;quot;].</description></item><item><title/><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/_pdf.vivlio.cover.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/_pdf.vivlio.cover.html</guid><description/></item><item><title>colophon</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/_pdfcolophon.vivlio.colophon.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/_pdfcolophon.vivlio.colophon.html</guid><description>Hugo-theme-vivliocli User Guide April 26, 2023
-Author mochimo Editor mochimo © mochimo</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>User Guide on Hugo-theme-vivliocli</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/index.html</link><description>Recent content in User Guide on Hugo-theme-vivliocli</description><generator>Hugo</generator><language>en</language><atom:link href="https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/GettingStarted.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/GettingStarted.html</guid><description>&lt;h2 id="target-environment"&gt;Target Environment&lt;/h2&gt;
+&lt;p&gt;This guide is for Windows.&lt;/p&gt;
+&lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
+&lt;h3 id="installing-hugo"&gt;Installing Hugo&lt;/h3&gt;
+&lt;p&gt;Install 
+&lt;a href="https://gohugo.io/"&gt;Hugo&lt;/a&gt; by following the instructions on the 
+&lt;a href="https://gohugo.io/installation/windows/"&gt;official website&lt;/a&gt;. After installing, confirm that the version of Hugo is displayed with the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bat" data-lang="bat"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: Hugo Static Site Generator vx.xx.x ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="installing-nodejs-and-vivliostyle"&gt;Installing Node.js and Vivliostyle&lt;/h3&gt;
+&lt;p&gt;Install the LTS version of 
+&lt;a href="https://nodejs.org/en/"&gt;Node.js&lt;/a&gt;. After installing, confirm the versions of Node.js and npm are displayed with the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bat" data-lang="bat"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;node -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: vX.X.X&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: note: vivliostyle-cli is not working in Node v14.0.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;:&lt;span style="color:#75715e"&gt;: X.X.X&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Next, install 
+&lt;a href="https://github.com/vivliostyle/vivliostyle-cli"&gt;vivliostyle-cli&lt;/a&gt; with npm. After installing, confirm the version of Vivliostyle with the following command:&lt;/p&gt;</description></item><item><title>Markdown and Shortcodes</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/MarkdownShowcase.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/MarkdownShowcase.html</guid><description>&lt;p&gt;This is a showcase of Markdown and Shortcodes that can be used in this theme.&lt;/p&gt;
+&lt;h2 id="markdown"&gt;Markdown&lt;/h2&gt;
+&lt;h2 id="header-2"&gt;Header 2&lt;/h2&gt;
+&lt;h3 id="header-3"&gt;Header 3&lt;/h3&gt;
+&lt;h4 id="header-4"&gt;Header 4&lt;/h4&gt;
+&lt;h5 id="header-5"&gt;Header 5&lt;/h5&gt;
+&lt;h6 id="header-6"&gt;Header 6&lt;/h6&gt;
+&lt;h3 id="text"&gt;Text&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</description></item><item><title>Frontmatter</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/frontmatter.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/frontmatter.html</guid><description>&lt;p&gt;Explanation of the settings for each section and article:&lt;/p&gt;
+&lt;h2 id="front-matter-of-_indexmd"&gt;Front matter of &lt;code&gt;_index.md&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;By default, &lt;code&gt;_index.md&lt;/code&gt; is treated as a section at the same level as each article, but by setting &lt;code&gt;role&lt;/code&gt;, it can be used as a larger framework for parts/chapters.&lt;/p&gt;
+&lt;div class="note"&gt;
+ &lt;div class="note_title"&gt;Note&lt;/div&gt;
+ &lt;div class="note_content"&gt;
+&lt;p&gt;&lt;code&gt;_index.md&lt;/code&gt; at the same level as &lt;code&gt;_pdf.md&lt;/code&gt; will not be output to PDF.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id="role"&gt;role&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;role: doc-part&lt;/code&gt;: &lt;code&gt;_index.md&lt;/code&gt; is output as the cover page for a part in a PDF.&lt;br&gt;
+&lt;code&gt;role: doc-chapter&lt;/code&gt;: &lt;code&gt;_index.md&lt;/code&gt; is output as the title of a chapter and the first article in a PDF.&lt;/p&gt;</description></item><item><title>hugo.toml</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/config.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/config.html</guid><description>&lt;p&gt;Here is an explanation of the main items in &lt;code&gt;hugo.toml&lt;/code&gt;. Please also refer to the 
+&lt;a href="https://gohugo.io/getting-started/configuration/"&gt;Hugo official documentation&lt;/a&gt; and the comments in &lt;code&gt;hugo.toml&lt;/code&gt; for information about each setting.&lt;/p&gt;
+&lt;h2 id="settings-under-params"&gt;settings under [params]&lt;/h2&gt;
+&lt;h3 id="ispdf"&gt;isPDF&lt;/h3&gt;
+&lt;p&gt;Whether it is a PDF or not. If set to true, menu generation is suppressed on each html page. Set to true when building a PDF.&lt;/p&gt;
+&lt;h3 id="theme_css"&gt;theme_css&lt;/h3&gt;
+&lt;p&gt;Specify the css used for typesetting. If using &lt;code&gt;/static/css/yourtheme.css&lt;/code&gt;, specify it as &lt;code&gt;/css/yourtheme.css&lt;/code&gt;. By default, &lt;code&gt;style-main.css&lt;/code&gt; in the theme&amp;rsquo;s &lt;code&gt;static/css&lt;/code&gt; directory is referenced.&lt;/p&gt;</description></item><item><title>_pdf.md</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/pdfconfig.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/pdfconfig.html</guid><description>&lt;p&gt;In this theme, the following config files are used to generate the configuration file / cover page (table of contents) / colophon used in vivliostyle:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;_pdf.md&lt;/li&gt;
+&lt;li&gt;_pdfcolophon.md&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By placing these two files in the directory where you want to generate the PDF on your site, you can generate the configuration file for PDF generation (not just in the site root).&lt;/p&gt;
+&lt;h2 id="_pdfmd"&gt;_pdf.md&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;_pdf.md&lt;/code&gt; is the config file and cover page template for vivliostyle. It should be described as follows:&lt;/p&gt;</description></item><item><title>Edition</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/edition.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/edition.html</guid><description>&lt;p&gt;If you need to generate a family of PDFs with different contents, you can use the 
+&lt;a href="https://gohugo.io/getting-started/configuration/#configuration-directory"&gt;Configuration Directory&lt;/a&gt; mechanism in Hugo to create editions and switch configurations and article contents for building.&lt;/p&gt;
+&lt;h2 id="creating-a-config-for-an-edition"&gt;Creating a config for an edition&lt;/h2&gt;
+&lt;p&gt;Create &lt;code&gt;/config/myedition.toml&lt;/code&gt;, and specify it with &lt;code&gt;hugo.toml&lt;/code&gt; at build time to easily create the &lt;code&gt;myedition&lt;/code&gt; edition.&lt;/p&gt;
+&lt;h3 id="switching-the-display-of-specific-elements-on-and-off"&gt;Switching the display of specific elements on and off&lt;/h3&gt;
+&lt;p&gt;Use &lt;code&gt;showIfs&lt;/code&gt; with &lt;code&gt;ShowIf&lt;/code&gt; / &lt;code&gt;HideIf&lt;/code&gt; shortcodes / front matter to switch the display on and off.&lt;/p&gt;</description></item><item><title>Tagging</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/Tags.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/Tags.html</guid><description>&lt;p&gt;You can tag your pages, which allows them to be categorized and linked to from a page displaying all tags.&lt;/p&gt;
+&lt;h2 id="page-displaying-all-tags"&gt;Page displaying all tags&lt;/h2&gt;
+&lt;p&gt;If there is at least one page that has been tagged, a link to the page displaying all tags will be displayed below the language selector in the menu.&lt;/p&gt;
+&lt;h2 id="how-to-tag"&gt;How to tag&lt;/h2&gt;
+&lt;p&gt;To tag a page, all you need to do is declare a list of tags to be added to the page in its front matter like so: &lt;code&gt;tags: [&amp;quot;tagA&amp;quot;, &amp;quot;tagB&amp;quot;]&lt;/code&gt;. This will enumerate the tags on the page displaying all tags.&lt;/p&gt;</description></item><item><title/><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/_pdf.vivlio.cover.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/_pdf.vivlio.cover.html</guid><description/></item><item><title>colophon</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/_pdfcolophon.vivlio.colophon.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/en/Manual/_pdfcolophon.vivlio.colophon.html</guid><description>&lt;div role="doc-colophon"&gt;
+&lt;h3 id="hugo-theme-vivliocli-user-guide"&gt;Hugo-theme-vivliocli User Guide&lt;/h3&gt;
+&lt;p&gt;April 26, 2023&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;&lt;/th&gt;
+					&lt;th&gt;&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Author&lt;/td&gt;
+					&lt;td&gt;mochimo&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Editor&lt;/td&gt;
+					&lt;td&gt;mochimo&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;© mochimo&lt;/p&gt;
+&lt;/div&gt;</description></item></channel></rss>
