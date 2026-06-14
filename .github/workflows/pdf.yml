@@ -1,0 +1,43 @@
+name: build pdf
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true   # Fetch Hugo themes
+          fetch-depth: 0      # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Build Docker image
+        run: docker build -t hugo-theme-vivliocli:ci .
+
+      - name: Build PDFs in container
+        # リポジトリを WORKDIR(/work/hugo-theme-vivliocli)へマウントしてテーマ解決を成立させ、
+        # 生成 PDF をホスト(exampleSite/CI/linux/out)へ書き出す。
+        # MathJax/Mermaid は CDN から取得するためネットワークが必要(Actions では既定で利用可)。
+        # Chromium クラッシュ回避のため shm を拡張。
+        run: |
+          docker run --rm \
+            --shm-size=1g \
+            -v "${{ github.workspace }}":/work/hugo-theme-vivliocli \
+            hugo-theme-vivliocli:ci
+
+      - name: List generated PDFs
+        run: |
+          echo "Generated PDFs:"
+          find exampleSite/CI/linux/out -name '*.pdf' -print
+
+      - name: Upload PDF artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: vivliocli-pdf
+          path: exampleSite/CI/linux/out/**/*.pdf
+          if-no-files-found: error

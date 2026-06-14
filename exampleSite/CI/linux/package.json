@@ -1,0 +1,11 @@
+{
+  "name": "pdf-linux",
+  "version": "1.0.0",
+  "description": "Linux/Docker PDF build toolchain for hugo-theme-vivliocli",
+  "private": true,
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@vivliostyle/cli": "^8.6.0",
+    "playwright-core": "^1.40.0"
+  }
+}

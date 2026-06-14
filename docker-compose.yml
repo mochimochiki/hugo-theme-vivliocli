@@ -1,0 +1,38 @@
+# hugo-theme-vivliocli: ローカル開発用 Docker Compose
+#
+#   PDF 生成:  docker compose run --rm pdf            # exampleSite/CI/linux/out/<lang>/*.pdf
+#              docker compose run --rm pdf edition    # config/edition.toml を併用
+#   プレビュー: docker compose up preview             # http://localhost:1313/en/
+#
+# bind mount は Dockerfile の WORKDIR(/work/hugo-theme-vivliocli)へ重ねる。これにより
+# テーマ解決(themesdir="../.." + theme="hugo-theme-vivliocli")が成立し、生成 PDF は
+# ホストの exampleSite/CI/linux/out に出力される。
+services:
+  pdf:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hugo-theme-vivliocli:latest
+    volumes:
+      - .:/work/hugo-theme-vivliocli
+    # ENTRYPOINT(build_pdf.sh)への引数(省略時は default)
+    command: []
+
+  preview:
+    image: hugo-theme-vivliocli:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /work/hugo-theme-vivliocli/exampleSite
+    environment:
+      # Preview.bat 相当(プレビューは PDF モードではない)
+      HUGO_PARAMS_ISPDF: "false"
+      # ADR-260614-02: プレビュー時のみ uglyURLs を無効化(自己参照エイリアスによる無限リロード回避)
+      HUGO_UGLYURLS: "false"
+    volumes:
+      - .:/work/hugo-theme-vivliocli
+    ports:
+      - "1313:1313"
+    entrypoint: ["bash", "-lc"]
+    command:
+      - "npm install && hugo server -D --bind 0.0.0.0 --port 1313 --baseURL http://localhost:1313/ --appendPort=false"

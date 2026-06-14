@@ -6,4 +6,8 @@ public_*/
 # Dependency directories
 node_modules/
 exampleSite/CI/windows/package-lock.json
+exampleSite/CI/linux/package-lock.json
 exampleSite/static/viewer/*
+
+# PDF build output (Linux/Docker)
+exampleSite/CI/linux/out/

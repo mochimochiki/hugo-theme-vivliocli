@@ -1,0 +1,17 @@
+# VCS / メタ
+.git
+.github
+.claude
+.agent
+
+# ビルド生成物
+**/node_modules
+exampleSite/public
+exampleSite/public_*
+exampleSite/static/viewer
+exampleSite/CI/linux/out
+exampleSite/CI/**/out
+
+# OS / エディタ
+**/.DS_Store
+**/Thumbs.db
