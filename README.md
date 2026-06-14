@@ -43,6 +43,25 @@ see the [User Guide](https://mochimochiki.github.io/hugo-theme-vivliocli/en/) fo
 * Install [Hugo](https://github.com/gohugoio/hugo) (v0.163.1 or later).
 * Install [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli) (v8.6.0 or later).
 
+## Build with Docker
+
+You can build the `exampleSite` and generate the typeset PDFs without installing Hugo, Node.js, or Vivliostyle CLI locally. The Docker image (Debian based) bundles Hugo extended, Node.js, Chromium, Ghostscript, poppler, and Noto CJK fonts.
+
+```bash
+# Generate PDFs (output: exampleSite/CI/linux/out/<lang>/*.pdf)
+docker compose run --rm pdf
+
+# Use an additional edition config (config/<env>.toml)
+docker compose run --rm pdf edition
+
+# Live preview at http://localhost:1313/en/
+docker compose up preview
+```
+
+The PDF build also runs in GitHub Actions (`.github/workflows/pdf.yml`); the generated PDFs are uploaded as the `vivliocli-pdf` workflow artifact. The Linux build scripts live in [`exampleSite/CI/linux/`](exampleSite/CI/linux/) (the Windows equivalents in `exampleSite/CI/windows/` are unchanged).
+
+> Note: Mermaid and MathJax pages are pre-rendered with Chromium, which fetches the libraries from a CDN — network access is required during the build.
+
 ## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/mochimochiki/hugo-theme-vivliocli/blob/main/LICENSE) file for details.
