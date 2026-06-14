@@ -4,12 +4,15 @@ footer.html
 主にscript読み込み。
 ------------------- */}}
 {{- if ne .Site.Params.isPDF true }}
+{{- /* resources.Get の RelPermalink は baseURL のパスを含むため、canonifyURLs / relativeURLs と
+       併用するとパスが二重になる。baseURL パスを取り除いてから relURL で再付与する。 */}}
+{{- $baseURLPath := (urls.Parse .Site.BaseURL).Path }}
 {{- $menuscroll := resources.Get "js/menuscroll.js" | resources.Minify -}}
-<script src="{{$menuscroll.RelPermalink }}"></script>
+<script src="{{ $menuscroll.RelPermalink | strings.TrimPrefix $baseURLPath | strings.TrimPrefix "/" | relURL }}"></script>
 {{- if .Site.Params.copyClipboard }}
   {{- if (findRE "<pre" .Content 1) }}
     {{- $copyclip := resources.Get "js/copyclipboard.js" | resources.Minify }}
-<script src="{{$copyclip.RelPermalink }}"></script>
+<script src="{{ $copyclip.RelPermalink | strings.TrimPrefix $baseURLPath | strings.TrimPrefix "/" | relURL }}"></script>
     {{- end }}
   {{- end }}
 {{- end }}
