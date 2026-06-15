@@ -11,6 +11,7 @@
 **決定** : uglyurls は PDF生成(Vivliostyle が file:// で `../en/Manual/` フォルダURLを読むため)に必須なので hugo.toml では true のまま残し、Preview.bat に `set HUGO_UGLYURLS=false` を追加してプレビュー時のみ無効化。
 **理由** : relativeURLs/defaultContentLanguageInSubdir は両環境で必須、uglyURLs のみ環境別。既存の HUGO_PARAMS_ISPDF 分離パターンに倣い環境変数で上書き。最小変更で済み PDF設定は無傷。
 **備考** : canonifyURLs=true もプレビューで副作用懸念ありだが今回は未変更。将来 config 分割(config/preview.toml)でクリーン化する選択肢あり。
+**追記** : `disableDefaultSiteRedirect = true`(hugo.toml)により自己参照エイリアス自体が生成されなくなったため、本ADRの `HUGO_UGLYURLS=false` 上書きは不要と判明。Preview.bat には未適用、docker-compose.yml の preview サービスからも削除済み。uglyurls は両環境で true のまま統一。
 
 ## ADR-260614-01: vivlioカスタム出力フォーマットのテンプレートを明示出力フォーマット指定子で認識させる
 **背景** : Hugo v0.163 でマルチドットsuffix(`vivlio.cover.html`等)のカスタム出力フォーマットのテンプレートが認識されず警告が出た。回避策としてメディアタイプに secondary suffix `html`/`js` を足したが、`.html` の Content-Type 逆引きが `text/vivlio_cover`(isPlainText) に汚染され、通常HTMLページがブラウザでソース生表示される副作用が発生(実HTTPヘッダで確認)。

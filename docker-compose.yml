@@ -27,8 +27,6 @@ services:
     environment:
       # Preview.bat 相当(プレビューは PDF モードではない)
       HUGO_PARAMS_ISPDF: "false"
-      # ADR-260614-02: プレビュー時のみ uglyURLs を無効化(自己参照エイリアスによる無限リロード回避)
-      HUGO_UGLYURLS: "false"
     volumes:
       - .:/work/hugo-theme-vivliocli
     ports:
