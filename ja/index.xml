@@ -2,14 +2,55 @@
 &lt;table style="margin: auto;" class="gray" width="100%"&gt;
 &lt;thead&gt;
 &lt;tr&gt;
+ 
+&lt;th class="ID1"
+ style="width: 10%;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;h1&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th class="ID3"
+ style="width: 10%;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;&lt;em&gt;h,3&lt;/em&gt;&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th class="ID5"
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;h5&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td
+ class="ID1"
+ style="width: 10%;" colspan="1" rowspan="2"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;a1&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID3"
+ style="width: 10%;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;c1&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID5"
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;e1&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td
+ class="ID3"
+ style="width: 10%;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;c2&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID5"
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;e2&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td
+ class="ID1"
+ style="width: 10%;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;a3&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID3"
+ style="width: 10%;" colspan="1" rowspan="2"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;c3&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID5"
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;e3&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class="ID1"
+ style="width: 10%;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;a4&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID5"
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;e4&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -109,45 +150,85 @@
 &lt;table style="margin: auto;" class="gray" width="*"&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th
- style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;カテゴリ&lt;/div&gt;&lt;/th&gt;
-&lt;th
- style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;名称[[@h:&amp;ndash;: @:&amp;ndash;:]]&lt;/div&gt;&lt;/th&gt;
-&lt;th
- style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;品種&lt;/div&gt;&lt;/th&gt;
+&lt;th class="ID1"
+ style="width: auto;" colspan="2" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;groupA&lt;/div&gt;&lt;/th&gt;
+&lt;th class="ID3"
+ style="" colspan="3" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;groupB&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
  
-&lt;th
- style="width: auto;" colspan="1" rowspan="3"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;果物&lt;/div&gt;&lt;/th&gt;
+&lt;th class="ID1"
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;h1&lt;/div&gt;&lt;/th&gt;
  
-&lt;th
- style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;りんご&lt;/div&gt;&lt;/th&gt;
+&lt;th class="ID2 "
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;h2&lt;/div&gt;&lt;/th&gt;
  
-&lt;th
- style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;紅玉&lt;/div&gt;&lt;/th&gt;
+&lt;th class="ID3"
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;&lt;em&gt;h,3&lt;/em&gt;&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th class="ID4 "
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;h4&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th class="ID5"
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;h5&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td
- class=""
- style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;みかん&lt;/div&gt;&lt;/td&gt;
+ class="ID1"
+ style="width: auto;" colspan="2" rowspan="2"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;a1&lt;/div&gt;&lt;/td&gt;
 &lt;td
- class=""
- style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;&lt;ul&gt;
-&lt;li&gt;せとか&lt;/li&gt;
-&lt;li&gt;甘平&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;&lt;/td&gt;
+ class="ID3"
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;c1&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID4 "
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;d1&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID5"
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;e1&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td
- class=""
- style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;ぶどう&lt;/div&gt;&lt;/td&gt;
+ class="ID3"
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;c2&lt;/div&gt;&lt;/td&gt;
 &lt;td
- class=""
- style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;デラウェア&lt;/div&gt;&lt;/td&gt;
+ class="ID4 "
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;d2&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID5"
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;e2&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class="ID1"
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;a3&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID2 "
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;-&amp;gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID3"
+ style="" colspan="1" rowspan="2"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;c3&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID4 "
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;||&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID5"
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;e3&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class="ID1"
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;a4&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID2 "
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;b4&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID4 "
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;d4&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class="ID5"
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;e4&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -162,46 +243,26 @@
 &lt;tr&gt;
  
 &lt;th
- style="width: auto; text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;カテゴリ&lt;/div&gt;&lt;/th&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;h1&lt;/div&gt;&lt;/th&gt;
  
 &lt;th
- style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;名称&lt;/div&gt;&lt;/th&gt;
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;h2&lt;/div&gt;&lt;/th&gt;
  
 &lt;th
- style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;品種&lt;/div&gt;&lt;/th&gt;
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;h3&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td
  class=""
- style="width: auto; text-align: left;" colspan="1" rowspan="3"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;果物&lt;/div&gt;&lt;/td&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;re&lt;/div&gt;&lt;/td&gt;
 &lt;td
  class=""
- style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;りんご&lt;/div&gt;&lt;/td&gt;
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;la&lt;/div&gt;&lt;/td&gt;
 &lt;td
  class=""
- style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;紅玉&lt;/div&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td
- class=""
- style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;みかん&lt;/div&gt;&lt;/td&gt;
-&lt;td
- class=""
- style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;&lt;ul&gt;
-&lt;li&gt;せとか&lt;/li&gt;
-&lt;li&gt;甘平&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td
- class=""
- style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;ぶどう&lt;/div&gt;&lt;/td&gt;
-&lt;td
- class=""
- style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;デラウェア&lt;/div&gt;&lt;/td&gt;
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;tive&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -216,46 +277,88 @@
 &lt;tr&gt;
  
 &lt;th
- style="width: auto; text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;カテゴリ&lt;/div&gt;&lt;/th&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;id&lt;/div&gt;&lt;/th&gt;
  
 &lt;th
- style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;名称&lt;/div&gt;&lt;/th&gt;
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;number&lt;/div&gt;&lt;/th&gt;
  
 &lt;th
- style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;品種&lt;/div&gt;&lt;/th&gt;
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;名称&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;備考&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td
  class=""
- style="width: auto; text-align: left;" colspan="1" rowspan="3"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;果物&lt;/div&gt;&lt;/td&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;001&lt;/div&gt;&lt;/td&gt;
 &lt;td
  class=""
- style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;りんご&lt;/div&gt;&lt;/td&gt;
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;001-11&lt;/div&gt;&lt;/td&gt;
 &lt;td
  class=""
- style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;紅玉&lt;/div&gt;&lt;/td&gt;
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;AAA,項目A&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;備考A&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td
  class=""
- style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;みかん&lt;/div&gt;&lt;/td&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;002&lt;/div&gt;&lt;/td&gt;
 &lt;td
  class=""
- style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;&lt;ul&gt;
-&lt;li&gt;せとか&lt;/li&gt;
-&lt;li&gt;甘平&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;&lt;/td&gt;
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;002-11&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;BBB,項目B&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;備考B&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td
  class=""
- style=" text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;ぶどう&lt;/div&gt;&lt;/td&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;003&lt;/div&gt;&lt;/td&gt;
 &lt;td
  class=""
- style=" text-align: left;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;デラウェア&lt;/div&gt;&lt;/td&gt;
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;003-11&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;CCC,項目C&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;備考C&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;004&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;003-22&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;DDD,項目D&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;備考D&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;005&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;003-33&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;EEE,項目E&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;備考E&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -270,24 +373,52 @@
 &lt;tr&gt;
  
 &lt;th
- style="width: auto; text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;名称&lt;/div&gt;&lt;/th&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;id&lt;/div&gt;&lt;/th&gt;
+ 
+&lt;th
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;名称&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td
  class=""
- style="width: auto; text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;りんご&lt;/div&gt;&lt;/td&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;001&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;AAA,項目A&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td
  class=""
- style="width: auto; text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;みかん&lt;/div&gt;&lt;/td&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;002&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;BBB,項目B&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td
  class=""
- style="width: auto; text-align: center;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;ぶどう&lt;/div&gt;&lt;/td&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;003&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;CCC,項目C&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;004&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;DDD,項目D&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;005&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;EEE,項目E&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -302,34 +433,52 @@
 &lt;tr&gt;
  
 &lt;th
- style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;カテゴリ&lt;/div&gt;&lt;/th&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;id&lt;/div&gt;&lt;/th&gt;
  
 &lt;th
- style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;品種&lt;/div&gt;&lt;/th&gt;
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-header-cell"&gt;備考&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td
  class=""
- style="width: auto;" colspan="1" rowspan="3"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;果物&lt;/div&gt;&lt;/td&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;001&lt;/div&gt;&lt;/td&gt;
 &lt;td
  class=""
- style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;紅玉&lt;/div&gt;&lt;/td&gt;
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;備考A&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td
  class=""
- style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;&lt;ul&gt;
-&lt;li&gt;せとか&lt;/li&gt;
-&lt;li&gt;甘平&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;&lt;/td&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;002&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;備考B&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td
  class=""
- style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;デラウェア&lt;/div&gt;&lt;/td&gt;
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;003&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;備考C&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;004&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;備考D&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td
+ class=""
+ style="width: auto;" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;005&lt;/div&gt;&lt;/td&gt;
+&lt;td
+ class=""
+ style="" colspan="1" rowspan="1"&gt;&lt;div class="csvtable-cell csvtable-body-cell"&gt;備考E&lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -342,7 +491,7 @@
  
 
 
-
+EEE,項目E
 
 &lt;h3 id="列がマッチしない"&gt;列がマッチしない&lt;/h3&gt;
 &lt;p&gt;↓表示されないはず。&lt;br&gt;
@@ -631,7 +780,7 @@
 &lt;/label&gt;
 &lt;/div&gt;&lt;/p&gt;</description></item><item><title/><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/twoColumns/_pdf.vivlio.cover.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/twoColumns/_pdf.vivlio.cover.html</guid><description/></item><item><title>奥付</title><link>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/_pdfcolophon.vivlio.colophon.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mochimochiki.github.io/hugo-theme-vivliocli/ja/Manual/_pdfcolophon.vivlio.colophon.html</guid><description>&lt;div role="doc-colophon"&gt;
 &lt;h3 id="hugo-theme-vivliocli-user-guide"&gt;Hugo-theme-vivliocli User Guide&lt;/h3&gt;
-&lt;p&gt;2026/06/14&lt;/p&gt;
+&lt;p&gt;2026/06/24&lt;/p&gt;
 &lt;table&gt;
 	&lt;thead&gt;
 			&lt;tr&gt;
