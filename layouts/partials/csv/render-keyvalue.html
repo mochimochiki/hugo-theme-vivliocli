@@ -8,7 +8,8 @@
 
 {{- $found := false }}
 {{- $colNo := -1 }}
-{{- range $rowIndex, $rowData := resources.FromString "data.csv" (os.ReadFile $csvpath) | transform.Unmarshal (dict "delimiter" ",") }}
+{{- /* リソース名は CSV ファイルごとに一意にする(固定名だとキャッシュ衝突する) */}}
+{{- range $rowIndex, $rowData := resources.FromString $csvpath (os.ReadFile $csvpath) | transform.Unmarshal (dict "delimiter" ",") }}
   {{- if eq $found false }}
     {{- /*  列を特定  */}}
     {{- if eq $rowIndex 0}} 
