@@ -1,0 +1,42 @@
+{{- /* csv codeblock render hook: コードブロックの中身(.Inner)に書いたインラインCSVを */}}
+{{- /* include ショートコードと同じ表として描画する。外部ファイル参照は非対応。 */}}
+{{- /* オプションはコードフェンスの属性で指定する。属性名は include ショートコードに合わせる。 */}}
+{{- $caption := .Attributes.caption | default "" }}{{/* Table caption */}}
+{{- $align := .Attributes.align | default "center" }}{{/* Table align */}}
+{{- $markdown := .Attributes.markdown }}{{/* Cell contents are considered Markdown */}}
+{{- if eq $markdown nil }}{{ $markdown = true }}{{ end }}
+{{- $isEmptyMerge := .Attributes.merge | default false }}{{/* obsolute */}}
+{{- $class := .Attributes.class | default "gray" }}{{/* table class */}}
+{{- $head := .Attributes.head }}{{/* header row number (0 or false: no header table) */}}
+{{- if eq $head nil }}{{ $head = 1 }}{{ end }}
+{{- /* コードフェンス属性の数値は float64 になるため int へ変換(bool はそのまま) */}}
+{{- if not (in (slice true false) $head) }}{{ $head = int $head }}{{ end }}
+{{- $width := .Attributes.width | default "*" }}{{/* table width */}}
+{{- /* "width-ratio"(ハイフン)はドット記法で読めないため index で取得。"width_ratio" も許容 */}}
+{{- $widthRatio := or (index .Attributes "width-ratio") .Attributes.width_ratio | default "*" }}
+{{- $width_list := split (replace $widthRatio "*" "auto" ) "-" }}{{/* column width list "20%-30%-*" */}}
+{{- $columns := .Attributes.columns }}{{/* column names for column filtering */}}
+{{- $ignore_columns := .Attributes.ignore_columns }}{{/* ignore column names for column filtering */}}
+{{- $useColumnCode := .Attributes.code }}{{/* [[@xxx]] on the last line of the Header is considered a [[@ColumnCode]] and trimmed */}}
+{{- if eq $useColumnCode nil }}{{ $useColumnCode = true }}{{ end }}
+{{- $scratch := newScratch }}
+{{- $headerAlign := .Attributes.head_align | default "" }}
+{{- with $headerAlign }}{{- $scratch.Set "baseHeaderAlign" $headerAlign }}{{ end }}
+{{- $bodyAlign := .Attributes.body_align | default "" }}
+{{- with $bodyAlign }}{{- $scratch.Set "baseBodyAlign" $bodyAlign }}{{ end }}
+
+{{- /* インラインCSVを .csv 名のリソースとしてラップしてパースする。 */}}
+{{- /* resources.FromString はリソース名でキャッシュされるため、固定名だと別ブロックと */}}
+{{- /* 衝突する。内容ハッシュで一意な名前にして衝突を防ぐ。 */}}
+{{- $csvName := printf "inline-csv/%s.csv" (hash.XxHash .Inner) }}
+{{- $csv := resources.FromString $csvName .Inner | transform.Unmarshal (dict "delimiter" ",") }}
+{{- $csv = partial "csv/trim-csv-bom.html" (dict "csv" $csv )}}
+{{- with $ignore_columns }}
+  {{- $csv = partial "csv/get-ignored-columns-csv.html" (dict "csv" $csv "ignore_columns" . )}}
+{{- end }}
+{{- with $columns }}
+  {{- $csv = partial "csv/get-selected-columns-csv.html" (dict "csv" $csv "columns" . )}}
+{{- end }}
+<div style="page-break-inside: avoid;">
+{{- partial "csv/render-table.html" (dict "page" .Page "scratch" $scratch "csv" $csv "class" $class "width" $width "head" $head "width_list" $width_list "markdown" $markdown "isEmptyMerge" $isEmptyMerge "useColumnCode" $useColumnCode "caption" $caption "align" $align )}}
+</div>
