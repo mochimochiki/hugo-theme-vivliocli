@@ -1,39 +1,8 @@
 {{- /* SecitonNoを取得する。sectionNoLevelに関わらず、本来であればこの番号のセクション番号であった、という値を返す */}}
 {{- /* in : Page */}}
 {{- /* out: string章節番号 ex) 1.2.1 */}}
-{{ $scratch := newScratch }}
-{{ $scratch.Set "sectionSlice" slice }}
-{{- template "section-tree" (dict "section" .Site.Home "current" . "scratch" $scratch) }}
-
-{{- define "section-tree" }}
-  {{- $section := .section }}
-  {{- $current := .current }}
-  {{- $scratch := .scratch }}
-  {{- $isPDFRoot := false}}
-  {{- range $section.Pages.ByWeight }}
-    {{- if .OutputFormats.Get "vivlio_cover" }}
-      {{ $isPDFRoot = true }}
-    {{- end }}
-  {{- end }}
-  {{ $no := 0 }}
-  {{- range $section.Pages.ByWeight }}
-    {{- if partial "functions/isShow" . }}
-      {{ $no = (add $no 1) }}
-      {{- if (.IsAncestor $current) | or (eq . $current) }}
-        {{ $sectionNo := $scratch.Get "sectionSlice" }}
-        {{ if or $isPDFRoot (len $sectionNo) }}
-          {{ $scratch.Add "sectionSlice" (slice $no) }}
-        {{ end }}
-        {{- template "section-tree" (dict "section" . "current" $current "scratch" $scratch) }}
-      {{- end }}
-    {{- end }}
-  {{- end }}
-{{- end }}
-
-{{- /*  delimiter  */}}
-{{ $delimiter := .Site.Params.sectionDelimiter | default "." }}
-
-{{ $sectionSlice := $scratch.Get "sectionSlice" }}
-{{ $ret := delimit $sectionSlice $delimiter }}
-
+{{- /* 以前はページ1枚ごとに .Site.Home からツリーを歩き直していたため O(ページ数^2) になっていた。 */}}
+{{- /* 全ページ分の章節番号を1度だけ構築する getSectionNoMap を引く形に変更している。 */}}
+{{- $map := partialCached "functions/getSectionNoMap" . }}
+{{- $ret := index $map .RelPermalink | default "" }}
 {{ return $ret }}

@@ -9,7 +9,7 @@ PDFの目次。cover用テンプレートおよびサイトトップ（list.html
 {{- if ne $sectionPageCount 0 -}}
 <ol>
   {{- range .Pages.ByWeight }}
-  {{- if partial "functions/isShow" . }}
+  {{- if partialCached "functions/isShow" . .RelPermalink }}
   <li>
     {{- if ne .IsSection true }}
       {{- /* https://nasust.com/hugo/a1fe8f73-9e3f-4fa3-89c2-a5de90806121 */}}

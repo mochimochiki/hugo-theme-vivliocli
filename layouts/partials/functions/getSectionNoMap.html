@@ -1,0 +1,36 @@
+{{- /* サイト全体の「ページ→章節番号(raw)」対応表を1度だけ構築する */}}
+{{- /* in : Page (サイトを引くためだけに使う。どのページを渡しても結果は同じ) */}}
+{{- /* out: map[RelPermalink]章節番号 ex) map["/ja/Manual/config.html"] = "1.2.1" */}}
+{{- /* 必ず partialCached 経由で呼ぶこと。直接呼ぶとサイト全体の走査が毎回走る。 */}}
+{{ $delimiter := .Site.Params.sectionDelimiter | default "." }}
+{{ $scratch := newScratch }}
+{{ $scratch.Set "m" dict }}
+{{- template "sectionno-walk" (dict "section" .Site.Home "prefix" slice "scratch" $scratch "d" $delimiter) }}
+
+{{- define "sectionno-walk" }}
+  {{- $section := .section }}
+  {{- $prefix := .prefix }}
+  {{- $scratch := .scratch }}
+  {{- $d := .d }}
+  {{- /* この階層がPDFのルート(vivlio_coverを持つページがある階層)かどうか */}}
+  {{- $isPDFRoot := false }}
+  {{- range $section.Pages.ByWeight }}
+    {{- if .OutputFormats.Get "vivlio_cover" }}{{ $isPDFRoot = true }}{{ end }}
+  {{- end }}
+  {{- $no := 0 }}
+  {{- range $section.Pages.ByWeight }}
+    {{- if partialCached "functions/isShow" . .RelPermalink }}
+      {{- $no = add $no 1 }}
+      {{- /* PDFルート配下に入って初めて採番する(それより上の階層には番号を振らない) */}}
+      {{- $childPrefix := $prefix }}
+      {{- if or $isPDFRoot (len $prefix) }}
+        {{- $childPrefix = $prefix | append $no }}
+      {{- end }}
+      {{- $scratch.SetInMap "m" .RelPermalink (delimit $childPrefix $d) }}
+      {{- if .IsSection }}
+        {{- template "sectionno-walk" (dict "section" . "prefix" $childPrefix "scratch" $scratch "d" $d) }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{ return ($scratch.Get "m") }}
