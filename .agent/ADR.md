@@ -1,5 +1,17 @@
 # ADR
 
+## ADR-260805-02: partialCached の variant にページごとの値を渡さない
+**背景** : 章節番号の走査を速くするため isShow を `.RelPermalink` キーで partialCached 化したところ、1000ページ超で main の11倍(86秒)に悪化した。
+**決定** : partialCached の variant にページ固有の値を渡さない。isShow は素の partial に戻す。テーマ全体のルールとする。
+**理由** : Hugo の partial キャッシュは1言語あたり1000件のLRU(tpl/partials/partials.go の MaxEntries: 1000)。ページ単位のキーで溢れ、menu-toc や章節番号の対応表まで押し出されて作り直しになる。
+**備考** : 1000ページ未満では速くなるため小規模サイトの検証をすり抜ける。1062ページ実測で 86.4秒 → 2.9秒(main 7.5秒)。
+
+## ADR-260805-01: 章節番号をサイト全体で1度だけ計算する方式に変更
+**背景** : getSectionNoRaw がページ1枚ごとに `.Site.Home` からツリーを歩き直し、1ページにつき3回呼ばれていた。同じ階層のページ数に比例するためフラット構成で O(ページ数^2) になっていた。
+**決定** : getSectionNoMap で全ページ分の対応表を1度だけ構築し、getSectionNoRaw と menu-toc はそれを引くだけにする。
+**理由** : 走査回数がページ数に依存しなくなる。2052ページ実測で 21.7秒 → 7.6秒。フォルダの切り方でビルド時間が変わる性質も消える。
+**備考** : 出力は変更前とバイト単位で一致(合成2000ページ2221ファイル / exampleSite 120ファイル)。
+
 ## ADR-260614-03: PDFParam の親PDF判定をURLベースからFileパスベースに変更
 **背景** : uglyURLs=false にすると getRootPDFParam.html の第2条件 `in ($thisPage.RelPermalink) ($pdf.RelPermalink | path.Dir)` が壊れ、MarkdownShowcase.md で PDFParam が doctitle/subtitle/author を not found とし errorf でビルド失敗。原因はURL文字列比較が uglyURLs の有無で `/Manual/`(true時) と `/Manual/_pdf`(false時) に変化するため。
 **決定** : 第2条件を File パスベース `hasPrefix $thisPage.File.Path $pdf.File.Dir`(nil ガード付き)に変更。
