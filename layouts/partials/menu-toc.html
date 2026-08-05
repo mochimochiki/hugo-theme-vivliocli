@@ -9,7 +9,7 @@
 {{- $noMap := .noMap }}
 <ul>
   {{- range $section.Pages.ByWeight }}
-  {{- if partialCached "functions/isShow" . .RelPermalink }}
+  {{- if partial "functions/isShow" . }}
   {{- $sectionNo := partial "functions/formatSectionNo" (dict "this" . "sectionNoRaw" (index $noMap .RelPermalink | default "")) }}
   {{- if (.Page.IsSection) }}
   <details>
