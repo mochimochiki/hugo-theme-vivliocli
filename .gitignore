@@ -11,3 +11,7 @@ exampleSite/static/viewer/*
 
 # PDF build output (Linux/Docker)
 exampleSite/CI/linux/out/
+
+# agent 作業用（ADR のみ追跡する）
+.agent/*
+!.agent/ADR.md
