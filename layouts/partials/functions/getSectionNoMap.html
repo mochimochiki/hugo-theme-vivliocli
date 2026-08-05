@@ -2,6 +2,10 @@
 {{- /* in : Page (サイトを引くためだけに使う。どのページを渡しても結果は同じ) */}}
 {{- /* out: map[RelPermalink]章節番号 ex) map["/ja/Manual/config.html"] = "1.2.1" */}}
 {{- /* 必ず partialCached 経由で呼ぶこと。直接呼ぶとサイト全体の走査が毎回走る。 */}}
+{{- /* 注意: この走査中の isShow に partialCached を使ってはならない。ページごとに      */}}
+{{- /* キーが増えるが、Hugo の partial キャッシュは1言語あたり1000件までの LRU       */}}
+{{- /* (tpl/partials/partials.go の MaxEntries: 1000)。1000ページを超えると溢れ、    */}}
+{{- /* この対応表や menu-toc まで押し出されて作り直しになる(1010ページで実測 86秒)。 */}}
 {{ $delimiter := .Site.Params.sectionDelimiter | default "." }}
 {{ $scratch := newScratch }}
 {{ $scratch.Set "m" dict }}
@@ -34,7 +38,3 @@
   {{- end }}
 {{- end }}
 {{ return ($scratch.Get "m") }}
-{{- /* 注意: 走査中の isShow に partialCached を使ってはならない。ページごとに                */}}
-{{- /* キーが増えるが、Hugo の partial キャッシュは1言語あたり1000件までの LRU               */}}
-{{- /* (tpl/partials/partials.go の MaxEntries: 1000)。1000ページを超えると溢れ、           */}}
-{{- /* この対応表や menu-toc まで押し出されて何度も作り直しになる(1010ページで実測 86秒)。 */}}
