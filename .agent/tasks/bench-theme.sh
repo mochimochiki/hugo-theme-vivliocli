@@ -16,6 +16,9 @@
 #   4. 両者の出力がバイト単位で一致することを確認する
 
 set -u
+# set -e は使わない。差分があると非ゼロを返す diff や、一致が無いと非ゼロを返す grep を
+# 判定に使っているため、一律で中断すると「検知して報告したい状態」で落ちてしまう。
+# 代わりに、計測値を汚す可能性のある箇所(ビルド・時刻取得)は個別に失敗を検査する。
 
 SITE=${1:?サイトのディレクトリを指定してください}
 RUNS=${2:-3}
@@ -25,6 +28,25 @@ REF_AFTER=${4:-main}
 THEME_REPO=https://github.com/mochimochiki/hugo-theme-vivliocli.git
 WORK=$(mktemp -d)
 HUGO=${HUGO:-hugo}
+
+# ナノ秒の時刻取得。date の %N は GNU 拡張で、BSD/macOS では "%N" が文字列のまま残り
+# 計測値が静かに壊れる。数字だけであることを確かめ、駄目なら python3 に切り替える。
+# どちらも使えない環境では計測せず中止する(誤った数字を出すよりよい)。
+NOW_NS=
+if [ "$(date +%s%N 2>/dev/null)" -eq "$(date +%s%N 2>/dev/null)" ] 2>/dev/null; then
+  NOW_NS=date
+elif command -v python3 >/dev/null 2>&1; then
+  NOW_NS=python3
+else
+  echo "ナノ秒の時刻を取得できません(date の %N が未対応で python3 もありません)。" >&2
+  echo "Git Bash / WSL / このテーマの Docker イメージで実行してください。" >&2
+  exit 1
+fi
+now_ns() {
+  if [ "$NOW_NS" = date ]; then date +%s%N
+  else python3 -c 'import time; print(int(time.time()*1000000000))'
+  fi
+}
 
 if [ ! -d "$SITE" ]; then echo "サイトが見つかりません: $SITE" >&2; exit 1; fi
 SITE=$(cd "$SITE" && pwd)
@@ -68,7 +90,11 @@ done
 echo "テーマ解決の確認:"
 ok=1
 for name in before after; do
-  ( cd "$WORK/S-$name" && $HUGO --quiet --destination "$WORK/V-$name" >/dev/null 2>&1 )
+  if ! ( cd "$WORK/S-$name" && $HUGO --destination "$WORK/V-$name" ) > "$WORK/build-$name.log" 2>&1; then
+    echo "  $name のビルドが失敗しました。計測を中止します。" >&2
+    tail -20 "$WORK/build-$name.log" | sed 's/^/    /' >&2
+    exit 1
+  fi
   got=$(grep -rho 'id="BENCHMARK-THEME">[a-z]*' "$WORK/V-$name" 2>/dev/null | head -1 | cut -d'>' -f2)
   echo "  指定=$name -> 実際=${got:-(識別子が出力に見つかりません)}"
   [ "$got" = "$name" ] || ok=0
@@ -92,9 +118,16 @@ for name in before after; do
   printf '  %-6s :' "$name"
   for i in $(seq 1 "$RUNS"); do
     rm -rf "$WORK/O-$name"
-    s=$(date +%s%N)
-    ( cd "$WORK/S-$name" && $HUGO --quiet --destination "$WORK/O-$name" >/dev/null 2>&1 )
-    e=$(date +%s%N)
+    s=$(now_ns)
+    ( cd "$WORK/S-$name" && $HUGO --destination "$WORK/O-$name" ) > "$WORK/run-$name.log" 2>&1
+    rc=$?
+    e=$(now_ns)
+    if [ "$rc" != 0 ]; then
+      printf '\n'
+      echo "  $name の $i 回目のビルドが失敗しました。計測を中止します。" >&2
+      tail -20 "$WORK/run-$name.log" | sed 's/^/    /' >&2
+      exit 1
+    fi
     printf ' %s秒' "$(awk "BEGIN{printf \"%.2f\", ($e-$s)/1000000000}")"
   done
   printf '\n'
@@ -114,6 +147,6 @@ fi
 echo
 echo "ページ数: $(find "$WORK/O-after" -name '*.html' | wc -l) ファイル"
 echo "出力量  : $(du -sm "$WORK/O-after" | cut -f1) MB"
-echo "1ページ : $(find "$WORK/O-after" -name '*.html' -exec stat -c%s {} \; 2>/dev/null | sort -rn | head -1) bytes (最大)"
+echo "1ページ : $(find "$WORK/O-after" -name '*.html' -exec wc -c {} \; 2>/dev/null | awk '{print $1}' | sort -rn | head -1) bytes (最大)"
 echo
 echo "作業ディレクトリを消す場合: rm -rf $WORK"
