@@ -1,19 +1,10 @@
 {{- /* ------------------
 menu-tree-html.html
 メニューのツリー(ul/li)を組み立てる。自分自身を再帰的に呼ぶ。
-
-in :
-  section … この階層のセクション (最初は .Site.Home)
-  noMap   … getSectionNoMap で作った「ページ→章節番号」の対応表
-  base    … リンクの前に付ける文字列。"" ならページの RelPermalink をそのまま使う
-            (従来どおりページに直接埋め込む場合)。外部ファイルに出す場合は
-            "@@BASE@@" のような置き換え用の目印を渡し、閲覧時に JavaScript が
-            サイトのルートURLへ差し替える。
-  strip   … base を使うとき、RelPermalink の先頭から取り除くパス (baseURL のパス)
-
-out: <ul>…</ul> の文字列
-
-partialCached を使う場合、variant にページごとの値を渡さないこと (ADR-260805-02)。
+in : section (この階層。最初は .Site.Home) / noMap (getSectionNoMap の対応表)
+     base  … リンクの前に付ける文字列。"" なら RelPermalink をそのまま使う
+     strip … base を使うとき RelPermalink の先頭から取り除くパス
+out: <ul>…</ul>
 ------------------- */}}
 {{- $section := .section }}
 {{- $noMap := .noMap }}

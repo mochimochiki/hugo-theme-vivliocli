@@ -1,17 +1,10 @@
 {{- /* ------------------
 menu-toc.html
 メニューのコンテンツツリー。
-
-既定では、ツリーの本体を js/menu-tree-<言語>.js という1つのファイルに書き出し、
-各ページには空の <nav> と <script> タグだけを置く。閲覧時に JavaScript が中身を
-差し込む。全ページに同じツリーを埋め込むと、ページ数が増えるほどビルド時間も
-出力量も急激に増えるため (2500ページでは1ページ 336KB のうち 328KB がメニュー)。
-
-hugo.toml で params.legacy_menu = true にすると、従来どおり全ページに直接
-埋め込む。JavaScript を切っている環境向けの逃げ道。
-
-<script src> はローカルファイル (file:) からでも読める。fetch は file: では
-CORS で止まるが、古典的な script タグはその対象外 (Chromium で動作確認済み)。
+既定ではツリーを js/menu-tree-<言語>.js に1度だけ書き出し、各ページには空の
+<nav> と script タグだけを置く。全ページに埋め込むとページ数に比例して
+ビルド時間も出力量も膨らむため (2500ページで1ページ 336KB 中 328KB がメニュー)。
+params.legacy_menu = true で従来どおりの埋め込みに戻せる。
 ------------------- */}}
 {{- if .Site.Params.legacy_menu -}}
 {{- $noMap := partialCached "functions/getSectionNoMap" . -}}
@@ -22,8 +15,7 @@ CORS で止まるが、古典的な script タグはその対象外 (Chromium �
 {{- $baseURLPath := (urls.Parse .Site.BaseURL).Path -}}
 {{- $tree := partial "functions/getMenuTreeResource.html" . -}}
 <nav id="menu-navigation"></nav>
-{{- /* resources の RelPermalink は baseURL のパスを含むため、canonifyURLs / relativeURLs と
-       併用するとパスが二重になる。baseURL パスを取り除いてから relURL で再付与する
-       (footer.html の menuscroll.js と同じ扱い)。 */ -}}
+{{- /* RelPermalink は baseURL のパスを含む。canonifyURLs / relativeURLs との併用で
+       二重にならないよう、取り除いてから relURL で付け直す (footer.html と同じ)。 */ -}}
 <script src="{{ $tree.RelPermalink | strings.TrimPrefix $baseURLPath | strings.TrimPrefix "/" | relURL }}"></script>
 {{- end }}
