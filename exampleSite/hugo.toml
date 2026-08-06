@@ -78,6 +78,12 @@ canonifyURLs = true
     # if true, render _index.md link in legacy mode ( v0.19.1 or earlier mode)
     legacy_index_link = false
 
+    # if true, embed the whole menu tree into every page (v0.23.0 or earlier mode).
+    # by default the tree is written once to js/menu-tree-<lang>.js and injected by
+    # JavaScript, which keeps large sites fast. set true only if you need the menu
+    # to work with JavaScript disabled.
+    legacy_menu = false
+
     # if true, image can be zoo
     zoom_image = true
 

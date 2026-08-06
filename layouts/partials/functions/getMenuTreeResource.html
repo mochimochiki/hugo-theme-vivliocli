@@ -1,0 +1,27 @@
+{{- /* ------------------
+getMenuTreeResource.html
+メニューのツリーを1つの JavaScript ファイルにまとめ、そのリソースを返す。
+言語ごとに1ファイル (js/menu-tree-<言語>.js)。
+
+in : Page (サイトと言語を引くためだけに使う。どのページを渡しても結果は同じ)
+out: resource (RelPermalink を参照すると出力される)
+
+書き出す JavaScript がすること:
+  1. 自分自身の src (絶対URL) から、サイトのルートURLを割り出す
+     ページごとに違う相対パスを埋め込まずに済み、http でも file: でも同じ1本で足りる
+  2. ツリー内の目印 @@BASE@@ をそのルートURLに置き換える
+  3. #menu-navigation に差し込む。まだ無ければ DOMContentLoaded を待つ
+     (script タグは <nav> の直後に置かれるので、通常はその場で差し込まれる。
+      footer.html の menuscroll.js は DOMContentLoaded で動くため、順序は常に
+      「差し込み → スクロール」になる)
+
+必ず partialCached 経由で呼ばれる menu-toc.html から使うこと。直接呼ぶと
+サイト全体のツリー生成が毎回走る。
+------------------- */}}
+{{- $noMap := partialCached "functions/getSectionNoMap" . -}}
+{{- $baseURLPath := (urls.Parse .Site.BaseURL).Path -}}
+{{- $tree := partial "menu-tree-html.html" (dict "section" .Site.Home "noMap" $noMap "base" "@@BASE@@" "strip" $baseURLPath) -}}
+{{- $rel := printf "js/menu-tree-%s.js" .Site.Language.Lang -}}
+{{- $js := printf `(function(){var REL=%s,HTML=%s;var s=document.currentScript.src.split("?")[0].split("#")[0];var base=s.slice(0,s.length-REL.length);function inject(){var n=document.getElementById("menu-navigation");if(n){n.innerHTML=HTML.split("@@BASE@@").join(base);}}if(document.getElementById("menu-navigation")){inject();}else{document.addEventListener("DOMContentLoaded",inject);}})();
+` (jsonify $rel) (jsonify (printf "%s\n" $tree)) -}}
+{{- return (resources.FromString $rel $js) -}}

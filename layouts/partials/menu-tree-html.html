@@ -1,0 +1,39 @@
+{{- /* ------------------
+menu-tree-html.html
+メニューのツリー(ul/li)を組み立てる。自分自身を再帰的に呼ぶ。
+
+in :
+  section … この階層のセクション (最初は .Site.Home)
+  noMap   … getSectionNoMap で作った「ページ→章節番号」の対応表
+  base    … リンクの前に付ける文字列。"" ならページの RelPermalink をそのまま使う
+            (従来どおりページに直接埋め込む場合)。外部ファイルに出す場合は
+            "@@BASE@@" のような置き換え用の目印を渡し、閲覧時に JavaScript が
+            サイトのルートURLへ差し替える。
+  strip   … base を使うとき、RelPermalink の先頭から取り除くパス (baseURL のパス)
+
+out: <ul>…</ul> の文字列
+
+partialCached を使う場合、variant にページごとの値を渡さないこと (ADR-260805-02)。
+------------------- */}}
+{{- $section := .section }}
+{{- $noMap := .noMap }}
+{{- $base := .base }}
+{{- $strip := .strip }}
+<ul>
+  {{- range $section.Pages.ByWeight }}
+  {{- if partial "functions/isShow" . }}
+  {{- $sectionNo := partial "functions/formatSectionNo" (dict "this" . "sectionNoRaw" (index $noMap .RelPermalink | default "")) }}
+  {{- $href := .RelPermalink }}
+  {{- if $base }}{{ $href = printf "%s%s" $base (.RelPermalink | strings.TrimPrefix $strip | strings.TrimPrefix "/") }}{{ end }}
+  {{- if (.Page.IsSection) }}
+  <details>
+    <summary><a href="{{ $href }}" id="{{ with .File }}{{ .UniqueID }}{{ end }}">{{ $sectionNo}} {{ .Title }}</a></summary>
+    {{- partial "menu-tree-html.html" (dict "section" . "noMap" $noMap "base" $base "strip" $strip) }}
+  </details>
+  {{- else}}
+  <li><a href="{{ $href }}" id="{{ with .File }}{{ .UniqueID }}{{ end }}">{{ $sectionNo}} {{ .Title }}</a>
+    {{- end }}
+    {{- end }}
+    {{- end }}
+</ul>
+{{- /* 末尾に改行を出さない */ -}}

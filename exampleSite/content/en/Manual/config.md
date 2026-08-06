@@ -25,6 +25,16 @@ showIfs = ["edition1", "edition2"]
 
 Please refer to [Edition](./edition.html) for more details.
 
+### legacy_menu
+
+Whether to embed the menu (the content tree on the left) into every page. The default is `false`.
+
+When `false` (the default), the menu is written once to `js/menu-tree-<lang>.js` and injected by JavaScript when the page opens. Embedding the same menu in every page makes both build time and output size grow quickly as pages are added: on a 2500-page site, 328KB of each 336KB page was the menu. Writing it to a single file removes that repetition.
+
+Set it to `true` to embed the menu into every page as before. Use this if the menu has to work with JavaScript disabled.
+
+The menu is also displayed when opening the html as a local file (`file:`) with the default `false`.
+
 ### sectionNumberLevel
 
 Specify the level at which chapter and section numbers are added. If 0, chapter numbers will not be added.
