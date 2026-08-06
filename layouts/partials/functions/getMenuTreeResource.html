@@ -1,0 +1,16 @@
+{{- /* ------------------
+getMenuTreeResource.html
+メニューのツリーを言語ごとに1つの js にまとめ、そのリソースを返す。
+in : Page (どのページを渡しても結果は同じ)
+out: resource
+書き出す js は、自分の src からサイトのルートURLを割り出して @@BASE@@ を
+置き換える。ページごとの相対パスを埋め込まずに済み、http でも file: でも同じ1本で足りる。
+必ず partialCached 経由の menu-toc.html から呼ぶこと。直接呼ぶと毎回作り直しになる。
+------------------- */}}
+{{- $noMap := partialCached "functions/getSectionNoMap" . -}}
+{{- $baseURLPath := (urls.Parse .Site.BaseURL).Path -}}
+{{- $tree := partial "menu-tree-html.html" (dict "section" .Site.Home "noMap" $noMap "base" "@@BASE@@" "strip" $baseURLPath) -}}
+{{- $rel := printf "js/menu-tree-%s.js" .Site.Language.Lang -}}
+{{- $js := printf `(function(){var REL=%s,HTML=%s;var s=document.currentScript.src.split("?")[0].split("#")[0];var base=s.slice(0,s.length-REL.length);function inject(){var n=document.getElementById("menu-navigation");if(n){n.innerHTML=HTML.split("@@BASE@@").join(base);}}if(document.getElementById("menu-navigation")){inject();}else{document.addEventListener("DOMContentLoaded",inject);}})();
+` (jsonify $rel) (jsonify (printf "%s\n" $tree)) -}}
+{{- return (resources.FromString $rel $js) -}}

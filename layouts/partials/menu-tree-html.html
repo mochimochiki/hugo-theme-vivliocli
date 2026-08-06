@@ -1,0 +1,30 @@
+{{- /* ------------------
+menu-tree-html.html
+メニューのツリー(ul/li)を組み立てる。自分自身を再帰的に呼ぶ。
+in : section (この階層。最初は .Site.Home) / noMap (getSectionNoMap の対応表)
+     base  … リンクの前に付ける文字列。"" なら RelPermalink をそのまま使う
+     strip … base を使うとき RelPermalink の先頭から取り除くパス
+out: <ul>…</ul>
+------------------- */}}
+{{- $section := .section }}
+{{- $noMap := .noMap }}
+{{- $base := .base }}
+{{- $strip := .strip }}
+<ul>
+  {{- range $section.Pages.ByWeight }}
+  {{- if partial "functions/isShow" . }}
+  {{- $sectionNo := partial "functions/formatSectionNo" (dict "this" . "sectionNoRaw" (index $noMap .RelPermalink | default "")) }}
+  {{- $href := .RelPermalink }}
+  {{- if $base }}{{ $href = printf "%s%s" $base (.RelPermalink | strings.TrimPrefix $strip | strings.TrimPrefix "/") }}{{ end }}
+  {{- if (.Page.IsSection) }}
+  <details>
+    <summary><a href="{{ $href }}" id="{{ with .File }}{{ .UniqueID }}{{ end }}">{{ $sectionNo}} {{ .Title }}</a></summary>
+    {{- partial "menu-tree-html.html" (dict "section" . "noMap" $noMap "base" $base "strip" $strip) }}
+  </details>
+  {{- else}}
+  <li><a href="{{ $href }}" id="{{ with .File }}{{ .UniqueID }}{{ end }}">{{ $sectionNo}} {{ .Title }}</a>
+    {{- end }}
+    {{- end }}
+    {{- end }}
+</ul>
+{{- /* 末尾に改行を出さない */ -}}
