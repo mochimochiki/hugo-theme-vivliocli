@@ -10,7 +10,7 @@
 **背景** : ADR-260825-01 の対応で v9 以降でも正しい PDF が出せるようになった。ピン留めは linux が `^8.6.0`、windows が `^8.0.0` のままだった。
 **決定** : 両方を `^11.2.0` に上げ、Dockerfile の NodeSource を node_20.x から node_22.x に変える。`run_vivlio.js` から `--no-sandbox` を外す。
 **理由** : v11 の engines は `>=22.12.0` なので Node 20 では動かない。`--no-sandbox` は v10 で廃止され、渡すとエラーになる。v9 以降はサンドボックス無効が既定(`sandbox ?? false`)なので、Docker の root 実行でもフラグなしで起動する。`--executable-browser` は残っている。
-**備考** : v10 で内部ブラウザ制御が Playwright から Puppeteer に移った(`puppeteer-core` なのでブラウザの自動ダウンロードはない)。`playwright-core` は `pre_js_rendering.js` が MathJax / Mermaid の事前レンダリングに直接使っているので依存に残す。Windows 側(`vivliocli.ps1`)は今回実行して確かめていない。
+**備考** : v10 で内部ブラウザ制御が Playwright から Puppeteer に移った(`puppeteer-core` なのでブラウザの自動ダウンロードはない)。これに伴い Windows 側で2点の追随が要った。(1) `pre_js_rendering.js` が `require('playwright-core')` しているが、v8 では CLI の推移的依存で解決できていたのが v11 では入らなくなるため、linux 側と同じく明示依存に加えた。(2) v9 以降は entry / output / workspaceDir / static を**プロセスのカレントディレクトリ基準**で解決する(v8 は config が置かれた階層が基準だった)。`vivliocli.ps1` は config を絶対パスで渡すだけで移動していなかったので、config のあるディレクトリへ移動してから実行するようにした(linux の `run_vivlio.js` と同じ)。移動先から `npx` ではローカルの vivliostyle を解決できないため、実行ファイルは絶対パスで指す。Windows 環境での実行は今回確かめていない。
 
 ## ADR-260806-02: メニューを1ファイルに書き出し、script タグで各ページに配る
 **背景** : メニューは partialCached で1度しか組み立てていないが、出来上がったHTMLを全ページに埋め込むため、2500ページでは1ページ336KBのうち328KBがメニューになっていた。実測でビルド時間の約75%、`hugo server` 初回起動の約76%、出力量の97%を占める。

@@ -5,8 +5,9 @@
  *
  * 言語ルート直下の *.vivlio.config.js それぞれに対して
  *   vivliostyle build -c <config> --executable-browser $CHROMIUM_PATH
- * を実行して PDF を生成する。Vivliostyle は output / entry を config 配置ディレクトリ
- * 基準で解決するため、cwd を config のディレクトリに設定して実行する。
+ * を実行して PDF を生成する。Vivliostyle CLI v9 以降は entry / output / workspaceDir /
+ * static をプロセスのカレントディレクトリ基準で解決する(v8 は config が置かれた階層が
+ * 基準だった)ため、cwd を config のディレクトリに設定して実行する。
  *
  * Usage: node run_vivlio.js <language_root_dir>
  */
