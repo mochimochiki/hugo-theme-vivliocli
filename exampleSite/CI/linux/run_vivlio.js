@@ -42,10 +42,8 @@ const { spawnSync } = require('child_process');
     if (process.env.CHROMIUM_PATH) {
       args.push('--executable-browser', process.env.CHROMIUM_PATH);
     }
-    // Docker(root)では Chromium のサンドボックスを無効化しないと起動できない
-    if (process.env.CHROMIUM_PATH || process.env.VIVLIO_NO_SANDBOX === '1') {
-      args.push('--no-sandbox');
-    }
+    // Vivliostyle CLI v10 で --no-sandbox は廃止された(渡すとエラーになる)。
+    // v9 以降は既定でサンドボックス無効のまま起動するため、Docker(root)でもそのまま動く。
 
     const res = spawnSync(vivlioBin, args, {
       cwd: dir,

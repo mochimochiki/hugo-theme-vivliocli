@@ -6,6 +6,12 @@
 **理由** : `workspaceDir: '.'` で複製をやめてその場配信にし、`static` で公開ディレクトリ全体をサーバのルートとして配信させれば相対参照が届く。設定ファイルは collect_config が `<公開先>/<言語>/` へ集約するので `'..'` が公開ルートにあたる。CI スクリプト(collect_config / run_vivlio / build_pdf.sh / Windows の ps1)は変更不要。CLI 8.20.0 と 11.2.0 の両方で exampleSite の PDF がページ数・埋め込みフォントとも一致することを確認済みで、バージョン更新と切り離して先に入れられる。
 **備考** : 別解として、設定ファイルを公開ルートへ集約しパスに言語コードを付ける書き方もある(別環境で先行採用されていた形)。同じ効果だが集約先・フラット名・作業ディレクトリ・言語ループを作り直す必要があり、今回は採らなかった。副作用として設定ファイルと同じ階層に `publication.json` が生成されるが、`public_*/` は gitignore 済み。
 
+## ADR-260825-02: Vivliostyle CLI を v11 系へ上げ、Node を 22 にする
+**背景** : ADR-260825-01 の対応で v9 以降でも正しい PDF が出せるようになった。ピン留めは linux が `^8.6.0`、windows が `^8.0.0` のままだった。
+**決定** : 両方を `^11.2.0` に上げ、Dockerfile の NodeSource を node_20.x から node_22.x に変える。`run_vivlio.js` から `--no-sandbox` を外す。
+**理由** : v11 の engines は `>=22.12.0` なので Node 20 では動かない。`--no-sandbox` は v10 で廃止され、渡すとエラーになる。v9 以降はサンドボックス無効が既定(`sandbox ?? false`)なので、Docker の root 実行でもフラグなしで起動する。`--executable-browser` は残っている。
+**備考** : v10 で内部ブラウザ制御が Playwright から Puppeteer に移った(`puppeteer-core` なのでブラウザの自動ダウンロードはない)。`playwright-core` は `pre_js_rendering.js` が MathJax / Mermaid の事前レンダリングに直接使っているので依存に残す。Windows 側(`vivliocli.ps1`)は今回実行して確かめていない。
+
 ## ADR-260806-02: メニューを1ファイルに書き出し、script タグで各ページに配る
 **背景** : メニューは partialCached で1度しか組み立てていないが、出来上がったHTMLを全ページに埋め込むため、2500ページでは1ページ336KBのうち328KBがメニューになっていた。実測でビルド時間の約75%、`hugo server` 初回起動の約76%、出力量の97%を占める。
 **決定** : ツリー本体を `js/menu-tree-<言語>.js` に1度だけ書き出し、各ページには空の `<nav>` と `<script src>` だけを置く。`params.legacy_menu = true` で従来の埋め込みに戻せる。

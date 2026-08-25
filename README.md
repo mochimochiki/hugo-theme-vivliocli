@@ -41,7 +41,8 @@ see the [User Guide](https://mochimochiki.github.io/hugo-theme-vivliocli/en/) fo
 ## Prerequisites
 
 * Install [Hugo](https://github.com/gohugoio/hugo) (v0.163.1 or later).
-* Install [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli) (v8.6.0 or later).
+* Install [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli) (v11.2.0 or later; v9 and v10 also work).
+* Node.js 22.12.0 or later (required by Vivliostyle CLI v11).
 
 ## Build with Docker
 
