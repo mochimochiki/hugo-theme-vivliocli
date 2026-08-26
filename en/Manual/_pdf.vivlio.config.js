@@ -2,6 +2,7 @@ module.exports = {
   title: 'Hugo-theme-vivliocli',
   author: 'mochimo',
   size: 'letter',
+  workspaceDir: '.',
   entry: [
     '_pdf.vivlio.cover.html',
     
@@ -14,6 +15,7 @@ module.exports = {
     '../en/Manual/Tags.html',
     '_pdfcolophon.vivlio.colophon.html'
   ],
+  static: { '/': ['..'] },
   output: [
     'UserGuide.pdf'
   ]
