@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vivliostyle/cli": "^8.0.0"
+    "@vivliostyle/cli": "^11.2.0",
+    "playwright-core": "^1.40.0"
   }
 }

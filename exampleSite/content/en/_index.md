@@ -48,4 +48,5 @@ First, please refer to <u>**[Getting Started](./Manual/GettingStarted.html)**</u
 ## Requirements
 
 * [Hugo](https://gohugo.io/)(v0.163.1 or later)
-* [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli)(v8.6.0 or later)
+* [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli)(v11.2.0 or later; v9 and v10 also work)
+* [Node.js](https://nodejs.org/)(v22.12.0 or later; required by Vivliostyle CLI v11)
